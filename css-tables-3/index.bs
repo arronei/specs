@@ -9,7 +9,8 @@ Abstract: CSS (Cascading Style Sheets) is a language for specifying the renderin
 Group: csswg
 </pre>
 
-##Introduction
+<h2>Introduction</h2>
+
 *This section is not normative*
 
 This module describes CSS properties which allow authors to specify a column based table layout.
