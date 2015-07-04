@@ -1,0 +1,18 @@
+<pre class="metadata">
+Title: CSS Tables Level 3
+Status: Dream
+ED: http://arronei.github.io/specs/css-tables-3/
+Shortname: css-tables
+Level: 3
+Editor: Arron Eicholz, Microsoft Corporation, arronei@microsoft.com
+Abstract: CSS (Cascading Style Sheets) is a language for specifying the rendering of a structured document (in HTML or XML). The CSS3 table module is one of the modules of level 3 of CSS and defines the properties that specify how tables are to be displayed visually or spoken by a speech synthesizer.
+Group: csswg
+</pre>
+
+##Introduction
+*This section is not normative*
+
+This module describes CSS properties which allow authors to specify a column based table layout.
+
+
+It not only defines the table-related properties and values that already exist in <a href="http://www.w3.org/TR/CSS1">CSS1</a> and <a href="http://www.w3.org/TR/CSS2/">CSS2</a>, but also defines new properties and values.
