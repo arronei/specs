@@ -595,7 +595,7 @@ spec:dom-ls; type:dfn; for:Attr; text:name
                         <li class="t3"><code>#text</code>: <span>&#x23CE;&#x2423;&#x2423;</span></li>
                         <li class="t1"><code>p</code>
                             <ul>
-                                <li class="t3"><code>#text</code>: <span>This is a &lt;!--grammar-check-override--></span></li>
+                                <li class="t3"><code>#text</code>: <span>This is a</span></li>
                                 <li class="t1"><code>a</code> <span class="t2"><code class="attribute name" data-x="attr-hyperlink-href">href</code>="<code class="attribute value">demo.html</code>"</span>
                                     <ul>
                                         <li class="t3"><code>#text</code>: <span>simple</span></li>
