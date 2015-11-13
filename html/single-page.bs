@@ -1,4 +1,4 @@
-<h1>HTML 5.1</h1>
+<h1>HTML</h1>
 
 <pre class="metadata">
 Shortname: html
@@ -27,6 +27,7 @@ Abstract: This specification defines the 5th major version, first minor revision
           continue to be introduced based on research into prevailing authoring practices, and
           special attention continues to be given to defining clear conformance criteria for user
           agents in an effort to improve interoperability.
+Ignored Vars: this, object, variable, optionalArgument, name
 </pre>
 
 <pre class="anchors">
@@ -235,23 +236,22 @@ urlPrefix: http://html5.org/r/8424/; type: dfn; text: 8424
 
     * Authors can include data for inline client-side scripts or server-side site-wide scripts
         to process using the <code>data-*=""</code> attributes. These are guaranteed
-        to never be touched by browsers, and allow scripts to include data on HTML elements that scripts
-        can then look for and process.
+        to never be touched by browsers, and allow scripts to include data on HTML elements that
+        scripts can then look for and process.
 
     * Authors can use the <code>&lt;meta name="" content=""></code> mechanism to
-        include page-wide metadata by registering <span data-x="concept-meta-extensions">extensions to
-        the predefined set of metadata names</span>.
+        include page-wide metadata by registering <span data-x="concept-meta-extensions">extensions
+        to the predefined set of metadata names</span>.
 
     * Authors can use the <code>rel=""</code> mechanism to annotate
-        links with specific meanings by registering <span data-x="concept-rel-extensions">extensions to
-        the predefined set of link types</span>. This is also used by microformats. Additionally,
-        absolute URLs that do not contain any non-ASCII characters, nor
-        characters in the range U+0041 (LATIN CAPITAL LETTER A) through
-        U+005A (LATIN CAPITAL LETTER Z) (inclusive), may be used as link
-        types.
+        links with specific meanings by registering <span data-x="concept-rel-extensions">extensions
+        to the predefined set of link types</span>. This is also used by microformats. Additionally,
+        absolute URLs that do not contain any non-ASCII characters, nor characters in the range
+        U+0041 (LATIN CAPITAL LETTER A) through U+005A (LATIN CAPITAL LETTER Z) (inclusive), may be
+        used as link types.
 
-    * Authors can embed raw data using the <code>&lt;script type=""></code>
-        mechanism with a custom type, for further handling by inline or server-side scripts.
+    * Authors can embed raw data using the <code>&lt;script type=""></code> mechanism with a custom
+        type, for further handling by inline or server-side scripts.
 
     * Authors can create <span data-x="plugin">plugins</span> and invoke them using the
         <{embed}> element. This is how Flash works.
@@ -259,4 +259,541 @@ urlPrefix: http://html5.org/r/8424/; type: dfn; text: 8424
     * Authors can extend APIs using the JavaScript prototyping mechanism. This is widely used by
         script libraries, for instance.
 
-  </ul>
+<h3 id="html-vs-xhtml">HTML vs XHTML</h3>
+
+    <em>This section is non-normative.</em>
+
+
+    This specification defines an abstract language for describing documents and applications, and
+    some APIs for interacting with in-memory representations of resources that use this language.
+
+
+    The in-memory representation is known as "DOM HTML", or "the DOM" for short.
+
+    There are various concrete syntaxes that can be used to transmit resources that use this
+    abstract language, two of which are defined in this specification.
+
+    The first such concrete syntax is the HTML syntax. This is the format suggested for most
+    authors. It is compatible with most legacy Web browsers. If a document is transmitted with the
+    <code>text/html</code> <span>MIME type</span>, then it will be processed as an HTML document by
+    Web browsers. This specification defines version [LEVEL] of the HTML syntax, known as
+    "HTML[LEVEL]".
+
+    The second concrete syntax is the XHTML syntax, which is an application of XML. When a document
+    is transmitted with an <span>XML MIME type</span>, such as <code>application/xhtml+xml</code>,
+    then it is treated as an XML document by Web browsers, to be parsed by an XML processor. Authors
+    are reminded that the processing for XML and HTML differs; in particular, even minor syntax
+    errors will prevent a document labeled as XML from being rendered fully, whereas they would be
+    ignored in the HTML syntax. This specification defines version [LEVEL] of the XHTML syntax,
+    known as "XHTML[LEVEL]".
+
+    The DOM, the HTML syntax, and the XHTML syntax cannot all represent the same content. For
+    example, namespaces cannot be represented using the HTML syntax, but they are supported in the
+    DOM and in the XHTML syntax. Similarly, documents that use the <code>noscript</code> feature can
+    be represented using the HTML syntax, but cannot be represented with the DOM or in the XHTML
+    syntax. Comments that contain the string "<code>--&gt;</code>" can only be represented in the
+    DOM, not in the HTML and XHTML syntaxes.
+
+<h3 id="structure-of-this-specification">Structure of this specification</h3>
+
+    <em>This section is non-normative.</em>
+
+    <p>This specification is divided into the following major sections:</p>
+
+    <div dfn-for="spec">
+        : [[#introduction]]
+        :: Non-normative materials providing a context for the HTML standard.
+
+        : [[#infrastructure]]
+        :: The conformance classes, algorithms, definitions, and the common underpinnings of the
+            rest of the specification.
+
+        : [[#dom]]
+        :: Documents are built from elements. These elements form a tree using the DOM. This section
+            defines the features of this DOM, as well as introducing the features common to all
+            elements, and the concepts used in defining elements.
+
+        : [[#semantics]]
+        :: Each element has a predefined meaning, which is explained in this section. Rules for
+            authors on how to use the element<span class="impl">, along with user agent requirements
+            for how to handle each element,</span> are also given. This includes large signature
+            features of HTML such as video playback and subtitles, form controls and form
+            submission, and a 2D graphics API known as the HTML canvas.
+
+        : [[#editing]]
+        :: HTML documents can provide a number of mechanisms for users to interact with and modify
+            content, which are described in this section, such as how focus works, and
+            drag-and-drop.
+
+        : [[#browsers]]
+        :: HTML documents do not exist in a vacuum &mdash; this section defines many of the features
+            that affect environments that deal with multiple pages, such as Web browsers and offline
+            caching of Web applications.
+
+        : [[#webappapis]]
+        :: This section introduces basic features for scripting of applications in HTML.
+
+        : [[#syntax]]
+        : [[#xhtml]]
+        :: All of these features would be for naught if they couldn't be represented in a serialized
+            form and sent to other people, and so these sections define the syntaxes of HTML and
+            XHTML<span class="impl">, along with rules for how to parse content using those
+            syntaxes</span>.
+
+        : [[#rendering]]
+        :: This section defines the default rendering rules for Web browsers.
+
+        There are also some appendices, listing <a>obsolete features</a> and
+        <a>IANA considerations</a>, and several indices.
+    </div>
+
+<h4 id="how-to-read-this-specification">How to read this specification</h4>
+
+    This specification should be read like all other specifications. First, it should be read
+      cover-to-cover, multiple times. Then, it should be read backwards at least once. Then it
+      should be read by picking random sections from the contents list and following all the
+      cross-references.
+
+    As described in the conformance requirements section below, this specification describes
+    conformance criteria for a variety of conformance classes. In particular, there are conformance
+    requirements that apply to <em>producers</em>, for example authors and the documents they
+    create, and there are conformance requirements that apply to <em>consumers</em>, for example Web
+    browsers. They can be distinguished by what they are requiring: a requirement on a producer
+    states what is allowed, while a requirement on a consumer states how software is to act.
+
+    <div class="example">
+        For example, "the <code>foo</code> attribute's value must be a <a>valid integer</a>" is a
+        requirement on producers, as it lays out the allowed values; in contrast, the requirement "the
+        <code>foo</code> attribute's value must be parsed using the <a>rules for parsing integers</a>"
+        is a requirement on consumers, as it describes how to process the content.
+    </div>
+
+    <strong>Requirements on producers have no bearing whatsoever on consumers.</strong>
+
+    <div class="example">
+        Continuing the above example, a requirement stating that a particular attribute's value is
+        constrained to being a <span>valid integer</span> emphatically does <em>not</em> imply
+        anything about the requirements on consumers. It might be that the consumers are in fact
+        required to treat the attribute as an opaque string, completely unaffected by whether the
+        value conforms to the requirements or not. It might be (as in the previous example) that the
+        consumers are required to parse the value using specific rules that define how invalid
+        (non-numeric in this case) values are to be processed.
+    </div>
+
+<h4 id="typographic-conventions">Typographic conventions</h4>
+
+    <div dfn-for="conventions">
+        This is a definition, requirement, or explanation.
+
+        <p class="note">This is a note.</p>
+
+        <p class="example">This is an example.</p>
+
+        <p class="&#x0058;&#x0058;&#x0058;">This is an open issue.</p>
+
+        <p class="warning">This is a warning.</p>
+
+        <pre class="idl noextract">interface <dfn>Example</dfn> {
+            // this is an IDL definition
+        };</pre>
+
+        <dl class="domintro">
+            <dt><var>variable</var> = <var>object</var> . <code data-x="x-that">method</code>( [ <var>optionalArgument</var> ] )</dt>
+            <dd>
+                <p>This is a note to authors describing the usage of an interface.</p>
+            </dd>
+        </dl>
+
+        <pre class="css">/* this is a CSS fragment */</pre>
+
+        The defining instance of a term is marked up like <dfn>this</dfn>. Uses of that
+        term are marked up like <a>this</a> or like <i>this</i>.
+
+        The defining instance of an element, attribute, or API is marked up like
+        <dfn attribute><code>this</code></dfn>. References to that element, attribute, or API are marked
+        up like <code>this</code>.
+
+        Other code fragments are marked up <code>like this</code>.
+
+        Variables are marked up like <var>this</var>.
+
+
+        In an algorithm, steps in <a>synchronous sections</a> are marked with &#x231B;.
+
+        In some cases, requirements are given in the form of lists with conditions and corresponding
+        requirements. In such cases, the requirements that apply to a condition are always the first
+        set of requirements that follow the condition, even in the case of there being multiple sets
+        of conditions for those requirements. Such cases are presented as follows:
+
+        <dl class="switch">
+            <dt>This is a condition</dt>
+            <dt>This is another condition</dt>
+            <dd>This is the requirement that applies to the conditions above.</dd>
+
+            <dt>This is a third condition</dt>
+            <dd>This is the requirement that applies to the third condition.</dd>
+        </dl>
+    </div>
+
+<h3 id="fingerprint">Privacy concerns</h3>
+
+    <em>This section is non-normative.</em>
+
+    Some features of HTML trade user convenience for a measure of user privacy.
+
+    In general, due to the Internet's architecture, a user can be distinguished from another by the
+    user's IP address. IP addresses do not perfectly match to a user; as a user moves from device to
+    device, or from network to network, their IP address will change; similarly, NAT routing, proxy
+    servers, and shared computers enable packets that appear to all come from a single IP address to
+    actually map to multiple users. Technologies such as onion routing can be used to further
+    anonymize requests so that requests from a single user at one node on the Internet appear to come
+    from many disparate parts of the network.
+
+    However, the IP address used for a user's requests is not the only mechanism by which a user's
+    requests could be related to each other. Cookies, for example, are designed specifically to enable
+    this, and are the basis of most of the Web's session features that enable you to log into a site
+    with which you have an account.
+
+    There are other mechanisms that are more subtle. Certain characteristics of a user's system can
+    be used to distinguish groups of users from each other; by collecting enough such information, an
+    individual user's browser's "digital fingerprint" can be computed, which can be as good, if not
+    better, as an IP address in ascertaining which requests are from the same user.
+
+    Grouping requests in this manner, especially across multiple sites, can be used for both benign
+    (and even arguably positive) purposes, as well as for malevolent purposes. An example of a
+    reasonably benign purpose would be determining whether a particular person seems to prefer sites
+    with dog illustrations as opposed to sites with cat illustrations (based on how often they visit
+    the sites in question) and then automatically using the preferred illustrations on subsequent
+    visits to participating sites. Malevolent purposes, however, could include governments combining
+    information such as the person's home address (determined from the addresses they use when getting
+    driving directions on one site) with their apparent political affiliations (determined by
+    examining the forum sites that they participate in) to determine whether the person should be
+    prevented from voting in an election.
+
+    Since the malevolent purposes can be remarkably evil, user agent implementors are encouraged to
+    consider how to provide their users with tools to minimize leaking information that could be used
+    to fingerprint a user.
+
+    Unfortunately, as the first paragraph in this section implies, sometimes there is great benefit
+    to be derived from exposing the very information that can also be used for fingerprinting
+    purposes, so it's not as easy as simply blocking all possible leaks. For instance, the ability to
+    log into a site to post under a specific identity requires that the user's requests be
+    identifiable as all being from the same user, more or less by definition. More subtly, though,
+    information such as how wide text is, which is necessary for many effects that involve drawing
+    text onto a canvas (e.g. any effect that involves drawing a border around the text) also leaks
+    information that can be used to group a user's requests. (In this case, by potentially exposing,
+    via a brute force search, which fonts a user has installed, information which can vary
+    considerably from user to user.)
+
+    Features in this specification which can be <dfn id="fingerprinting-vector">used to
+    fingerprint the user</dfn> are marked as this paragraph is.
+    <span class="fingerprint"><a href="#fingerprinting-vector"><img height="21" src="images/fingerprint.png" width="15" alt="(This is a fingerprinting vector.)" /></a></span>
+
+    Other features in the platform can be used for the same purpose, though, including, though not
+    limited to:
+
+
+    * The exact list of which features a user agents supports.
+
+    * The maximum allowed stack depth for recursion in script.
+
+    * Features that describe the user's environment, like Media Queries and the <code>Screen</code>
+        object. [[!MEDIAQ]] [[!CSSOM-VIEW]]
+
+    * The user's time zone.
+
+<h3 id="a-quick-introduction-to-html">A quick introduction to HTML</h3>
+
+    <em>This section is non-normative.</em>
+
+    A basic HTML document looks like this:
+
+    <pre id="intro-early-example" highlight="html">&lt;!DOCTYPE html>
+    &lt;html>
+     &lt;head>
+      &lt;title>Sample page&lt;/title>
+     &lt;/head>
+     &lt;body>
+      &lt;h1>Sample page&lt;/h1>
+      &lt;p>This is a &lt;a href="demo.html">simple&lt;/a> sample.&lt;/p>
+      &lt;!-- this is a comment -->
+     &lt;/body>
+    &lt;/html></pre>
+
+    HTML documents consist of a tree of elements and text. Each element is denoted in the source by
+    a <a>start tag</a>, such as "<code>&lt;body></code>", and an <a>end tag</a>, such as
+    "<code>&lt;/body></code>". (Certain start tags and end tags can in certain cases be
+    <a>omitted</a> and are implied by other tags.)
+
+    Tags have to be nested such that elements are all completely within each other, without
+    overlapping:
+
+    <pre class="bad" highlight="html">&lt;p>This is &lt;em>very &lt;strong>wrong&lt;/em>!&lt;/strong>&lt;/p></pre>
+    <pre highlight="html">&lt;p>This &lt;em>is &lt;strong>correct&lt;/strong>.&lt;/em>&lt;/p></pre>
+
+    This specification defines a set of elements that can be used in HTML, along with rules about
+    the ways in which the elements can be nested.
+
+    Elements can have attributes, which control how the elements work. In the example below, there
+    is a <a>hyperlink</a>, formed using the <code>a</code> element and its <code>href</code>
+    attribute:
+
+    <pre highlight="html">&lt;a href="demo.html">simple&lt;/a></pre>
+
+    <a>Attributes</a> are placed inside the start tag, and consist of a <a>name</a> and a
+    <a>value</a>, separated by an "<code>=</code>" character. The attribute value can remain
+    <a>unquoted</a> if it doesn't contain <a>space characters</a> or any of <code>"</code>
+    <code>'</code> <code>`</code> <code>=</code> <code>&lt;</code> or <code>&gt;</code>. Otherwise,
+    it has to be quoted using either single or double quotes. The value, along with the
+    "<code>=</code>" character, can be omitted altogether if the value is the empty string.
+<pre class="link-defaults">
+spec:dom-ls; type:dfn; for:Attr; text:name
+</pre>
+    <pre highlight="html">&lt;!-- empty attributes -->
+    &lt;input name=address disabled>
+    &lt;input name=address disabled="">
+
+    &lt;!-- attributes with a value -->
+    &lt;input name=address maxlength=200>
+    &lt;input name=address maxlength='200'>
+    &lt;input name=address maxlength="200"></pre>
+
+    HTML user agents (e.g. Web browsers) then <i>parse</i> this markup, turning it into a DOM
+    (Document Object Model) tree. A DOM tree is an in-memory representation of a document.
+
+    DOM trees contain several kinds of nodes, in particular a <code>DocumentType</code> node,
+    <code>Element</code> nodes, <code>Text</code> nodes, <code>Comment</code> nodes, and in some
+    cases <code>ProcessingInstruction</code> nodes.
+
+    The <a>markup snippet at the top of this section</a> would be turned
+    into the following DOM tree:
+
+    <ul class="domTree">
+        <li class="t10">DOCTYPE: <code>html</code></li>
+        <li class="t1"><code>html</code>
+            <ul>
+                <li class="t1"><code>head</code>
+                    <ul>
+                        <li class="t3"><code>#text</code>: <span>&#x23CE;&#x2423;&#x2423;</span></li>
+                        <li class="t1"><code>title</code>
+                            <ul>
+                                <li class="t3"><code>#text</code>: <span>Sample page</span></li>
+                            </ul>
+                        </li>
+                        <li class="t3"><code>#text</code>: <span>&#x23CE;&#x2423;</span></li>
+                    </ul>
+                </li>
+                <li class="t3"><code>#text</code>: <span>&#x23CE;&#x2423;</span></li>
+                <li class="t1"><code>body</code>
+                    <ul>
+                        <li class="t3"><code>#text</code>: <span>&#x23CE;&#x2423;&#x2423;</span></li>
+                        <li class="t1"><code>h1</code>
+                            <ul>
+                                <li class="t3"><code>#text</code>: <span>Sample page</span></li>
+                            </ul>
+                        </li>
+                        <li class="t3"><code>#text</code>: <span>&#x23CE;&#x2423;&#x2423;</span></li>
+                        <li class="t1"><code>p</code>
+                            <ul>
+                                <li class="t3"><code>#text</code>: <span>This is a &lt;!--grammar-check-override--></span></li>
+                                <li class="t1"><code>a</code> <span class="t2"><code class="attribute name" data-x="attr-hyperlink-href">href</code>="<code class="attribute value">demo.html</code>"</span>
+                                    <ul>
+                                        <li class="t3"><code>#text</code>: <span>simple</span></li>
+                                    </ul>
+                                </li>
+                                <li class="t3"><code>#text</code>: <span> sample.</span></li>
+                            </ul>
+                        </li>
+                        <li class="t3"><code>#text</code>: <span>&#x23CE;&#x2423;&#x2423;</span></li>
+                        <li class="t8"><code>#comment</code>: <span> this is a comment </span></li>
+                        <li class="t3"><code>#text</code>: <span>&#x23CE;&#x2423;&#x23CE;</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    The <span>root element</span> of this tree is the <code>html</code> element, which is the
+    element always found at the root of HTML documents. It contains two elements, <code>head</code>
+    and <code>body</code>, as well as a <code>Text</code> node between them.
+
+    There are many more <code>Text</code> nodes in the DOM tree than one would initially expect,
+    because the source contains a number of spaces (represented here by "&#x2423;") and line breaks
+    ("&#x23CE;") that all end up as <code>Text</code> nodes in the DOM. However, for historical
+    reasons not all of the spaces and line breaks in the original markup appear in the DOM. In
+    particular, all the whitespace before <code>head</code> start tag ends up being dropped
+    silently, and all the whitespace after the <code>body</code> end tag ends up placed at the end
+    of the <code>body</code>.
+
+    The <code>head</code> element contains a <code>title</code> element, which itself contains a
+    <code>Text</code> node with the text "Sample page". Similarly, the <code>body</code> element
+    contains an <code>h1</code> element, a <code>p</code> element, and a comment.
+
+    <hr />
+
+    This DOM tree can be manipulated from scripts in the page. Scripts (typically in JavaScript)
+    are small programs that can be embedded using the <code>script</code> element or using
+    <span>event handler content attributes</span>. For example, here is a form with a script that
+    sets the value of the form's <code>output</code> element to say "Hello World"
+
+    <pre highlight="html">&lt;form name="main">
+     Result: &lt;output name="result">&lt;/output>
+     &lt;script>
+      document.forms.main.elements.result.value = 'Hello World';
+     &lt;/script>
+    &lt;/form></pre>
+
+    Each element in the DOM tree is represented by an object, and these objects have APIs so that
+    they can be manipulated. For instance, a link (e.g. the <code>a</code> element in the tree
+    above) can have its "<code data-x="attr-hyperlink-href">href</code>" attribute changed in
+    several ways:
+
+    <pre highlight="javascript">var a = document.links[0]; // obtain the first link in the document
+    a.href = 'sample.html'; // change the destination URL of the link
+    a.protocol = 'https'; // change just the scheme part of the URL
+    a.setAttribute('href', 'http://example.com/'); // change the content attribute directly</pre>
+
+    Since DOM trees are used as the way to represent HTML documents when they are processed and
+    presented by implementations (especially interactive implementations like Web browsers), this
+    specification is mostly phrased in terms of DOM trees, instead of the markup described above.
+
+    <hr />
+
+    HTML documents represent a media-independent description of interactive content. HTML documents
+    might be rendered to a screen, or through a speech synthesizer, or on a braille display. To
+    influence exactly how such rendering takes place, authors can use a styling language such as
+    CSS.
+
+    In the following example, the page has been made yellow-on-blue using CSS.
+
+    <pre highlight=html>&lt;!DOCTYPE html>
+    &lt;html>
+     &lt;head>
+      &lt;title>Sample styled page&lt;/title>
+      &lt;style>
+       body { background: navy; color: yellow; }
+      &lt;/style>
+     &lt;/head>
+     &lt;body>
+      &lt;h1>Sample styled page&lt;/h1>
+      &lt;p>This page is just a demo.&lt;/p>
+     &lt;/body>
+    &lt;/html></pre>
+
+    For more details on how to use HTML, authors are encouraged to consult tutorials and guides.
+    Some of the examples included in this specification might also be of use, but the novice author
+    is cautioned that this specification, by necessity, defines the language with a level of detail
+    that might be difficult to understand at first.
+
+<h4 id="writing-secure-applications-with-html">Writing secure applications with HTML</h4>
+
+    <em>This section is non-normative.</em>
+
+    When HTML is used to create interactive sites, care needs to be taken to avoid introducing
+    vulnerabilities through which attackers can compromise the integrity of the site itself or of
+    the site's users.
+
+    A comprehensive study of this matter is beyond the scope of this document, and authors are
+    strongly encouraged to study the matter in more detail. However, this section attempts to
+    provide a quick introduction to some common pitfalls in HTML application development.
+
+    The security model of the Web is based on the concept of "origins", and correspondingly many of
+    the potential attacks on the Web involve cross-origin actions. [[!ORIGIN]]
+
+    <dl>
+        <dt>Not validating user input</dt>
+        <dt>Cross-site scripting (XSS)</dt>
+        <dt>SQL injection</dt>
+        <dd>
+        When accepting untrusted input, e.g. user-generated content such as text comments, values in
+        URL parameters, messages from third-party sites, etc, it is imperative that the data be
+        validated before use, and properly escaped when displayed. Failing to do this can allow a
+        hostile user to perform a variety of attacks, ranging from the potentially benign, such as
+        providing bogus user information like a negative age, to the serious, such as running scripts
+        every time a user looks at a page that includes the information, potentially propagating the
+        attack in the process, to the catastrophic, such as deleting all data in the server.
+
+        When writing filters to validate user input, it is imperative that filters always be
+        safelist-based, allowing known-safe constructs and disallowing all other input. Blocklist-based
+        filters that disallow known-bad inputs and allow everything else are not secure, as not
+        everything that is bad is yet known (for example, because it might be invented in the
+        future).
+
+        <div class="example">
+            For example, suppose a page looked at its URL's query string to determine what to display,
+            and the site then redirected the user to that page to display a message, as in:
+
+            <pre highlight="html">&lt;ul>
+             &lt;li>&lt;a href="message.cgi?say=Hello">Say Hello&lt;/a>
+             &lt;li>&lt;a href="message.cgi?say=Welcome">Say Welcome&lt;/a>
+             &lt;li>&lt;a href="message.cgi?say=Kittens">Say Kittens&lt;/a>
+            &lt;/ul></pre>
+
+            If the message was just displayed to the user without escaping, a hostile attacker could
+            then craft a URL that contained a script element:
+
+            <pre>http://example.com/message.cgi?say=%3Cscript%3Ealert%28%27Oh%20no%21%27%29%3C/script%3E</pre>
+
+            If the attacker then convinced a victim user to visit this page, a script of the
+            attacker's choosing would run on the page. Such a script could do any number of hostile
+            actions, limited only by what the site offers: if the site is an e-commerce shop, for
+            instance, such a script could cause the user to unknowingly make arbitrarily many
+            unwanted purchases.
+
+            This is called a cross-site scripting attack.
+        </div>
+
+        There are many constructs that can be used to try to trick a site into executing code. Here
+        are some that authors are encouraged to consider when writing safelist filters:
+
+        * When allowing harmless-seeming elements like <code>img</code>, it is important to safelist
+            any provided attributes as well. If one allowed all attributes then an attacker could,
+            for instance, use the <code data-x="handler-onload">onload</code> attribute to run
+            arbitrary script.
+
+        * When allowing URLs to be provided (e.g. for links), the scheme of each URL also needs to
+            be explicitly safelisted, as there are many schemes that can be abused. The most
+            prominent example is "<code data-x="javascript protocol">javascript:</code>", but user
+            agents can implement (and indeed, have historically implemented) others.
+
+        * Allowing a <code>base</code> element to be inserted means any <code>script</code> elements
+            in the page with relative links can be hijacked, and similarly that any form submissions
+            can get redirected to a hostile site.
+       </dd>
+
+        <dt>Cross-site request forgery (CSRF)</dt>
+        <dd>
+            If a site allows a user to make form submissions with user-specific side-effects, for
+            example posting messages on a forum under the user's name, making purchases, or applying
+            for a passport, it is important to verify that the request was made by the user
+            intentionally, rather than by another site tricking the user into making the request
+            unknowingly.
+
+            This problem exists because HTML forms can be submitted to other origins.
+
+            Sites can prevent such attacks by populating forms with user-specific hidden tokens, or
+            by checking <code data-x="http-origin">Origin</code> headers on all requests.
+       </dd>
+
+        <dt>Clickjacking</dt>
+        <dd>
+            A page that provides users with an interface to perform actions that the user might not
+            wish to perform needs to be designed so as to avoid the possibility that users can be
+            tricked into activating the interface.
+
+            One way that a user could be so tricked is if a hostile site places the victim site in a
+            small <code>iframe</code> and then convinces the user to click, for instance by having
+            the user play a reaction game. Once the user is playing the game, the hostile site can
+            quickly position the iframe under the mouse cursor just as the user is about to click,
+            thus tricking the user into clicking the victim site's interface.
+
+            To avoid this, sites that do not expect to be used in frames are encouraged to only
+            enable their interface if they detect that they are not in a frame (e.g. by comparing
+            the <code>window</code> object to the value of the <code>top</code> attribute).
+        </dd>
+    </dl>
+
+
+<hr />
+<hr />
+<hr />
