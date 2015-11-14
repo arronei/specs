@@ -298,7 +298,7 @@ urlPrefix: http://html5.org/r/8424/; type: dfn; text: 8424
 
     <em>This section is non-normative.</em>
 
-    <p>This specification is divided into the following major sections:</p>
+    This specification is divided into the following major sections:
 
     <div dfn-for="spec">
         : [[#introduction]]
@@ -385,22 +385,22 @@ urlPrefix: http://html5.org/r/8424/; type: dfn; text: 8424
     <div dfn-for="conventions">
         This is a definition, requirement, or explanation.
 
-        <p class="note">This is a note.</p>
+        <p class="note">This is a note.
 
-        <p class="example">This is an example.</p>
+        <p class="example">This is an example.
 
-        <p class="&#x0058;&#x0058;&#x0058;">This is an open issue.</p>
+        <p class="&#x0058;&#x0058;&#x0058;">This is an open issue.
 
-        <p class="warning">This is a warning.</p>
+        <p class="warning">This is a warning.
 
         <pre class="idl noextract">interface <dfn>Example</dfn> {
             // this is an IDL definition
         };</pre>
 
         <dl class="domintro">
-            <dt><var>variable</var> = <var>object</var> . <code data-x="x-that">method</code>( [ <var>optionalArgument</var> ] )</dt>
-            <dd>
-                <p>This is a note to authors describing the usage of an interface.</p>
+           : <var>variable</var> = <var>object</var> . <code data-x="x-that">method</code>( [ <var>optionalArgument</var> ] )
+             ::
+                This is a note to authors describing the usage of an interface.
             </dd>
         </dl>
 
@@ -426,12 +426,12 @@ urlPrefix: http://html5.org/r/8424/; type: dfn; text: 8424
         of conditions for those requirements. Such cases are presented as follows:
 
         <dl class="switch">
-            <dt>This is a condition</dt>
-            <dt>This is another condition</dt>
-            <dd>This is the requirement that applies to the conditions above.</dd>
+           : This is a condition
+           : This is another condition
+             :: This is the requirement that applies to the conditions above.</dd>
 
-            <dt>This is a third condition</dt>
-            <dd>This is the requirement that applies to the third condition.</dd>
+           : This is a third condition
+             :: This is the requirement that applies to the third condition.</dd>
         </dl>
     </div>
 
@@ -701,10 +701,10 @@ spec:dom-ls; type:dfn; for:Attr; text:name
     the potential attacks on the Web involve cross-origin actions. [[!ORIGIN]]
 
     <dl>
-        <dt>Not validating user input</dt>
-        <dt>Cross-site scripting (XSS)</dt>
-        <dt>SQL injection</dt>
-        <dd>
+       : Not validating user input
+       : Cross-site scripting (XSS)
+       : SQL injection
+         ::
         When accepting untrusted input, e.g. user-generated content such as text comments, values in
         URL parameters, messages from third-party sites, etc, it is imperative that the data be
         validated before use, and properly escaped when displayed. Failing to do this can allow a
@@ -761,8 +761,8 @@ spec:dom-ls; type:dfn; for:Attr; text:name
             can get redirected to a hostile site.
        </dd>
 
-        <dt>Cross-site request forgery (CSRF)</dt>
-        <dd>
+       : Cross-site request forgery (CSRF)
+         ::
             If a site allows a user to make form submissions with user-specific side-effects, for
             example posting messages on a forum under the user's name, making purchases, or applying
             for a passport, it is important to verify that the request was made by the user
@@ -775,8 +775,8 @@ spec:dom-ls; type:dfn; for:Attr; text:name
             by checking <code data-x="http-origin">Origin</code> headers on all requests.
        </dd>
 
-        <dt>Clickjacking</dt>
-        <dd>
+       : Clickjacking
+         ::
             A page that provides users with an interface to perform actions that the user might not
             wish to perform needs to be designed so as to avoid the possibility that users can be
             tricked into activating the interface.
@@ -797,3 +797,926 @@ spec:dom-ls; type:dfn; for:Attr; text:name
 <hr />
 <hr />
 <hr />
+<h2 id="infrastructure">Common infrastructure</h2>
+
+<h3 id="terminology">Terminology</h3>
+
+  This specification refers to both HTML and XML attributes and IDL attributes, often in the same
+  context. When it is not clear which is being referred to, they are referred to as
+  <dfn>content attributes</dfn> for HTML and XML attributes, and <dfn>IDL attributes</dfn> for those
+  defined on IDL interfaces. Similarly, the term "properties" is used for
+  both JavaScript object properties and CSS properties. When these are ambiguous they are qualified
+  as <dfn>object properties</dfn> and <dfn>CSS properties</dfn> respectively.
+
+  Generally, when the specification states that a feature applies to <a>the HTML syntax</a>
+  or <a>the XHTML syntax</a>, it also includes the other. When a feature specifically only
+  applies to one of the two languages, it is called out by explicitly stating that it does not apply
+  to the other format, as in "for HTML, ... (this does not apply to XHTML)".
+
+  This specification uses the term <dfn>document</dfn> to refer to any use of HTML,
+  ranging from short static documents to long essays or reports with rich multimedia, as well as to
+  fully-fledged interactive applications. The term is used to refer both to <code>Document</code>
+  objects and their descendant DOM trees, and to serialized byte streams using the
+  <a>HTML syntax</a> or <a>XHTML syntax</a>, depending on context.
+
+  In the context of the DOM structures, the terms <a>HTML document</a> and <a>XML document</a> are
+  used as defined in the DOM specification, and refer specifically to two different modes that
+  <code>Document</code> objects can find themselves in. [[!DOM]] (Such uses are always hyperlinked
+  to their definition.)
+
+  In the context of byte streams, the term HTML document refers to resources labeled as
+  <code>text/html</code>, and the term XML document refers to resources labeled with an <a>XML
+  MIME type</a>.
+
+  The term <dfn>XHTML document</dfn> is used to refer to both <code>Document</code>s in the
+  <a>XML document</a> mode that contains element nodes in the <a>HTML namespace</a>, and byte
+  streams labeled with an <span>XML MIME type</span> that contain elements from the
+  <a>HTML namespace</a>, depending on context.
+
+<hr />
+
+  For simplicity, terms such as <dfn>shown</dfn>, <dfn>displayed</dfn>, and
+  <dfn>visible</dfn> might sometimes be used when referring to the way a document is
+  rendered to the user. These terms are not meant to imply a visual medium; they must be considered
+  to apply to other media in equivalent ways.
+
+  <div class="impl">
+
+  When an algorithm B says to return to another algorithm A, it implies that A called B. Upon
+  returning to A, the implementation must continue from where it left off in calling B. Some
+  algorithms run <dfn>in parallel</dfn>; this means that the algorithm's subsequent steps are to be
+  run, one after another, at the same time as other logic in the specification (e.g. at the same
+  time as the <a>event loop</a>). This specification does not define the precise mechanism by
+  which this is achieved, be it time-sharing cooperative multitasking, fibers, threads, processes,
+  using different hyperthreads, cores, CPUs, machines, etc. By contrast, an operation that is to run
+  <dfn>immediately</dfn> must interrupt the currently running task, run itself, and then resume the
+  previously running task.
+
+  </div>
+
+  <!-- should find somewhere more appropriate to put this -->
+  The term "transparent black" refers to the color with red, green, blue, and alpha channels all
+  set to zero.
+
+<h4 id="resources">Resources</h4>
+
+  The specification uses the term <dfn>supported</dfn> when referring to whether a user
+  agent has an implementation capable of decoding the semantics of an external resource. A format or
+  type is said to be <i>supported</i> if the implementation can process an external resource of that
+  format or type without critical aspects of the resource being ignored. Whether a specific resource
+  is <i>supported</i> can depend on what features of the resource's format are in use.
+
+  <p class="example">
+    For example, a PNG image would be considered to be in a supported format if its
+    pixel data could be decoded and rendered, even if, unbeknownst to the implementation, the image
+    also contained animation data.
+  </p>
+
+  <p class="example">
+    An MPEG-4 video file would not be considered to be in a supported format if the
+    compression format used was not supported, even if the implementation could determine the
+    dimensions of the movie from the file's metadata.
+  </p>
+
+  What some specifications, in particular the HTTP specification, refer to as a
+  <i>representation</i> is referred to in this specification as a <dfn>resource</dfn>. [[!HTTP]]
+
+  The term <dfn>MIME type</dfn> is used to refer to what is sometimes called an <i>Internet media
+  type</i> in protocol literature. The term <i>media type</i> in this specification is used to refer
+  to the type of media intended for presentation, as used by the CSS specifications. [[!RFC2046]]
+  [[MQ]]
+
+  A string is a <dfn>valid MIME type</dfn> if it matches the <code>media-type</code>
+  rule defined in section 3.7 "Media Types" of RFC 2616. In particular, a <span>valid MIME
+  type</span> may include MIME type parameters. [[HTTP]]
+
+  A string is a <dfn>valid MIME type with no parameters</dfn> if it matches the
+  <code>media-type</code> rule defined in section 3.7 "Media Types" of RFC 2616, but does not
+  contain any U+003B SEMICOLON characters (;). In other words, if it consists only of a type and
+  subtype, with no MIME Type parameters. [[HTTP]]
+
+  The term <dfn>HTML MIME type</dfn> is used to refer to the <a>MIME type</a>
+  <code>text/html</code>.
+
+  A resource's <dfn>critical subresources</dfn> are those that the resource needs to have
+  available to be correctly processed. Which resources are considered critical or not is defined by
+  the specification that defines the resource's format.
+
+  The term <dfn><code>data:</code> URL</dfn> refers to <a>URLs</a> that use the <code>data:</code>
+  scheme. [[!RFC2397]]
+
+  <h4 id="xml">XML</h4>
+
+  To ease migration from HTML to XHTML, UAs conforming to this specification will place elements in
+  HTML in the <code>http://www.w3.org/1999/xhtml</code> namespace, at least for the purposes of the
+  DOM and CSS. The term "<dfn>HTML elements</dfn>", when used in this specification, refers to any
+  element in that namespace, and thus refers to both HTML and XHTML elements.
+
+  Except where otherwise stated, all elements defined or mentioned in this specification are in
+  the <span>HTML namespace</span> ("<code>http://www.w3.org/1999/xhtml</code>"), and all
+  attributes defined or mentioned in this specification have no namespace.
+
+  The term <dfn>element type</dfn> is used to refer to the set of elements that have a given
+  local name and namespace. For example, <code>button</code> elements are elements with the element
+  type <code>button</code>, meaning they have the local name "<code>button</code>" and
+  (implicitly as defined above) the <a>HTML namespace</a>.
+
+  Attribute names are said to be <dfn>XML-compatible</dfn> if they match the <a
+  href="http://www.w3.org/TR/xml/#NT-Name"><code>Name</code></a> production defined in XML
+  and they contain no U+003A COLON characters (:). [[!XML]]
+
+  The term <dfn>XML MIME type</dfn> is used to refer to the <a>MIME types</a> <code>text/xml</code>,
+  <code>application/xml</code>, and any <a>MIME type</a> whose subtype ends with the four characters
+  "<code>+xml</code>".
+  [[!RFC7303]]
+
+
+  <h4 id="dom-trees">DOM trees</h4>
+
+  The <dfn>root element of a <code>Document</code> object</dfn> is that <code>Document</code>'s
+  first element child, if any. If it does not have one then the <code>Document</code> has no root
+  element.
+
+  The term <dfn>root element</dfn>, when not referring to a <code>Document</code> object's root
+  element, means the furthest ancestor element node of whatever node is being discussed, or the node
+  itself if it has no ancestors. When the node is a part of the document, then the node's <a>root
+  element</a> is indeed the document's root element; however, if the node is not currently part
+  of the document tree, the root element will be an orphaned node.
+
+  When an element's <a>root element</a> is the <a>root element of a
+  <code>Document</code> object</a>, it is said to be <dfn>in a <code>Document</code></dfn>. An
+  element is said to have been <dfn>inserted into a document</dfn> when its <a>root element</a>
+  changes and is now the document's <a>root element</a>. Analogously, an element is said to have
+  been <dfn data-x="remove an element from a document">removed from a document</dfn> when its
+  <a>root element</a> changes from being the document's <a>root element</a> to being another
+  element.
+
+  A node's <dfn>home subtree</dfn> is the subtree rooted at that node's <a>root element</a>.
+  When a node is <a>in a <code>Document</code></a>, its <a>home subtree</a> is that
+  <code>Document</code>'s tree.
+
+  The <code>Document</code> of a <code>Node</code> (such as an element) is the
+  <code>Document</code> that the <code>Node</code>'s <code>ownerDocument</code> IDL attribute
+  returns. When a <code>Node</code> is <a>in a <code>Document</code></a> then that
+  <code>Document</code> is always the <code>Node</code>'s <code>Document</code>, and the
+  <code>Node</code>'s <code>ownerDocument</code> IDL attribute thus always returns that
+  <code>Document</code>.
+
+  The <code>Document</code> of a content attribute is the <code>Document</code> of the
+  attribute's element.
+
+  The term <dfn>tree order</dfn> means a pre-order, depth-first traversal of DOM nodes involved
+  (through the <code data-x="dom-Node-parentNode">parentNode</code>/<code
+  data-x="dom-Node-childNodes">childNodes</code> relationship).
+
+  When it is stated that some element or attribute is <dfn data-x="ignore">ignored</dfn>, or
+  treated as some other value, or handled as if it was something else, this refers only to the
+  processing of the node after it is in the DOM. <span class="impl">A user agent must not mutate the
+  DOM in such situations.</span>
+
+  A content attribute is said to <dfn>change</dfn> value only if its new value is
+  different than its previous value; setting an attribute to a value it already has does not change
+  it.
+
+  The term <dfn>empty</dfn>, when used of an attribute value, <code>Text</code> node, or
+  string, means that the length of the text is zero (i.e. not even containing spaces or <a>control
+  characters</a>).
+
+  A <dfn>node <var>A</var> is inserted</dfn> into a node <var>B</var>
+  when the <a>insertion steps</a> are invoked with
+  <var>A</var> as the argument and <var>A</var>'s new parent is <var>B</var>. Similarly, a <dfn
+  data-x="nodes are removed">node <var>A</var> is removed</dfn> from a node <var>B</var> when the
+  <a>removing steps</a> are invoked with <var>A</var> as the <var>removedNode</var> argument and
+  <var>B</var> as the <var>oldParent</var> argument.
+
+  <h4 id="scripting">Scripting</h4>
+
+  The construction "a <code>Foo</code> object", where <code>Foo</code> is actually an interface,
+  is sometimes used instead of the more accurate "an object implementing the interface
+  <code>Foo</code>".
+
+  An IDL attribute is said to be <dfn>getting</dfn> when its value is being retrieved
+  (e.g. by author script), and is said to be <dfn>setting</dfn> when a new value is
+  assigned to it.
+
+  If a DOM object is said to be <dfn>live</dfn>, then the attributes and methods on that object
+  <span class="impl">must</span> operate on the actual underlying data, not a snapshot of the
+  data.
+
+  In the contexts of events, the terms <i>fire</i> and <i>dispatch</i> are used as defined in the
+  DOM specification: <dfn data-x="concept-event-fire">firing</dfn> an event means to create and
+  <a>dispatch</a> it, and <dfn>dispatching</dfn> an event means to follow the steps that propagate
+  the event through the tree. The term <dfn>trusted event</dfn> is used to refer to events whose
+  <code>isTrusted</code> attribute is initialized to true. [[!DOM]]
+
+
+  <h4 id="plugins">Plugins</h4>
+
+  The term <dfn>plugin</dfn> refers to a user-agent defined set of content handlers used by the
+  user agent that can take part in the user agent's rendering of a <code>Document</code> object, but
+  that neither act as <a>child browsing contexts</a> of the <code>Document</code> nor introduce any
+  <code>Node</code> objects to the <code>Document</code>'s DOM.
+
+  Typically such content handlers are provided by third parties, though a user agent can also
+  designate built-in content handlers as plugins.
+
+  <div class="impl">
+
+  A user agent must not consider the types <code>text/plain</code> and
+  <code>application/octet-stream</code> as having a registered <a>plugin</a>.
+
+  </div>
+
+  <p class="example">
+    One example of a plugin would be a PDF viewer that is instantiated in a
+    <a>browsing context</a> when the user navigates to a PDF file. This would count as a plugin
+    regardless of whether the party that implemented the PDF viewer component was the same as that
+    which implemented the user agent itself. However, a PDF viewer application that launches separate
+    from the user agent (as opposed to using the same interface) is not a plugin by this
+    definition.
+  </p>
+
+  <p class="note">
+    This specification does not define a mechanism for interacting with plugins, as it
+    is expected to be user-agent- and platform-specific. Some UAs might opt to support a plugin
+    mechanism such as the Netscape Plugin API; others might use remote content converters or have
+    built-in support for certain types. Indeed, this specification doesn't require user agents to
+    support plugins at all. [[!NPAPI]]
+  </p>
+
+  A plugin can be <dfn data-x="concept-plugin-secure">secured</dfn> if it honors the semantics of
+  the <code data-x="attr-iframe-sandbox">sandbox</code> attribute.
+
+  <p class="example">
+    For example, a secured plugin would prevent its contents from creating pop-up windows when the
+    plugin is instantiated inside a sandboxed <code>iframe</code>.
+  </p>
+
+  <div class="impl">
+
+  <p class="warning">
+    Browsers should take extreme care when interacting with external content intended for
+    <span data-x="plugin">plugins</span>. When third-party software is run with the same
+    privileges as the user agent itself, vulnerabilities in the third-party software become as
+    dangerous as those in the user agent.
+  </p>
+
+  Since different users having differents sets of <a>plugins</a> provides a
+  fingerprinting vector that increases the chances of users being uniquely identified, user agents
+  are encouraged to support the exact same set of <a>plugins</a> for each
+  user.
+
+  <a class="fingerprint" href="#fingerprinting-vector"><img height="21" src="images/fingerprint.png" width="15" alt="(This is a fingerprinting vector.)" /></a>
+
+  </div>
+
+<h4 id="encoding-terminology">Character encodings</h4>
+
+  A <dfn>character encoding</dfn>, or just <i>encoding</i> where that is not
+  ambiguous, is a defined way to convert between byte streams and Unicode strings, as defined in the
+  Encoding standard. An <a>encoding</a> has an <dfn>encoding name</dfn> and one or more
+  <dfn>encoding labels</dfn>, referred to as the encoding's <i>name</i> and <i>labels</i> in the
+  Encoding standard. [[!ENCODING]]
+
+  An <dfn>ASCII-compatible character encoding</dfn> is a single-byte or variable-length
+  <a>encoding</a> in which the bytes 0x09, 0x0A, 0x0C, 0x0D, 0x20 - 0x22, 0x26, 0x27, 0x2C -
+  0x3F, 0x41 - 0x5A, and 0x61 - 0x7A, ignoring bytes that are the second and later bytes of multibyte
+  sequences, all correspond to single-byte sequences that map to the same Unicode characters as
+  those bytes in Windows-1252. [[!ENCODING]]
+
+  <p class="note">
+    This includes such encodings as Shift_JIS, HZ-GB-2312, and variants of ISO-2022,
+    even though it is possible in these encodings for bytes like 0x70 to be part of longer sequences
+    that are unrelated to their interpretation as ASCII. It excludes UTF-16 variants, as well as
+    obsolete legacy encodings such as UTF-7, GSM03.38, and EBCDIC variants.
+  </p>
+
+  The term <dfn>a UTF-16 encoding</dfn> refers to any variant of UTF-16: UTF-16LE or UTF-16BE,
+  regardless of the presence or absence of a BOM. [[!ENCODING]]
+
+  The term <dfn>code unit</dfn> is used as defined in the Web IDL specification: a 16 bit
+  unsigned integer, the smallest atomic component of a <code>DOMString</code>. (This is a narrower
+  definition than the one used in Unicode, and is not the same as a <i>code point</i>.) [[WEBIDL]]
+
+  The term <dfn>Unicode code point</dfn> means a <i>Unicode scalar value</i> where
+  possible, and an isolated surrogate code point when not. When a conformance requirement is defined
+  in terms of characters or Unicode code points, a pair of <a>code units</a> consisting of a high
+  surrogate followed by a low surrogate must be treated as the single code point represented by the
+  surrogate pair, but isolated surrogates must each be treated as the single code point with the
+  value of the surrogate. [[!UNICODE]]
+
+  In this specification, the term <dfn>character</dfn>, when not qualified as <em>Unicode</em>
+  character, is synonymous with the term <a>Unicode code point</a>.
+
+  The term <dfn>Unicode character</dfn> is used to mean a <i>Unicode scalar value</i>
+  (i.e. any Unicode code point that is not a surrogate code point). [[!UNICODE]]
+
+  The <dfn>code-unit length</dfn> of a string is the number of <a>code
+  units</a> in that string.
+
+  <p class="note">
+    This complexity results from the historical decision to define the DOM API in
+    terms of 16 bit (UTF-16) <a>code units</a>, rather than in terms of <a>Unicode characters</a>.
+  </p>
+
+
+<h3 id="conformance-requirements">Conformance requirements</h3>
+
+  All diagrams, examples, and notes in this specification are non-normative, as are all sections
+  explicitly marked non-normative. Everything else in this specification is normative.
+
+  The key words "MUST", "MUST NOT", "SHOULD", "SHOULD NOT", "MAY", and "OPTIONAL" in the normative
+  parts of this document are to be interpreted as described in RFC2119. The key word "OPTIONALLY" in
+  the normative parts of this document is to be interpreted with the same normative meaning as "MAY"
+  and "OPTIONAL". For readability, these words do not appear in all uppercase letters in this
+  specification. [[RFC2119]]
+
+  <div class="impl">
+
+  Requirements phrased in the imperative as part of algorithms (such as "strip any leading space
+  characters" or "return false and abort these steps") are to be interpreted with the meaning of the
+  key word ("must", "should", "may", etc) used in introducing the algorithm.
+
+  <div class="example">
+
+   For example, were the spec to say:
+
+   <pre>To eat an orange, the user must:
+1. Peel the orange.
+2. Separate each slice of the orange.
+3. Eat the orange slices.</pre>
+
+   ...it would be equivalent to the following:
+
+   <pre>To eat an orange:
+1. The user must peel the orange.
+2. The user must separate each slice of the orange.
+3. The user must eat the orange slices.</pre>
+
+   Here the key word is "must".
+
+   The former (imperative) style is generally preferred in this specification for stylistic
+   reasons.
+
+  </div>
+
+  Conformance requirements phrased as algorithms or specific steps may be implemented in any
+  manner, so long as the end result is equivalent. (In particular, the algorithms defined in this
+  specification are intended to be easy to follow, and not intended to be performant.)
+
+  </div>
+
+
+  <div class="impl">
+
+<h4 id="conformance-classes">Conformance classes</h4>
+
+  This specification describes the conformance criteria for <span class="impl">user agents
+  (relevant to implementors) and</span> documents<span class="impl"> (relevant to authors and
+  authoring tool implementors)</span>.
+
+  <dfn>Conforming documents</dfn> are those that comply with all the conformance criteria for
+  documents. For readability, some of these conformance requirements are phrased as conformance
+  requirements on authors; such requirements are implicitly requirements on documents: by
+  definition, all documents are assumed to have had an author. (In some cases, that author may
+  itself be a user agent &mdash; such user agents are subject to additional rules, as explained
+  below.)
+
+  <p class="example">
+    For example, if a requirement states that "authors must not use the
+    <code>foobar</code> element", it would imply that documents are not allowed to contain elements
+    named <code>foobar</code>.
+  </p>
+
+  <p class="note impl">
+    There is no implied relationship between document conformance requirements
+    and implementation conformance requirements. User agents are not free to handle non-conformant
+    documents as they please; the processing model described in this specification applies to
+    implementations regardless of the conformity of the input documents.
+  </p>
+
+  User agents fall into several (overlapping) categories with different conformance requirements.
+
+  : Web browsers and other interactive user agents
+
+  :: Web browsers that support <a>the XHTML syntax</a> must process elements and attributes
+      from the <a>HTML namespace</a> found in XML documents as described in this specification,
+      so that users can interact with them, unless the semantics of those elements have been
+      overridden by other specifications.
+
+      <p class="example">
+        A conforming XHTML processor would, upon finding an XHTML <code>script</code>
+        element in an XML document, execute the script contained in that element. However, if the
+        element is found within a transformation expressed in XSLT (assuming the user agent also
+        supports XSLT), then the processor would instead treat the <code>script</code> element as an
+        opaque element that forms part of the transform.
+      </p>
+
+      Web browsers that support <a>the HTML syntax</a> must process documents labeled with an
+      <a>HTML MIME type</a> as described in this specification, so that users can interact with
+      them.
+
+      User agents that support scripting must also be conforming implementations of the IDL
+      fragments in this specification, as described in the Web IDL specification. [[!WEBIDL]]
+
+      <p class="note">
+        Unless explicitly stated, specifications that override the semantics of HTML
+        elements do not override the requirements on DOM objects representing those elements. For
+        example, the <code>script</code> element in the example above would still implement the
+        <code>HTMLScriptElement</code> interface.
+      </p>
+
+  : Non-interactive presentation user agents
+
+  :: User agents that process HTML and XHTML documents purely to render non-interactive versions
+      of them must comply to the same conformance criteria as Web browsers, except that they are
+      exempt from requirements regarding user interaction.
+
+      <p class="note">
+        Typical examples of non-interactive presentation user agents are printers
+        (static UAs) and overhead displays (dynamic UAs). It is expected that most static
+        non-interactive presentation user agents will also opt to <a>lack scripting support</a>.
+      </p>
+
+      <p class="example">
+        A non-interactive but dynamic presentation UA would still execute scripts,
+        allowing forms to be dynamically submitted, and so forth. However, since the concept of "focus"
+        is irrelevant when the user cannot interact with the document, the UA would not need to support
+        any of the focus-related DOM APIs.
+      </p>
+
+  : Visual user agents that support the suggested default rendering
+
+  :: User agents, whether interactive or not, may be designated (possibly as a user option) as
+      supporting the suggested default rendering defined by this specification.
+
+      This is not required. In particular, even user agents that do implement the suggested default
+      rendering are encouraged to offer settings that override this default to improve the experience
+      for the user, e.g. changing the color contrast, using different focus styles, or otherwise
+      making the experience more accessible and usable to the user.
+
+      User agents that are designated as supporting the suggested default rendering must, while so
+      designated, implement the rules in <a>the rendering section</a> that that
+      section defines as the behavior that user agents are <em>expected</em> to implement.
+
+  : User agents with no scripting support
+
+  :: Implementations that do not support scripting (or which have their scripting features
+      disabled entirely) are exempt from supporting the events and DOM interfaces mentioned in this
+      specification. For the parts of this specification that are defined in terms of an events model
+      or in terms of the DOM, such user agents must still act as if events and the DOM were
+      supported.
+
+      <p class="note">
+        Scripting can form an integral part of an application. Web browsers that do not
+        support scripting, or that have scripting disabled, might be unable to fully convey the author's
+        intent.
+      </p>
+
+  : Conformance checkers
+
+  :: Conformance checkers must verify that a document conforms to the applicable conformance
+      criteria described in this specification. Automated conformance checkers are exempt from
+      detecting errors that require interpretation of the author's intent (for example, while a
+      document is non-conforming if the content of a <code>blockquote</code> element is not a quote,
+      conformance checkers running without the input of human judgement do not have to check that
+      <code>blockquote</code> elements only contain quoted material).
+
+      Conformance checkers must check that the input document conforms when parsed without a
+      <a>browsing context</a> (meaning that no scripts are run, and that the parser's
+      <a>scripting flag</a> is disabled), and should also check that the input document conforms
+      when parsed with a <a>browsing context</a> in which scripts execute, and that the scripts
+      never cause non-conforming states to occur other than transiently during script execution
+      itself. (This is only a "SHOULD" and not a "MUST" requirement because it has been proven to be
+      impossible. [[!COMPUTABLE]]
+
+      The term "HTML validator" can be used to refer to a conformance checker that itself conforms
+      to the applicable requirements of this specification.
+
+      <div class="note">
+
+        XML DTDs cannot express all the conformance requirements of this specification. Therefore, a
+        validating XML processor and a DTD cannot constitute a conformance checker. Also, since neither
+        of the two authoring formats defined in this specification are applications of SGML, a
+        validating SGML system cannot constitute a conformance checker either.
+
+        To put it another way, there are three types of conformance criteria:
+
+        <ol>
+
+        <li>Criteria that can be expressed in a DTD.</li>
+
+        <li>Criteria that cannot be expressed by a DTD, but can still be checked by a machine.</li>
+
+        <li>Criteria that can only be checked by a human.</li>
+
+        </ol>
+
+        A conformance checker must check for the first two. A simple DTD-based validator only checks
+        for the first class of errors and is therefore not a conforming conformance checker according
+        to this specification.
+
+      </div>
+
+
+
+    : Data mining tools
+
+    :: Applications and tools that process HTML and XHTML documents for reasons other than to either
+          render the documents or check them for conformance should act in accordance with the semantics
+          of the documents that they process.
+
+          <p class="example">
+            A tool that generates <a>document outlines</a> but
+            increases the nesting level for each paragraph and does not increase the nesting level for each
+            section would not be conforming.
+          </p>
+
+
+  : Authoring tools and markup generators
+
+  :: Authoring tools and markup generators must generate <a>conforming documents</a>.
+      Conformance criteria that apply to authors also apply to authoring tools, where appropriate.
+
+      Authoring tools are exempt from the strict requirements of using elements only for their
+      specified purpose, but only to the extent that authoring tools are not yet able to determine
+      author intent. However, authoring tools must not automatically misuse elements or encourage
+      their users to do so.
+
+      <p class="example">
+        For example, it is not conforming to use an <code>address</code> element for arbitrary
+        contact information; that element can only be used for marking up contact information for
+        the author of the document or section. However, since an authoring tool is likely unable
+        to determine the difference, an authoring tool is exempt from that requirement. This does
+        not mean, though, that authoring tools can use <code>address</code> elements for any block
+        of italics text (for instance); it just means that the authoring tool doesn't have to
+        verify that when the user uses a tool for inserting contact information for a section,
+        that the user really is doing that and not inserting something else instead.
+      </p>
+
+      <p class="note">
+        In terms of conformance checking, an editor has to output documents that conform to the
+        same extent that a conformance checker will verify.
+      </p>
+
+      When an authoring tool is used to edit a non-conforming document, it may preserve the
+      conformance errors in sections of the document that were not edited during the editing
+      session (i.e. an editing tool is allowed to round-trip erroneous content). However, an
+      authoring tool must not claim that the output is conformant if errors have been so
+      preserved.
+
+      Authoring tools are expected to come in two broad varieties: tools that work from structure
+      or semantic data, and tools that work on a What-You-See-Is-What-You-Get media-specific
+      editing basis (WYSIWYG).
+
+      The former is the preferred mechanism for tools that author HTML, since the structure in the
+      source information can be used to make informed choices regarding which HTML elements and
+      attributes are most appropriate.
+
+      However, WYSIWYG tools are legitimate. WYSIWYG tools should use elements they know are
+      appropriate, and should not use elements that they do not know to be appropriate. This might
+      in certain extreme cases mean limiting the use of flow elements to just a few elements, like
+      <code>div</code>, <code>b</code>, <code>i</code>, and <code>span</code> and making liberal
+      use of the <code>style</code> attribute.
+
+      All authoring tools, whether WYSIWYG or not, should make a best effort attempt at enabling
+      users to create well-structured, semantically rich, media-independent content.
+
+
+  User agents may impose implementation-specific limits on otherwise unconstrained inputs,
+  e.g. to prevent denial of service attacks, to guard against running out of memory, or to work
+  around platform-specific limitations.
+
+  <a class="fingerprint" href="#fingerprinting-vector"><img height="21" src="images/fingerprint.png" width="15" alt="(This is a fingerprinting vector.)" /></a>
+
+  For compatibility with existing content and prior specifications, this specification describes
+  two authoring formats: one based on XML (referred to as <a>the XHTML syntax</a>), and one
+  using a <a>custom format</a> inspired by SGML (referred to as <a>the HTML
+  syntax</a>). Implementations must support at least one of these two formats, although
+  supporting both is encouraged.
+
+  Some conformance requirements are phrased as requirements on elements, attributes, methods or
+  objects. Such requirements fall into two categories: those describing content model restrictions,
+  and those describing implementation behavior. Those in the former category are requirements on
+  documents and authoring tools. Those in the second category are requirements on user agents.
+  Similarly, some conformance requirements are phrased as requirements on authors; such requirements
+  are to be interpreted as conformance requirements on the documents that authors produce. (In other
+  words, this specification does not distinguish between conformance criteria on authors and
+  conformance criteria on documents.)
+
+  </div>
+
+
+  <div class="impl">
+
+<h4 id="dependencies">Dependencies</h4>
+
+  This specification relies on several other underlying specifications.
+
+  <dl>
+
+  : Unicode and Encoding
+
+  :: The Unicode character set is used to represent textual data, and the Encoding standard
+      defines requirements around <a>character encodings</a>. [[!UNICODE]]
+
+      <p class="note">
+        This specification <a href="#encoding-terminology">introduces terminology</a>
+        based on the terms defined in those specifications, as described earlier.
+      </p>
+
+      The following terms are used as defined in the Encoding standard: [[!ENCODING]]
+
+      * <dfn>Getting an encoding</dfn>
+
+      * The <dfn>encoder</dfn> and <dfn>decoder</dfn> algorithms for various encodings, including
+        the <dfn>UTF-8 encoder</dfn> and <dfn>UTF-8 decoder</dfn>
+
+      * The generic <dfn>decode</dfn> algorithm which takes a byte stream and an encoding and
+        returns a character stream
+
+      * The <dfn>UTF-8 decode</dfn> algorithm which takes a byte stream and returns a character
+        stream, additionally stripping one leading UTF-8 Byte Order Mark (BOM), if any
+
+      <p class="note">
+        The <a>UTF-8 decoder</a> is distinct from the <i>UTF-8 decode algorithm</i>. The latter
+        first strips a Byte Order Mark (BOM), if any, and then invokes the former.
+      </p>
+
+      For readability, character encodings are sometimes referenced in this specification with a
+      case that differs from the canonical case given in the Encoding standard. (For example,
+      "UTF-16LE" instead of "utf-16le".)
+
+
+
+  : XML and related specifications
+
+  :: Implementations that support <span>the XHTML syntax</span> must support some version of XML,
+      as well as its corresponding namespaces specification, because that syntax uses an XML
+      serialization with namespaces. <a href="#refsXML">\[XML]</a> <a href="#refsXMLNS">\[XMLNS]</a>
+
+      The attribute with the tag name <dfn><code
+      data-x="attr-xml-space">xml:space</code></dfn> in the <span>XML namespace</span> is defined by
+      the XML specification. <a href="#refsXML">\[XML]</a>
+
+      This specification also references the <dfn
+      data-x-href="http://www.w3.org/TR/xml-stylesheet/#the-xml-stylesheet-processing-instruction"><code>&lt;?xml-stylesheet?></code></dfn>
+      processing instruction, defined in the <cite>Associating Style Sheets with XML documents</cite>
+      specification. <a href="#refsXMLSSPI">\[XMLSSPI]</a>
+
+      This specification also non-normatively mentions the <dfn><code>XSLTProcessor</code>
+      </dfn> interface and its <dfn><code>transformToFragment()</code></dfn> and
+      <dfn><code>transformToDocument()</code></dfn> methods.
+
+
+  : URLs
+
+  :: The following terms are defined in the WHATWG URL standard: <a href="#refsURL">\[URL]</a>
+
+      * <dfn>domain</dfn>
+      * <dfn>URL</dfn>
+      * <dfn>Origin</dfn> of URLs
+      * <dfn>Absolute URL</dfn>
+      * <dfn>Relative URL</dfn>
+      * <dfn>Relative schemes</dfn>
+      * The <dfn>URL parser</dfn> and <dfn>basic URL parser</dfn> as well as these parser states:
+        * <dfn>scheme start state</dfn>
+        * <dfn>host state</dfn>
+        * <dfn>hostname state</dfn>
+        * <dfn>port state</dfn>
+        * <dfn>path start state</dfn>
+        * <dfn>query state</dfn>
+        * <dfn>fragment state</dfn>
+
+      * <dfn>Parsed URL</dfn>
+      * The <dfn>scheme</dfn> component of a <a>parsed URL</a>
+      * The <dfn>scheme data</dfn> component of a <a>parsed URL</a>
+      * The <dfn>username</dfn> component of a <a>parsed URL</a>
+      * The <dfn>password</dfn> component of a <a>parsed URL</a>
+      * The <dfn>host</dfn> component of a <a>parsed URL</a>
+      * The <dfn>port</dfn> component of a <a>parsed URL</a>
+      * The <dfn>path</dfn> component of a <a>parsed URL</a>
+      * The <dfn>query</dfn> component of a <a>parsed URL</a>
+      * The <dfn>fragment</dfn> component of a <a>parsed URL</a>
+      * <dfn>non-relative flag</dfn>
+      * <dfn>Parse errors</dfn> from the <span>URL parser</span>
+      * The <dfn>URL serializer</dfn>
+      * The <dfn>host serializer</dfn>
+      * The <dfn>serialize an integer</dfn>
+      * <dfn>Default encode set</dfn>
+      * <dfn>Percent encode</dfn>
+      * <dfn>UTF-8 percent encode</dfn>
+      * <dfn>Percent decode</dfn>
+      * <dfn>Decoder error</dfn>
+      * <dfn>set the username</dfn>
+      * <dfn>set the password</dfn>
+      * The <dfn>domain to ASCII</dfn> algorithm
+      * The <dfn>domain to Unicode</dfn> algorithm
+
+
+      A number of schemes and protocols are referenced by this specification also:
+
+      * The <dfn><code>about:</code></dfn> scheme [[!ABOUT]]
+      * The <dfn><code>blob:</code></dfn> scheme [[!FILEAPI]]
+      * The <dfn><code>data:</code></dfn> scheme [[!RFC2397]]
+      * The <dfn><code>http:</code></dfn> scheme [[!HTTP]]
+      * The <dfn><code>https:</code></dfn> scheme [[!HTTP]]
+      * The <dfn><code>mailto:</code></dfn> scheme [[!MAILTO]]
+      * The <dfn><code>sms:</code></dfn> scheme [[!SMS]]
+      * The <dfn><code>urn:</code></dfn> scheme [[!URN]]
+
+
+  : HTTP and related specifications
+  :: The following terms are defined in the HTTP specifications: [[!HTTP]]
+
+      * <dfn><code>Accept</code></dfn> header
+      * <dfn><code>Accept-Language</code></dfn> header
+      * <dfn><code>Cache-Control</code></dfn> header
+      * <dfn><code>Content-Disposition</code></dfn> header
+      * <dfn><code>Content-Language</code></dfn> header
+      * <dfn><code>Content-Length</code></dfn> header
+      * <dfn><code>Host</code></dfn> header
+      * <dfn><code>Last-Modified</code></dfn> header
+      * <dfn><code>Referer</code></dfn> header
+
+      The following terms are defined in the Cookie specification: [[!COOKIES]]
+
+
+      * <dfn>cookie-string</dfn>
+      * <dfn>receives a set-cookie-string</dfn>
+      * <dfn><code>Cookie</code></dfn> header
+
+
+      The following term is defined in the Web Linking specification: [[!WEBLINK]]
+
+
+      * <dfn><code>Link</code></dfn> header
+
+  : Fetch
+
+  :: The following terms are defined in the WHATWG Fetch specification: [[!FETCH]]
+
+      * <dfn><code>about:blank</code></dfn>
+      * <dfn>fetch</dfn>
+      * <dfn>ok status</dfn>
+      * <dfn><code>Origin</code></dfn> header
+      * <dfn>set</dfn>
+      * <dfn>response</dfn> and its associated:
+        * <dfn>type</dfn>
+        * <dfn>url</dfn>
+        * <dfn>url list</dfn>
+        * <dfn>status</dfn>
+        * <dfn>header list</dfn>
+        * <dfn>body</dfn>
+        * <dfn>internal response</dfn>
+        * <dfn>HTTPS state</dfn>
+      * <dfn>request</dfn> and its associated:
+        * <dfn>url</dfn>
+        * <dfn>method</dfn>
+        * <dfn>header list</dfn>
+        * <dfn>body</dfn>
+        * <dfn>client</dfn>
+        * <dfn>target browsing context</dfn>
+        * <dfn>initiator</dfn>
+        * <dfn>type</dfn>
+        * <dfn>destination</dfn>
+        * <dfn>origin</dfn>
+        * <dfn>omit-<code>Origin</code>-header flag</dfn>
+        * <dfn>referrer</dfn>
+        * <dfn>synchronous flag</dfn>
+        * <dfn>mode</dfn>
+        * <dfn>credentials mode</dfn>
+        * <dfn>use-URL-credentials flag</dfn>
+        * <dfn>cache mode</dfn>
+        * <dfn>redirect mode</dfn>
+
+
+<!--TOPIC:DOM APIs-->
+
+  : Web IDL
+
+  :: The IDL fragments in this specification must be interpreted as required for conforming IDL
+      fragments, as described in the Web IDL specification. [[!WEBIDL]]
+
+      The following terms are defined in the Web IDL specification:
+
+
+      * <dfn>Supported property indices</dfn>
+      * <dfn>Determine the value of an indexed property</dfn>
+      * <dfn>Support named properties</dfn>
+      * <dfn>Supported property names</dfn>
+      * <dfn>Unenumerable</dfn>
+      * <dfn>Determine the value of a named property</dfn>
+      * <dfn>Platform array objects</dfn>
+      * <dfn>Read only</dfn> (when applied to arrays)
+      * <dfn>Callback this value</dfn>
+      * <dfn>Converting</dfn> between WebIDL types and JS types
+      * <dfn>invoke the Web IDL callback function</dfn>
+
+
+      The Web IDL specification also defines the following types that are used in Web IDL fragments
+      in this specification:
+
+
+
+      * <dfn><code>Array</code></dfn>
+      * <dfn><code>boolean</code></dfn>
+      * <dfn><code>Boolean</code></dfn>
+      * <dfn><code>DOMString</code></dfn>
+      * <dfn><code>USVString</code></dfn>
+      * <dfn><code>double</code></dfn>
+      * <dfn><code>Error</code></dfn>
+      * <dfn><code>Function</code></dfn>
+      * <dfn><code>long</code></dfn>
+      * <dfn><code>Map</code></dfn>
+      * <dfn><code>Number</code></dfn>
+      * <dfn><code>Object</code></dfn>
+      * <dfn><code>RegExp</code></dfn>
+      * <dfn><code>Set</code></dfn>
+      * <dfn><code>String</code></dfn>
+      * <dfn><code>unrestricted double</code></dfn>
+      * <dfn><code>unsigned long</code></dfn>
+
+      The term <dfn>throw</dfn> in this specification is used as defined in the
+      WebIDL specification. The following exception names are defined by WebIDL and used by this
+      specification:
+
+      <ol class="brief">
+        <li value="1"><dfn><code>IndexSizeError</code></dfn></li>
+        <li value="3"><dfn><code>HierarchyRequestError</code></dfn></li>
+        <li value="5"><dfn><code>InvalidCharacterError</code></dfn></li>
+        <li value="8"><dfn><code>NotFoundError</code></dfn></li>
+        <li value="9"><dfn><code>NotSupportedError</code></dfn></li>
+        <li value="11"><dfn><code>InvalidStateError</code></dfn></li>
+        <li value="12"><dfn><code>SyntaxError</code></dfn></li>
+        <li value="15"><dfn><code>InvalidAccessError</code></dfn></li>
+        <li value="18"><dfn><code>SecurityError</code></dfn></li>
+        <li value="19"><dfn><code>NetworkError</code></dfn></li>
+        <li value="22"><dfn><code>QuotaExceededError</code></dfn></li>
+        <li value="23"><dfn><code>TimeoutError</code></dfn></li>
+        <li value="25"><dfn><code>DataCloneError</code></dfn></li>
+        <li><dfn><code>TypeError</code></dfn></li>
+      </ol>
+
+      When this specification requires a user agent to
+      <dfn>create a <code>Date</code> object</dfn> representing a particular time (which could be
+      the special value Not-a-Number), the milliseconds component of that time, if any, must be
+      truncated to an integer, and the time value of the newly created
+      <code data-x="es-Date">Date</code> object must represent the resulting truncated time.
+
+      <p class="example">
+        For instance, given the time 23045 millionths of a second after 01:00 UTC on
+        January 1st 2000, i.e. the time 2000-01-01T00:00:00.023045Z, then the
+        <code>Date</code> object created representing that time would represent the same
+        time as that created representing the time 2000-01-01T00:00:00.023Z, 45 millionths
+        earlier. If the given time is NaN, then the result is a <code>Date</code> object that
+        represents a time value NaN (indicating that the object does not represent a specific
+        instant of time).
+      </p>
+
+
+  : JavaScript
+
+  :: Some parts of the language described by this specification only support JavaScript as the
+      underlying scripting language. <a href="#refsECMA262">\[ECMA262]</a>
+
+      <p class="note">
+        The term "JavaScript" is used to refer to ECMA262, rather than the official term
+        ECMAScript, since the term JavaScript is more widely known. Similarly, the
+        <a>MIME type</a> used to refer to JavaScript in this specification is
+        <code>text/javascript</code>, since that is the most commonly used type,
+        <a>despite it being an officially obsoleted type</a> according to RFC 4329. [[!RFC4329]]
+      </p>
+
+      The term <dfn>JavaScript global environment</dfn> refers to the <i>global
+      environment</i> concept defined in the ECMAScript specification.
+
+      The ECMAScript <dfn><code data-x="js-SyntaxError">SyntaxError</code></dfn>
+      exception is also defined in the ECMAScript specification. <a href="#refsECMA262">\[ECMA262]</a>
+
+      The <dfn>ArrayBuffer</dfn> and related object types and underlying concepts
+      from the ECMAScript Specification are used for several features in this specification.
+      [[!ECMA262]]
+
+      The <dfn><code data-x="es-Date">Date</code></dfn> object type from the ECMAScript
+      Specification is used for several features of this specification. [[!ECMA262]]
+
+      The following helper IDL is used for referring to <code>ArrayBuffer</code>-related types:
+
+      <pre class="idl">typedef (<dfn>Int8Array</dfn> or <dfn>Uint8Array</dfn>
+      <dfn>Uint8ClampedArray</dfn> or <dfn>Int16Array</dfn> or <dfn>Uint16Array</dfn> or
+      <dfn>Int32Array</dfn> or <dfn>Uint32Array</dfn> or <dfn>Float32Array</dfn> or
+      <dfn>Float64Array</dfn> or <dfn>DataView</dfn>) <dfn>ArrayBufferView</dfn>;</pre>
+
+  <p class="note">
+    In particular, the <code>Uint8ClampedArray</code> type is used by some <a>2D canvas APIs</a>,
+    and the <a><code>WebSocket</code> API</a> uses <code>ArrayBuffer</code> objects for handling
+    binary frames.
+  </p>
+
+
+<hr />
+<hr />
+<hr />
+
+
