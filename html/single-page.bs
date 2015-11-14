@@ -27,13 +27,18 @@ Abstract: This specification defines the 5th major version, first minor revision
           continue to be introduced based on research into prevailing authoring practices, and
           special attention continues to be given to defining clear conformance criteria for user
           agents in an effort to improve interoperability.
-Ignored Vars: this, object, variable, optionalArgument, name
+Ignored Vars: this, object, variable, optionalArgument, name, value
 </pre>
 
 <pre class="anchors">
 urlPrefix: http://www.w3.org/TR/workers/; type: dfn; spec: WORKERS; text: worker;
 urlPrefix: http://www.whatwg.org/specs/web-apps/current-work/; type: dfn; spec: WHATWG; text: WHATWG HTML specification;
 urlPrefix: http://html5.org/r/8424/; type: dfn; text: 8424
+</pre>
+
+<pre class="link-defaults">
+spec:dom-ls; type:dfn; for:Attr; text:name
+spec:url; type:dfn; for:url; text:url
 </pre>
 
 <h2 id="introduction">Introduction</h2>
@@ -205,7 +210,7 @@ urlPrefix: http://html5.org/r/8424/; type: dfn; text: 8424
     designed such that no script can ever detect the simultaneous execution of other scripts. Even
     with <a>workers</a>, the intent is that the behavior of implementations
     can be thought of as completely serializing the execution of all scripts in all
-    <span data-x="browsing context">browsing contexts</span>.
+    <a>browsing contexts</a>.
 
     The
     {{navigator}}.<<yieldForStorageUpdates()>>
@@ -240,20 +245,19 @@ urlPrefix: http://html5.org/r/8424/; type: dfn; text: 8424
         scripts can then look for and process.
 
     * Authors can use the <code>&lt;meta name="" content=""></code> mechanism to
-        include page-wide metadata by registering <span data-x="concept-meta-extensions">extensions
-        to the predefined set of metadata names</span>.
+        include page-wide metadata by registering <a>extensions to the predefined set of metadata
+        names</a>.
 
     * Authors can use the <code>rel=""</code> mechanism to annotate
-        links with specific meanings by registering <span data-x="concept-rel-extensions">extensions
-        to the predefined set of link types</span>. This is also used by microformats. Additionally,
-        absolute URLs that do not contain any non-ASCII characters, nor characters in the range
-        U+0041 (LATIN CAPITAL LETTER A) through U+005A (LATIN CAPITAL LETTER Z) (inclusive), may be
-        used as link types.
+        links with specific meanings by registering <a>extensions to the predefined set of link
+        types</a>. This is also used by microformats. Additionally, absolute URLs that do not
+        contain any non-ASCII characters, nor characters in the range U+0041 (LATIN CAPITAL LETTER
+        A) through U+005A (LATIN CAPITAL LETTER Z) (inclusive), may be used as link types.
 
     * Authors can embed raw data using the <code>&lt;script type=""></code> mechanism with a custom
         type, for further handling by inline or server-side scripts.
 
-    * Authors can create <span data-x="plugin">plugins</span> and invoke them using the
+    * Authors can create <a>plugins</a> and invoke them using the
         <{embed}> element. This is how Flash works.
 
     * Authors can extend APIs using the JavaScript prototyping mechanism. This is widely used by
@@ -275,12 +279,12 @@ urlPrefix: http://html5.org/r/8424/; type: dfn; text: 8424
 
     The first such concrete syntax is the HTML syntax. This is the format suggested for most
     authors. It is compatible with most legacy Web browsers. If a document is transmitted with the
-    <code>text/html</code> <span>MIME type</span>, then it will be processed as an HTML document by
+    <code>text/html</code> <a>MIME type</a>, then it will be processed as an HTML document by
     Web browsers. This specification defines version [LEVEL] of the HTML syntax, known as
     "HTML[LEVEL]".
 
     The second concrete syntax is the XHTML syntax, which is an application of XML. When a document
-    is transmitted with an <span>XML MIME type</span>, such as <code>application/xhtml+xml</code>,
+    is transmitted with an <a>XML MIME type</a>, such as <code>application/xhtml+xml</code>,
     then it is treated as an XML document by Web browsers, to be parsed by an XML processor. Authors
     are reminded that the processing for XML and HTML differs; in particular, even minor syntax
     errors will prevent a document labeled as XML from being rendered fully, whereas they would be
@@ -298,7 +302,7 @@ urlPrefix: http://html5.org/r/8424/; type: dfn; text: 8424
 
     <em>This section is non-normative.</em>
 
-    <p>This specification is divided into the following major sections:</p>
+    This specification is divided into the following major sections:
 
     <div dfn-for="spec">
         : [[#introduction]]
@@ -372,7 +376,7 @@ urlPrefix: http://html5.org/r/8424/; type: dfn; text: 8424
 
     <div class="example">
         Continuing the above example, a requirement stating that a particular attribute's value is
-        constrained to being a <span>valid integer</span> emphatically does <em>not</em> imply
+        constrained to being a <a>valid integer</a> emphatically does <em>not</em> imply
         anything about the requirements on consumers. It might be that the consumers are in fact
         required to treat the attribute as an opaque string, completely unaffected by whether the
         value conforms to the requirements or not. It might be (as in the previous example) that the
@@ -399,9 +403,7 @@ urlPrefix: http://html5.org/r/8424/; type: dfn; text: 8424
 
         <dl class="domintro">
             <dt><var>variable</var> = <var>object</var> . <code data-x="x-that">method</code>( [ <var>optionalArgument</var> ] )</dt>
-            <dd>
-                <p>This is a note to authors describing the usage of an interface.</p>
-            </dd>
+            <dd>This is a note to authors describing the usage of an interface.</dd>
         </dl>
 
         <pre class="css">/* this is a CSS fragment */</pre>
@@ -487,7 +489,7 @@ urlPrefix: http://html5.org/r/8424/; type: dfn; text: 8424
 
     Features in this specification which can be <dfn id="fingerprinting-vector">used to
     fingerprint the user</dfn> are marked as this paragraph is.
-    <span class="fingerprint"><a href="#fingerprinting-vector"><img height="21" src="images/fingerprint.png" width="15" alt="(This is a fingerprinting vector.)" /></a></span>
+    <a class="fingerprint" href="#fingerprinting-vector"><img height="21" src="images/fingerprint.png" width="15" alt="(This is a fingerprinting vector.)" /></a>
 
     Other features in the platform can be used for the same purpose, though, including, though not
     limited to:
@@ -546,9 +548,7 @@ urlPrefix: http://html5.org/r/8424/; type: dfn; text: 8424
     <code>'</code> <code>`</code> <code>=</code> <code>&lt;</code> or <code>&gt;</code>. Otherwise,
     it has to be quoted using either single or double quotes. The value, along with the
     "<code>=</code>" character, can be omitted altogether if the value is the empty string.
-<pre class="link-defaults">
-spec:dom-ls; type:dfn; for:Attr; text:name
-</pre>
+
     <pre highlight="html">&lt;!-- empty attributes -->
     &lt;input name=address disabled>
     &lt;input name=address disabled="">
@@ -613,7 +613,7 @@ spec:dom-ls; type:dfn; for:Attr; text:name
         </li>
     </ul>
 
-    The <span>root element</span> of this tree is the <code>html</code> element, which is the
+    The <a>root element</a> of this tree is the <code>html</code> element, which is the
     element always found at the root of HTML documents. It contains two elements, <code>head</code>
     and <code>body</code>, as well as a <code>Text</code> node between them.
 
@@ -633,7 +633,7 @@ spec:dom-ls; type:dfn; for:Attr; text:name
 
     This DOM tree can be manipulated from scripts in the page. Scripts (typically in JavaScript)
     are small programs that can be embedded using the <code>script</code> element or using
-    <span>event handler content attributes</span>. For example, here is a form with a script that
+    <a>event handler content attributes</a>. For example, here is a form with a script that
     sets the value of the form's <code>output</code> element to say "Hello World"
 
     <pre highlight="html">&lt;form name="main">
@@ -666,7 +666,7 @@ spec:dom-ls; type:dfn; for:Attr; text:name
 
     In the following example, the page has been made yellow-on-blue using CSS.
 
-    <pre highlight=html>&lt;!DOCTYPE html>
+    <pre highlight="html">&lt;!DOCTYPE html>
     &lt;html>
      &lt;head>
       &lt;title>Sample styled page&lt;/title>
@@ -700,18 +700,17 @@ spec:dom-ls; type:dfn; for:Attr; text:name
     The security model of the Web is based on the concept of "origins", and correspondingly many of
     the potential attacks on the Web involve cross-origin actions. [[!ORIGIN]]
 
-    <dl>
-        <dt>Not validating user input</dt>
-        <dt>Cross-site scripting (XSS)</dt>
-        <dt>SQL injection</dt>
-        <dd>
-        When accepting untrusted input, e.g. user-generated content such as text comments, values in
-        URL parameters, messages from third-party sites, etc, it is imperative that the data be
-        validated before use, and properly escaped when displayed. Failing to do this can allow a
-        hostile user to perform a variety of attacks, ranging from the potentially benign, such as
-        providing bogus user information like a negative age, to the serious, such as running scripts
-        every time a user looks at a page that includes the information, potentially propagating the
-        attack in the process, to the catastrophic, such as deleting all data in the server.
+    : Not validating user input
+    : Cross-site scripting (XSS)
+    : SQL injection
+    :: When accepting untrusted input, e.g. user-generated content such as text comments, values
+        in URL parameters, messages from third-party sites, etc, it is imperative that the data
+        be validated before use, and properly escaped when displayed. Failing to do this can
+        allow a hostile user to perform a variety of attacks, ranging from the potentially
+        benign, such as providing bogus user information like a negative age, to the serious,
+        such as running scripts every time a user looks at a page that includes the information,
+        potentially propagating the attack in the process, to the catastrophic, such as deleting
+        all data in the server.
 
         When writing filters to validate user input, it is imperative that filters always be
         safelist-based, allowing known-safe constructs and disallowing all other input. Blocklist-based
@@ -724,9 +723,9 @@ spec:dom-ls; type:dfn; for:Attr; text:name
             and the site then redirected the user to that page to display a message, as in:
 
             <pre highlight="html">&lt;ul>
-             &lt;li>&lt;a href="message.cgi?say=Hello">Say Hello&lt;/a>
-             &lt;li>&lt;a href="message.cgi?say=Welcome">Say Welcome&lt;/a>
-             &lt;li>&lt;a href="message.cgi?say=Kittens">Say Kittens&lt;/a>
+                &lt;li>&lt;a href="message.cgi?say=Hello">Say Hello&lt;/a>
+                &lt;li>&lt;a href="message.cgi?say=Welcome">Say Welcome&lt;/a>
+                &lt;li>&lt;a href="message.cgi?say=Kittens">Say Kittens&lt;/a>
             &lt;/ul></pre>
 
             If the message was just displayed to the user without escaping, a hostile attacker could
@@ -759,41 +758,868 @@ spec:dom-ls; type:dfn; for:Attr; text:name
         * Allowing a <code>base</code> element to be inserted means any <code>script</code> elements
             in the page with relative links can be hijacked, and similarly that any form submissions
             can get redirected to a hostile site.
-       </dd>
 
-        <dt>Cross-site request forgery (CSRF)</dt>
-        <dd>
-            If a site allows a user to make form submissions with user-specific side-effects, for
-            example posting messages on a forum under the user's name, making purchases, or applying
-            for a passport, it is important to verify that the request was made by the user
-            intentionally, rather than by another site tricking the user into making the request
-            unknowingly.
+    : Cross-site request forgery (CSRF)
+    :: If a site allows a user to make form submissions with user-specific side-effects, for
+        example posting messages on a forum under the user's name, making purchases, or applying
+        for a passport, it is important to verify that the request was made by the user
+        intentionally, rather than by another site tricking the user into making the request
+        unknowingly.
 
-            This problem exists because HTML forms can be submitted to other origins.
+        This problem exists because HTML forms can be submitted to other origins.
 
-            Sites can prevent such attacks by populating forms with user-specific hidden tokens, or
-            by checking <code data-x="http-origin">Origin</code> headers on all requests.
-       </dd>
+        Sites can prevent such attacks by populating forms with user-specific hidden tokens, or
+        by checking <code data-x="http-origin">Origin</code> headers on all requests.
 
-        <dt>Clickjacking</dt>
-        <dd>
-            A page that provides users with an interface to perform actions that the user might not
-            wish to perform needs to be designed so as to avoid the possibility that users can be
-            tricked into activating the interface.
+    : Clickjacking
+    :: A page that provides users with an interface to perform actions that the user might not
+        wish to perform needs to be designed so as to avoid the possibility that users can be
+        tricked into activating the interface.
 
-            One way that a user could be so tricked is if a hostile site places the victim site in a
-            small <code>iframe</code> and then convinces the user to click, for instance by having
-            the user play a reaction game. Once the user is playing the game, the hostile site can
-            quickly position the iframe under the mouse cursor just as the user is about to click,
-            thus tricking the user into clicking the victim site's interface.
+        One way that a user could be so tricked is if a hostile site places the victim site in a
+        small <code>iframe</code> and then convinces the user to click, for instance by having
+        the user play a reaction game. Once the user is playing the game, the hostile site can
+        quickly position the iframe under the mouse cursor just as the user is about to click,
+        thus tricking the user into clicking the victim site's interface.
 
-            To avoid this, sites that do not expect to be used in frames are encouraged to only
-            enable their interface if they detect that they are not in a frame (e.g. by comparing
-            the <code>window</code> object to the value of the <code>top</code> attribute).
-        </dd>
-    </dl>
+        To avoid this, sites that do not expect to be used in frames are encouraged to only
+        enable their interface if they detect that they are not in a frame (e.g. by comparing
+        the <code>window</code> object to the value of the <code>top</code> attribute).
+
+<h4 id="common-pitfalls-to-avoid-when-using-the-scripting-apis">Common pitfalls to avoid when using
+the scripting APIs</h4>
+
+    <em>This section is non-normative.</em>
+
+    Scripts in HTML have "run-to-completion" semantics, meaning that the browser will generally run
+    the script uninterrupted before doing anything else, such as firing further events or continuing
+    to parse the document.
+
+    On the other hand, parsing of HTML files happens <a>in parallel</a> and incrementally,
+    meaning that the parser can pause at any point to let scripts run. This is generally a good
+    thing, but it does mean that authors need to be careful to avoid hooking event handlers after
+    the events could have possibly fired.
+
+    There are two techniques for doing this reliably: use
+    <a>event handler content attributes</a>, or create the element and add the event handlers
+    in the same script. The latter is safe because, as mentioned earlier, scripts are run to
+    completion before further events can fire.
+
+    <div class="example">
+        One way this could manifest itself is with <code>img</code> elements and the
+        <code>load</code> event. The event could fire as soon as the element has been parsed,
+        especially if the image has already been cached (which is common).
+
+        Here, the author uses the <code>onload</code> handler on an
+        <code>img</code> element to catch the <code>load</code> event:
+
+        <pre highlight="html">&lt;img src="games.png" alt="Games" onload="gamesLogoHasLoaded(event)"></pre>
+
+        If the element is being added by script, then so long as the event handlers are added in the
+        same script, the event will still not be missed:
+
+        <pre highlight="html">&lt;script>
+        var img = new Image();
+        img.src = 'games.png';
+        img.alt = 'Games';
+        img.onload = gamesLogoHasLoaded;
+        // img.addEventListener('load', gamesLogoHasLoaded, false); // would work also
+        &lt;/script></pre>
+
+        However, if the author first created the <code>img</code> element and then in a separate
+        script added the event listeners, there's a chance that the <code>load</code> event would be
+        fired in between, leading it to be missed:
+
+        <pre class="bad" highlight="html">&lt;!-- Do not use this style, it has a race condition! -->
+        &lt;img id="games" src="games.png" alt="Games">
+        &lt;!-- the 'load' event might fire here while the parser is taking a
+            break, in which case you will not see it! -->
+        &lt;script>
+        var img = document.getElementById('games');
+        img.onload = gamesLogoHasLoaded; // might never fire!
+        &lt;/script></pre>
+    </div>
+
+<h4 id="how-to-catch-mistakes-when-writing-html-validators-and-conformance-checkers">How to catch
+mistakes when writing HTML: validators and conformance checkers</h4>
+
+    <em>This section is non-normative.</em>
+
+    Authors are encouraged to make use of conformance checkers (also known as <i>validators</i>) to
+    catch common mistakes. The W3C provides a number of online validation services, including the
+    <a href="http://validator.w3.org/nu/">Nu Markup Validation Service</a>.
+
+<h3 id="conformance-requirements-for-authors">Conformance requirements for authors</h3>
+
+    <em>This section is non-normative.</em>
+
+    Unlike previous versions of the HTML specification, this specification defines in some detail
+    the required processing for invalid documents as well as valid documents.
+
+    However, even though the processing of invalid content is in most cases well-defined,
+    conformance requirements for documents are still important: in practice, interoperability (the
+    situation in which all implementations process particular content in a reliable and identical or
+    equivalent way) is not the only goal of document conformance requirements. This section details
+    some of the more common reasons for still distinguishing between a conforming document and one
+    with errors.
+
+<h4 id="presentational-markup">Presentational markup</h4>
+
+    <em>This section is non-normative.</em>
+
+    The majority of presentational features from previous versions of HTML are no longer allowed.
+    Presentational markup in general has been found to have a number of problems:
+
+    : The use of presentational elements leads to poorer accessibility
+    :: While it is possible to use presentational markup in a way that provides users of assistive
+        technologies (ATs) with an acceptable experience (e.g. using ARIA), doing so is
+        significantly more difficult than doing so when using semantically-appropriate markup.
+        Furthermore, even using such techniques doesn't help make pages accessible for non-AT
+        non-graphical users, such as users of text-mode browsers.
+
+        Using media-independent markup, on the other hand, provides an easy way for documents to be
+        authored in such a way that they work for more users (e.g. text browsers).
+
+    : Higher cost of maintenance
+    :: It is significantly easier to maintain a site written in such a way that the markup is
+        style-independent. For example, changing the color of a site that uses
+        <code>&lt;font&nbsp;color=""></code> throughout requires changes across the entire site,
+        whereas a similar change to a site based on CSS can be done by changing a single file.
+
+
+    : Larger document sizes
+    :: Presentational markup tends to be much more redundant, and thus results in larger document
+        sizes.
+
+        For those reasons, presentational markup has been removed from HTML in this version. This
+        change should not come as a surprise; HTML4 deprecated presentational markup many years ago
+        and provided a mode (HTML4 Transitional) to help authors move away from presentational
+        markup; later, XHTML 1.1 went further and obsoleted those features altogether.
+
+        The only remaining presentational markup features in HTML are the <code>style</code>
+        attribute and the <code>style</code> element. Use of the <code>style</code> attribute is
+        somewhat discouraged in production environments, but it can be useful for rapid prototyping
+        (where its rules can be directly moved into a separate style sheet later) and for providing
+        specific styles in unusual cases where a separate style sheet would be inconvenient.
+        Similarly, the <code>style</code> element can be useful in syndication or for page-specific
+        styles, but in general an external style sheet is likely to be more convenient when the
+        styles apply to multiple pages.
+
+        It is also worth noting that some elements that were previously presentational have been
+        redefined in this specification to be media-independent: <code>b</code>, <code>i</code>,
+        <code>hr</code>, <code>s</code>, <code>small</code>, and <code>u</code>.
+
+
+<h4 id="syntax-errors">Syntax errors</h4>
+
+    <em>This section is non-normative.</em>
+
+    The syntax of HTML is constrained to avoid a wide variety of problems.
+
+    : Unintuitive error-handling behavior
+    :: Certain invalid syntax constructs, when parsed, result in DOM trees that are highly
+        unintuitive.
+
+        <div class="example">
+            For example, the following markup fragment results in a DOM with an <code>hr</code> element
+            that is an <em>earlier</em> sibling of the corresponding <code>table</code> element:
+
+            <pre class="bad" highlight="html">&lt;table>&lt;hr>...</pre>
+        </div>
+
+    : Errors with optional error recovery
+    :: To allow user agents to be used in controlled environments without having to implement the
+        more bizarre and convoluted error handling rules, user agents are permitted to fail whenever
+        encountering a <a>parse error</a>.
+
+    : Errors where the error-handling behavior is not compatible with streaming user agents
+    :: Some error-handling behavior, such as the behavior for the <code>&lt;table>&lt;hr>...</code>
+        example mentioned above, are incompatible with streaming user agents (user agents that
+        process HTML files in one pass, without storing state). To avoid interoperability problems
+        with such user agents, any syntax resulting in such behavior is considered invalid.
+
+    : Errors that can result in infoset coercion
+    :: When a user agent based on XML is connected to an HTML parser, it is possible that certain
+        invariants that XML enforces, such as comments never containing two consecutive hyphens,
+        will be violated by an HTML file. Handling this can require that the parser coerce the HTML
+        DOM into an XML-compatible infoset. Most syntax constructs that require such handling are
+        considered invalid.
+
+    : Errors that result in disproportionally poor performance
+    :: Certain syntax constructs can result in disproportionally poor performance. To discourage the
+        use of such constructs, they are typically made non-conforming.
+
+        <div class="example">
+            For example, the following markup results in poor performance, since all the unclosed
+            <code>i</code> elements have to be reconstructed in each paragraph, resulting in
+            progressively more elements in each paragraph:
+
+            <pre class="bad" highlight="html">&lt;p>&lt;i>He dreamt.
+            &lt;p>&lt;i>He dreamt that he ate breakfast.
+            &lt;p>&lt;i>Then lunch.
+            &lt;p>&lt;i>And finally dinner.</pre>
+
+            The resulting DOM for this fragment would be:
+
+            <ul class="domTree">
+                <li class="t1"><code>p</code>
+                    <ul>
+                        <li class="t1"><code>i</code>
+                            <ul>
+                                <li class="t3"><code>#text</code>: <span>He dreamt.</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="t1"><code>p</code>
+                    <ul>
+                        <li class="t1"><code>i</code>
+                            <ul>
+                                <li class="t1"><code>i</code>
+                                    <ul>
+                                        <li class="t3"><code>#text</code>: <span>He dreamt that he ate breakfast.</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="t1"><code>p</code>
+                    <ul>
+                        <li class="t1"><code>i</code>
+                            <ul>
+                                <li class="t1"><code>i</code>
+                                    <ul>
+                                        <li class="t1"><code>i</code>
+                                            <ul>
+                                                <li class="t3"><code>#text</code>: <span>Then lunch.</span></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="t1"><code>p</code>
+                    <ul>
+                        <li class="t1"><code>i</code>
+                            <ul>
+                                <li class="t1"><code>i</code>
+                                    <ul>
+                                        <li class="t1"><code>i</code>
+                                            <ul>
+                                                <li class="t1"><code>i</code>
+                                                    <ul>
+                                                        <li class="t3"><code>#text</code>: <span>And finally dinner.</span></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    : Errors involving fragile syntax constructs
+    :: There are syntax constructs that, for historical reasons, are relatively fragile. To help
+        reduce the number of users who accidentally run into such problems, they are made
+        non-conforming.
+
+        <div class="example">
+            For example, the parsing of certain named character references in attributes happens even
+            with the closing semicolon being omitted. It is safe to include an ampersand followed by
+            letters that do not form a named character reference, but if the letters are changed to a
+            string that <em>does</em> form a named character reference, they will be interpreted as that
+            character instead.
+
+            In this fragment, the attribute's value is "<code>?bill&amp;ted</code>":
+
+            <pre class="bad" highlight="html">&lt;a href="?bill&amp;ted">Bill and Ted&lt;/a></pre>
+
+             In the following fragment, however, the attribute's value is actually
+             "<code>?art&copy;</code>", <em>not</em> the intended "<code>?art&amp;copy</code>",
+             because even without the final semicolon, "<code>&amp;copy</code>" is handled the same
+             as "<code>&amp;copy;</code>" and thus gets interpreted as "<code>&copy;</code>":
+
+             <pre class="bad" highlight="html">&lt;a href="?art&amp;copy">Art and Copy&lt;/a></pre>
+
+             To avoid this problem, all named character references are required to end with a semicolon,
+             and uses of named character references without a semicolon are flagged as errors.
+
+             Thus, the correct way to express the above cases is as follows:
+
+             <pre highlight="html">&lt;a href="?bill&amp;ted">Bill and Ted&lt;/a> &lt;!-- &amp;ted is ok, since it's not a named character reference --></pre>
+
+             <pre highlight="html">&lt;a href="?art&amp;amp;copy">Art and Copy&lt;/a> &lt;!-- the &amp; has to be escaped, since &amp;copy is a named character reference --></pre>
+        </div>
+
+   : Errors involving known interoperability problems in legacy user agents
+   :: Certain syntax constructs are known to cause especially subtle or serious problems in legacy
+        user agents, and are therefore marked as non-conforming to help authors avoid them.
+
+        <p class="example">
+            For example, this is why the U+0060 GRAVE ACCENT character (`) is not allowed in
+            unquoted attributes. In certain legacy user agents, it is sometimes treated as a quote
+            character.
+        </p>
+
+        <p class="example">
+            Another example of this is the DOCTYPE, which is required to trigger <a>no-quirks
+            mode</a>, because the behavior of legacy user agents in <a>quirks mode</a> is
+            often largely undocumented.
+        </p>
+
+    : Errors that risk exposing authors to security attacks
+    :: Certain restrictions exist purely to avoid known security problems.
+
+        <p class="example">
+            For example, the restriction on using UTF-7 exists purely to avoid authors falling prey
+            to a known cross-site-scripting attack using UTF-7. [[!UTF7]]
+        </p>
+
+   : Cases where the author's intent is unclear
+   :: Markup where the author's intent is very unclear is often made non-conforming. Correcting
+        these errors early makes later maintenance easier.
+
+        <div class="example">
+            For example, it is unclear whether the author intended the following to be an
+            <code>h1</code> heading or an <code>h2</code> heading:
+
+            <pre class="bad" highlight="html">&lt;h2>Contact details&lt;/h2></pre>
+        </div>
+
+    : Cases that are likely to be typos
+    :: When a user makes a simple typo, it is helpful if the error can be caught early, as this can
+        save the author a lot of debugging time. This specification therefore usually considers it
+        an error to use element names, attribute names, and so forth, that do not match the names
+        defined in this specification.
+
+        <p class="example">
+            For example, if the author typed <code>&lt;capton></code> instead of
+            <code>&lt;caption></code>, this would be flagged as an error and the author could correct
+            the typo immediately.
+        </p>
+
+    : Errors that could interfere with new syntax in the future
+    :: In order to allow the language syntax to be extended in the future, certain otherwise
+        harmless features are disallowed.
+
+        <p class="example">
+            For example, "attributes" in end tags are ignored currently, but they are invalid, in
+            case a future change to the language makes use of that syntax feature without
+            conflicting with already-deployed (and valid!) content.
+        </p>
+
+    Some authors find it helpful to be in the practice of always quoting all attributes and always
+    including all optional tags, preferring the consistency derived from such custom over the minor
+    benefits of terseness afforded by making use of the flexibility of the HTML syntax. To aid such
+    authors, conformance checkers can provide modes of operation wherein such conventions are
+    enforced.
+
+<h4 id="restrictions-on-content-models-and-on-attribute-values">Restrictions on content models and
+on attribute values</h4>
+
+    <em>This section is non-normative.</em>
+
+    Beyond the syntax of the language, this specification also places restrictions on how elements
+    and attributes can be specified. These restrictions are present for similar reasons:
+
+    : Errors involving content with dubious semantics
+    :: To avoid misuse of elements with defined meanings, content models are defined that restrict
+        how elements can be nested when such nestings would be of dubious value.
+
+        <p class="example">
+            For example, this specification disallows nesting a <code>section</code> element inside
+            a <code>kbd</code> element, since it is highly unlikely for an author to indicate that
+            an entire section should be keyed in.
+        </p>
+
+
+    : Errors that involve a conflict in expressed semantics
+    :: Similarly, to draw the author's attention to mistakes in the use of elements, clear
+        contradictions in the semantics expressed are also considered conformance errors.
+
+        <div class="example">
+            In the fragments below, for example, the semantics are nonsensical: a separator cannot
+            simultaneously be a cell, nor can a radio button be a progress bar.
+
+            <pre class="bad" highlight="html">&lt;hr role="cell"></pre>
+            <pre class="bad" highlight="html">&lt;input type=radio role=progressbar></pre>
+        </div>
+
+        <p class="example">
+            Another example is the restrictions on the content models of the <code>ul</code>
+            element, which only allows <code>li</code> element children. Lists by definition consist
+             just of zero or more list items, so if a <code>ul</code> element contains something
+            other than an <code>li</code> element, it's not clear what was meant.
+        </p>
+
+
+    : Cases where the default styles are likely to lead to confusion
+    :: Certain elements have default styles or behaviors that make certain combinations likely to
+        lead to confusion. Where these have equivalent alternatives without this problem, the
+        confusing combinations are disallowed.
+
+        <p class="example">
+            For example, <code>div</code> elements are rendered as block boxes, and
+            <code>span</code> elements as inline boxes. Putting a block box in an inline box is
+            unnecessarily confusing; since either nesting just <code>div</code> elements, or nesting
+            just <code>span</code> elements, or nesting <code>span</code> elements inside
+            <code>div</code> elements all serve the same purpose as nesting a <code>div</code>
+            element in a <code>span</code> element, but only the latter involves a block box in an
+            inline box, the latter combination is disallowed.
+        </p>
+
+        <p class="example">
+            Another example would be the way <a>interactive content</a> cannot be nested. For
+            example, a <code>button</code> element cannot contain a <code>textarea</code> element.
+            This is because the default behavior of such nesting interactive elements would be
+            highly confusing to users. Instead of nesting these elements, they can be placed side by
+            side.
+        </p>
+
+
+    : Errors that indicate a likely misunderstanding of the specification
+    :: Sometimes, something is disallowed because allowing it would likely cause author confusion.
+
+        <p class="example">
+            For example, setting the <code data-x="attr-fe-disabled">disabled</code> attribute to
+            the value "<code>false</code>" is disallowed, because despite the appearance of meaning
+            that the element is enabled, it in fact means that the element is <em>disabled</em>
+            (what matters for implementations is the presence of the attribute, not its value).
+        </p>
+
+    : Errors involving limits that have been imposed merely to simplify the language
+    :: Some conformance errors simplify the language that authors need to learn.
+
+        <p class="example">
+            For example, the <code>area</code> element's <code>shape</code> attribute, despite
+            accepting both <code>circ</code> and <code>circle</code> values in practice as synonyms,
+            disallows the use of the <code>circ</code> value, so as to simplify tutorials and other
+            learning aids. There would be no benefit to allowing both, but it would cause extra
+            confusion when teaching the language.
+        </p>
+
+    : Errors that involve peculiarities of the parser
+    :: Certain elements are parsed in somewhat eccentric ways (typically for historical reasons),
+        and their content model restrictions are intended to avoid exposing the author to these
+        issues.
+
+        <div class="example">
+            For example, a <code>form</code> element isn't allowed inside <a>phrasing content</a>,
+            because when parsed as HTML, a <code>form</code> element's start tag will imply a
+            <code>p</code> element's end tag. Thus, the following markup results in two paragraphs,
+            not one:
+
+            <pre highlight="html">&lt;p>Welcome. &lt;form>&lt;label>Name:&lt;/label> &lt;input>&lt;/form></pre>
+
+            It is parsed exactly like the following:
+
+            <pre highlight="html">&lt;p>Welcome. &lt;/p>&lt;form>&lt;label>Name:&lt;/label> &lt;input>&lt;/form></pre>
+        </div>
+
+    : Errors that would likely result in scripts failing in hard-to-debug ways
+    :: Some errors are intended to help prevent script problems that would be hard to debug.
+
+        <p class="example">
+            This is why, for instance, it is non-conforming to have two <code>id</code> attributes
+            with the same value. Duplicate IDs lead to the wrong element being selected, with
+            sometimes disastrous effects whose cause is hard to determine.
+        </p>
+
+    : Errors that waste authoring time
+    :: Some constructs are disallowed because historically they have been the cause of a lot of
+        wasted authoring time, and by encouraging authors to avoid making them, authors can save time in
+        future efforts.
+
+        <p class="example">
+            For example, a <code>script</code> element's <code>src</code> attribute causes the
+            element's contents to be ignored. However, this isn't obvious, especially if the
+            element's contents appear to be executable script &mdash; which can lead to authors
+            spending a lot of time trying to debug the inline script without realizing that it is
+            not executing. To reduce this problem, this specification makes it non-conforming to
+            have executable script in a <code>script</code> element when the <code>src</code>
+            attribute is present. This means that authors who are validating their documents are
+            less likely to waste time with this kind of mistake.
+        </p>
+
+    : Errors that involve areas that affect authors migrating to and from XHTML
+    :: Some authors like to write files that can be interpreted as both XML and HTML with similar
+        results. Though this practice is discouraged in general due to the myriad of subtle
+        complications involved (especially when involving scripting, styling, or any kind of
+        automated serialization), this specification has a few restrictions intended to at least
+        somewhat mitigate the difficulties. This makes it easier for authors to use this as a
+        transitionary step when migrating between HTML and XHTML.
+
+        <p class="example">
+            For example, there are somewhat complicated rules surrounding the <code>lang</code> and
+            <code>xml:lang</code> attributes intended to keep the two synchronized.
+        </p>
+
+        <p class="example">
+            Another example would be the restrictions on the values of <code>xmlns</code> attributes
+            in the HTML serialization, which are intended to ensure that elements in conforming
+            documents end up in the same namespaces whether processed as HTML or XML.
+        </p>
+
+    : Errors that involve areas reserved for future expansion
+    :: As with the restrictions on the syntax intended to allow for new syntax in future revisions
+        of the language, some restrictions on the content models of elements and values of
+        attributes are intended to allow for future expansion of the HTML vocabulary.
+
+        <p class="example">
+            For example, limiting the values of the <code>target</code> attribute that start with an
+            U+005F LOW LINE character (_) to only specific predefined values allows new predefined
+            values to be introduced at a future time without conflicting with author-defined values.
+        </p>
+
+    : Errors that indicate a mis-use of other specifications
+    :: Certain restrictions are intended to support the restrictions made by other specifications.
+
+        <p class="example">
+            For example, requiring that attributes that take media query lists use only
+            <em>valid</em> media query lists reinforces the importance of following the conformance
+            rules of that specification.
+        </p>
+
+<h3 id="suggested-reading">Suggested reading</h3>
+
+    <em>This section is non-normative.</em>
+
+    The following documents might be of interest to readers of this specification.
+
+    : <cite>Character Model for the World Wide Web 1.0: Fundamentals</cite> [[!CHARMOD]]
+    :: <blockquote>
+            This Architectural Specification provides authors of specifications, software
+            developers, and content developers with a common reference for interoperable text
+            manipulation on the World Wide Web, building on the Universal Character Set, defined
+            jointly by the Unicode Standard and ISO/IEC 10646. Topics addressed include use of the
+            terms '''character''', '''encoding''' and '''string''', a reference processing model,
+            choice and identification of character encodings, character escaping, and string
+            indexing.
+        </blockquote>
+
+    : <cite>Unicode Security Considerations</cite> [[!UTR36]]
+    :: <blockquote>
+            Because Unicode contains such a large number of characters and incorporates the varied
+            writing systems of the world, incorrect usage can expose programs or systems to possible
+            security attacks. This is especially important as more and more products are
+            internationalized. This document describes some of the security considerations that
+            programmers, system analysts, standards developers, and users should take into account,
+            and provides specific recommendations to reduce the risk of problems.
+        </blockquote>
+
+    : <cite>Web Content Accessibility Guidelines (WCAG) 2.0</cite> [[!WCAG]]
+    :: <blockquote>
+            Web Content Accessibility Guidelines (WCAG) 2.0 covers a wide range of recommendations
+            for making Web content more accessible. Following these guidelines will make content
+            accessible to a wider range of people with disabilities, including blindness and low
+            vision, deafness and hearing loss, learning disabilities, cognitive limitations, limited
+            movement, speech disabilities, photosensitivity and combinations of these. Following
+            these guidelines will also often make your Web content more usable to users in general.
+        </blockquote>
+
+    : <cite>Authoring Tool Accessibility Guidelines (ATAG) 2.0</cite> [[!ATAG20]]
+    :: <blockquote>
+            This specification provides guidelines for designing Web content authoring tools that
+            are more accessible for people with disabilities. An authoring tool that conforms to
+            these guidelines will promote accessibility by providing an accessible user interface to
+            authors with disabilities as well as by enabling, supporting, and promoting the
+            production of accessible Web content by all authors.
+        </blockquote>
+
+    : <cite>User Agent Accessibility Guidelines (UAAG) 2.0</cite> [[!UAAG20]]
+    :: <blockquote>
+            This document provides guidelines for designing user agents that
+            lower barriers to Web accessibility for people with disabilities. User agents include
+            browsers and other types of software that retrieve and render Web content. A user agent
+            that conforms to these guidelines will promote accessibility through its own user
+            interface and through other internal facilities, including its ability to communicate
+            with other technologies (especially assistive technologies). Furthermore, all users, not
+            just users with disabilities, should find conforming user agents to be more usable.
+        </blockquote>
+
+    : <cite>Polyglot Markup: HTML-Compatible XHTML Documents</cite> [[!HTML-POLYGLOT]]
+    :: <blockquote>
+            A document that uses polyglot markup is a document that is a stream of bytes that parses
+            into identical document trees (with the exception of the xmlns attribute on the root
+            element) when processed as HTML and when processed as XML. Polyglot markup that meets a
+            well defined set of constraints is interpreted as compatible, regardless of whether they
+            are processed as HTML or as XHTML, per the HTML5 specification. Polyglot markup uses a
+            specific DOCTYPE, namespace declarations, and a specific case &mdash; normally lower
+            case but occasionally camel case &mdash; for element and attribute names. Polyglot
+            markup uses lower case for certain attribute values. Further constraints include those
+            on empty elements, named entity references, and the use of scripts and style.
+        </blockquote>
+
+    : <cite>HTML to Platform Accessibility APIs Implementation Guide</cite> [[!HPAAIG]]
+    :: <blockquote>
+            This is draft documentation mapping HTML elements and attributes to accessibility API
+            Roles, States and Properties on a variety of platforms. It provides recommendations on
+            deriving the accessible names and descriptions for HTML elements. It also provides
+            accessible feature implementation examples.
+        </blockquote>
+
+<hr />
+<hr />
+<hr />
 
 
 <hr />
 <hr />
 <hr />
+
+<h2 id="dom">Semantics, structure, and APIs of HTML documents</h2>
+
+<h3 id="documents">Documents</h3>
+
+    Every XML and HTML document in an HTML UA is represented by a <code>Document</code> object.
+    [[!DOM]]
+
+    <dfn>The document's address</dfn> is the <i>URL associated with a <code>Document</code></i> (as
+    defined in the DOM standard). It is initially set when the <code>Document</code> is created, but
+    that can change during the lifetime of the <code>Document</code>; for example, it changes when
+    the user <a>navigates</a> to a <a>fragment identifier</a> on the page and when the
+    <code>pushState()</code> method is called with a new <a>URL</a>. [[!DOM]]
+
+    <p class="warning">
+        Interactive user agents typically expose <a>the document's address</a> in their user
+        interface. This is the primary mechanism by which a user can tell if a site is attempting to
+        impersonate another.
+    </p>
+
+    When a <code>Document</code> is created by a <a>script</a> using the
+    <code>createDocument()</code> or <code>createHTMLDocument()</code> APIs,
+    <a>the document's address</a> is the same as <a>the document's address</a> of the
+    <a>responsible document</a> specified by the script's <a>settings object</a>, and the
+    <code>Document</code> is both <a>ready for post-load tasks</a> and <a>completely loaded</a>
+    immediately.
+
+    <dfn>The document's referrer</dfn> is an <a>absolute URL</a> that can be set when the
+    <code>Document</code> is created. If it is not explicitly set, then its value is the empty
+    string.
+
+    Each <code>Document</code> object has a <dfn>reload override flag</dfn> that is originally
+    unset. The flag is set by the <code>document.open()</code> and <code>document.write()</code>
+    methods in certain situations. When the flag is set, the <code>Document</code> also has a
+    <dfn>reload override buffer</dfn> which is a Unicode string that is used as the source of the
+    document when it is reloaded.
+
+    When the user agent is to perform <dfn>an overridden reload</dfn>, given a
+    <a>source browsing context</a>, it must act as follows:
+
+
+    1. Let <var>source</var> be the value of the <a>browsing context</a>'s <a>active document</a>'s
+        <a>reload override buffer</a>.
+
+    2. Let <var>address</var> be the <a>browsing context</a>'s <a>active document</a>'s
+        <a>address</a>.
+
+    3. Let <var>HTTPS state</var> be the <a>HTTPS state</a> of the <a>browsing context</a>'s
+        <a>active document</a>'s <code>Window</code>.
+
+    4. <a>Navigate</a> the <a>browsing context</a> to a new <a>response</a> whose <{body}> is
+        <var>source</var> and <a>HTTPS state</a> is <var>HTTPS state</var>, with
+        <a>replacement enabled</a> and <a>exceptions enabled</a>. The <a>source browsing context</a>
+        is that given to the <a>overridden reload</a> algorithm. When the <a>navigate</a> algorithm
+        creates a <code>Document</code> object for this purpose, set that <code>Document</code>'s
+        <a>reload override flag</a> and set its <a>reload override buffer</a> to <var>source</var>.
+
+        When it comes time to <a>set the document's address</a> in the <a>navigation algorithm</a>,
+        use <var>address</var> as the <a>override URL</a>.
+
+<h4 id="the-document-object">The <code>Document</code> object</h4>
+
+  The DOM specification defines a <code>Document</code> interface, which this specification extends
+  significantly:
+
+  <pre class="idl" highlights="webidl">enum <dfn>DocumentReadyState</dfn> { "loading", "interactive", "complete" };
+
+[OverrideBuiltins]
+partial /*sealed*/ interface <dfn>Document</dfn> {
+  // resource metadata management
+  [PutForwards=href, Unforgeable] readonly attribute Location? location;
+  attribute DOMString domain;
+  readonly attribute DOMString referrer;
+  attribute DOMString cookie;
+  readonly attribute DOMString lastModified;
+  readonly attribute DocumentReadyState readyState;
+
+  // DOM tree accessors
+  getter object (DOMString name);
+  attribute DOMString title;
+  attribute DOMString dir;
+  attribute HTMLElement? body;
+  readonly attribute HTMLHeadElement? head;
+  [SameObject] readonly attribute HTMLCollection images;
+  [SameObject] readonly attribute HTMLCollection embeds;
+  [SameObject] readonly attribute HTMLCollection plugins;
+  [SameObject] readonly attribute HTMLCollection links;
+  [SameObject] readonly attribute HTMLCollection forms;
+  [SameObject] readonly attribute HTMLCollection scripts;
+  NodeList getElementsByName(DOMString elementName);
+  readonly attribute HTMLScriptElement? currentScript;
+
+  // dynamic markup insertion
+  Document open(optional DOMString type = "text/html", optional DOMString replace = "");
+  WindowProxy open(DOMString url, DOMString name, DOMString features, optional boolean replace = false);
+  void close();
+  void write(DOMString... text);
+  void writeln(DOMString... text);
+
+  // user interaction
+  readonly attribute WindowProxy? defaultView;
+  readonly attribute Element? activeElement;
+  boolean hasFocus();
+  attribute DOMString designMode;
+  boolean execCommand(DOMString commandId, optional boolean showUI = false, optional DOMString value = "");
+  boolean queryCommandEnabled(DOMString commandId);
+  boolean queryCommandIndeterm(DOMString commandId);
+  boolean queryCommandState(DOMString commandId);
+  boolean queryCommandSupported(DOMString commandId);
+  DOMString queryCommandValue(DOMString commandId);
+
+  // special event handler IDL attributes that only apply to Document objects
+  [LenientThis] attribute EventHandler onreadystatechange;
+};
+Document implements GlobalEventHandlers;</pre>
+
+<h4 id="resource-metadata-management">Resource metadata management</h4>
+
+  : <var>document</var> . <code>referrer</code>
+  :: Returns <span data-x="the document's address">the address</span> of the <code>Document</code>
+    from which the user navigated to this one, unless it was blocked or there was no such document,
+    in which case it returns the empty string.
+
+    The <code data-x="rel-noreferrer">noreferrer</code> link type can be used to block the
+    referrer.
+
+  <div class="impl">
+    The <dfn><code>referrer</code></dfn> attribute must return <a>the document's referrer</a>.
+  </div>
+
+  <hr />
+
+  : <var>document</var> . <code>cookie</code> [ = <var>value</var> ]
+  :: Returns the HTTP cookies that apply to the <code>Document</code>. If there are no cookies or
+    cookies can't be applied to this resource, the empty string will be returned.
+
+    Can be set, to add a new cookie to the element's set of HTTP cookies.
+
+    If the contents are <a>sandboxed into a unique origin</a> (e.g. in an <code>iframe</code> with
+    the <code>sandbox</code> attribute), a <code>SecurityError</code> exception will be thrown on
+    getting and setting.
+
+  <div class="impl">
+    The <dfn><code>cookie</code></dfn> attribute represents the cookies of the resource identified
+    by <a>the document's address</a>.
+
+    A <code>Document</code> object that falls into one of the following conditions is a
+    <dfn>cookie-averse <code>Document</code> object</dfn>:
+
+    * A <code>Document</code> that has no <a>browsing context</a>.
+
+    * A <code>Document</code> whose <span>address</span> does not use a server-based naming
+      authority.
+
+    On getting, if the document is a <span>cookie-averse <code>Document</code> object</span>, then
+    the user agent must return the empty string. Otherwise, if the <code>Document</code>'s
+    <a>origin</a> is not a scheme/host/port tuple, the user agent must throw a
+    <code>SecurityError</code> exception. Otherwise, the user agent must first
+    <a>obtain the storage mutex</a> and then return the cookie-string for
+    <a>the document's address</a> for a "non-HTTP" API, decoded using the <a>UTF-8 decoder</a>.
+    [[!COOKIES]]
+    <a class="fingerprint" href="#fingerprinting-vector"><img height="21" src="images/fingerprint.png" width="15" alt="(This is a fingerprinting vector.)" /></a>
+
+    On setting, if the document is a <span>cookie-averse <code>Document</code> object</span>, then
+    the user agent must do nothing. Otherwise, if the <code>Document</code>'s <span>origin</span> is
+    not a scheme/host/port tuple, the user agent must throw a <code>SecurityError</code> exception.
+    Otherwise, the user agent must <span>obtain the storage mutex</span> and then act as it would
+    when <a>receiving a set-cookie-string</a> for <a>the document's address</a> via a "non-HTTP"
+    API, consisting of the new value encoded as UTF-8. [[!COOKIES]] [[!ENCODING]]
+
+    <p class="note">
+      Since the <code>cookie</code> attribute is accessible across frames, the path restrictions on
+      cookies are only a tool to help manage which cookies are sent to which parts of the site, and
+      are not in any way a security feature.
+    </p>
+  </div>
+
+  <hr />
+
+  : <var>document</var> . <code>lastModified</code>
+  :: Returns the date of the last modification to the document, as reported by the server, in the
+    form "<code>MM/DD/YYYY&nbsp;hh:mm:ss</code>", in the user's local time zone.
+
+  If the last modification date is not known, the current time is returned instead.
+
+  <div class="impl">
+    The <dfn><code data-x="dom-document-lastModified">lastModified</code></dfn> attribute, on
+    getting, must return the date and time of the <code>Document</code>'s source file's last
+    modification, in the user's local time zone, in the following format:
+
+    1. The month component of the date.
+
+    2. A U+002F SOLIDUS character (/).
+
+    3. The day component of the date.
+
+    4. A U+002F SOLIDUS character (/).
+
+    5. The year component of the date.
+
+    6. A U+0020 SPACE character.
+
+    7. The hours component of the time.
+
+    8. A U+003A COLON character (:).
+
+    9. The minutes component of the time.
+
+    10. A U+003A COLON character (:).
+
+    11. The seconds component of the time.
+
+    All the numeric components above, other than the year, must be given as two <a>ASCII digits</a>
+    representing the number in base ten, zero-padded if necessary. The year must be given as the
+    shortest possible string of four or more <a>ASCII digits</a> representing the number in base
+    ten, zero-padded if necessary.
+
+    The <code>Document</code>'s source file's last modification date and time must be derived from
+    relevant features of the networking protocols used, e.g. from the value of the HTTP
+    <code>Last-Modified</code> header of the document, or from metadata in the file system for local
+    files. If the last modification date and time are not known, the attribute must return the
+    current date and time in the above format.
+  </div>
+
+  <hr />
+
+  : <var>document</var> . <code>readyState</code>
+  :: Returns "<code>loading</code>" while the <code>Document</code> is loading,
+  "<code>interactive</code>" once it is finished parsing but still loading sub-resources, and
+  "<code>complete</code>" once it has loaded.
+
+  The <code data-x="event-readystatechange">readystatechange</code> event fires on the
+  <code>Document</code> object when this value changes.
+
+  <div class="impl">
+    Each document has a <dfn>current document readiness</dfn>. When a <code>Document</code> object
+    is created, it must have its <a>current document readiness</a> set to the string
+    "<code>loading</code>" if the document is associated with an <a>HTML parser</a>, an
+    <a>XML parser</a>, or an XSLT processor, and to the string "<code>complete</code>"
+    otherwise. Various algorithms during page loading affect this value. When the value is set, the
+    user agent must <a>fire a simple event</a> named <code>readystatechange</code> at the
+    <code>Document</code> object.
+
+    A <code>Document</code> is said to have an <dfn>active parser</dfn> if it is associated with an
+    <a>HTML parser</a> or an <a>XML parser</a> that has not yet been <a>stopped</a> or
+    <a>aborted</a>.
+
+    The <dfn><code>readyState</code></dfn> IDL attribute must, on getting, return the <a>current
+    document readiness</a>.
+  </div>
