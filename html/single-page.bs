@@ -1285,81 +1285,80 @@ on attribute values</h4>
 
 <h3 id="suggested-reading">Suggested reading</h3>
 
-    <em>This section is non-normative.</em>
+  <em>This section is non-normative.</em>
 
-    The following documents might be of interest to readers of this specification.
+  The following documents might be of interest to readers of this specification.
 
-    : <cite>Character Model for the World Wide Web 1.0: Fundamentals</cite> [[!CHARMOD]]
-    :: <blockquote>
-            This Architectural Specification provides authors of specifications, software
-            developers, and content developers with a common reference for interoperable text
-            manipulation on the World Wide Web, building on the Universal Character Set, defined
-            jointly by the Unicode Standard and ISO/IEC 10646. Topics addressed include use of the
-            terms '''character''', '''encoding''' and '''string''', a reference processing model,
-            choice and identification of character encodings, character escaping, and string
-            indexing.
-        </blockquote>
+  : <cite>Character Model for the World Wide Web 1.0: Fundamentals</cite> [[!CHARMOD]]
+  :: <blockquote>
+        This Architectural Specification provides authors of specifications, software developers,
+        and content developers with a common reference for interoperable text manipulation on the
+        World Wide Web, building on the Universal Character Set, defined jointly by the Unicode
+        Standard and ISO/IEC 10646. Topics addressed include use of the terms '''character''',
+        '''encoding''' and '''string''', a reference processing model, choice and identification of
+        character encodings, character escaping, and string indexing.
+      </blockquote>
 
-    : <cite>Unicode Security Considerations</cite> [[!UTR36]]
-    :: <blockquote>
-            Because Unicode contains such a large number of characters and incorporates the varied
-            writing systems of the world, incorrect usage can expose programs or systems to possible
-            security attacks. This is especially important as more and more products are
-            internationalized. This document describes some of the security considerations that
-            programmers, system analysts, standards developers, and users should take into account,
-            and provides specific recommendations to reduce the risk of problems.
-        </blockquote>
+  : <cite>Unicode Security Considerations</cite> [[!UTR36]]
+  :: <blockquote>
+        Because Unicode contains such a large number of characters and incorporates the varied
+        writing systems of the world, incorrect usage can expose programs or systems to possible
+        security attacks. This is especially important as more and more products are
+        internationalized. This document describes some of the security considerations that
+        programmers, system analysts, standards developers, and users should take into account, and
+        provides specific recommendations to reduce the risk of problems.
+      </blockquote>
 
-    : <cite>Web Content Accessibility Guidelines (WCAG) 2.0</cite> [[!WCAG]]
-    :: <blockquote>
-            Web Content Accessibility Guidelines (WCAG) 2.0 covers a wide range of recommendations
-            for making Web content more accessible. Following these guidelines will make content
-            accessible to a wider range of people with disabilities, including blindness and low
-            vision, deafness and hearing loss, learning disabilities, cognitive limitations, limited
-            movement, speech disabilities, photosensitivity and combinations of these. Following
-            these guidelines will also often make your Web content more usable to users in general.
-        </blockquote>
+  : <cite>Web Content Accessibility Guidelines (WCAG) 2.0</cite> [[!WCAG]]
+  :: <blockquote>
+        Web Content Accessibility Guidelines (WCAG) 2.0 covers a wide range of recommendations for
+        making Web content more accessible. Following these guidelines will make content accessible
+        to a wider range of people with disabilities, including blindness and low vision, deafness
+        and hearing loss, learning disabilities, cognitive limitations, limited movement, speech
+        disabilities, photosensitivity and combinations of these. Following these guidelines will
+        also often make your Web content more usable to users in general.
+      </blockquote>
 
-    : <cite>Authoring Tool Accessibility Guidelines (ATAG) 2.0</cite> [[!ATAG20]]
-    :: <blockquote>
-            This specification provides guidelines for designing Web content authoring tools that
-            are more accessible for people with disabilities. An authoring tool that conforms to
-            these guidelines will promote accessibility by providing an accessible user interface to
-            authors with disabilities as well as by enabling, supporting, and promoting the
-            production of accessible Web content by all authors.
-        </blockquote>
+  : <cite>Authoring Tool Accessibility Guidelines (ATAG) 2.0</cite> [[!ATAG20]]
+  :: <blockquote>
+        This specification provides guidelines for designing Web content authoring tools that are
+        more accessible for people with disabilities. An authoring tool that conforms to these
+        guidelines will promote accessibility by providing an accessible user interface to authors
+        with disabilities as well as by enabling, supporting, and promoting the production of
+        accessible Web content by all authors.
+      </blockquote>
 
-    : <cite>User Agent Accessibility Guidelines (UAAG) 2.0</cite> [[!UAAG20]]
-    :: <blockquote>
-            This document provides guidelines for designing user agents that
-            lower barriers to Web accessibility for people with disabilities. User agents include
-            browsers and other types of software that retrieve and render Web content. A user agent
-            that conforms to these guidelines will promote accessibility through its own user
-            interface and through other internal facilities, including its ability to communicate
-            with other technologies (especially assistive technologies). Furthermore, all users, not
-            just users with disabilities, should find conforming user agents to be more usable.
-        </blockquote>
+  : <cite>User Agent Accessibility Guidelines (UAAG) 2.0</cite> [[!UAAG20]]
+  :: <blockquote>
+        This document provides guidelines for designing user agents that lower barriers to Web
+        accessibility for people with disabilities. User agents include browsers and other types of
+        software that retrieve and render Web content. A user agent that conforms to these
+        guidelines will promote accessibility through its own user interface and through other
+        internal facilities, including its ability to communicate with other technologies
+        (especially assistive technologies). Furthermore, all users, not just users with
+        disabilities, should find conforming user agents to be more usable.
+      </blockquote>
 
-    : <cite>Polyglot Markup: HTML-Compatible XHTML Documents</cite> [[!HTML-POLYGLOT]]
-    :: <blockquote>
-            A document that uses polyglot markup is a document that is a stream of bytes that parses
-            into identical document trees (with the exception of the xmlns attribute on the root
-            element) when processed as HTML and when processed as XML. Polyglot markup that meets a
-            well defined set of constraints is interpreted as compatible, regardless of whether they
-            are processed as HTML or as XHTML, per the HTML5 specification. Polyglot markup uses a
-            specific DOCTYPE, namespace declarations, and a specific case &mdash; normally lower
-            case but occasionally camel case &mdash; for element and attribute names. Polyglot
-            markup uses lower case for certain attribute values. Further constraints include those
-            on empty elements, named entity references, and the use of scripts and style.
-        </blockquote>
+  : <cite>Polyglot Markup: HTML-Compatible XHTML Documents</cite> [[!HTML-POLYGLOT]]
+  :: <blockquote>
+        A document that uses polyglot markup is a document that is a stream of bytes that parses
+        into identical document trees (with the exception of the xmlns attribute on the root
+        element) when processed as HTML and when processed as XML. Polyglot markup that meets a
+        well defined set of constraints is interpreted as compatible, regardless of whether they are
+        processed as HTML or as XHTML, per the HTML5 specification. Polyglot markup uses a specific
+        DOCTYPE, namespace declarations, and a specific case &mdash; normally lower case but
+        occasionally camel case &mdash; for element and attribute names. Polyglot markup uses lower
+        case for certain attribute values. Further constraints include those on empty elements,
+        named entity references, and the use of scripts and style.
+      </blockquote>
 
-    : <cite>HTML to Platform Accessibility APIs Implementation Guide</cite> [[!HPAAIG]]
-    :: <blockquote>
-            This is draft documentation mapping HTML elements and attributes to accessibility API
-            Roles, States and Properties on a variety of platforms. It provides recommendations on
-            deriving the accessible names and descriptions for HTML elements. It also provides
-            accessible feature implementation examples.
-        </blockquote>
+  : <cite>HTML to Platform Accessibility APIs Implementation Guide</cite> [[!HPAAIG]]
+  :: <blockquote>
+        This is draft documentation mapping HTML elements and attributes to accessibility API Roles,
+        States and Properties on a variety of platforms. It provides recommendations on deriving the
+        accessible names and descriptions for HTML elements. It also provides accessible feature
+        implementation examples.
+      </blockquote>
 
 <hr />
 <hr />
@@ -1374,60 +1373,58 @@ on attribute values</h4>
 
 <h3 id="documents">Documents</h3>
 
-    Every XML and HTML document in an HTML UA is represented by a <code>Document</code> object.
-    [[!DOM]]
+  Every XML and HTML document in an HTML UA is represented by a <code>Document</code> object.
+  [[!DOM]]
 
-    <dfn>The document's address</dfn> is the <i>URL associated with a <code>Document</code></i> (as
-    defined in the DOM standard). It is initially set when the <code>Document</code> is created, but
-    that can change during the lifetime of the <code>Document</code>; for example, it changes when
-    the user <a>navigates</a> to a <a>fragment identifier</a> on the page and when the
-    <code>pushState()</code> method is called with a new <a>URL</a>. [[!DOM]]
+  <dfn>The document's address</dfn> is the <i>URL associated with a <code>Document</code></i> (as
+  defined in the DOM standard). It is initially set when the <code>Document</code> is created, but
+  that can change during the lifetime of the <code>Document</code>; for example, it changes when
+  the user <a>navigates</a> to a <a>fragment identifier</a> on the page and when the
+  <code>pushState()</code> method is called with a new <a>URL</a>. [[!DOM]]
 
-    <p class="warning">
-        Interactive user agents typically expose <a>the document's address</a> in their user
-        interface. This is the primary mechanism by which a user can tell if a site is attempting to
-        impersonate another.
-    </p>
+  <p class="warning">
+    Interactive user agents typically expose <a>the document's address</a> in their user interface.
+    This is the primary mechanism by which a user can tell if a site is attempting to impersonate
+    another.
+  </p>
 
-    When a <code>Document</code> is created by a <a>script</a> using the
-    <code>createDocument()</code> or <code>createHTMLDocument()</code> APIs,
-    <a>the document's address</a> is the same as <a>the document's address</a> of the
-    <a>responsible document</a> specified by the script's <a>settings object</a>, and the
-    <code>Document</code> is both <a>ready for post-load tasks</a> and <a>completely loaded</a>
-    immediately.
+  When a <code>Document</code> is created by a <a>script</a> using the <code>createDocument()</code>
+  or <code>createHTMLDocument()</code> APIs, <a>the document's address</a> is the same as
+  <a>the document's address</a> of the <a>responsible document</a> specified by the script's
+  <a>settings object</a>, and the <code>Document</code> is both <a>ready for post-load tasks</a> and
+  <a>completely loaded</a> immediately.
 
-    <dfn>The document's referrer</dfn> is an <a>absolute URL</a> that can be set when the
-    <code>Document</code> is created. If it is not explicitly set, then its value is the empty
-    string.
+  <dfn>The document's referrer</dfn> is an <a>absolute URL</a> that can be set when the
+  <code>Document</code> is created. If it is not explicitly set, then its value is the empty string.
 
-    Each <code>Document</code> object has a <dfn>reload override flag</dfn> that is originally
-    unset. The flag is set by the <code>document.open()</code> and <code>document.write()</code>
-    methods in certain situations. When the flag is set, the <code>Document</code> also has a
-    <dfn>reload override buffer</dfn> which is a Unicode string that is used as the source of the
-    document when it is reloaded.
+  Each <code>Document</code> object has a <dfn>reload override flag</dfn> that is originally unset.
+  The flag is set by the <code>document.open()</code> and <code>document.write()</code> methods in
+  certain situations. When the flag is set, the <code>Document</code> also has a
+  <dfn>reload override buffer</dfn> which is a Unicode string that is used as the source of the
+  document when it is reloaded.
 
-    When the user agent is to perform <dfn>an overridden reload</dfn>, given a
-    <a>source browsing context</a>, it must act as follows:
+  When the user agent is to perform <dfn>an overridden reload</dfn>, given a
+  <a>source browsing context</a>, it must act as follows:
 
 
-    1. Let <var>source</var> be the value of the <a>browsing context</a>'s <a>active document</a>'s
-        <a>reload override buffer</a>.
+  1. Let <var>source</var> be the value of the <a>browsing context</a>'s <a>active document</a>'s
+    <a>reload override buffer</a>.
 
-    2. Let <var>address</var> be the <a>browsing context</a>'s <a>active document</a>'s
-        <a>address</a>.
+  2. Let <var>address</var> be the <a>browsing context</a>'s <a>active document</a>'s
+    <a>address</a>.
 
-    3. Let <var>HTTPS state</var> be the <a>HTTPS state</a> of the <a>browsing context</a>'s
-        <a>active document</a>'s <code>Window</code>.
+  3. Let <var>HTTPS state</var> be the <a>HTTPS state</a> of the <a>browsing context</a>'s
+    <a>active document</a>'s <code>Window</code>.
 
-    4. <a>Navigate</a> the <a>browsing context</a> to a new <a>response</a> whose <{body}> is
-        <var>source</var> and <a>HTTPS state</a> is <var>HTTPS state</var>, with
-        <a>replacement enabled</a> and <a>exceptions enabled</a>. The <a>source browsing context</a>
-        is that given to the <a>overridden reload</a> algorithm. When the <a>navigate</a> algorithm
-        creates a <code>Document</code> object for this purpose, set that <code>Document</code>'s
-        <a>reload override flag</a> and set its <a>reload override buffer</a> to <var>source</var>.
+  4. <a>Navigate</a> the <a>browsing context</a> to a new <a>response</a> whose <{body}> is
+    <var>source</var> and <a>HTTPS state</a> is <var>HTTPS state</var>, with
+    <a>replacement enabled</a> and <a>exceptions enabled</a>. The <a>source browsing context</a>
+    is that given to the <a>overridden reload</a> algorithm. When the <a>navigate</a> algorithm
+    creates a <code>Document</code> object for this purpose, set that <code>Document</code>'s
+    <a>reload override flag</a> and set its <a>reload override buffer</a> to <var>source</var>.
 
-        When it comes time to <a>set the document's address</a> in the <a>navigation algorithm</a>,
-        use <var>address</var> as the <a>override URL</a>.
+    When it comes time to <a>set the document's address</a> in the <a>navigation algorithm</a>,
+    use <var>address</var> as the <a>override URL</a>.
 
 <h4 id="the-document-object">The <code>Document</code> object</h4>
 
@@ -1488,12 +1485,11 @@ Document implements GlobalEventHandlers;</pre>
 <h4 id="resource-metadata-management">Resource metadata management</h4>
 
   : <var>document</var> . <code>referrer</code>
-  :: Returns <span data-x="the document's address">the address</span> of the <code>Document</code>
-    from which the user navigated to this one, unless it was blocked or there was no such document,
-    in which case it returns the empty string.
+  :: Returns <span>the address</span> of the <code>Document</code> from which the user navigated to
+    this one, unless it was blocked or there was no such document, in which case it returns the
+    empty string.
 
-    The <code data-x="rel-noreferrer">noreferrer</code> link type can be used to block the
-    referrer.
+    The <code>noreferrer</code> link type can be used to block the referrer.
 
   <div class="impl">
     The <dfn><code>referrer</code></dfn> attribute must return <a>the document's referrer</a>.
@@ -1521,7 +1517,7 @@ Document implements GlobalEventHandlers;</pre>
     * A <code>Document</code> that has no <a>browsing context</a>.
 
     * A <code>Document</code> whose <span>address</span> does not use a server-based naming
-        authority.
+      authority.
 
     On getting, if the document is a <span>cookie-averse <code>Document</code> object</span>, then
     the user agent must return the empty string. Otherwise, if the <code>Document</code>'s
@@ -1555,9 +1551,9 @@ Document implements GlobalEventHandlers;</pre>
   If the last modification date is not known, the current time is returned instead.
 
   <div class="impl">
-    The <dfn><code data-x="dom-document-lastModified">lastModified</code></dfn> attribute, on
-    getting, must return the date and time of the <code>Document</code>'s source file's last
-    modification, in the user's local time zone, in the following format:
+    The <dfn><code>lastModified</code></dfn> attribute, on getting, must return the date and time of
+    the <code>Document</code>'s source file's last modification, in the user's local time zone, in
+    the following format:
 
     1. The month component of the date.
 
@@ -1600,8 +1596,8 @@ Document implements GlobalEventHandlers;</pre>
     "<code>interactive</code>" once it is finished parsing but still loading sub-resources, and
     "<code>complete</code>" once it has loaded.
 
-  The <code data-x="event-readystatechange">readystatechange</code> event fires on the
-  <code>Document</code> object when this value changes.
+  The <code>readystatechange</code> event fires on the <code>Document</code> object when this value
+  changes.
 
   <div class="impl">
     Each document has a <dfn>current document readiness</dfn>. When a <code>Document</code> object
@@ -1614,7 +1610,7 @@ Document implements GlobalEventHandlers;</pre>
 
     A <code>Document</code> is said to have an <dfn>active parser</dfn> if it is associated with an
     <a>HTML parser</a> or an <a>XML parser</a> that has not yet been <a>stopped</a> or
-    <a>aborted</a>.
+   <a>aborted</a>.
 
     The <dfn><code>readyState</code></dfn> IDL attribute must, on getting, return the <a>current
     document readiness</a>.
