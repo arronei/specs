@@ -383,12 +383,12 @@
    <header>
     <p data-fill-with="logo"><a href="http://www.w3.org/"><img alt="W3C" height="48" src="https://www.w3.org/Icons/w3c_home" width="72"></a></p>
     <h1 class="p-name no-ref allcaps" id="title">HTML</h1>
-    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">W3C Working Draft, <time class="dt-updated" datetime="2015-11-14">14 November 2015</time></span></h2>
+    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">W3C Working Draft, <time class="dt-updated" datetime="2015-11-15">15 November 2015</time></span></h2>
    </header>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="http://www.w3.org/TR/2015/WD-html-5.1-20151114/">http://www.w3.org/TR/2015/WD-html-5.1-20151114/</a>
+     <dd><a class="u-url" href="http://www.w3.org/TR/2015/WD-html-5.1-20151115/">http://www.w3.org/TR/2015/WD-html-5.1-20151115/</a>
      <dt>Latest version:
      <dd><a href="http://www.w3.org/TR/html/">http://www.w3.org/TR/html/</a>
      <dt>Editor's Draft:
@@ -495,13 +495,32 @@ on attribute values</span></a>
       <li><a href="#suggested-reading"><span class="secno">1.11</span> <span class="content">Suggested reading</span></a>
      </ul>
     <li>
-     <a href="#dom"><span class="secno">2</span> <span class="content">Semantics, structure, and APIs of HTML documents</span></a>
+     <a href="#infrastructure"><span class="secno">2</span> <span class="content">Common infrastructure</span></a>
      <ul class="toc">
       <li>
-       <a href="#documents"><span class="secno">2.1</span> <span class="content">Documents</span></a>
+       <a href="#terminology"><span class="secno">2.1</span> <span class="content">Terminology</span></a>
        <ul class="toc">
-        <li><a href="#the-document-object"><span class="secno">2.1.1</span> <span class="content">The <code>Document</code> object</span></a>
-        <li><a href="#resource-metadata-management"><span class="secno">2.1.2</span> <span class="content">Resource metadata management</span></a>
+        <li><a href="#resources"><span class="secno">2.1.1</span> <span class="content">Resources</span></a>
+        <li><a href="#xml"><span class="secno">2.1.2</span> <span class="content">XML</span></a>
+        <li><a href="#dom-trees"><span class="secno">2.1.3</span> <span class="content">DOM trees</span></a>
+        <li><a href="#scripting"><span class="secno">2.1.4</span> <span class="content">Scripting</span></a>
+        <li><a href="#plugins"><span class="secno">2.1.5</span> <span class="content">Plugins</span></a>
+        <li><a href="#encoding-terminology"><span class="secno">2.1.6</span> <span class="content">Character encodings</span></a>
+       </ul>
+      <li>
+       <a href="#conformance-requirements"><span class="secno">2.2</span> <span class="content">Conformance requirements</span></a>
+       <ul class="toc">
+        <li><a href="#conformance-classes"><span class="secno">2.2.1</span> <span class="content">Conformance classes</span></a>
+       </ul>
+     </ul>
+    <li>
+     <a href="#dom"><span class="secno">3</span> <span class="content">Semantics, structure, and APIs of HTML documents</span></a>
+     <ul class="toc">
+      <li>
+       <a href="#documents"><span class="secno">3.1</span> <span class="content">Documents</span></a>
+       <ul class="toc">
+        <li><a href="#the-document-object"><span class="secno">3.1.1</span> <span class="content">The <code>Document</code> object</span></a>
+        <li><a href="#resource-metadata-management"><span class="secno">3.1.2</span> <span class="content">Resource metadata management</span></a>
        </ul>
      </ul>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
@@ -686,7 +705,7 @@ characters in the range U+0041 (LATIN CAPITAL LETTER A) through U+005A (LATIN CA
      <p>Authors can embed raw data using the <code>&lt;script type=""></code> mechanism with a custom
 type, for further handling by inline or server-side scripts.</p>
     <li data-md="">
-     <p>Authors can create <a data-link-type="dfn">plugins</a> and invoke them using the <code><a data-link-type="element">embed</a></code> element. This is how Flash
+     <p>Authors can create <a data-link-type="dfn" href="#plugin">plugins</a> and invoke them using the <code><a data-link-type="element">embed</a></code> element. This is how Flash
 works.</p>
     <li data-md="">
      <p>Authors can extend APIs using the JavaScript prototyping mechanism. This is widely used by
@@ -700,10 +719,10 @@ script libraries, for instance.</p>
    <p>There are various concrete syntaxes that can be used to transmit resources that use this abstract
   language, two of which are defined in this specification.</p>
    <p>The first such concrete syntax is the HTML syntax. This is the format suggested for most authors.
-  It is compatible with most legacy Web browsers. If a document is transmitted with the <code>text/html</code> <a data-link-type="dfn">MIME type</a>, then it will be processed as an HTML document by Web
+  It is compatible with most legacy Web browsers. If a document is transmitted with the <code>text/html</code> <a data-link-type="dfn" href="#mime-type">MIME type</a>, then it will be processed as an HTML document by Web
   browsers. This specification defines version [LEVEL] of the HTML syntax, known as "HTML[LEVEL]".</p>
    <p>The second concrete syntax is the XHTML syntax, which is an application of XML. When a document
-  is transmitted with an <a data-link-type="dfn">XML MIME type</a>, such as <code>application/xhtml+xml</code>,
+  is transmitted with an <a data-link-type="dfn" href="#xml-mime-type">XML MIME type</a>, such as <code>application/xhtml+xml</code>,
   then it is treated as an XML document by Web browsers, to be parsed by an XML processor. Authors
   are reminded that the processing for XML and HTML differs; in particular, even minor syntax
   errors will prevent a document labeled as XML from being rendered fully, whereas they would be
@@ -725,12 +744,12 @@ script libraries, for instance.</p>
      <dd data-md="">
       <p>Non-normative materials providing a context for the HTML standard.</p>
      <dt data-md="">
-      <p><a href="#infrastructure"></a></p>
+      <p><a href="#infrastructure">§2 Common infrastructure</a></p>
      <dd data-md="">
       <p>The conformance classes, algorithms, definitions, and the common underpinnings of the rest of
 the specification.</p>
      <dt data-md="">
-      <p><a href="#dom">§2 Semantics, structure, and APIs of HTML documents</a></p>
+      <p><a href="#dom">§3 Semantics, structure, and APIs of HTML documents</a></p>
      <dd data-md="">
       <p>Documents are built from elements. These elements form a tree using the DOM. This section
 defines the features of this DOM, as well as introducing the features common to all
@@ -967,7 +986,7 @@ syntaxes</span>.</p>
        </ul>
      </ul>
    </ul>
-   <p>The <a data-link-type="dfn">root element</a> of this tree is the <code><a data-link-type="element">html</a></code> element, which is the element always found at
+   <p>The <a data-link-type="dfn" href="#root-element">root element</a> of this tree is the <code><a data-link-type="element">html</a></code> element, which is the element always found at
   the root of HTML documents. It contains two elements, <code><a data-link-type="element">head</a></code> and <code><a data-link-type="element">body</a></code>, as well as a <code>Text</code> node between them.</p>
    <p>There are many more <code>Text</code> nodes in the DOM tree than one would initially expect,
   because the source contains a number of spaces (represented here by "␣") and line breaks
@@ -1113,7 +1132,7 @@ the scripting APIs</span><a class="self-link" href="#common-pitfalls-to-avoid-wh
    <p>Scripts in HTML have "run-to-completion" semantics, meaning that the browser will generally run
   the script uninterrupted before doing anything else, such as firing further events or continuing
   to parse the document.</p>
-   <p>On the other hand, parsing of HTML files happens <a data-link-type="dfn">in parallel</a> and incrementally, meaning
+   <p>On the other hand, parsing of HTML files happens <a data-link-type="dfn" href="#in-parallel">in parallel</a> and incrementally, meaning
   that the parser can pause at any point to let scripts run. This is generally a good thing, but it
   does mean that authors need to be careful to avoid hooking event handlers after the events could
   have possibly fired.</p>
@@ -1576,11 +1595,381 @@ on attribute values</span><a class="self-link" href="#restrictions-on-content-mo
    <hr>
    <hr>
    <hr>
+   <h2 class="heading settled" data-level="2" id="infrastructure"><span class="secno">2. </span><span class="content">Common infrastructure</span><a class="self-link" href="#infrastructure"></a></h2>
+   <h3 class="heading settled" data-level="2.1" id="terminology"><span class="secno">2.1. </span><span class="content">Terminology</span><a class="self-link" href="#terminology"></a></h3>
+   <p>This specification refers to both HTML and XML attributes and IDL attributes, often in the same
+  context. When it is not clear which is being referred to, they are referred to as <dfn data-dfn-type="dfn" data-noexport="" id="content-attributes">content attributes<a class="self-link" href="#content-attributes"></a></dfn> for HTML and XML attributes, and <dfn data-dfn-type="dfn" data-noexport="" id="idl-attributes">IDL attributes<a class="self-link" href="#idl-attributes"></a></dfn> for those
+  defined on IDL interfaces. Similarly, the term "properties" is used for both JavaScript object
+  properties and CSS properties. When these are ambiguous they are qualified as <dfn data-dfn-type="dfn" data-noexport="" id="object-properties">object properties<a class="self-link" href="#object-properties"></a></dfn> and <dfn data-dfn-type="dfn" data-noexport="" id="css-properties">CSS properties<a class="self-link" href="#css-properties"></a></dfn> respectively.</p>
+   <p>Generally, when the specification states that a feature applies to <a data-link-type="dfn">the HTML syntax</a> or <a data-link-type="dfn">the XHTML syntax</a>, it also includes the other. When a feature specifically only applies to
+  one of the two languages, it is called out by explicitly stating that it does not apply to the
+  other format, as in "for HTML, ... (this does not apply to XHTML)".</p>
+   <p>This specification uses the term <dfn data-dfn-type="dfn" data-noexport="" id="document">document<a class="self-link" href="#document"></a></dfn> to refer to any use of HTML, ranging from
+  short static documents to long essays or reports with rich multimedia, as well as to fully-fledged
+  interactive applications. The term is used to refer both to <code>Document</code> objects and
+  their descendant DOM trees, and to serialized byte streams using the <a data-link-type="dfn">HTML syntax</a> or <a data-link-type="dfn">XHTML syntax</a>, depending on context.</p>
+   <p>In the context of the DOM structures, the terms <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#html-document">HTML document</a> and <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#xml-document">XML document</a> are
+  used as defined in the DOM specification, and refer specifically to two different modes that <code>Document</code> objects can find themselves in. <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> (Such uses are always hyperlinked
+  to their definition.)</p>
+   <p>In the context of byte streams, the term HTML document refers to resources labeled as <code>text/html</code>, and the term XML document refers to resources labeled with an <a data-link-type="dfn" href="#xml-mime-type">XML MIME type</a>.</p>
+   <p>The term <dfn data-dfn-type="dfn" data-noexport="" id="xhtml-document">XHTML document<a class="self-link" href="#xhtml-document"></a></dfn> is used to refer to both <code>Document</code>s in the <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#xml-document">XML document</a> mode that contains element nodes in the <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#html-namespace">HTML namespace</a>, and byte
+  streams labeled with an <a data-link-type="dfn" href="#xml-mime-type">XML MIME type</a> that contain elements from the <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#html-namespace">HTML namespace</a>,
+  depending on context.</p>
+   <hr>
+   <p>For simplicity, terms such as <dfn data-dfn-type="dfn" data-noexport="" id="shown">shown<a class="self-link" href="#shown"></a></dfn>, <dfn data-dfn-type="dfn" data-noexport="" id="displayed">displayed<a class="self-link" href="#displayed"></a></dfn>, and <dfn data-dfn-type="dfn" data-noexport="" id="visible">visible<a class="self-link" href="#visible"></a></dfn> might
+  sometimes be used when referring to the way a document is rendered to the user. These terms are
+  not meant to imply a visual medium; they must be considered to apply to other media in equivalent
+  ways.</p>
+   <div class="impl"> When an algorithm B says to return to another algorithm A, it implies that A called B. Upon
+    returning to A, the implementation must continue from where it left off in calling B. Some
+    algorithms run <dfn data-dfn-type="dfn" data-noexport="" id="in-parallel">in parallel<a class="self-link" href="#in-parallel"></a></dfn>; this means that the algorithm’s subsequent steps are to
+    be run, one after another, at the same time as other logic in the specification (e.g. at the
+    same time as the <a data-link-type="dfn">event loop</a>). This specification does not define the precise mechanism by
+    which this is achieved, be it time-sharing cooperative multitasking, fibers, threads, processes,
+    using different hyperthreads, cores, CPUs, machines, etc. By contrast, an operation that is to
+    run <dfn data-dfn-type="dfn" data-noexport="" id="immediately">immediately<a class="self-link" href="#immediately"></a></dfn> must interrupt the currently running task, run itself, and then
+    resume the previously running task. </div>
+   <p>The term "transparent black" refers to the color with red, green, blue, and alpha channels all set
+  to zero.</p>
+   <h4 class="heading settled" data-level="2.1.1" id="resources"><span class="secno">2.1.1. </span><span class="content">Resources</span><a class="self-link" href="#resources"></a></h4>
+   <p>The specification uses the term <dfn data-dfn-type="dfn" data-noexport="" id="supported">supported<a class="self-link" href="#supported"></a></dfn> when referring to whether a user agent has an
+  implementation capable of decoding the semantics of an external resource. A format or type is said
+  to be <i>supported</i> if the implementation can process an external resource of that format or
+  type without critical aspects of the resource being ignored. Whether a specific resource is <i>supported</i> can depend on what features of the resource’s format are in use.</p>
+   <p class="example" id="example-edb32f0b"><a class="self-link" href="#example-edb32f0b"></a> For example, a PNG image would be considered to be in a supported format if its pixel data could
+    be decoded and rendered, even if, unbeknownst to the implementation, the image also contained
+    animation data. </p>
+   <p class="example" id="example-fda82d15"><a class="self-link" href="#example-fda82d15"></a> An MPEG-4 video file would not be considered to be in a supported format if the compression
+    format used was not supported, even if the implementation could determine the dimensions of the
+    movie from the file’s metadata. </p>
+   <p>What some specifications, in particular the HTTP specification, refer to as a <i>representation</i> is referred to in this specification as a <dfn data-dfn-type="dfn" data-noexport="" id="resource">resource<a class="self-link" href="#resource"></a></dfn>. <span>[HTTP]</span></p>
+   <p>The term <dfn data-dfn-type="dfn" data-noexport="" id="mime-type">MIME type<a class="self-link" href="#mime-type"></a></dfn> is used to refer to what is sometimes called an <i>Internet media
+  type</i> in protocol literature. The term <i>media type</i> in this specification is used to refer
+  to the type of media intended for presentation, as used by the CSS specifications. <a data-link-type="biblio" href="#biblio-rfc2046">[RFC2046]</a> <span>[MQ]</span></p>
+   <p>A string is a <dfn data-dfn-type="dfn" data-noexport="" id="valid-mime-type">valid MIME type<a class="self-link" href="#valid-mime-type"></a></dfn> if it matches the <code>media-type</code> rule defined in
+  section 3.7 "Media Types" of RFC 2616. In particular, a <span>valid MIME type</span> may include
+  MIME type parameters. <span>[HTTP]</span></p>
+   <p>A string is a <dfn data-dfn-type="dfn" data-noexport="" id="valid-mime-type-with-no-parameters">valid MIME type with no parameters<a class="self-link" href="#valid-mime-type-with-no-parameters"></a></dfn> if it matches the <code>media-type</code> rule defined in section 3.7 "Media Types" of RFC 2616, but does not
+  contain any U+003B SEMICOLON characters (;). In other words, if it consists only of a type and
+  subtype, with no MIME Type parameters. <span>[HTTP]</span></p>
+   <p>The term <dfn data-dfn-type="dfn" data-noexport="" id="html-mime-type">HTML MIME type<a class="self-link" href="#html-mime-type"></a></dfn> is used to refer to the <span>MIME type</span> <code>text/html</code>.</p>
+   <p>A resource’s <dfn data-dfn-type="dfn" data-noexport="" id="critical-subresources">critical subresources<a class="self-link" href="#critical-subresources"></a></dfn> are those that the resource needs to have available
+  to be correctly processed. Which resources are considered critical or not is defined by the
+  specification that defines the resource’s format.</p>
+   <p>The term <dfn data-dfn-type="dfn" data-noexport="" id="data-url"><code>data:</code> URL<a class="self-link" href="#data-url"></a></dfn> refers to <a data-link-type="dfn">URLs</a> that use the <code>data:</code> scheme. <a data-link-type="biblio" href="#biblio-rfc2397">[RFC2397]</a></p>
+   <h4 class="heading settled" data-level="2.1.2" id="xml"><span class="secno">2.1.2. </span><span class="content">XML</span><a class="self-link" href="#xml"></a></h4>
+   <p>To ease migration from HTML to XHTML, UAs conforming to this specification will place elements in
+  HTML in the <code>http://www.w3.org/1999/xhtml</code> namespace, at least for the purposes of the
+  DOM and CSS. The term "<dfn data-dfn-type="dfn" data-noexport="" id="html-elements">HTML elements<a class="self-link" href="#html-elements"></a></dfn>", when used in this specification, refers to any
+  element in that namespace, and thus refers to both HTML and XHTML elements.</p>
+   <p>Except where otherwise stated, all elements defined or mentioned in this specification are in the <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#html-namespace">HTML namespace</a> ("<code>http://www.w3.org/1999/xhtml</code>"), and all attributes defined or
+  mentioned in this specification have no namespace.</p>
+   <p>The term <dfn data-dfn-type="dfn" data-noexport="" id="element-type">element type<a class="self-link" href="#element-type"></a></dfn> is used to refer to the set of elements that have a given local
+  name and namespace. For example, <code>button</code> elements are elements with the element type <code>button</code>, meaning they have the local name "<code>button</code>" and (implicitly as
+  defined above) the <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#html-namespace">HTML namespace</a>.</p>
+   <p>Attribute names are said to be <dfn data-dfn-type="dfn" data-noexport="" id="xml-compatible">XML-compatible<a class="self-link" href="#xml-compatible"></a></dfn> if they match the <a data-link-type="dfn"><code>Name</code></a> production defined in XML and they contain no U+003A COLON characters
+  (:). <a data-link-type="biblio" href="#biblio-xml">[XML]</a></p>
+   <p>The term <dfn data-dfn-type="dfn" data-noexport="" id="xml-mime-type">XML MIME type<a class="self-link" href="#xml-mime-type"></a></dfn> is used to refer to the <a data-link-type="dfn" href="#mime-type">MIME types</a> <code>text/xml</code>, <code>application/xml</code>, and any <a data-link-type="dfn" href="#mime-type">MIME type</a> whose subtype ends with the four characters
+  "<code>+xml</code>". <a data-link-type="biblio" href="#biblio-rfc7303">[RFC7303]</a></p>
+   <h4 class="heading settled" data-level="2.1.3" id="dom-trees"><span class="secno">2.1.3. </span><span class="content">DOM trees</span><a class="self-link" href="#dom-trees"></a></h4>
+   <p>The <dfn data-dfn-type="dfn" data-noexport="" id="root-element-of-a-document-object">root element of a <code>Document</code> object<a class="self-link" href="#root-element-of-a-document-object"></a></dfn> is that <code>Document</code>’s
+  first element child, if any. If it does not have one then the <code>Document</code> has no root
+  element.</p>
+   <p>The term <dfn data-dfn-type="dfn" data-noexport="" id="root-element">root element<a class="self-link" href="#root-element"></a></dfn>, when not referring to a <code>Document</code> object’s root
+  element, means the furthest ancestor element node of whatever node is being discussed, or the node
+  itself if it has no ancestors. When the node is a part of the document, then the node’s <a data-link-type="dfn" href="#root-element">root element</a> is indeed the document’s root element; however, if the node is not currently
+  part of the document tree, the root element will be an orphaned node.</p>
+   <p>When an element’s <a data-link-type="dfn" href="#root-element">root element</a> is the <a data-link-type="dfn" href="#root-element-of-a-document-object">root element of a <code>Document</code> object</a>,
+  it is said to be <dfn data-dfn-type="dfn" data-noexport="" id="in-a-document">in a <code>Document</code><a class="self-link" href="#in-a-document"></a></dfn>. An element is said to have been <dfn data-dfn-type="dfn" data-noexport="" id="inserted-into-a-document">inserted into a document<a class="self-link" href="#inserted-into-a-document"></a></dfn> when its <a data-link-type="dfn" href="#root-element">root element</a> changes and is now the document’s <a data-link-type="dfn" href="#root-element">root element</a>. Analogously, an element is said to have been <dfn data-dfn-type="dfn" data-noexport="" id="removed-from-a-document">removed from a document<a class="self-link" href="#removed-from-a-document"></a></dfn> when its <a data-link-type="dfn" href="#root-element">root element</a> changes from being the document’s <a data-link-type="dfn" href="#root-element">root element</a> to being another element.</p>
+   <p>A node’s <dfn data-dfn-type="dfn" data-noexport="" id="home-subtree">home subtree<a class="self-link" href="#home-subtree"></a></dfn> is the subtree rooted at that node’s <span>root
+  element</span>. When a node is <span>in a <code>Document</code></span>, its <span>home
+  subtree</span> is that <code>Document</code>’s tree.</p>
+   <p>The <code>Document</code> of a <code>Node</code> (such as an element) is the <code>Document</code> that the <code>Node</code>’s <code>ownerDocument</code> IDL attribute returns. When a <code>Node</code> is <span>in a <code>Document</code></span> then that <code>Document</code> is
+  always the <code>Node</code>’s <code>Document</code>, and the <code>Node</code>’s <code>ownerDocument</code> IDL attribute thus always returns that <code>Document</code>.</p>
+   <p>The <code>Document</code> of a content attribute is the <code>Document</code> of the attribute’s
+  element.</p>
+   <p>The term <dfn data-dfn-type="dfn" data-noexport="" id="tree-order">tree order<a class="self-link" href="#tree-order"></a></dfn> means a pre-order, depth-first traversal of DOM nodes involved
+  (through the <code>parentNode</code>/<code>childNodes</code> relationship).</p>
+   <p>When it is stated that some element or attribute is <dfn data-dfn-type="dfn" data-noexport="" id="ignored">ignored<a class="self-link" href="#ignored"></a></dfn>, or treated as some other
+  value, or handled as if it was something else, this refers only to the processing of the node
+  after it is in the DOM. <span class="impl">A user agent must not mutate the DOM in such
+  situations.</span></p>
+   <p>A content attribute is said to <dfn data-dfn-type="dfn" data-noexport="" id="change">change<a class="self-link" href="#change"></a></dfn> value only if its new value is different than its
+  previous value; setting an attribute to a value it already has does not change it.</p>
+   <p>The term <dfn data-dfn-type="dfn" data-noexport="" id="empty">empty<a class="self-link" href="#empty"></a></dfn>, when used of an attribute value, <code>Text</code> node, or string,
+  means that the length of the text is zero (i.e. not even containing spaces or <a data-link-type="dfn">control characters</a>).</p>
+   <p>A <dfn data-dfn-type="dfn" data-noexport="" id="node-a-is-inserted">node <var>A</var> is inserted<a class="self-link" href="#node-a-is-inserted"></a></dfn> into a node <var>B</var> when the <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-node-insert-ext">insertion steps</a> are invoked with <var>A</var> as the argument and <var>A</var>’s new parent
+  is <var>B</var>. Similarly, a <dfn data-dfn-type="dfn" data-noexport="" id="node-a-is-removed">node <var>A</var> is removed<a class="self-link" href="#node-a-is-removed"></a></dfn> from a node <var>B</var> when the <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-node-remove-ext">removing steps</a> are invoked with <var>A</var> as the <var>removedNode</var> argument and <var>B</var> as the <var>oldParent</var> argument.</p>
+   <h4 class="heading settled" data-level="2.1.4" id="scripting"><span class="secno">2.1.4. </span><span class="content">Scripting</span><a class="self-link" href="#scripting"></a></h4>
+   <p>The construction "a <code>Foo</code> object", where <code>Foo</code> is actually an interface,
+  is sometimes used instead of the more accurate "an object implementing the interface <code>Foo</code>".</p>
+   <p>An IDL attribute is said to be <dfn data-dfn-type="dfn" data-noexport="" id="getting">getting<a class="self-link" href="#getting"></a></dfn> when its value is being retrieved
+  (e.g. by author script), and is said to be <dfn data-dfn-type="dfn" data-noexport="" id="setting">setting<a class="self-link" href="#setting"></a></dfn> when a new value is
+  assigned to it.</p>
+   <p>If a DOM object is said to be <dfn data-dfn-type="dfn" data-noexport="" id="live">live<a class="self-link" href="#live"></a></dfn>, then the attributes and methods on that object <span class="impl">must</span> operate on the actual underlying data, not a snapshot of the
+  data.</p>
+   <p>In the contexts of events, the terms <i>fire</i> and <i>dispatch</i> are used as defined in the
+  DOM specification: <dfn data-dfn-type="dfn" data-noexport="" id="firing">firing<a class="self-link" href="#firing"></a></dfn> an event means to create and <a data-link-type="dfn" href="#dispatching">dispatch</a> it, and <dfn data-dfn-type="dfn" data-noexport="" id="dispatching">dispatching<a class="self-link" href="#dispatching"></a></dfn> an event means to follow the steps that propagate the event through the
+  tree. The term <dfn data-dfn-type="dfn" data-noexport="" id="trusted-event">trusted event<a class="self-link" href="#trusted-event"></a></dfn> is used to refer to events whose <code>isTrusted</code> attribute is initialized to true. <a data-link-type="biblio" href="#biblio-dom">[DOM]</a></p>
+   <h4 class="heading settled" data-level="2.1.5" id="plugins"><span class="secno">2.1.5. </span><span class="content">Plugins</span><a class="self-link" href="#plugins"></a></h4>
+   <p>The term <dfn data-dfn-type="dfn" data-noexport="" id="plugin">plugin<a class="self-link" href="#plugin"></a></dfn> refers to a user-agent defined set of content handlers used by the user
+  agent that can take part in the user agent’s rendering of a <code>Document</code> object, but that
+  neither act as <span>child browsing contexts</span> of the <code>Document</code> nor introduce any <code>Node</code> objects to the <code>Document</code>’s DOM.</p>
+   <p>Typically such content handlers are provided by third parties, though a user agent can also
+  designate built-in content handlers as plugins.</p>
+   <div class="impl"> A user agent must not consider the types <code>text/plain</code> and <code>application/octet-stream</code> as having a registered <span>plugin</span>. </div>
+   <p class="example" id="example-6e2799eb"><a class="self-link" href="#example-6e2799eb"></a> One example of a plugin would be a PDF viewer that is instantiated in a <span>browsing context</span> when the user navigates to a PDF file. This would count as a
+    plugin regardless of whether the party that implemented the PDF viewer component was the same as
+    that which implemented the user agent itself. However, a PDF viewer application that launches
+    separate from the user agent (as opposed to using the same interface) is not a plugin by this
+    definition. </p>
+   <p class="note" role="note"> This specification does not define a mechanism for interacting with plugins, as it is expected
+    to be user-agent- and platform-specific. Some UAs might opt to support a plugin mechanism such
+    as the Netscape Plugin API; others might use remote content converters or have built-in support
+    for certain types. Indeed, this specification doesn’t require user agents to support plugins at
+    all. <span>[NPAPI]</span> </p>
+   <p>A plugin can be <dfn data-dfn-type="dfn" data-noexport="" id="secured">secured<a class="self-link" href="#secured"></a></dfn> if it honors the semantics of the <code>sandbox</code> attribute.</p>
+   <p class="example" id="example-d81939fb"><a class="self-link" href="#example-d81939fb"></a> For example, a secured plugin would prevent its contents from creating pop-up windows when the
+    plugin is instantiated inside a sandboxed <code>iframe</code>. </p>
+   <div class="impl">
+    <p class="warning"> Browsers should take extreme care when interacting with external content intended for <a data-link-type="dfn" href="#plugin">plugins</a>. When third-party software is run with the same privileges as the user agent
+      itself, vulnerabilities in the third-party software become as dangerous as those in the user
+      agent. </p>
+    <p>Since different users having differents sets of <a data-link-type="dfn" href="#plugin">plugins</a> provides a fingerprinting vector
+    that increases the chances of users being uniquely identified, user agents are encouraged to
+    support the exact same set of <a data-link-type="dfn" href="#plugin">plugins</a> for each user.</p>
+   </div>
+   <h4 class="heading settled" data-level="2.1.6" id="encoding-terminology"><span class="secno">2.1.6. </span><span class="content">Character encodings</span><a class="self-link" href="#encoding-terminology"></a></h4>
+   <p>A <dfn data-dfn-type="dfn" data-noexport="" id="character-encoding">character encoding<a class="self-link" href="#character-encoding"></a></dfn>, or just <i>encoding</i> where that is not ambiguous, is a defined
+  way to convert between byte streams and Unicode strings, as defined in the Encoding standard. An <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-document-encoding">encoding</a> has an <dfn data-dfn-type="dfn" data-noexport="" id="encoding-name">encoding name<a class="self-link" href="#encoding-name"></a></dfn> and one or more <dfn data-dfn-type="dfn" data-noexport="" id="encoding-labels">encoding labels<a class="self-link" href="#encoding-labels"></a></dfn>,
+  referred to as the encoding’s <i>name</i> and <i>labels</i> in the Encoding standard. <a data-link-type="biblio" href="#biblio-encoding">[ENCODING]</a></p>
+   <p>An <dfn data-dfn-type="dfn" data-noexport="" id="ascii-compatible-character-encoding">ASCII-compatible character encoding<a class="self-link" href="#ascii-compatible-character-encoding"></a></dfn> is a single-byte or variable-length <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-document-encoding">encoding</a> in which the bytes 0x09, 0x0A, 0x0C, 0x0D, 0x20 - 0x22, 0x26, 0x27, 0x2C - 0x3F,
+  0x41 - 0x5A, and 0x61 - 0x7A, ignoring bytes that are the second and later bytes of multibyte
+  sequences, all correspond to single-byte sequences that map to the same Unicode characters as
+  those bytes in Windows-1252. <a data-link-type="biblio" href="#biblio-encoding">[ENCODING]</a></p>
+   <p class="note" role="note"> This includes such encodings as Shift_JIS, HZ-GB-2312, and variants of ISO-2022, even though it
+    is possible in these encodings for bytes like 0x70 to be part of longer sequences that are
+    unrelated to their interpretation as ASCII. It excludes UTF-16 variants, as well as obsolete
+    legacy encodings such as UTF-7, GSM03.38, and EBCDIC variants. </p>
+   <p>The term <dfn data-dfn-type="dfn" data-noexport="" id="a-utf-16-encoding">a UTF-16 encoding<a class="self-link" href="#a-utf-16-encoding"></a></dfn> refers to any variant of UTF-16: UTF-16LE or UTF-16BE,
+  regardless of the presence or absence of a BOM. <a data-link-type="biblio" href="#biblio-encoding">[ENCODING]</a></p>
+   <p>The term <dfn data-dfn-type="dfn" data-noexport="" id="code-unit">code unit<a class="self-link" href="#code-unit"></a></dfn> is used as defined in the Web IDL specification: a 16 bit
+  unsigned integer, the smallest atomic component of a <code>DOMString</code>. (This is a narrower
+  definition than the one used in Unicode, and is not the same as a <i>code point</i>.) <a data-link-type="biblio" href="#biblio-webidl">[WEBIDL]</a></p>
+   <p>The term <dfn data-dfn-type="dfn" data-noexport="" id="unicode-code-point">Unicode code point<a class="self-link" href="#unicode-code-point"></a></dfn> means a <i>Unicode scalar value</i> where possible, and an
+  isolated surrogate code point when not. When a conformance requirement is defined in terms of
+  characters or Unicode code points, a pair of <a data-link-type="dfn" href="#code-unit">code units</a> consisting of a high surrogate
+  followed by a low surrogate must be treated as the single code point represented by the surrogate
+  pair, but isolated surrogates must each be treated as the single code point with the value of the
+  surrogate. [[!UNICODE]</p>
+   <p>In this specification, the term <dfn data-dfn-type="dfn" data-noexport="" id="character">character<a class="self-link" href="#character"></a></dfn>, when not qualified as <em>Unicode</em> character, is synonymous with the term <a data-link-type="dfn" href="#unicode-code-point">Unicode code point</a>.</p>
+   <p>The term <dfn data-dfn-type="dfn" data-noexport="" id="unicode-character">Unicode character<a class="self-link" href="#unicode-character"></a></dfn> is used to mean a <i>Unicode scalar value</i> (i.e. any
+  Unicode code point that is not a surrogate code point). <a data-link-type="biblio" href="#biblio-unicode">[UNICODE]</a></p>
+   <p>The <dfn data-dfn-type="dfn" data-noexport="" id="code-unit-length">code-unit length<a class="self-link" href="#code-unit-length"></a></dfn> of a string is the number of <a data-link-type="dfn" href="#code-unit">code units</a> in that string.</p>
+   <p class="note" role="note"> This complexity results from the historical decision to define the DOM API in terms of 16 bit
+    (UTF-16) <a data-link-type="dfn" href="#code-unit">code units</a>, rather than in terms of <a data-link-type="dfn" href="#unicode-character">Unicode characters</a>. </p>
+   <h3 class="heading settled" data-level="2.2" id="conformance-requirements"><span class="secno">2.2. </span><span class="content">Conformance requirements</span><a class="self-link" href="#conformance-requirements"></a></h3>
+   <p>All diagrams, examples, and notes in this specification are non-normative, as are all sections
+  explicitly marked non-normative. Everything else in this specification is normative.</p>
+   <p>The key words "MUST", "MUST NOT",   "SHOULD", "SHOULD
+  NOT",  "MAY", and "OPTIONAL" in the normative parts of
+  this document are to be interpreted as described in RFC2119. The key word "OPTIONALLY" in the
+  normative parts of this document is to be interpreted with the same normative meaning as "MAY" and
+  "OPTIONAL". For readability, these words do not appear in all uppercase letters in this
+  specification. <a data-link-type="biblio" href="#biblio-rfc2119">[RFC2119]</a></p>
+   <div class="impl">
+     Requirements phrased in the imperative as part of algorithms (such as "strip any leading space
+    characters" or "return false and abort these steps") are to be interpreted with the meaning of
+    the key word ("must", "should", "may", etc) used in introducing the algorithm. 
+    <div class="example" id="example-cf5c138d">
+     <a class="self-link" href="#example-cf5c138d"></a> For example, were the spec to say: 
+<pre>To eat an orange, the user must:1. Peel the orange.
+2. Separate each slice of the orange.
+3. Eat the orange slices.</pre>
+     <p>...it would be equivalent to the following:</p>
+<pre>To eat an orange:1. The user must peel the orange.
+2. The user must separate each slice of the orange.
+3. The user must eat the orange slices.</pre>
+     <p>Here the key word is "must".</p>
+     <p>The former (imperative) style is generally preferred in this specification for stylistic
+       reasons.</p>
+    </div>
+    <p>Conformance requirements phrased as algorithms or specific steps may be implemented in any
+    manner, so long as the end result is equivalent. (In particular, the algorithms defined in this
+    specification are intended to be easy to follow, and not intended to be performant.)</p>
+   </div>
+   <div class="impl">
+    <h4 class="heading settled" data-level="2.2.1" id="conformance-classes"><span class="secno">2.2.1. </span><span class="content">Conformance classes</span><a class="self-link" href="#conformance-classes"></a></h4>
+    <p>This specification describes the conformance criteria for <span class="impl">user agents (relevant
+  to implementors) and</span> documents<span class="impl"> (relevant to authors and authoring tool
+  implementors)</span>.</p>
+    <p><dfn data-dfn-type="dfn" data-noexport="" id="conforming-documents">Conforming documents<a class="self-link" href="#conforming-documents"></a></dfn> are those that comply with all the conformance criteria for
+  documents. For readability, some of these conformance requirements are phrased as conformance
+  requirements on authors; such requirements are implicitly requirements on documents: by
+  definition, all documents are assumed to have had an author. (In some cases, that author may
+  itself be a user agent — such user agents are subject to additional rules, as explained
+  below.)</p>
+    <p class="example" id="example-cf97d5a1"><a class="self-link" href="#example-cf97d5a1"></a> For example, if a requirement states that "authors must not use the <code>foobar</code> element", it would imply that documents are not allowed to contain elements named <code>foobar</code>. </p>
+    <p class="note impl" role="note"> There is no implied relationship between document conformance requirements and implementation
+    conformance requirements. User agents are not free to handle non-conformant documents as they
+    please; the processing model described in this specification applies to implementations
+    regardless of the conformity of the input documents. </p>
+    <p>User agents fall into several (overlapping) categories with different conformance requirements.</p>
+    <dl>
+     <dt data-md="">
+      <p>Web browsers and other interactive user agents</p>
+     <dd data-md="">
+      <p>Web browsers that support <a data-link-type="dfn">the XHTML syntax</a> must process elements and attributes from the <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#html-namespace">HTML namespace</a> found in XML documents as described in this specification, so that users
+  can interact with them, unless the semantics of those elements have been overridden by other
+  specifications.</p>
+      <p class="example" id="example-d6fadb59"><a class="self-link" href="#example-d6fadb59"></a> A conforming XHTML processor would, upon finding an XHTML <code>script</code> element in an
+  XML document, execute the script contained in that element. However, if the element is found
+  within a transformation expressed in XSLT (assuming the user agent also supports XSLT), then
+  the processor would instead treat the <code>script</code> element as an opaque element that
+  forms part of the transform. </p>
+      <p>Web browsers that support <a data-link-type="dfn">the HTML syntax</a> must process documents labeled with an <a data-link-type="dfn" href="#html-mime-type">HTML MIME type</a> as described in this specification, so that users can interact with them.</p>
+      <p>User agents that support scripting must also be conforming implementations of the IDL fragments
+in this specification, as described in the Web IDL specification. <a data-link-type="biblio" href="#biblio-webidl">[WEBIDL]</a></p>
+      <p class="note" role="note"> Unless explicitly stated, specifications that override the semantics of HTML elements do not
+  override the requirements on DOM objects representing those elements. For example, the <code>script</code> element in the example above would still implement the <code>HTMLScriptElement</code> interface. </p>
+     <dt data-md="">
+      <p>Non-interactive presentation user agents</p>
+     <dd data-md="">
+      <p>User agents that process HTML and XHTML documents purely to render non-interactive versions
+  of them must comply to the same conformance criteria as Web browsers, except that they are
+  exempt from requirements regarding user interaction.</p>
+      <p class="note" role="note"> Typical examples of non-interactive presentation user agents are printers (static UAs) and
+    overhead displays (dynamic UAs). It is expected that most static non-interactive
+    presentation user agents will also opt to <a data-link-type="dfn">lack scripting support</a>. </p>
+      <p class="example" id="example-c7c5fcf3"><a class="self-link" href="#example-c7c5fcf3"></a> A non-interactive but dynamic presentation UA would still execute scripts, allowing forms
+    to be dynamically submitted, and so forth. However, since the concept of "focus" is
+    irrelevant when the user cannot interact with the document, the UA would not need to support
+    any of the focus-related DOM APIs. </p>
+     <dt data-md="">
+      <p>Visual user agents that support the suggested default rendering</p>
+     <dd data-md="">
+      <p>User agents, whether interactive or not, may be designated (possibly as a user option) as
+  supporting the suggested default rendering defined by this specification.</p>
+      <p>This is not required. In particular, even user agents that do implement the suggested default
+  rendering are encouraged to offer settings that override this default to improve the
+  experience for the user, e.g. changing the color contrast, using different focus styles, or
+  otherwise making the experience more accessible and usable to the user.</p>
+      <p>
+       User agents that are designated as supporting the suggested default rendering must, while so
+  designated, implement the rules in 
+       <aa>the rendering section that that section defines as
+  the behavior that user agents are <em>expected</em> to implement.</aa>
+      </p>
+      <dl>
+       <dt data-md="">
+        <p>User agents with no scripting support</p>
+       <dd data-md="">
+        <p>Implementations that do not support scripting (or which have their scripting features
+disabled entirely) are exempt from supporting the events and DOM interfaces mentioned in
+this specification. For the parts of this specification that are defined in terms of an
+events model or in terms of the DOM, such user agents must still act as if events and the
+DOM were supported.</p>
+        <p class="note" role="note"> Scripting can form an integral part of an application. Web browsers that do not support
+  scripting, or that have scripting disabled, might be unable to fully convey the author’s
+  intent. </p>
+      </dl>
+     <dt data-md="">
+      <p>Conformance checkers</p>
+     <dd data-md="">
+      <p>Conformance checkers must verify that a document conforms to the applicable conformance
+  criteria described in this specification. Automated conformance checkers are exempt from
+  detecting errors that require interpretation of the author’s intent (for example, while a
+  document is non-conforming if the content of a <code>blockquote</code> element is not a quote,
+  conformance checkers running without the input of human judgement do not have to check that <code>blockquote</code> elements only contain quoted material).</p>
+      <p>Conformance checkers must check that the input document conforms when parsed without a <a data-link-type="dfn">browsing context</a> (meaning that no scripts are run, and that the parser’s <a data-link-type="dfn">scripting flag</a> is disabled), and should also check that the input document conforms
+  when parsed with a <a data-link-type="dfn">browsing context</a> in which scripts execute, and that the scripts
+  never cause non-conforming states to occur other than transiently during script execution
+  itself. (This is only a "SHOULD" and not a "MUST" requirement because it has been proven to be
+  impossible. <span>[COMPUTABLE]</span>)</p>
+      <p>The term "HTML validator" can be used to refer to a conformance checker that itself conforms
+  to the applicable requirements of this specification.</p>
+      <div class="note" role="note">
+        XML DTDs cannot express all the conformance requirements of this specification. Therefore, a
+    validating XML processor and a DTD cannot constitute a conformance checker. Also, since
+    neither of the two authoring formats defined in this specification are applications of SGML,
+    a validating SGML system cannot constitute a conformance checker either. 
+       <p>To put it another way, there are three types of conformance criteria:</p>
+       <ol>
+        <li data-md="">
+         <p>Criteria that can be expressed in a DTD.</p>
+        <li data-md="">
+         <p>Criteria that cannot be expressed by a DTD, but can still be checked by a machine.</p>
+        <li data-md="">
+         <p>Criteria that can only be checked by a human.</p>
+       </ol>
+       <p>A conformance checker must check for the first two. A simple DTD-based validator only checks
+    for the first class of errors and is therefore not a conforming conformance checker
+    according to this specification.</p>
+      </div>
+     <dt data-md="">
+      <p>Data mining tools</p>
+     <dd data-md="">
+      <p>Applications and tools that process HTML and XHTML documents for reasons other than to either
+  render the documents or check them for conformance should act in accordance with the semantics
+  of the documents that they process.</p>
+      <p class="example" id="example-1815db19"><a class="self-link" href="#example-1815db19"></a> A tool that generates <a data-link-type="dfn">document outlines</a> but increases the nesting level for each
+    paragraph and does not increase the nesting level for each section would not be conforming. </p>
+     <dt data-md="">
+      <p>Authoring tools and markup generators</p>
+     <dd data-md="">
+      <p>Authoring tools and markup generators must generate <a data-link-type="dfn" href="#conforming-documents">conforming documents</a>. Conformance
+  criteria that apply to authors also apply to authoring tools, where appropriate.</p>
+      <p>Authoring tools are exempt from the strict requirements of using elements only for their
+  specified purpose, but only to the extent that authoring tools are not yet able to determine
+  author intent. However, authoring tools must not automatically misuse elements or encourage
+  their users to do so.</p>
+      <p class="example" id="example-d8723818"><a class="self-link" href="#example-d8723818"></a> For example, it is not conforming to use an <code>address</code> element for arbitrary
+    contact information; that element can only be used for marking up contact information for
+    the author of the document or section. However, since an authoring tool is likely unable to
+    determine the difference, an authoring tool is exempt from that requirement. This does not
+    mean, though, that authoring tools can use <code>address</code> elements for any block of
+    italics text (for instance); it just means that the authoring tool doesn’t have to verify
+    that when the user uses a tool for inserting contact information for a section, that the
+    user really is doing that and not inserting something else instead. </p>
+      <p class="note" role="note"> In terms of conformance checking, an editor has to output documents that conform to the same
+    extent that a conformance checker will verify. </p>
+      <p>When an authoring tool is used to edit a non-conforming document, it may preserve the
+  conformance errors in sections of the document that were not edited during the editing session
+  (i.e. an editing tool is allowed to round-trip erroneous content). However, an authoring tool
+  must not claim that the output is conformant if errors have been so preserved.</p>
+      <p>Authoring tools are expected to come in two broad varieties: tools that work from structure
+  or semantic data, and tools that work on a What-You-See-Is-What-You-Get media-specific editing
+  basis (WYSIWYG).</p>
+      <p>The former is the preferred mechanism for tools that author HTML, since the structure in the
+  source information can be used to make informed choices regarding which HTML elements and
+  attributes are most appropriate.</p>
+      <p>However, WYSIWYG tools are legitimate. WYSIWYG tools should use elements they know are
+  appropriate, and should not use elements that they do not know to be appropriate. This might
+  in certain extreme cases mean limiting the use of flow elements to just a few elements, like <code>div</code>, <code>b</code>, <code>i</code>, and <code>span</code> and making liberal use
+  of the <code>style</code> attribute.</p>
+      <p>All authoring tools, whether WYSIWYG or not, should make a best effort attempt at enabling
+  users to create well-structured, semantically rich, media-independent content.</p>
+    </dl>
+    <p>User agents may impose implementation-specific limits on otherwise unconstrained inputs, e.g. to
+  prevent denial of service attacks, to guard against running out of memory, or to work around
+  platform-specific limitations.</p>
+    <p>For compatibility with existing content and prior specifications, this specification describes
+  two authoring formats: one based on XML (referred to as <a data-link-type="dfn">the XHTML syntax</a>), and one using a <a data-link-type="dfn">custom format</a> inspired by SGML (referred to as <a data-link-type="dfn">the HTML syntax</a>). Implementations
+  must support at least one of these two formats, although supporting both is encouraged.</p>
+    <p>Some conformance requirements are phrased as requirements on elements, attributes, methods or
+  objects. Such requirements fall into two categories: those describing content model restrictions,
+  and those describing implementation behavior. Those in the former category are requirements on
+  documents and authoring tools. Those in the second category are requirements on user agents.
+  Similarly, some conformance requirements are phrased as requirements on authors; such requirements
+  are to be interpreted as conformance requirements on the documents that authors produce. (In other
+  words, this specification does not distinguish between conformance criteria on authors and
+  conformance criteria on documents.)</p>
+   </div>
    <hr>
    <hr>
    <hr>
-   <h2 class="heading settled" data-level="2" id="dom"><span class="secno">2. </span><span class="content">Semantics, structure, and APIs of HTML documents</span><a class="self-link" href="#dom"></a></h2>
-   <h3 class="heading settled" data-level="2.1" id="documents"><span class="secno">2.1. </span><span class="content">Documents</span><a class="self-link" href="#documents"></a></h3>
+   <h2 class="heading settled" data-level="3" id="dom"><span class="secno">3. </span><span class="content">Semantics, structure, and APIs of HTML documents</span><a class="self-link" href="#dom"></a></h2>
+   <h3 class="heading settled" data-level="3.1" id="documents"><span class="secno">3.1. </span><span class="content">Documents</span><a class="self-link" href="#documents"></a></h3>
    <p>Every XML and HTML document in an HTML UA is represented by a <code>Document</code> object. <a data-link-type="biblio" href="#biblio-dom">[DOM]</a></p>
    <p><dfn data-dfn-type="dfn" data-noexport="" id="the-documents-address">The document’s address<a class="self-link" href="#the-documents-address"></a></dfn> is the <i>URL associated with a <code>Document</code></i> (as
   defined in the DOM standard). It is initially set when the <code>Document</code> is created, but
@@ -1609,7 +1998,7 @@ creates a <code>Document</code> object for this purpose, set that <code>Document
      <p>When it comes time to <a data-link-type="dfn">set the document’s address</a> in the <a data-link-type="dfn">navigation algorithm</a>,
 use <var>address</var> as the <a data-link-type="dfn">override URL</a>.</p>
    </ol>
-   <h4 class="heading settled" data-level="2.1.1" id="the-document-object"><span class="secno">2.1.1. </span><span class="content">The <code>Document</code> object</span><a class="self-link" href="#the-document-object"></a></h4>
+   <h4 class="heading settled" data-level="3.1.1" id="the-document-object"><span class="secno">3.1.1. </span><span class="content">The <code>Document</code> object</span><a class="self-link" href="#the-document-object"></a></h4>
    <p>The DOM specification defines a <code>Document</code> interface, which this specification extends
   significantly:</p>
 <pre class="idl" highlights="webidl">enum <dfn class="idl-code" data-dfn-type="enum" data-export="" id="enumdef-documentreadystate">DocumentReadyState<a class="self-link" href="#enumdef-documentreadystate"></a></dfn> { "loading", "interactive", "complete" };
@@ -1661,15 +2050,15 @@ partial /*sealed*/ interface <a class="idl-code" data-link-type="interface" href
   [LenientThis] attribute <a data-link-type="idl-name">EventHandler</a> <dfn class="idl-code" data-dfn-for="Document" data-dfn-type="attribute" data-export="" data-type="EventHandler " id="dom-document-onreadystatechange">onreadystatechange<a class="self-link" href="#dom-document-onreadystatechange"></a></dfn>;
 };
 <a data-link-type="idl-name" href="https://dom.spec.whatwg.org/#document">Document</a> implements <a data-link-type="idl-name">GlobalEventHandlers</a>;</pre>
-   <h4 class="heading settled" data-level="2.1.2" id="resource-metadata-management"><span class="secno">2.1.2. </span><span class="content">Resource metadata management</span><a class="self-link" href="#resource-metadata-management"></a></h4>
+   <h4 class="heading settled" data-level="3.1.2" id="resource-metadata-management"><span class="secno">3.1.2. </span><span class="content">Resource metadata management</span><a class="self-link" href="#resource-metadata-management"></a></h4>
    <dl>
     <dt data-md="">
      <p><var>document</var> . <code>referrer</code></p>
     <dd data-md="">
-     <p>Returns <span data-x="the document’s address">the address</span> of the <code>Document</code> from which the user navigated to this one, unless it was blocked or there was no such document,
-in which case it returns the empty string.</p>
-     <p>The <code data-x="rel-noreferrer">noreferrer</code> link type can be used to block the
-referrer.</p>
+     <p>Returns <span>the address</span> of the <code>Document</code> from which the user navigated to
+this one, unless it was blocked or there was no such document, in which case it returns the
+empty string.</p>
+     <p>The <code>noreferrer</code> link type can be used to block the referrer.</p>
    </dl>
    <div class="impl"> The <dfn data-dfn-type="dfn" data-noexport="" id="referrer"><code>referrer</code><a class="self-link" href="#referrer"></a></dfn> attribute must return <a data-link-type="dfn" href="#the-documents-referrer">the document’s referrer</a>. </div>
    <hr>
@@ -1717,9 +2106,9 @@ form "<code>MM/DD/YYYY hh:mm:ss</code>", in the user’s local time zone.</p>
    </dl>
    <p>If the last modification date is not known, the current time is returned instead.</p>
    <div class="impl">
-     The <dfn data-dfn-type="dfn" data-noexport="" id="lastmodified"><code data-x="dom-document-lastModified">lastModified</code><a class="self-link" href="#lastmodified"></a></dfn> attribute, on
-    getting, must return the date and time of the <code>Document</code>’s source file’s last
-    modification, in the user’s local time zone, in the following format: 
+     The <dfn data-dfn-type="dfn" data-noexport="" id="lastmodified"><code>lastModified</code><a class="self-link" href="#lastmodified"></a></dfn> attribute, on getting, must return the date and time of
+    the <code>Document</code>’s source file’s last modification, in the user’s local time zone, in
+    the following format: 
     <ol>
      <li data-md="">
       <p>The month component of the date.</p>
@@ -1761,14 +2150,16 @@ form "<code>MM/DD/YYYY hh:mm:ss</code>", in the user’s local time zone.</p>
 "<code>interactive</code>" once it is finished parsing but still loading sub-resources, and
 "<code>complete</code>" once it has loaded.</p>
    </dl>
-   <p>The <code data-x="event-readystatechange">readystatechange</code> event fires on the <code>Document</code> object when this value changes.</p>
+   <p>The <code>readystatechange</code> event fires on the <code>Document</code> object when this value
+  changes.</p>
    <div class="impl">
      Each document has a <dfn data-dfn-type="dfn" data-noexport="" id="current-document-readiness">current document readiness<a class="self-link" href="#current-document-readiness"></a></dfn>. When a <code>Document</code> object
     is created, it must have its <a data-link-type="dfn" href="#current-document-readiness">current document readiness</a> set to the string
     "<code>loading</code>" if the document is associated with an <a data-link-type="dfn">HTML parser</a>, an <a data-link-type="dfn">XML parser</a>, or an XSLT processor, and to the string "<code>complete</code>"
     otherwise. Various algorithms during page loading affect this value. When the value is set, the
     user agent must <a data-link-type="dfn">fire a simple event</a> named <code>readystatechange</code> at the <code>Document</code> object. 
-    <p>A <code>Document</code> is said to have an <dfn data-dfn-type="dfn" data-noexport="" id="active-parser">active parser<a class="self-link" href="#active-parser"></a></dfn> if it is associated with an <a data-link-type="dfn">HTML parser</a> or an <a data-link-type="dfn">XML parser</a> that has not yet been <a data-link-type="dfn">stopped</a> or <a data-link-type="dfn">aborted</a>.</p>
+    <p>A <code>Document</code> is said to have an <dfn data-dfn-type="dfn" data-noexport="" id="active-parser">active parser<a class="self-link" href="#active-parser"></a></dfn> if it is associated with an <a data-link-type="dfn">HTML parser</a> or an <a data-link-type="dfn">XML parser</a> that has not yet been <a data-link-type="dfn">stopped</a> or</p>
+     <a data-link-type="dfn">aborted</a>. 
     <p>The <dfn data-dfn-type="dfn" data-noexport="" id="readystate"><code>readyState</code><a class="self-link" href="#readystate"></a></dfn> IDL attribute must, on getting, return the <a data-link-type="dfn" href="#current-document-readiness">current
     document readiness</a>.</p>
    </div>
@@ -1791,120 +2182,174 @@ form "<code>MM/DD/YYYY hh:mm:ss</code>", in the user’s local time zone.</p>
   <h2 class="no-num heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="indexlist">
-   <li><a href="#dom-document-activeelement">activeElement</a><span>, in §2.1.1</span>
-   <li><a href="#active-parser">active parser</a><span>, in §2.1.2</span>
-   <li><a href="#an-overridden-reload">an overridden reload</a><span>, in §2.1</span>
-   <li><a href="#dom-document-body">body</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-close">close()</a><span>, in §2.1.1</span>
+   <li><a href="#dom-document-activeelement">activeElement</a><span>, in §3.1.1</span>
+   <li><a href="#active-parser">active parser</a><span>, in §3.1.2</span>
+   <li><a href="#an-overridden-reload">an overridden reload</a><span>, in §3.1</span>
+   <li><a href="#ascii-compatible-character-encoding">ASCII-compatible character encoding</a><span>, in §2.1.6</span>
+   <li><a href="#a-utf-16-encoding">a UTF-16 encoding</a><span>, in §2.1.6</span>
+   <li><a href="#dom-document-body">body</a><span>, in §3.1.1</span>
+   <li><a href="#change">change</a><span>, in §2.1.3</span>
+   <li><a href="#character">character</a><span>, in §2.1.6</span>
+   <li><a href="#character-encoding">character encoding</a><span>, in §2.1.6</span>
+   <li><a href="#dom-document-close">close()</a><span>, in §3.1.1</span>
+   <li><a href="#code-unit">code unit</a><span>, in §2.1.6</span>
+   <li><a href="#code-unit-length">code-unit length</a><span>, in §2.1.6</span>
    <li>
     commandId
     <ul>
-     <li><a href="#dom-document-execcommand-commandid-showui-value-commandid">argument for Document/execCommand(commandId, showUI, value), Document/execCommand(commandId, showUI), Document/execCommand(commandId)</a><span>, in §2.1.1</span>
-     <li><a href="#dom-document-querycommandenabled-commandid-commandid">argument for Document/queryCommandEnabled(commandId)</a><span>, in §2.1.1</span>
-     <li><a href="#dom-document-querycommandindeterm-commandid-commandid">argument for Document/queryCommandIndeterm(commandId)</a><span>, in §2.1.1</span>
-     <li><a href="#dom-document-querycommandstate-commandid-commandid">argument for Document/queryCommandState(commandId)</a><span>, in §2.1.1</span>
-     <li><a href="#dom-document-querycommandsupported-commandid-commandid">argument for Document/queryCommandSupported(commandId)</a><span>, in §2.1.1</span>
-     <li><a href="#dom-document-querycommandvalue-commandid-commandid">argument for Document/queryCommandValue(commandId)</a><span>, in §2.1.1</span>
+     <li><a href="#dom-document-execcommand-commandid-showui-value-commandid">argument for Document/execCommand(commandId, showUI, value), Document/execCommand(commandId, showUI), Document/execCommand(commandId)</a><span>, in §3.1.1</span>
+     <li><a href="#dom-document-querycommandenabled-commandid-commandid">argument for Document/queryCommandEnabled(commandId)</a><span>, in §3.1.1</span>
+     <li><a href="#dom-document-querycommandindeterm-commandid-commandid">argument for Document/queryCommandIndeterm(commandId)</a><span>, in §3.1.1</span>
+     <li><a href="#dom-document-querycommandstate-commandid-commandid">argument for Document/queryCommandState(commandId)</a><span>, in §3.1.1</span>
+     <li><a href="#dom-document-querycommandsupported-commandid-commandid">argument for Document/queryCommandSupported(commandId)</a><span>, in §3.1.1</span>
+     <li><a href="#dom-document-querycommandvalue-commandid-commandid">argument for Document/queryCommandValue(commandId)</a><span>, in §3.1.1</span>
     </ul>
+   <li><a href="#conforming-documents">Conforming documents</a><span>, in §2.2.1</span>
+   <li><a href="#content-attributes">content attributes</a><span>, in §2.1</span>
    <li>
     cookie
     <ul>
-     <li><a href="#dom-document-cookie">attribute for Document</a><span>, in §2.1.1</span>
-     <li><a href="#cookie">definition of</a><span>, in §2.1.2</span>
+     <li><a href="#dom-document-cookie">attribute for Document</a><span>, in §3.1.1</span>
+     <li><a href="#cookie">definition of</a><span>, in §3.1.2</span>
     </ul>
-   <li><a href="#cookie-averse-document-object">cookie-averse Document object</a><span>, in §2.1.2</span>
-   <li><a href="#current-document-readiness">current document readiness</a><span>, in §2.1.2</span>
-   <li><a href="#dom-document-currentscript">currentScript</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-defaultview">defaultView</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-designmode">designMode</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-dir">dir</a><span>, in §2.1.1</span>
-   <li><a href="#enumdef-documentreadystate">DocumentReadyState</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-domain">domain</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-getelementsbyname-elementname-elementname">elementName</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-embeds">embeds</a><span>, in §2.1.1</span>
+   <li><a href="#cookie-averse-document-object">cookie-averse Document object</a><span>, in §3.1.2</span>
+   <li><a href="#critical-subresources">critical subresources</a><span>, in §2.1.1</span>
+   <li><a href="#css-properties">CSS properties</a><span>, in §2.1</span>
+   <li><a href="#current-document-readiness">current document readiness</a><span>, in §3.1.2</span>
+   <li><a href="#dom-document-currentscript">currentScript</a><span>, in §3.1.1</span>
+   <li><a href="#data-url">data: URL</a><span>, in §2.1.1</span>
+   <li><a href="#dom-document-defaultview">defaultView</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-designmode">designMode</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-dir">dir</a><span>, in §3.1.1</span>
+   <li><a href="#dispatching">dispatching</a><span>, in §2.1.4</span>
+   <li><a href="#displayed">displayed</a><span>, in §2.1</span>
+   <li><a href="#document">document</a><span>, in §2.1</span>
+   <li><a href="#enumdef-documentreadystate">DocumentReadyState</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-domain">domain</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-getelementsbyname-elementname-elementname">elementName</a><span>, in §3.1.1</span>
+   <li><a href="#element-type">element type</a><span>, in §2.1.2</span>
+   <li><a href="#dom-document-embeds">embeds</a><span>, in §3.1.1</span>
+   <li><a href="#empty">empty</a><span>, in §2.1.3</span>
+   <li><a href="#encoding-labels">encoding labels</a><span>, in §2.1.6</span>
+   <li><a href="#encoding-name">encoding name</a><span>, in §2.1.6</span>
    <li><a href="#example">Example</a><span>, in §1.7.2</span>
-   <li><a href="#dom-document-execcommand">execCommand(commandId)</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-execcommand">execCommand(commandId, showUI)</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-execcommand">execCommand(commandId, showUI, value)</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-open-url-name-features-replace-features">features</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-forms">forms</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-getelementsbyname">getElementsByName(elementName)</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-hasfocus">hasFocus()</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-head">head</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-images">images</a><span>, in §2.1.1</span>
+   <li><a href="#dom-document-execcommand">execCommand(commandId)</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-execcommand">execCommand(commandId, showUI)</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-execcommand">execCommand(commandId, showUI, value)</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-open-url-name-features-replace-features">features</a><span>, in §3.1.1</span>
+   <li><a href="#firing">firing</a><span>, in §2.1.4</span>
+   <li><a href="#dom-document-forms">forms</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-getelementsbyname">getElementsByName(elementName)</a><span>, in §3.1.1</span>
+   <li><a href="#getting">getting</a><span>, in §2.1.4</span>
+   <li><a href="#dom-document-hasfocus">hasFocus()</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-head">head</a><span>, in §3.1.1</span>
+   <li><a href="#home-subtree">home subtree</a><span>, in §2.1.3</span>
+   <li><a href="#html-elements">HTML elements</a><span>, in §2.1.2</span>
+   <li><a href="#html-mime-type">HTML MIME type</a><span>, in §2.1.1</span>
+   <li><a href="#idl-attributes">IDL attributes</a><span>, in §2.1</span>
+   <li><a href="#ignored">ignored</a><span>, in §2.1.3</span>
+   <li><a href="#dom-document-images">images</a><span>, in §3.1.1</span>
+   <li><a href="#immediately">immediately</a><span>, in §2.1</span>
+   <li><a href="#in-a-document">in a Document</a><span>, in §2.1.3</span>
+   <li><a href="#in-parallel">in parallel</a><span>, in §2.1</span>
+   <li><a href="#inserted-into-a-document">inserted into a document</a><span>, in §2.1.3</span>
    <li>
     lastModified
     <ul>
-     <li><a href="#dom-document-lastmodified">attribute for Document</a><span>, in §2.1.1</span>
-     <li><a href="#lastmodified">definition of</a><span>, in §2.1.2</span>
+     <li><a href="#dom-document-lastmodified">attribute for Document</a><span>, in §3.1.1</span>
+     <li><a href="#lastmodified">definition of</a><span>, in §3.1.2</span>
     </ul>
-   <li><a href="#dom-document-links">links</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-location">location</a><span>, in §2.1.1</span>
+   <li><a href="#dom-document-links">links</a><span>, in §3.1.1</span>
+   <li><a href="#live">live</a><span>, in §2.1.4</span>
+   <li><a href="#dom-document-location">location</a><span>, in §3.1.1</span>
+   <li><a href="#mime-type">MIME type</a><span>, in §2.1.1</span>
    <li>
     name
     <ul>
-     <li><a href="#dom-document-__getter__-name-name">argument for Document/__getter__(name)</a><span>, in §2.1.1</span>
-     <li><a href="#dom-document-open-url-name-features-replace-name">argument for Document/open(url, name, features, replace), Document/open(url, name, features)</a><span>, in §2.1.1</span>
+     <li><a href="#dom-document-__getter__-name-name">argument for Document/__getter__(name)</a><span>, in §3.1.1</span>
+     <li><a href="#dom-document-open-url-name-features-replace-name">argument for Document/open(url, name, features, replace), Document/open(url, name, features)</a><span>, in §3.1.1</span>
     </ul>
-   <li><a href="#dom-document-onreadystatechange">onreadystatechange</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-open">open()</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-open">open(type)</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-open">open(type, replace)</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-open-url-name-features-replace">open(url, name, features)</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-open-url-name-features-replace">open(url, name, features, replace)</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-plugins">plugins</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-querycommandenabled">queryCommandEnabled(commandId)</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-querycommandindeterm">queryCommandIndeterm(commandId)</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-querycommandstate">queryCommandState(commandId)</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-querycommandsupported">queryCommandSupported(commandId)</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-querycommandvalue">queryCommandValue(commandId)</a><span>, in §2.1.1</span>
+   <li><a href="#node-a-is-inserted">node A is inserted</a><span>, in §2.1.3</span>
+   <li><a href="#node-a-is-removed">node A is removed</a><span>, in §2.1.3</span>
+   <li><a href="#object-properties">object properties</a><span>, in §2.1</span>
+   <li><a href="#dom-document-onreadystatechange">onreadystatechange</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-open">open()</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-open">open(type)</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-open">open(type, replace)</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-open-url-name-features-replace">open(url, name, features)</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-open-url-name-features-replace">open(url, name, features, replace)</a><span>, in §3.1.1</span>
+   <li><a href="#plugin">plugin</a><span>, in §2.1.5</span>
+   <li><a href="#dom-document-plugins">plugins</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-querycommandenabled">queryCommandEnabled(commandId)</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-querycommandindeterm">queryCommandIndeterm(commandId)</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-querycommandstate">queryCommandState(commandId)</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-querycommandsupported">queryCommandSupported(commandId)</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-querycommandvalue">queryCommandValue(commandId)</a><span>, in §3.1.1</span>
    <li>
     readyState
     <ul>
-     <li><a href="#dom-document-readystate">attribute for Document</a><span>, in §2.1.1</span>
-     <li><a href="#readystate">definition of</a><span>, in §2.1.2</span>
+     <li><a href="#dom-document-readystate">attribute for Document</a><span>, in §3.1.1</span>
+     <li><a href="#readystate">definition of</a><span>, in §3.1.2</span>
     </ul>
    <li>
     referrer
     <ul>
-     <li><a href="#dom-document-referrer">attribute for Document</a><span>, in §2.1.1</span>
-     <li><a href="#referrer">definition of</a><span>, in §2.1.2</span>
+     <li><a href="#dom-document-referrer">attribute for Document</a><span>, in §3.1.1</span>
+     <li><a href="#referrer">definition of</a><span>, in §3.1.2</span>
     </ul>
-   <li><a href="#reload-override-buffer">reload override buffer</a><span>, in §2.1</span>
-   <li><a href="#reload-override-flag">reload override flag</a><span>, in §2.1</span>
+   <li><a href="#reload-override-buffer">reload override buffer</a><span>, in §3.1</span>
+   <li><a href="#reload-override-flag">reload override flag</a><span>, in §3.1</span>
+   <li><a href="#removed-from-a-document">removed from a document</a><span>, in §2.1.3</span>
    <li>
     replace
     <ul>
-     <li><a href="#dom-document-open-type-replace-replace">argument for Document/open(type, replace), Document/open(type), Document/open()</a><span>, in §2.1.1</span>
-     <li><a href="#dom-document-open-url-name-features-replace-replace">argument for Document/open(url, name, features, replace), Document/open(url, name, features)</a><span>, in §2.1.1</span>
+     <li><a href="#dom-document-open-type-replace-replace">argument for Document/open(type, replace), Document/open(type), Document/open()</a><span>, in §3.1.1</span>
+     <li><a href="#dom-document-open-url-name-features-replace-replace">argument for Document/open(url, name, features, replace), Document/open(url, name, features)</a><span>, in §3.1.1</span>
     </ul>
-   <li><a href="#dom-document-scripts">scripts</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-execcommand-commandid-showui-value-showui">showUI</a><span>, in §2.1.1</span>
+   <li><a href="#resource">resource</a><span>, in §2.1.1</span>
+   <li><a href="#root-element">root element</a><span>, in §2.1.3</span>
+   <li><a href="#root-element-of-a-document-object">root element of a Document object</a><span>, in §2.1.3</span>
+   <li><a href="#dom-document-scripts">scripts</a><span>, in §3.1.1</span>
+   <li><a href="#secured">secured</a><span>, in §2.1.5</span>
+   <li><a href="#setting">setting</a><span>, in §2.1.4</span>
+   <li><a href="#shown">shown</a><span>, in §2.1</span>
+   <li><a href="#dom-document-execcommand-commandid-showui-value-showui">showUI</a><span>, in §3.1.1</span>
+   <li><a href="#supported">supported</a><span>, in §2.1.1</span>
    <li>
     text
     <ul>
-     <li><a href="#dom-document-write-text-text">argument for Document/write(text...), Document/write(text)</a><span>, in §2.1.1</span>
-     <li><a href="#dom-document-writeln-text-text">argument for Document/writeln(text...), Document/writeln(text)</a><span>, in §2.1.1</span>
+     <li><a href="#dom-document-write-text-text">argument for Document/write(text...), Document/write(text)</a><span>, in §3.1.1</span>
+     <li><a href="#dom-document-writeln-text-text">argument for Document/writeln(text...), Document/writeln(text)</a><span>, in §3.1.1</span>
     </ul>
-   <li><a href="#the-documents-address">The document’s address</a><span>, in §2.1</span>
-   <li><a href="#the-documents-referrer">The document’s referrer</a><span>, in §2.1</span>
+   <li><a href="#the-documents-address">The document’s address</a><span>, in §3.1</span>
+   <li><a href="#the-documents-referrer">The document’s referrer</a><span>, in §3.1</span>
    <li>
     this
     <ul>
      <li><a href="#this">dfn for conventions</a><span>, in §1.7.2</span>
      <li><a href="#this0">dfn for conventions</a><span>, in §1.7.2</span>
     </ul>
-   <li><a href="#dom-document-title">title</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-open-type-replace-type">type</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-open-url-name-features-replace-url">url</a><span>, in §2.1.1</span>
+   <li><a href="#dom-document-title">title</a><span>, in §3.1.1</span>
+   <li><a href="#tree-order">tree order</a><span>, in §2.1.3</span>
+   <li><a href="#trusted-event">trusted event</a><span>, in §2.1.4</span>
+   <li><a href="#dom-document-open-type-replace-type">type</a><span>, in §3.1.1</span>
+   <li><a href="#unicode-character">Unicode character</a><span>, in §2.1.6</span>
+   <li><a href="#unicode-code-point">Unicode code point</a><span>, in §2.1.6</span>
+   <li><a href="#dom-document-open-url-name-features-replace-url">url</a><span>, in §3.1.1</span>
    <li><a href="#fingerprinting-vector">used to fingerprint
   the user</a><span>, in §1.8</span>
-   <li><a href="#dom-document-execcommand-commandid-showui-value-value">value</a><span>, in §2.1.1</span>
+   <li><a href="#valid-mime-type">valid MIME type</a><span>, in §2.1.1</span>
+   <li><a href="#valid-mime-type-with-no-parameters">valid MIME type with no parameters</a><span>, in §2.1.1</span>
+   <li><a href="#dom-document-execcommand-commandid-showui-value-value">value</a><span>, in §3.1.1</span>
+   <li><a href="#visible">visible</a><span>, in §2.1</span>
    <li><a href="#willful-violation">willful violation</a><span>, in §1.5.2</span>
-   <li><a href="#dom-document-write">write()</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-writeln">writeln()</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-writeln">writeln(text...)</a><span>, in §2.1.1</span>
-   <li><a href="#dom-document-write">write(text...)</a><span>, in §2.1.1</span>
+   <li><a href="#dom-document-write">write()</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-writeln">writeln()</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-writeln">writeln(text...)</a><span>, in §3.1.1</span>
+   <li><a href="#dom-document-write">write(text...)</a><span>, in §3.1.1</span>
+   <li><a href="#xhtml-document">XHTML document</a><span>, in §2.1</span>
+   <li><a href="#xml-compatible">XML-compatible</a><span>, in §2.1.2</span>
+   <li><a href="#xml-mime-type">XML MIME type</a><span>, in §2.1.2</span>
   </ul>
   <h3 class="no-num heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
   <ul class="indexlist">
@@ -1931,9 +2376,15 @@ form "<code>MM/DD/YYYY hh:mm:ss</code>", in the user’s local time zone.</p>
      <li><a href="https://dom.spec.whatwg.org/#htmlcollection">HTMLCollection</a>
      <li><a href="https://dom.spec.whatwg.org/#nodelist">NodeList</a>
      <li><a href="https://dom.spec.whatwg.org/#concept-attribute">attribute</a>
+     <li><a href="https://dom.spec.whatwg.org/#concept-document-encoding">encoding</a>
+     <li><a href="https://dom.spec.whatwg.org/#html-document">html document</a>
+     <li><a href="https://dom.spec.whatwg.org/#html-namespace">html namespace</a>
+     <li><a href="https://dom.spec.whatwg.org/#concept-node-insert-ext">insertion steps</a>
      <li><a href="https://dom.spec.whatwg.org/#concept-document-no-quirks">no-quirks mode</a>
      <li><a href="https://dom.spec.whatwg.org/#concept-document-quirks">quirks mode</a>
+     <li><a href="https://dom.spec.whatwg.org/#concept-node-remove-ext">removing steps</a>
      <li><a href="https://dom.spec.whatwg.org/#concept-attribute-value">value</a>
+     <li><a href="https://dom.spec.whatwg.org/#xml-document">xml document</a>
     </ul>
    <li>
     <a data-link-type="biblio" href="#biblio-svg2">[SVG2]</a> defines the following terms:
@@ -1964,8 +2415,12 @@ form "<code>MM/DD/YYYY hh:mm:ss</code>", in the user’s local time zone.</p>
    <dd>Nikos Andronikos; et al. <a href="http://www.w3.org/TR/SVG2/">Scalable Vector Graphics (SVG) 2</a>. 15 September 2015. WD. URL: <a href="http://www.w3.org/TR/SVG2/">http://www.w3.org/TR/SVG2/</a>
    <dt id="biblio-uaag20"><a class="self-link" href="#biblio-uaag20"></a>[UAAG20]
    <dd>James Allan; Kimberly Patch; Jeanne F Spellman. <a href="http://www.w3.org/TR/UAAG20/">User Agent Accessibility Guidelines (UAAG) 2.0</a>. 15 September 2015. WD. URL: <a href="http://www.w3.org/TR/UAAG20/">http://www.w3.org/TR/UAAG20/</a>
+   <dt id="biblio-unicode"><a class="self-link" href="#biblio-unicode"></a>[UNICODE]
+   <dd><a href="http://www.unicode.org/versions/latest/">The Unicode Standard</a>. URL: <a href="http://www.unicode.org/versions/latest/">http://www.unicode.org/versions/latest/</a>
    <dt id="biblio-wcag"><a class="self-link" href="#biblio-wcag"></a>[WCAG]
    <dd>Wendy Chisholm; Gregg Vanderheiden; Ian Jacobs. <a href="http://www.w3.org/TR/WAI-WEBCONTENT">Web Content Accessibility Guidelines 1.0</a>. 5 May 1999. REC. URL: <a href="http://www.w3.org/TR/WAI-WEBCONTENT">http://www.w3.org/TR/WAI-WEBCONTENT</a>
+   <dt id="biblio-webidl"><a class="self-link" href="#biblio-webidl"></a>[WebIDL]
+   <dd>Cameron McCormack; Boris Zbarsky. <a href="http://www.w3.org/TR/WebIDL-1/">WebIDL Level 1</a>. 4 August 2015. WD. URL: <a href="http://www.w3.org/TR/WebIDL-1/">http://www.w3.org/TR/WebIDL-1/</a>
    <dt id="biblio-charmod"><a class="self-link" href="#biblio-charmod"></a>[CHARMOD]
    <dd>Martin Dürst; et al. <a href="http://www.w3.org/TR/charmod/">Character Model for the World Wide Web 1.0: Fundamentals</a>. 15 February 2005. REC. URL: <a href="http://www.w3.org/TR/charmod/">http://www.w3.org/TR/charmod/</a>
    <dt id="biblio-css-cascade-3"><a class="self-link" href="#biblio-css-cascade-3"></a>[CSS-CASCADE-3]
@@ -1980,12 +2435,20 @@ form "<code>MM/DD/YYYY hh:mm:ss</code>", in the user’s local time zone.</p>
    <dd>Anne van Kesteren; Joshua Bell; Addison Phillips. <a href="http://www.w3.org/TR/encoding/">Encoding</a>. 20 October 2015. CR. URL: <a href="http://www.w3.org/TR/encoding/">http://www.w3.org/TR/encoding/</a>
    <dt id="biblio-html-polyglot"><a class="self-link" href="#biblio-html-polyglot"></a>[HTML-POLYGLOT]
    <dd>Eliot Graff; Leif Halvard Silli. <a href="http://www.w3.org/TR/html-polyglot/">Polyglot Markup: A robust profile of the HTML5 vocabulary</a>. 29 September 2015. NOTE. URL: <a href="http://www.w3.org/TR/html-polyglot/">http://www.w3.org/TR/html-polyglot/</a>
+   <dt id="biblio-rfc2046"><a class="self-link" href="#biblio-rfc2046"></a>[RFC2046]
+   <dd>N. Freed; N. Borenstein. <a href="https://tools.ietf.org/html/rfc2046">Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types</a>. November 1996. Draft Standard. URL: <a href="https://tools.ietf.org/html/rfc2046">https://tools.ietf.org/html/rfc2046</a>
    <dt id="biblio-rfc2119"><a class="self-link" href="#biblio-rfc2119"></a>[RFC2119]
    <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
+   <dt id="biblio-rfc2397"><a class="self-link" href="#biblio-rfc2397"></a>[RFC2397]
+   <dd>L. Masinter. <a href="https://tools.ietf.org/html/rfc2397">The "data" URL scheme</a>. August 1998. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc2397">https://tools.ietf.org/html/rfc2397</a>
+   <dt id="biblio-rfc7303"><a class="self-link" href="#biblio-rfc7303"></a>[RFC7303]
+   <dd>H. Thompson; C. Lilley. <a href="https://tools.ietf.org/html/rfc7303">XML Media Types</a>. July 2014. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc7303">https://tools.ietf.org/html/rfc7303</a>
    <dt id="biblio-url"><a class="self-link" href="#biblio-url"></a>[URL]
    <dd>Anne van Kesteren; Sam Ruby. <a href="http://www.w3.org/TR/url-1/">URL</a>. 9 December 2014. WD. URL: <a href="http://www.w3.org/TR/url-1/">http://www.w3.org/TR/url-1/</a>
    <dt id="biblio-workers"><a class="self-link" href="#biblio-workers"></a>[WORKERS]
    <dd>Ian Hickson. <a href="http://www.w3.org/TR/workers/">Web Workers</a>. 24 September 2015. WD. URL: <a href="http://www.w3.org/TR/workers/">http://www.w3.org/TR/workers/</a>
+   <dt id="biblio-xml"><a class="self-link" href="#biblio-xml"></a>[XML]
+   <dd>Tim Bray; et al. <a href="http://www.w3.org/TR/xml">Extensible Markup Language (XML) 1.0 (Fifth Edition)</a>. 26 November 2008. REC. URL: <a href="http://www.w3.org/TR/xml">http://www.w3.org/TR/xml</a>
   </dl>
   <h3 class="no-num heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
