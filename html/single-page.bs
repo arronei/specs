@@ -3952,8 +3952,8 @@ on attribute values</h4>
     aborted at that point and returns nothing.
 
     1. Let <var>input</var> be the string being parsed.
-    2. Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start of
-        the string.
+    2. Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start
+        of the string.
     3. <a>Parse a date component</a> to obtain <var>year</var>, <var>month</var>, and <var>day</var>.
         If this returns nothing, then fail.
     4. If <var>position</var> is beyond the end of <var>input</var> or if the character at
@@ -3965,11 +3965,11 @@ on attribute values</h4>
     7. <a>Parse a time-zone offset component</a> to obtain <var>timezone<sub>hours</sub></var> and
         <var>timezone<sub>minutes</sub></var>. If this returns nothing, then fail.
     8. If <var>position</var> is <em>not</em> beyond the end of <var>input</var>, then fail.
-    9. Let <var>time</var> be the moment in time at year <var>year</var>, month <var>month</var>, day
-        <var>day</var>, hours <var>hour</var>, minute <var>minute</var>, second <var>second</var>,
-        subtracting <var>timezone<sub>hours</sub></var> hours and
-        <var>timezone<sub>minutes</sub></var> minutes. That moment in time is a moment in the UTC time
-        zone.
+    9. Let <var>time</var> be the moment in time at year <var>year</var>, month <var>month</var>,
+        day <var>day</var>, hours <var>hour</var>, minute <var>minute</var>, second
+        <var>second</var>, subtracting <var>timezone<sub>hours</sub></var> hours and
+        <var>timezone<sub>minutes</sub></var> minutes. That moment in time is a moment in the UTC
+        time zone.
     10. Let <var>timezone</var> be <var>timezone<sub>hours</sub></var> hours and
         <var>timezone<sub>minutes</sub></var> minutes from UTC.
     11. Return <var>time</var> and <var>timezone</var>.
