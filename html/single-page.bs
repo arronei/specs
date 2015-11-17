@@ -391,7 +391,8 @@ spec:url; type:dfn; for:url; text:url
 
     <p class="warning">This is a warning.</p>
 
-    <pre class="idl-ignore">interface <dfn>Example</dfn> {
+    <pre class="idl-ignore">
+    interface <dfn>Example</dfn> {
         // this is an IDL definition
     };</pre>
 
@@ -503,17 +504,18 @@ spec:url; type:dfn; for:url; text:url
 
   A basic HTML document looks like this:
 
-  <pre id="intro-early-example" highlight="html">&lt;!DOCTYPE html>
-  &lt;html>
-    &lt;head>
-    &lt;title>Sample page&lt;/title>
-    &lt;/head>
-    &lt;body>
-    &lt;h1>Sample page&lt;/h1>
-    &lt;p>This is a &lt;a href="demo.html">simple&lt;/a> sample.&lt;/p>
-    &lt;!-- this is a comment -->
-    &lt;/body>
-  &lt;/html></pre>
+  <pre id="intro-early-example" highlight="html">
+    &lt;!DOCTYPE html>
+    &lt;html>
+      &lt;head>
+      &lt;title>Sample page&lt;/title>
+      &lt;/head>
+      &lt;body>
+      &lt;h1>Sample page&lt;/h1>
+      &lt;p>This is a &lt;a href="demo.html">simple&lt;/a> sample.&lt;/p>
+      &lt;!-- this is a comment -->
+      &lt;/body>
+    &lt;/html></pre>
 
   HTML documents consist of a tree of elements and text. Each element is denoted in the source by
   a <a>start tag</a>, such as "<code>&lt;body></code>", and an <a>end tag</a>, such as
@@ -542,7 +544,8 @@ spec:url; type:dfn; for:url; text:url
   it has to be quoted using either single or double quotes. The value, along with the
   "<code>=</code>" character, can be omitted altogether if the value is the empty string.
 
-  <pre highlight="html">&lt;!-- empty attributes -->
+  <pre highlight="html">
+  &lt;!-- empty attributes -->
   &lt;input name=address disabled>
   &lt;input name=address disabled="">
 
@@ -634,7 +637,8 @@ spec:url; type:dfn; for:url; text:url
   <a>event handler content attributes</a>. For example, here is a form with a script that sets the
   value of the form's <{output}> element to say "Hello World"
 
-  <pre highlight="html">&lt;form name="main">
+  <pre highlight="html">
+  &lt;form name="main">
     Result: &lt;output name="result">&lt;/output>
     &lt;script>
     document.forms.main.elements.result.value = 'Hello World';
@@ -645,7 +649,8 @@ spec:url; type:dfn; for:url; text:url
   they can be manipulated. For instance, a link (e.g. the <{a}> element in the tree above) can have
   its "<{a/href}>" attribute changed in several ways:
 
-  <pre highlight="javascript">var a = document.links[0]; // obtain the first link in the document
+  <pre highlight="javascript">
+  var a = document.links[0]; // obtain the first link in the document
   a.href = 'sample.html'; // change the destination URL of the link
   a.protocol = 'https'; // change just the scheme part of the URL
   a.setAttribute('href', 'http://example.com/'); // change the content attribute directly</pre>
@@ -662,17 +667,18 @@ spec:url; type:dfn; for:url; text:url
 
   In the following example, the page has been made yellow-on-blue using CSS.
 
-  <pre highlight="html">&lt;!DOCTYPE html>
+  <pre highlight="html">
+  &lt;!DOCTYPE html>
   &lt;html>
     &lt;head>
-    &lt;title>Sample styled page&lt;/title>
-    &lt;style>
-      body { background: navy; color: yellow; }
-    &lt;/style>
+      &lt;title>Sample styled page&lt;/title>
+      &lt;style>
+        body { background: navy; color: yellow; }
+      &lt;/style>
     &lt;/head>
     &lt;body>
-    &lt;h1>Sample styled page&lt;/h1>
-    &lt;p>This page is just a demo.&lt;/p>
+      &lt;h1>Sample styled page&lt;/h1>
+      &lt;p>This page is just a demo.&lt;/p>
     &lt;/body>
   &lt;/html></pre>
 
@@ -718,10 +724,11 @@ spec:url; type:dfn; for:url; text:url
         For example, suppose a page looked at its URL's query string to determine what to display,
         and the site then redirected the user to that page to display a message, as in:
 
-        <pre highlight="html">&lt;ul>
-            &lt;li>&lt;a href="message.cgi?say=Hello">Say Hello&lt;/a>
-            &lt;li>&lt;a href="message.cgi?say=Welcome">Say Welcome&lt;/a>
-            &lt;li>&lt;a href="message.cgi?say=Kittens">Say Kittens&lt;/a>
+        <pre highlight="html">
+        &lt;ul>
+          &lt;li>&lt;a href="message.cgi?say=Hello">Say Hello&lt;/a>
+          &lt;li>&lt;a href="message.cgi?say=Welcome">Say Welcome&lt;/a>
+          &lt;li>&lt;a href="message.cgi?say=Kittens">Say Kittens&lt;/a>
         &lt;/ul></pre>
 
         If the message was just displayed to the user without escaping, a hostile attacker could
@@ -811,7 +818,8 @@ the scripting APIs</h4>
     If the element is being added by script, then so long as the event handlers are added in the
     same script, the event will still not be missed:
 
-    <pre highlight="html">&lt;script>
+    <pre highlight="html">
+    &lt;script>
     var img = new Image();
     img.src = 'games.png';
     img.alt = 'Games';
@@ -823,7 +831,8 @@ the scripting APIs</h4>
     script added the event listeners, there's a chance that the <code>load</code> event would be
     fired in between, leading it to be missed:
 
-    <pre class="bad" highlight="html">&lt;!-- Do not use this style, it has a race condition! -->
+    <pre class="bad" highlight="html">
+    &lt;!-- Do not use this style, it has a race condition! -->
     &lt;img id="games" src="games.png" alt="Games">
     &lt;!-- the 'load' event might fire here while the parser is taking a
         break, in which case you will not see it! -->
@@ -943,7 +952,8 @@ mistakes when writing HTML: validators and conformance checkers</h4>
         elements have to be reconstructed in each paragraph, resulting in progressively more
         elements in each paragraph:
 
-        <pre class="bad" highlight="html">&lt;p>&lt;i>He dreamt.
+        <pre class="bad" highlight="html">
+        &lt;p>&lt;i>He dreamt.
         &lt;p>&lt;i>He dreamt that he ate breakfast.
         &lt;p>&lt;i>Then lunch.
         &lt;p>&lt;i>And finally dinner.</pre>
@@ -1082,7 +1092,7 @@ mistakes when writing HTML: validators and conformance checkers</h4>
 
       <p class="example">
         For example, the restriction on using UTF-7 exists purely to avoid authors falling prey to a
-        known cross-site-scripting attack using UTF-7. [[!UTF7]]
+        known cross-site-scripting attack using UTF-7. [[RFC2152]]
       </p>
 
   : Cases where the author's intent is unclear
@@ -1299,7 +1309,7 @@ on attribute values</h4>
         character encodings, character escaping, and string indexing.
       </blockquote>
 
-  : <cite>Unicode Security Considerations</cite> [[!UTR36]]
+  : <cite>Unicode Security Considerations</cite> [[!UNICODE-SECURITY]]
   :: <blockquote>
         Because Unicode contains such a large number of characters and incorporates the varied
         writing systems of the world, incorrect usage can expose programs or systems to possible
@@ -1352,7 +1362,7 @@ on attribute values</h4>
         named entity references, and the use of scripts and style.
       </blockquote>
 
-  : <cite>HTML to Platform Accessibility APIs Implementation Guide</cite> [[!HPAAIG]]
+  : <cite>HTML to Platform Accessibility APIs Implementation Guide</cite> [[!HTML-AAPI]]
   :: <blockquote>
         This is draft documentation mapping HTML elements and attributes to accessibility API Roles,
         States and Properties on a variety of platforms. It provides recommendations on deriving the
@@ -1451,7 +1461,7 @@ on attribute values</h4>
   [[!MEDIAQ]]
 
   A string is a <dfn>valid MIME type</dfn> if it matches the <code>media-type</code> rule defined in
-  section 3.7 "Media Types" of RFC 2616. In particular, a <span>valid MIME type</span> may include
+  section 3.7 "Media Types" of RFC 2616. In particular, a <a>valid MIME type</a> may include
   MIME type parameters. [[!HTTP11]]
 
   A string is a <dfn>valid MIME type with no parameters</dfn> if it matches the
@@ -1459,7 +1469,7 @@ on attribute values</h4>
   contain any U+003B SEMICOLON characters (;). In other words, if it consists only of a type and
   subtype, with no MIME Type parameters. [[!HTTP11]]
 
-  The term <dfn>HTML MIME type</dfn> is used to refer to the <span>MIME type</span>
+  The term <dfn>HTML MIME type</dfn> is used to refer to the <a>MIME type</a>
   <code>text/html</code>.
 
   A resource's <dfn>critical subresources</dfn> are those that the resource needs to have available
@@ -1505,16 +1515,15 @@ on attribute values</h4>
   <a>root element</a> is indeed the document's root element; however, if the node is not currently
   part of the document tree, the root element will be an orphaned node.
 
-  When an element's <a>root element</a> is the <a>root element of a <{Document}> object</a>,
+  When an element's <a>root element</a> is the <a>root element of a <code>Document</code> object</a>,
   it is said to be <dfn>in a <{Document}></dfn>. An element is said to have been
   <dfn>inserted into a document</dfn> when its <a>root element</a> changes and is now the document's
   <a>root element</a>. Analogously, an element is said to have been
   <dfn>removed from a document</dfn> when its <a>root element</a> changes from being the document's
   <a>root element</a> to being another element.
 
-  A node's <dfn>home subtree</dfn> is the subtree rooted at that node's <span>root
-  element</span>. When a node is <span>in a <{Document}></span>, its <span>home
-  subtree</span> is that <{Document}>'s tree.
+  A node's <dfn>home subtree</dfn> is the subtree rooted at that node's <a>root element</a>. When a
+  node is <span>in a <{Document}></span>, its <a>home subtree</a> is that <{Document}>'s tree.
 
   The <{Document}> of a <code>Node</code> (such as an element) is the <{Document}>
   that the <code>Node</code>'s <code>ownerDocument</code> IDL attribute returns. When a
@@ -1570,7 +1579,7 @@ on attribute values</h4>
 
   The term <dfn>plugin</dfn> refers to a user-agent defined set of content handlers used by the user
   agent that can take part in the user agent's rendering of a <{Document}> object, but that
-  neither act as <span>child browsing contexts</span> of the <{Document}> nor introduce any
+  neither act as <a>child browsing contexts</a> of the <{Document}> nor introduce any
   <code>Node</code> objects to the <{Document}>'s DOM.
 
   Typically such content handlers are provided by third parties, though a user agent can also
@@ -1578,12 +1587,12 @@ on attribute values</h4>
 
   <div class="impl">
     A user agent must not consider the types <code>text/plain</code> and
-    <code>application/octet-stream</code> as having a registered <span>plugin</span>.
+    <code>application/octet-stream</code> as having a registered <a>plugin</a>.
   </div>
 
   <p class="example">
     One example of a plugin would be a PDF viewer that is instantiated in a
-    <span>browsing context</span> when the user navigates to a PDF file. This would count as a
+    <a>browsing context</a> when the user navigates to a PDF file. This would count as a
     plugin regardless of whether the party that implemented the PDF viewer component was the same as
     that which implemented the user agent itself. However, a PDF viewer application that launches
     separate from the user agent (as opposed to using the same interface) is not a plugin by this
@@ -1688,14 +1697,16 @@ on attribute values</h4>
     <div class="example">
        For example, were the spec to say:
 
-       <pre>To eat an orange, the user must:
+       <pre>
+       To eat an orange, the user must:
        1. Peel the orange.
        2. Separate each slice of the orange.
        3. Eat the orange slices.</pre>
 
        ...it would be equivalent to the following:
 
-       <pre>To eat an orange:
+       <pre>
+       To eat an orange:
        1. The user must peel the orange.
        2. The user must separate each slice of the orange.
        3. The user must eat the orange slices.</pre>
@@ -1932,7 +1943,7 @@ on attribute values</h4>
 
   : Unicode and Encoding
   :: The Unicode character set is used to represent textual data, and the Encoding standard defines
-      requirements around <a>character encodings</span>. [[!UNICODE]]
+      requirements around <a>character encodings</a>. [[!UNICODE]]
 
       <p class="note">
         This specification <a>introduces terminology</a> based on the terms defined in those
@@ -1964,14 +1975,14 @@ on attribute values</h4>
   : XML and related specifications
   :: Implementations that support <a>the XHTML syntax</a> must support some version of XML, as
       well as its corresponding namespaces specification, because that syntax uses an XML
-      serialization with namespaces. [[!XML]] [[!XMLNS]]
+      serialization with namespaces. [[!XML]] [[!XML-NAMES]]
 
       The attribute with the tag name <dfn><code>xml:space</code></dfn> in the <a>XML namespace</a>
       is defined by the XML specification. [[!XML]]
 
       This specification also references the <dfn><code>&lt;?xml-stylesheet?></code></dfn>
       processing instruction, defined in the
-      <cite>Associating Style Sheets with XML documents</cite> specification. [[!XMLSSPI]]
+      <cite>Associating Style Sheets with XML documents</cite> specification. [[!XML-STYLESHEET]]
 
       This specification also non-normatively mentions the <dfn><code>XSLTProcessor</code></dfn>
       interface and its <dfn><code>transformToFragment()</code></dfn> and
@@ -1995,17 +2006,17 @@ on attribute values</h4>
         * <dfn>query state</dfn>
         * <dfn>fragment state</dfn>
       * <dfn>Parsed URL</dfn>
-      * The <dfn>scheme</dfn> component of a <span>parsed URL</span>
-      * The <dfn>scheme data</dfn> component of a <span>parsed URL</span>
-      * The <dfn>username</dfn> component of a <span>parsed URL</span>
-      * The <dfn>password</dfn> component of a <span>parsed URL</span>
-      * The <dfn>host</dfn> component of a <span>parsed URL</span>
-      * The <dfn>port</dfn> component of a <span>parsed URL</span>
-      * The <dfn>path</dfn> component of a <span>parsed URL</span>
-      * The <dfn>query</dfn> component of a <span>parsed URL</span>
-      * The <dfn>fragment</dfn> component of a <span>parsed URL</span>
+      * The <dfn>scheme</dfn> component of a <a>parsed URL</a>
+      * The <dfn>scheme data</dfn> component of a <a>parsed URL</a>
+      * The <dfn>username</dfn> component of a <a>parsed URL</a>
+      * The <dfn>password</dfn> component of a <a>parsed URL</a>
+      * The <dfn>host</dfn> component of a <a>parsed URL</a>
+      * The <dfn>port</dfn> component of a <a>parsed URL</a>
+      * The <dfn>path</dfn> component of a <a>parsed URL</a>
+      * The <dfn>query</dfn> component of a <a>parsed URL</a>
+      * The <dfn>fragment</dfn> component of a <a>parsed URL</a>
       * <dfn>non-relative flag</dfn>
-      * <dfn >Parse errors</dfn> from the <span>URL parser</span>
+      * <dfn >Parse errors</dfn> from the <a>URL parser</a>
       * The <dfn >URL serializer</dfn>
       * The <dfn>host serializer</dfn>
       * The <dfn>serialize an integer</dfn>
@@ -2021,13 +2032,13 @@ on attribute values</h4>
 
       A number of schemes and protocols are referenced by this specification also:
 
-      * The <dfn><code>about:</code></dfn> scheme [[!ABOUT]]
+      * The <dfn><code>about:</code></dfn> scheme [[!RFC6694]]
       * The <dfn><code>blob:</code></dfn> scheme [[!FILEAPI]]
       * The <dfn><code>data:</code></dfn> scheme [[!RFC2397]]
       * The <dfn><code>http:</code></dfn> scheme [[!HTTP11]]
       * The <dfn><code>https:</code></dfn> scheme [[!HTTP11]]
-      * The <dfn><code>mailto:</code></dfn> scheme [[!MAILTO]]
-      * The <dfn><code>sms:</code></dfn> scheme [[!SMS]]
+      * The <dfn><code>mailto:</code></dfn> scheme [[!RFC6068]]
+      * The <dfn><code>sms:</code></dfn> scheme [[!RFC5724]]
       * The <dfn><code>urn:</code></dfn> scheme [[!URN]]
 
   : HTTP and related specifications
@@ -2049,7 +2060,7 @@ on attribute values</h4>
       * <dfn>receives a set-cookie-string</dfn>
       * <dfn><code>Cookie</code></dfn> header
 
-      The following term is defined in the Web Linking specification: [[!WEBLINK]]
+      The following term is defined in the Web Linking specification: [[!RFC5988]]
 
       * <dfn><code>Link</code></dfn> header
 
@@ -2189,7 +2200,7 @@ on attribute values</h4>
 
       The following helper IDL is used for referring to <code>ArrayBuffer</code>-related types:
 
-      <pre class="idl-ignore" highlight="webidl">typedef (<dfn>Int8Array</dfn> or <dfn>Uint8Array</dfn> or <dfn>Uint8ClampedArray</dfn> or <dfn>Int16Array</dfn> or <dfn>Uint16Array</dfn> or <dfn>Int32Array</dfn> or <dfn>Uint32Array</dfn> or <dfn>Float32Array</dfn> or <dfn>Float64Array</dfn> or <dfn>DataView</dfn>) <dfn>ArrayBufferView</dfn>;</pre>
+      <pre class="idl-ignore" highlight="webidl">typedef (Int8Array or Uint8Array or Uint8ClampedArray or Int16Array or Uint16Array or Int32Array or Uint32Array or Float32Array or Float64Array or DataView) ArrayBufferView;</pre>
 
       <p class="note">
         In particular, the <code>Uint8ClampedArray</code> type is used by some
@@ -2211,7 +2222,7 @@ on attribute values</h4>
       * <dfn><code>Attr</code></dfn> interface
       * <dfn><code>Comment</code></dfn> interface
       * <dfn><code>DOMImplementation</code></dfn> interface
-      * <{Document}> interface
+      * {{Document}} interface
       * <dfn><code>XMLDocument</code></dfn> interface
       * <dfn><code>DocumentFragment</code></dfn> interface
       * <dfn><code>DocumentType</code></dfn> interface
@@ -2365,7 +2376,8 @@ on attribute values</h4>
 
       The <cite>High Resolution Time</cite> specification provides the
       <dfn><code>DOMHighResTimeStamp</code></dfn> typedef and the
-      <dfn><code>Performance</code></dfn> object's <dfn><code>now()</code></dfn> method. [[!HTR]]
+      <dfn><code>Performance</code></dfn> object's <dfn><code>now()</code></dfn> method.
+      [[!HR-TIME-2]]
 
   : File API
   :: This specification uses the following features defined in the File API specification:
@@ -2471,12 +2483,12 @@ on attribute values</h4>
       specification. [[!CSS-VALUES]]
 
       The term <dfn>CSS styling attribute</dfn> is defined in the <cite>CSS Style Attributes</cite>
-      specification. [[!CSSATTR]]
+      specification. [[!CSS-STYLE-ATTR]]
 
       The <code>CanvasRenderingContext2D</code> object's use of fonts depends on the features
       described in the CSS <cite>Fonts</cite> and <cite>Font Loading</cite> specifications,
       including in particular <dfn><code>FontFace</code></dfn> objects and the
-      <dfn>font source</dfn> concept. [[!CSS3-FONTS]] [[!CSSFONTLOAD]]
+      <dfn>font source</dfn> concept. [[!CSS3-FONTS]] [[!CSS-FONT-LOADING-3]]
 
       The following interface is defined in the Geometry Interfaces Module specification:
       [[!GEOMETRY-1]]
@@ -2487,7 +2499,7 @@ on attribute values</h4>
   :: The <code>CanvasRenderingContext2D</code> object's use of fonts depends on the features
       described in the CSS <cite>Fonts</cite> and <cite>Font Loading</cite> specifications,
       including in particular <dfn><code>FontFace</code></dfn> objects and the
-      <dfn>font source</dfn> concept. [[!CSS3-FONTS]] [[!CSSFONTLOAD]]
+      <dfn>font source</dfn> concept. [[!CSS3-FONTS]] [[!CSS-FONT-LOADING-3]]
 
       The following interface is defined in the SVG specification: [[!SVG]]
 
@@ -2514,7 +2526,7 @@ on attribute values</h4>
       * The WebVTT <dfn>text track cue writing direction</dfn>
 
   : The WebSocket protocol
-  :: The following terms are defined in the WebSocket protocol specification: [[!WSP]]
+  :: The following terms are defined in the WebSocket protocol specification: [[!RFC6455]]
 
       * <dfn>establish a WebSocket connection</dfn>
       * <dfn>the WebSocket connection is established</dfn>
@@ -2660,7 +2672,7 @@ on attribute values</h4>
         supported in the HTML serialization, vendors should use the namespace mechanism to define
         custom namespaces in which the non-standard elements and attributes are supported.
 
-    * For markup-level features that are intended for use with <span>the HTML syntax</span>,
+    * For markup-level features that are intended for use with <a>the HTML syntax</a>,
         extensions should be limited to new attributes of the form
         "<code>x-<var>vendor</var>-<var>feature</var></code>", where <var>vendor</var> is a short
         string that identifies the vendor responsible for the extension, and <var>feature</var> is
@@ -2676,7 +2688,8 @@ on attribute values</h4>
         extensions that turned elements into scratch-and-sniff areas, an author experimenting with
         these features could write:
 
-        <pre>&lt;p>This smells of lemons!
+        <pre highlight="html">
+        &lt;p>This smells of lemons!
         &lt;span x-ferret-smellovision x-ferret-smellcode="LEM01"
         x-mb-outputsmell x-mb-smell="lemon juice">&lt;/span>&lt;/p></pre>
       </div>
@@ -2835,7 +2848,7 @@ on attribute values</h4>
     This change is a <a>willful violation</a> of the XPath 1.0 specification, motivated by
     desire to have implementations be compatible with legacy content while still supporting the
     changes that this specification introduces to HTML regarding which namespace is used for HTML
-    elements. [[!XPATH10]]
+    elements. [[!XPATH]]
   </p>
 
   <hr />
@@ -2852,7 +2865,7 @@ on attribute values</h4>
     This requirement is a <a>willful violation</a> of the XSLT 1.0 specification, required because
     this specification changes the namespaces and case-sensitivity rules of HTML in a manner that
     would otherwise be incompatible with DOM-based XSLT transformations. (Processors that serialize
-    the output are unaffected.) [[!XSLT10]]
+    the output are unaffected.) [[!XSLT-19991116]]
   </p>
 
   <hr />
@@ -3033,15 +3046,15 @@ on attribute values</h4>
     Here is an example of a checkbox that is checked and disabled. The <code>checked</code> and
     <code>disabled</code> attributes are the boolean attributes.
 
-    <pre>&lt;label>&lt;input type=checkbox checked name=cheese disabled> Cheese&lt;/label></pre>
+    <pre highlight="html">&lt;label>&lt;input type=checkbox checked name=cheese disabled> Cheese&lt;/label></pre>
 
     This could be equivalently written as this:
 
-    <pre>&lt;label>&lt;input type=checkbox checked=checked name=cheese disabled=disabled> Cheese&lt;/label></pre>
+    <pre highlight="html">&lt;label>&lt;input type=checkbox checked=checked name=cheese disabled=disabled> Cheese&lt;/label></pre>
 
     You can also mix styles; the following is still equivalent:
 
-    <pre>&lt;label>&lt;input type='checkbox' checked name=cheese disabled=""> Cheese&lt;/label></pre>
+    <pre highlight="html">&lt;label>&lt;input type='checkbox' checked name=cheese disabled=""> Cheese&lt;/label></pre>
   </div>
 
 <h4 id="keywords-and-enumerated-attributes">Keywords and enumerated attributes</h4>
@@ -3932,7 +3945,7 @@ on attribute values</h4>
   <p class="note">
     The zone offset is not a complete time zone specification. When working with real date and time
     values, consider using a separate field for time zone, perhaps using IANA time zone IDs.
-    [[!TIMEZONES]]
+    [[!TIMEZONE]]
   </p>
 
   A string is a <dfn>valid normalized forced-UTC global date and time string</dfn> representing a
@@ -3975,7 +3988,2278 @@ on attribute values</h4>
     11. Return <var>time</var> and <var>timezone</var>.
   </div>
 
+<h5 id="weeks">Weeks</h5>
 
+  A <dfn>week</dfn> consists of a week-year number and a week number representing a seven-day period
+  starting on a Monday. Each week-year in this calendaring system has either 52 or 53 such seven-day
+  periods, as defined below. The seven-day period starting on the Gregorian date Monday December
+  29th 1969 (1969-12-29) is defined as week number 1 in week-year 1970. Consecutive weeks are
+  numbered sequentially. The week before the number 1 week in a week-year is the last week in the
+  previous week-year, and vice versa. [[!GREGORIAN]]
+
+  A week-year with a number <var>year</var> has 53 weeks if it corresponds to either a year
+  <var>year</var> in the <a>proleptic Gregorian calendar</a> that has a Thursday as its first
+  day (January 1st), or a year <var>year</var> in the <a>proleptic Gregorian calendar</a> that has
+  a Wednesday as its first day (January 1st) and where <var>year</var> is a number divisible by 400,
+  or a number divisible by 4 but not by 100. All other week-years have 52 weeks.
+
+  The <dfn>week number of the last day</dfn> of a week-year with 53 weeks is 53; the week number of
+  the last day of a week-year with 52 weeks is 52.
+
+  <p class="note">
+    The week-year number of a particular day can be different than the number of the year that
+    contains that day in the <a>proleptic Gregorian calendar</a>. The first week in a week-year
+    <var>y</var> is the week that contains the first Thursday of the Gregorian year <var>y</var>.
+
+  <p class="note">
+    For modern purposes, a <a>week</a> as defined here is equivalent to ISO weeks as defined in ISO
+    8601. [[!ISO8601]]
+
+    A string is a <dfn>valid week string</dfn> representing a week-year <var>year</var> and week
+    <var>week</var> if it consists of the following components in the given order:
+  </p>
+
+  1. Four or more <a>ASCII digits</a>, representing <var>year</var>, where
+      <var>year</var>&nbsp;&gt;&nbsp;0
+  2. A U+002D HYPHEN-MINUS character (-)
+  3. A U+0057 LATIN CAPITAL LETTER W character (W)
+  4. Two <a>ASCII digits</a>, representing the week <var>week</var>, in the range
+      1&nbsp;&le;&nbsp;<var>week</var>&nbsp;&le;&nbsp;<var>maxweek</var>, where <var>maxweek</var>
+      is the <a>week number of the last day</a> of week-year <var>year</var>
+
+  <div class="impl">
+    The rules to <dfn>parse a week string</dfn> are as follows. This will return either a week-year
+    number and week number, or nothing. If at any point the algorithm says that it "fails", this
+    means that it is aborted at that point and returns nothing.
+
+    1. Let <var>input</var> be the string being parsed.
+    2. Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start
+        of the string.
+    3. <a>Collect a sequence of characters</a> that are <a>ASCII digits</a>. If the collected
+        sequence is not at least four characters long, then fail. Otherwise, interpret the resulting
+        sequence as a base-ten integer. Let that number be the <var>year</var>.
+    4. If <var>year</var> is not a number greater than zero, then fail.
+    5. If <var>position</var> is beyond the end of <var>input</var> or if the character at
+        <var>position</var> is not a U+002D HYPHEN-MINUS character, then fail. Otherwise, move
+        <var>position</var> forwards one character.
+    6. If <var>position</var> is beyond the end of <var>input</var> or if the character at
+        <var>position</var> is not a U+0057 LATIN CAPITAL LETTER W character (W), then fail.
+        Otherwise, move <var>position</var> forwards one character.
+    7. <a>Collect a sequence of characters</a> that are <a>ASCII digits</a>. If the collected
+        sequence is not exactly two characters long, then fail. Otherwise, interpret the resulting
+        sequence as a base-ten integer. Let that number be the <var>week</var>.
+    8. Let <var>maxweek</var> be the <a>week number of the last day</a> of year <var>year</var>.
+    9. If <var>week</var> is not a number in the range
+        1&nbsp;&le;&nbsp;<var>week</var>&nbsp;&le;&nbsp;<var>maxweek</var>, then fail.
+    10. If <var>position</var> is <em>not</em> beyond the end of <var>input</var>, then fail.
+    11. Return the week-year number <var>year</var> and the week number <var>week</var>.
+  </div>
+
+<h5 id="durations">Durations</h5>
+
+  A <dfn>duration</dfn> consists of a number of seconds.
+
+  <p class="note">
+    Since months and seconds are not comparable (a month is not a precise number of seconds, but is
+    instead a period whose exact length depends on the precise day from which it is measured) a
+    <a>duration</a> as defined in this specification cannot include months (or years, which are
+    equivalent to twelve months). Only durations that describe a specific number of seconds can be
+    described.
+  </p>
+
+  A string is a <dfn>valid duration string</dfn> representing a <a>duration</a> <var>t</var> if it
+  consists of either of the following:
+
+  * A literal U+0050 LATIN CAPITAL LETTER P character followed by one or more of the following
+    subcomponents, in the order given, where the number of days, hours, minutes, and seconds
+    corresponds to the same number of seconds as in <var>t</var>:
+
+    1. One or more <a>ASCII digits</a> followed by a U+0044 LATIN CAPITAL LETTER D character,
+        representing a number of days.
+    2. A U+0054 LATIN CAPITAL LETTER T character followed by one or more of the following
+        subcomponents, in the order given:
+        1. One or more <a>ASCII digits</a> followed by a U+0048 LATIN CAPITAL LETTER H
+            character, representing a number of hours.
+        2. One or more <a>ASCII digits</a> followed by a U+004D LATIN CAPITAL LETTER M
+            character, representing a number of minutes.
+        3. The following components:
+            1. One or more <a>ASCII digits</a>, representing a number of seconds.
+            2. Optionally, a U+002E FULL STOP character (.) followed by one, two, or three
+                <a>ASCII digits</a>, representing a fraction of a second.
+            3. A U+0053 LATIN CAPITAL LETTER S character.
+
+    <p class="note">
+      This, as with a number of other date- and time-related microsyntaxes defined in this
+      specification, is based on one of the formats defined in ISO 8601. [[!ISO8601]]
+    </p>
+
+    * One or more <a>duration time components</a>, each with a different
+        <a>duration time component scale</a>, in any order; the sum of the represented seconds being
+        equal to the number of seconds in <var>t</var>.
+
+        A <dfn>duration time component</dfn> is a string consisting of the following components:
+
+        1. Zero or more <a>space characters</a>.
+        2. One or more <a>ASCII digits</a>, representing a number of time units, scaled by the
+            <a>duration time component scale</a> specified (see below) to represent a number of
+            seconds.
+        3. If the <a>duration time component scale</a> specified is 1 (i.e. the units are seconds),
+            then, optionally, a U+002E FULL STOP character (.) followed by one, two, or three
+            <a>ASCII digits</a>, representing a fraction of a second.
+        4. Zero or more <a>space characters</a>.
+        5. One of the following characters, representing the
+            <dfn>duration time component scale</dfn> of the time unit used in the numeric part of
+            the <a>duration time component</a>:
+
+            : U+0057 LATIN CAPITAL LETTER W character
+            : U+0077 LATIN SMALL LETTER W character
+            :: Weeks. The scale is 604800.
+
+            : U+0044 LATIN CAPITAL LETTER D character
+            : U+0064 LATIN SMALL LETTER D character
+            :: Days. The scale is 86400.
+
+            : U+0048 LATIN CAPITAL LETTER H character
+            : U+0068 LATIN SMALL LETTER H character
+            :: Hours. The scale is 3600.
+
+            : U+004D LATIN CAPITAL LETTER M character
+            : U+006D LATIN SMALL LETTER M character
+            :: Minutes. The scale is 60.
+
+            : U+0053 LATIN CAPITAL LETTER S character
+            : U+0073 LATIN SMALL LETTER S character
+            :: Seconds. The scale is 1.
+
+        6. Zero or more <a>space characters</a>.
+
+      <p class="note">
+        This is not based on any of the formats in ISO 8601. It is intended to be a more
+        human-readable alternative to the ISO 8601 duration format.
+      </p>
+
+  <div class="impl">
+    The rules to <dfn>parse a duration string</dfn> are as follows. This will return either a
+    <a>duration</a> or nothing. If at any point the algorithm says that it "fails", this means that
+    it is aborted at that point and returns nothing.
+
+    1. Let <var>input</var> be the string being parsed.
+    2. Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start
+        of the string.
+    3. Let <var>months</var>, <var>seconds</var>, and <var>component count</var> all be zero.
+    4. Let <var>M-disambiguator</var> be <i>minutes</i>.
+        <p class="note">
+          This flag's other value is <i>months</i>. It is used to disambiguate the "M" unit in
+          ISO8601 durations, which use the same unit for months and minutes. Months are not allowed,
+          but are parsed for future compatibility and to avoid misinterpreting ISO8601 durations
+          that would be valid in other contexts.
+        </p>
+    5. <a>Skip whitespace</a>.
+    6. If <var>position</var> is past the end of <var>input</var>, then fail.
+    7. If the character in <var>input</var> pointed to by <var>position</var> is a U+0050 LATIN
+        CAPITAL LETTER P character, then advance <var>position</var> to the next character, set
+        <var>M-disambiguator</var> to <i>months</i>, and <a>skip whitespace</a>.
+    8. Run the following substeps in a loop, until a step requiring the loop to be broken or the
+        entire algorithm to fail is reached:
+        1. Let <var>units</var> be undefined. It will be assigned one of the following values:
+            <i>years</i>, <i>months</i>, <i>weeks</i>, <i>days</i>, <i>hours</i>, <i>minutes</i>,
+            and <i>seconds</i>.
+        2. Let <var>next character</var> be undefined. It is used to process characters from the
+            <var>input</var>.
+        3. If <var>position</var> is past the end of <var>input</var>, then break the loop.
+        4. If the character in <var>input</var> pointed to by <var>position</var> is a U+0054 LATIN
+            CAPITAL LETTER T character, then advance <var>position</var> to the next character, set
+            <var>M-disambiguator</var> to <i>minutes</i>, <a>skip whitespace</a>, and return to the
+            top of the loop.
+        5. Set <var>next character</var> to the character in <var>input</var> pointed to by
+            <var>position</var>.
+        6. If <var>next character</var> is a U+002E FULL STOP character (.), then let <var>N</var>
+            equal zero. (Do not advance <var>position</var>. That is taken care of below.)
+
+            Otherwise, if <var>next character</var> is an <a>ASCII digit</a>, then <a>collect a
+            sequence of characters</a> that are <a>ASCII digits</a>, interpret the resulting
+            sequence as a base-ten integer, and let <var>N</var> be that number.
+
+            Otherwise <var>next character</var> is not part of a number; fail.
+
+        7. If <var>position</var> is past the end of <var>input</var>, then fail.
+        8. Set <var>next character</var> to the character in <var>input</var> pointed to by
+            <var>position</var>, and this time advance <var>position</var> to the next character.
+            (If <var>next character</var> was a U+002E FULL STOP character (.) before, it will still
+            be that character this time.)
+        9. If <var>next character</var> is a U+002E FULL STOP character (.), then run these substeps:
+            1. <a>Collect a sequence of characters</a> that are <a>ASCII digits</a>. Let
+                <var>s</var> be the resulting sequence.
+            2. If <var>s</var> is the empty string, then fail.
+            3. Let <var>length</var> be the number of characters in <var>s</var>.
+            4. Let <var>fraction</var> be the result of interpreting <var>s</var> as a base-ten
+                integer, and then dividing that number by <a>10<sup><var>length</var></sup></a>.
+            5. Increment <var>N</var> by <var>fraction</var>.
+            6. <a>Skip whitespace</a>.
+            7. If <var>position</var> is past the end of <var>input</var>, then fail.
+            8. Set <var>next character</var> to the character in <var>input</var> pointed to by
+                <var>position</var>, and advance <var>position</var> to the next character.
+            9. If <var>next character</var> is neither a U+0053 LATIN CAPITAL LETTER S character nor
+                a U+0073 LATIN SMALL LETTER S character, then fail.
+            10. Set <var>units</var> to <i>seconds</i>.
+
+            Otherwise, run these substeps:
+
+            1. If <var>next character</var> is a <a>space character</a>, then <a>skip whitespace</a>,
+                set <var>next character</var> to the character in <var>input</var> pointed to by
+                <var>position</var>, and advance <var>position</var> to the next character.
+            2. If <var>next character</var> is a U+0059 LATIN CAPITAL LETTER Y character, or a
+                U+0079 LATIN SMALL LETTER Y character, set <var>units</var> to <i>years</i> and set
+                <var>M-disambiguator</var> to <i>months</i>.
+
+                If <var>next character</var> is a U+004D LATIN CAPITAL LETTER M character or a
+                U+006D LATIN SMALL LETTER M character, and <var>M-disambiguator</var> is
+                <i>months</i>, then set <var>units</var> to <i>months</i>.
+
+                If <var>next character</var> is a U+0057 LATIN CAPITAL LETTER W character or a
+                U+0077 LATIN SMALL LETTER W character, set <var>units</var> to <i>weeks</i> and set
+                <var>M-disambiguator</var> to <i>minutes</i>.
+
+                If <var>next character</var> is a U+0044 LATIN CAPITAL LETTER D character or a
+                U+0064 LATIN SMALL LETTER D character, set <var>units</var> to <i>days</i> and set
+                <var>M-disambiguator</var> to <i>minutes</i>.
+
+                If <var>next character</var> is a U+0048 LATIN CAPITAL LETTER H character or a
+                U+0068 LATIN SMALL LETTER H character, set <var>units</var> to <i>hours</i> and set
+                <var>M-disambiguator</var> to <i>minutes</i>.
+
+                If <var>next character</var> is a U+004D LATIN CAPITAL LETTER M character or a
+                U+006D LATIN SMALL LETTER M character, and <var>M-disambiguator</var> is
+                <i>minutes</i>, then set <var>units</var> to <i>minutes</i>.
+
+                If <var>next character</var> is a U+0053 LATIN CAPITAL LETTER S character or a
+                U+0073 LATIN SMALL LETTER S character, set <var>units</var> to <i>seconds</i> and
+                set <var>M-disambiguator</var> to <i>minutes</i>.
+
+                Otherwise if <var>next character</var> is none of the above characters, then fail.
+
+        10. Increment <var>component count</var>.
+        11. Let <var>multiplier</var> be 1.
+        12. If <var>units</var> is <i>years</i>, multiply <var>multiplier</var> by 12 and set
+            <var>units</var> to <i>months</i>.
+        13. If <var>units</var> is <i>months</i>, add the product of <var>N</var> and
+            <var>multiplier</var> to <var>months</var>.
+
+            Otherwise, run these substeps:
+
+            1. If <var>units</var> is <i>weeks</i>, multiply <var>multiplier</var> by 7 and set
+                <var>units</var> to <i>days</i>.
+            2. If <var>units</var> is <i>days</i>, multiply <var>multiplier</var> by 24 and set
+                <var>units</var> to <i>hours</i>.
+            3. If <var>units</var> is <i>hours</i>, multiply <var>multiplier</var> by 60 and set
+                <var>units</var> to <i>minutes</i>.
+            4. If <var>units</var> is <i>minutes</i>, multiply <var>multiplier</var> by 60 and set
+                <var>units</var> to <i>seconds</i>.
+            5. Forcibly, <var>units</var> is now <i>seconds</i>. Add the product of <var>N</var> and
+                <var>multiplier</var> to <var>seconds</var>.
+        14. <a>Skip whitespace</a>.
+
+    9. If <var>component count</var> is zero, fail.
+    10. If <var>months</var> is not zero, fail.
+    11. Return the <a>duration</a> consisting of <var>seconds</var> seconds.
+  </div>
+
+<h5 id="vaguer-moments-in-time">Vaguer moments in time</h5>
+
+  A string is a <dfn>valid date string with optional time</dfn> if it is also one of the following:
+
+  * A <a>valid date string</a>
+  * A <a>valid global date and time string</a>
+
+  <div class="impl">
+    <hr />
+
+    The rules to <dfn>parse a date or time string</dfn> are as follows. The algorithm will return
+    either a <a>date</a>, a <a>time</a>, a <a>global date and time</a>, or nothing. If at any point
+    the algorithm says that it "fails", this means that it is aborted at that point and returns
+    nothing.
+
+    1. Let <var>input</var> be the string being parsed.
+    2. Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start
+        of the string.
+    3. Set <var>start position</var> to the same position as <var>position</var>.
+    4. Set the <var>date present</var> and <var>time present</var> flags to true.
+    5. <a>Parse a date component</a> to obtain <var>year</var>, <var>month</var>, and <var>day</var>.
+        If this fails, then set the <var>date present</var> flag to false.
+    6. If <var>date present</var> is true, and <var>position</var> is not beyond the end of
+        <var>input</var>, and the character at <var>position</var> is either a U+0054 LATIN CAPITAL
+        LETTER T character (T) or a U+0020 SPACE character, then advance <var>position</var> to the
+        next character in <var>input</var>.
+
+        Otherwise, if <var>date present</var> is true, and either <var>position</var> is beyond the
+        end of <var>input</var> or the character at <var>position</var> is neither a U+0054 LATIN
+        CAPITAL LETTER T character (T) nor a U+0020 SPACE character, then set
+        <var>time present</var> to false.
+
+        Otherwise, if <var>date present</var> is false, set <var>position</var> back to the same
+        position as <var>start position</var>.
+
+    7. If the <var>time present</var> flag is true, then <a>parse a time component</a> to obtain
+        <var>hour</var>, <var>minute</var>, and <var>second</var>. If this returns nothing, then
+        fail.
+    8. If the <var>date present</var> and <var>time present</var> flags are both true, but
+        <var>position</var> is beyond the end of <var>input</var>, then fail.
+    9. If the <var>date present</var> and <var>time present</var> flags are both true,
+        <a>parse a time-zone offset component</a> to obtain <var>timezone<sub>hours</sub></var> and
+        <var>timezone<sub>minutes</sub></var>. If this returns nothing, then fail.
+    10. If <var>position</var> is <em>not</em> beyond the end of <var>input</var>, then fail.
+    11. If the <var>date present</var> flag is true and the <var>time present</var> flag is false,
+        then let <var>date</var> be the date with year <var>year</var>, month <var>month</var>, and
+        day <var>day</var>, and return <var>date</var>.
+
+        Otherwise, if the <var>time present</var> flag is true and the <var>date present</var> flag
+        is false, then let <var>time</var> be the time with hour <var>hour</var>, minute
+        <var>minute</var>, and second <var>second</var>, and return <var>time</var>.
+
+        Otherwise, let <var>time</var> be the moment in time at year <var>year</var>, month
+        <var>month</var>, day <var>day</var>, hours <var>hour</var>, minute <var>minute</var>,
+        second <var>second</var>, subtracting <var>timezone<sub>hours</sub></var> hours and
+        <var>timezone<sub>minutes</sub></var> minutes, that moment in time being a moment in the UTC
+        time zone; let <var>timezone</var> be <var>timezone<sub>hours</sub></var> hours and
+        <var>timezone<sub>minutes</sub></var> minutes from UTC; and return <var>time</var> and
+        <var>timezone</var>.
+  </div>
+
+<h4 id="colors">Colors</h4>
+
+  A <dfn>simple color</dfn> consists of three 8-bit numbers in the range 0..255, representing the
+  red, green, and blue components of the color respectively, in the sRGB color space. [[!SRGB]]
+
+  A string is a <dfn>valid simple color</dfn> if it is exactly seven characters long, and the first
+  character is a U+0023 NUMBER SIGN character (#), and the remaining six characters are all
+  <a>ASCII hex digits</a>, with the first two digits representing the red component, the middle two
+  digits representing the green component, and the last two digits representing the blue component,
+  in hexadecimal.
+
+  A string is a <dfn>valid lowercase simple color</dfn> if it is a <a>valid simple color</a> and
+  doesn't use any characters in the range U+0041 LATIN CAPITAL LETTER A to U+0046 LATIN CAPITAL
+  LETTER F.
+
+  <div class="impl">
+    The <dfn>rules for parsing simple color values</dfn> are as given in the following algorithm.
+    When invoked, the steps must be followed in the order given, aborting at the first step that
+    returns a value. This algorithm will return either a <a>simple color</a> or an error.
+
+    1. Let <var>input</var> be the string being parsed.
+    2. If <var>input</var> is not exactly seven characters long, then return an error.
+    3. If the first character in <var>input</var> is not a U+0023 NUMBER SIGN character (#), then
+        return an error.
+    4. If the last six characters of <var>input</var> are not all <a>ASCII hex digits</a>, then
+        return an error.
+    5. Let <var>result</var> be a <a>simple color</a>.
+    6. Interpret the second and third characters as a hexadecimal number and let the result be the
+        red component of <var>result</var>.
+    7. Interpret the fourth and fifth characters as a hexadecimal number and let the result be the
+        green component of <var>result</var>.
+    8. Interpret the sixth and seventh characters as a hexadecimal number and let the result be the
+        blue component of <var>result</var>.
+    9. Return <var>result</var>.
+
+    The <dfn>rules for serializing simple color values</dfn> given a <a>simple color</a> are as
+    given in the following algorithm:
+
+    1. Let <var>result</var> be a string consisting of a single U+0023 NUMBER SIGN character (#).
+    2. Convert the red, green, and blue components in turn to two-digit hexadecimal numbers using
+        <a>lowercase ASCII hex digits</a>, zero-padding if necessary, and append these numbers to
+        <var>result</var>, in the order red, green, blue.
+    3. Return <var>result</var>, which will be a <a>valid lowercase simple color</a>.
+
+    <hr />
+
+    Some obsolete legacy attributes parse colors in a more complicated manner, using the <dfn>rules
+    for parsing a legacy color value</dfn>, which are given in the following algorithm. When invoked,
+    the steps must be followed in the order given, aborting at the first step that returns a value.
+    This algorithm will return either a <a>simple color</a> or an error.
+
+    1. Let <var>input</var> be the string being parsed.
+    2. If <var>input</var> is the empty string, then return an error.
+    3. <a>Strip leading and trailing whitespace</a> from <var>input</var>.
+    4. If <var>input</var> is an <a>ASCII case-insensitive</a> match for the string
+        "<code>transparent</code>", then return an error.
+    5. If <var>input</var> is an <a>ASCII case-insensitive</a> match for one of the
+        <a>named colors</a>, then return the <a>simple color</a> corresponding to that keyword.
+        [[!CSS3COLOR]]
+
+        <p class="note"><a>CSS2 System Colors</a> are not recognized.</p>
+
+    6. If <var>input</var> is four characters long, and the first character in <var>input</var> is a
+        U+0023 NUMBER SIGN character (#), and the last three characters of <var>input</var> are all
+        <a>ASCII hex digits</a>, then run these substeps:
+        1. Let <var>result</var> be a <a>simple color</a>.
+        2. Interpret the second character of <var>input</var> as a hexadecimal digit; let the red
+            component of <var>result</var> be the resulting number multiplied by 17.
+        3. Interpret the third character of <var>input</var> as a hexadecimal digit; let the green
+            component of <var>result</var> be the resulting number multiplied by 17.
+        4. Interpret the fourth character of <var>input</var> as a hexadecimal digit; let the blue
+            component of <var>result</var> be the resulting number multiplied by 17.
+        5. Return <var>result</var>.
+
+    7. Replace any characters in <var>input</var> that have a Unicode code point greater than U+FFFF
+        (i.e. any characters that are not in the basic multilingual plane) with the two-character
+        string "<code>00</code>".
+    8. If <var>input</var> is longer than 128 characters, truncate <var>input</var>, leaving only
+        the first 128 characters.
+    9. If the first character in <var>input</var> is a U+0023 NUMBER SIGN character (#), remove it.
+    10. Replace any character in <var>input</var> that is not an <a>ASCII hex digit</a> with the
+        character U+0030 DIGIT ZERO (0).
+    11. While <var>input</var>'s length is zero or not a multiple of three, append a U+0030 DIGIT
+        ZERO (0) character to <var>input</var>.
+    12. Split <var>input</var> into three strings of equal length, to obtain three components. Let
+        <var>length</var> be the length of those components (one third the length of
+        <var>input</var>).
+    13. If <var>length</var> is greater than 8, then remove the leading <a><var>length</var>-8</a>
+        characters in each component, and let <var>length</var> be 8.
+    14. While <var>length</var> is greater than two and the first character in each component is a
+        U+0030 DIGIT ZERO (0) character, remove that character and reduce <var>length</var> by one.
+    15. If <var>length</var> is <em>still</em> greater than two, truncate each component, leaving
+        only the first two characters in each.
+    16. Let <var>result</var> be a <a>simple color</a>.
+    17. Interpret the first component as a hexadecimal number; let the red component of
+        <var>result</var> be the resulting number.
+    18. Interpret the second component as a hexadecimal number; let the green component of
+        <var>result</var> be the resulting number.
+    19. Interpret the third component as a hexadecimal number; let the blue component of
+        <var>result</var> be the resulting number.
+    20. Return <var>result</var>.
+  </div>
+
+<h4 id="space-separated-tokens">Space-separated tokens</h4>
+
+  A <dfn>set of space-separated tokens</dfn> is a string containing zero or more words (known as
+  tokens) separated by one or more <a>space characters</a>, where words consist of any string of one
+  or more characters, none of which are <a>space characters</a>.
+
+  A string containing a <a>set of space-separated tokens</a> may have leading or trailing
+  <a>space characters</a>.
+
+  An <dfn>unordered set of unique space-separated tokens</dfn> is a
+  <a>set of space-separated tokens</a> where none of the tokens are duplicated.
+
+  An <dfn>ordered set of unique space-separated tokens</dfn> is a
+  <a>set of space-separated tokens</a> where none of the tokens are duplicated but where the order
+  of the tokens is meaningful.
+
+  <a>Sets of space-separated tokens</a> sometimes have a defined set of allowed values. When a set
+  of allowed values is defined, the tokens must all be from that list of allowed values; other
+  values are non-conforming. If no such set of allowed values is provided, then all values are
+  conforming.
+
+  <p class="note">
+    How tokens in a <a>set of space-separated tokens</a> are to be compared (e.g. case-sensitively
+    or not) is defined on a per-set basis.
+  </p>
+
+  <div class="impl">
+    When a user agent has to <dfn>split a string on spaces</dfn>, it must use the following algorithm:
+
+    1. Let <var>input</var> be the string being parsed.
+    2. Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start of
+        the string.
+    3. Let <var>tokens</var> be an ordered list of tokens, initially empty.
+    4. <a>Skip whitespace</a>
+    5. While <var>position</var> is not past the end of <var>input</var>:
+        1. <a>Collect a sequence of characters</a> that are not <a>space characters</a>.
+        2. Append the string collected in the previous step to <var>tokens</var>.
+        3. <a>Skip whitespace</a>
+    6. Return <var>tokens</var>.
+  </div>
+
+<h4 id="comma-separated-tokens">Comma-separated tokens</h4>
+
+  A <dfn>set of comma-separated tokens</dfn> is a string containing zero or more tokens each
+  separated from the next by a single U+002C COMMA character (,), where tokens consist of any string
+  of zero or more characters, neither beginning nor ending with <a>space characters</a>, nor
+  containing any U+002C COMMA characters (,), and optionally surrounded by <a>space characters</a>.
+
+  <p class="example">
+    For instance, the string "<code>&nbsp;a&nbsp;,b,,d&nbsp;d&nbsp;</code>" consists of four tokens:
+    "a", "b", the empty string, and "d&nbsp;d". Leading and trailing whitespace around each token
+    doesn't count as part of the token, and the empty string can be a token.
+  </p>
+
+  <a>Sets of comma-separated tokens</a> sometimes have further restrictions on what consists a valid
+  token. When such restrictions are defined, the tokens must all fit within those restrictions;
+  other values are non-conforming. If no such restrictions are specified, then all values are
+  conforming.
+
+  <div class="impl">
+    When a user agent has to <dfn>split a string on commas</dfn>, it must use the following
+    algorithm:
+
+    1. Let <var>input</var> be the string being parsed.
+    2. Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start
+        of the string.
+    3. Let <var>tokens</var> be an ordered list of tokens, initially empty.
+    4. <i>Token</i>: If <var>position</var> is past the end of <var>input</var>, jump to the last
+        step.
+    5. <a>Collect a sequence of characters</a> that are not U+002C COMMA characters (,). Let
+        <var>s</var> be the resulting sequence (which might be the empty string).
+    6. <a>Strip leading and trailing whitespace</a> from <var>s</var>.
+    7. Append <var>s</var> to <var>tokens</var>.
+    8. If <var>position</var> is not past the end of <var>input</var>, then the character at
+        <var>position</var> is a U+002C COMMA character (,); advance <var>position</var> past that
+        character.
+    9. Jump back to the step labeled <i>token</i>.
+    10. Return <var>tokens</var>.<
+  </div>
+
+<h4 id="syntax-references">References</h4>
+
+  A <dfn>valid hash-name reference</dfn> to an element of type <var>type</var> is a
+  string consisting of a U+0023 NUMBER SIGN character (#) followed by a string which exactly matches
+  the value of the <code>name</code> attribute of an element with type <var>type</var> in
+  the document.
+
+  <div class="impl">
+    The <dfn>rules for parsing a hash-name reference</dfn> to an element of type <var>type</var>, given a context node <var>scope</var>, are as follows:
+
+    1. If the string being parsed does not contain a U+0023 NUMBER SIGN character, or if the first
+        such character in the string is the last character in the string, then return null and abort
+        these steps.
+    2. Let <var>s</var> be the string from the character immediately after the first U+0023 NUMBER
+        SIGN character in the string being parsed up to the end of that string.
+    3. Return the first element of type <var>type</var> in <a>tree order</a> in the subtree rooted
+        at <var>scope</var> that has an <code>id</code> attribute whose value is a
+        <a>case-sensitive</a> match for <var>s</var> or a <code>name</code> attribute whose value is
+        a <a>compatibility caseless</a> match for <var>s</var>.
+  </div>
+
+<h4 id="mq">Media queries</h4>
+
+  A string is a <dfn>valid media query list</dfn> if it matches the
+  <code>&lt;media-query-list&gt;</code> production of the Media Queries specification. [[!MEDIAQ]]
+
+  A string <dfn>matches the environment</dfn> of the user if it is the empty string, a string
+  consisting of only <a>space characters</a>, or is a media query list that matches the user's
+  environment according to the definitions given in the Media Queries specification. [[!MEDIAQ]]
+
+<h3 id="urls">URLs</h3>
+
+<h4 id="terminology">Terminology</h4>
+
+  A <a>URL</a> is a <dfn>valid URL</dfn> if it conforms to the authoring conformance
+  requirements in the WHATWG URL standard. [[!URL]]
+
+  A string is a <dfn>valid non-empty URL</dfn> if it is a <a>valid URL</a> but it is not
+  the empty string.
+
+  A string is a <dfn>valid URL potentially surrounded by spaces</dfn> if, after
+  <a>stripping leading and trailing whitespace</a> from it, it is a <a>valid URL</a>.
+
+  A string is a <dfn>valid non-empty URL potentially surrounded by spaces</dfn> if, after
+  <a>stripping leading and trailing whitespace</a> from it, it is a <a>valid non-empty URL</a>.
+
+  This specification defines the URL <dfn><code>about:legacy-compat</code></dfn> as a reserved,
+  though unresolvable, <code>about:</code> URL, for use in <a>DOCTYPE</a>s in <a>HTML documents</a>
+  when needed for compatibility with XML tools. [[!RFC6694]]
+
+  This specification defines the URL <dfn><code>about:srcdoc</code></dfn> as a reserved, though
+  unresolvable, <code>about:</code> URL, that is used as <a>the document's address</a> of
+  <a><code>iframe</code> <code>srcdoc</code> documents</a>. [[!RFC6694]]
+
+  The <dfn>fallback base URL</dfn> of a <code>Document</code> object is the <a>absolute URL</a>
+  obtained by running these substeps:
+
+  1. If the <code>Document</code> is <a>an <code>iframe</code> <code>srcdoc</code> document</a>,
+      then return the <a>document base URL</a> of the <code>Document</code>'s
+      <a>browsing context</a>'s <a>browsing context container</a>'s <a>node document</a> and abort
+      these steps.
+  2. If <a>the document's address</a> is <code>about:blank</code>, and the <code>Document</code>'s
+      <a>browsing context</a> has a <a>creator browsing context</a>, then return the <a>document
+      base URL</a> of the <a>creator <code>Document</code></a>, and abort these steps.
+  3. Return <a>the document's address</a>.
+
+  The <dfn>document base URL</dfn> of a <code>Document</code> object is the <a>absolute URL</a>
+  obtained by running these substeps:
+
+  1. If there is no <code>base</code> element that has an <code>href</code> attribute in the
+      <code>Document</code>, then the <a>document base URL</a> is the <code>Document</code>'s
+      <a>fallback base URL</a>; abort these steps.
+  2. Otherwise, the <a>document base URL</a> is the <a>frozen base URL</a> of the first
+      <code>base</code> element in the <code>Document</code> that has an <code>href</code>
+      attribute, in <a>tree order</a>.
+
+  <div class="impl">
+    <h4 id="resolving-urls">Resolving URLs</h4>
+
+    Resolving a URL is the process of taking a <a>relative URL</a> and obtaining the
+    <a>absolute URL</a> that it implies.
+
+    To <dfn>resolve a URL</dfn> to an <a>absolute URL</a> relative to either another
+    <a>absolute URL</a> or an element, the user agent must use the following steps. Resolving a URL
+    can result in an error, in which case the URL is not resolvable.
+
+    1. Let <var>url</var> be the <a>URL</a> being resolved.
+    2. Let <var>encoding</var> be determined as follows:
+
+        <dl class="switch">
+          <dt>
+            If the URL had a character encoding defined when the URL was created or defined or when
+            this algorithm was invoked
+          </dt>
+          <dd>The URL character encoding is as defined.</dd>
+
+          <dt>If the URL came from a script (e.g. as an argument to a method)</dt>
+          <dd>
+            The URL character encoding is the <a>API URL character encoding</a> specified by the
+            script's <a>settings object</a>.
+          </dd>
+
+          <dt>If the URL came from a DOM node (e.g. from an element)</dt>
+          <dd>
+            The node has a <code>Document</code>, and the URL character encoding is the
+            <a>document's character encoding</a>.
+          </dd>
+        </dl>
+
+    3. If <var>encoding</var> is a <a>UTF-16 encoding</a>, then change the value of
+        <var>encoding</var> to UTF-8.
+    4. If the algorithm was invoked with an <a>absolute URL</a> to use as the base URL, let
+        <var>base</var> be that <a>absolute URL</a>.
+
+        Otherwise, let <var>base</var> be <a>the element's base URL</a>.
+
+    5. Apply the <a>URL parser</a> to <var>url</var>, with <var>base</var> as the base URL, with
+        <var>encoding</var> as the encoding.
+    6. If this returns failure, then abort these steps with an error.
+    7. Let <var>parsed URL</var> be the result of the <a>URL parser</a>.
+    8. Let <var>serialized URL</var> be the result of apply the <a>URL serializer</a> to
+        <var>parsed URL</var>.
+    9. Return <var>serialized URL</var> as the <dfn>resulting absolute URL</dfn> and
+        <var>parsed URL</var> as the <dfn>resulting parsed URL</dfn>.
+
+    Given an element, <dfn>the element's base URL</dfn> is the element's <a>node document</a>'s
+    <a>document base URL</a>.
+  </div>
+
+  <div class="impl">
+    <h4 id="dynamic-changes-to-base-urls">Dynamic changes to base URLs</h4>
+
+    When a document's <a>document base URL</a> changes, all elements in that document are
+    <a>affected by a base URL change</a>.
+
+    The following are <a>base URL change steps</a>, which run when an element is
+    <a>affected by a base URL change</a> (as defined by the DOM specification):
+
+    <dl class="switch">
+      <dt>If the element creates a <a>hyperlink</a></dt>
+      <dd>
+        If the <a>absolute URL</a> identified by the hyperlink is being shown to the user, or if any
+        data derived from that URL is affecting the display, then the <code>href</code> attribute
+        should be <a>re-resolved</a> relative to the element and the UI updated appropriately.
+
+        <p class="example">
+          For example, the CSS <code>:link</code>/<code>:visited</code> pseudo-classes might have been
+          affected.
+        </p>
+      </dd>
+
+      <dt>
+        If the element is a <code>q</code>, <code>blockquote</code>, <code>ins</code>, or
+        <code>del</code> element with a <code>cite</code> attribute
+      </dt>
+      <dd>
+        If the <a>absolute URL</a> identified by the <code>cite</code> attribute is being shown to the
+        user, or if any data derived from that URL is affecting the display, then the <a>URL</a>
+        should be <a>re-resolved</a> relative to the element and the UI updated appropriately.
+      </dd>
+
+      <dt>Otherwise</dt>
+      <dd>
+        The element is not directly affected.
+
+        <p class="example">
+          For instance, changing the base URL doesn't affect the image displayed by <code>img</code>
+          elements, although subsequent accesses of the <code>src</code> IDL attribute from script
+          will return a new <a>absolute URL</a> that might no longer correspond to the image being
+          shown.
+        </p>
+      </dd>
+    </dl>
+  </div>
+
+
+  <div class="impl">
+    <h3 id="fetching-resources">Fetching resources</h3>
+
+    <h4 id="terminology">Terminology</h4>
+
+    User agents can implement a variety of transfer protocols, but this specification mostly defines
+    behavior in terms of HTTP. [[!HTTP11]]
+
+    The <dfn>HTTP GET method</dfn> is equivalent to the default retrieval action of the protocol.
+    For example, RETR in FTP. Such actions are idempotent and safe, in HTTP terms.
+
+    The <dfn>HTTP response codes</dfn> are equivalent to statuses in other protocols that have the
+    same basic meanings. For example, a "file not found" error is equivalent to a 404 code, a server
+    error is equivalent to a 5xx code, and so on.
+
+    The <dfn>HTTP headers</dfn> are equivalent to fields in
+    other protocols that have the same basic meaning. For example, the HTTP authentication headers
+    are equivalent to the authentication aspects of the FTP protocol.
+
+    A <dfn>referrer source</dfn> is either a <code>Document</code> or a <a>URL</a>.
+
+    <h4 id="processing-model">Processing model</h4>
+
+    When a user agent is to <dfn>fetch</dfn><!--FETCH--> a resource or <a>URL</a>, optionally
+    <strong>from</strong> an origin <i>origin</i>, optionally <strong>using</strong> a specific
+    <a>referrer source</a> as an <i>override referrer source</i>, and optionally with any of a
+    <i>synchronous flag</i>, a <i>manual redirect flag</i>, a <i>force same-origin flag</i>, and a
+    <i>block cookies flag</i>, the following steps must be run. (When a <em>URL</em> is to be
+    fetched, the URL identifies a resource to be obtained.)
+
+    1. If there is a specific <i>override referrer source</i>, and it is a <a>URL</a>, then let
+        <var>referrer</var> be the <i>override referrer source</i>, and jump to the step labeled
+        <i>clean referrer</i>.
+
+    2. Let <var>document</var> be the appropriate <code>Document</code> as given by the following
+        list:
+        <dl class="switch">
+          <dt>If there is a specific <i>override referrer source</i></dt>
+          <dd>The <i>override referrer source</i>.</dd>
+
+          <dt>When <a>navigating</a></dt>
+          <dd>The <a>active document</a> of the <a>source browsing context</a>.</dd>
+
+          <dt>When fetching resources for an element</dt>
+          <dd>The element's <code>Document</code>.</dd>
+        </dl>
+    3. While <var>document</var> is <a>an <code>iframe</code> <code>srcdoc</code> document</a>, let
+        <var>document</var> be <var>document</var>'s <a>browsing context</a>'s
+        <a>browsing context container</a>'s <code>Document</code> instead.
+    4. If the <a>origin</a> of <var>Document</var> is not a scheme/host/port tuple, then set
+        <var>referrer</var> to the empty string and jump to the step labeled <i>clean referrer</i>.
+    5. Let <var>referrer</var> be <a>the document's address</a> of <var>document</var>.
+    6. <i>Clean referrer</i>: Apply the <a>URL parser</a> to <var>referrer</var> and let
+        <var>parsed referrer</var> be the <a>resulting parsed URL</a>.
+    7. Let <var>referrer</var> be the result of applying the <a>URL serializer</a> to
+        <var>parsed referrer</var>, with the <i>exclude fragment flag</i> set.
+    8. If <var>referrer</var> is not the empty string, is not a <a><code>data:</code> URL</a>, and
+        is not the <a>URL</a> "<code>about:blank</code>", then generate the <i>address of the
+        resource from which Request-URIs are obtained</i> as required by HTTP for the
+        <code>Referer</code> (sic) header from <var>referrer</var>. [[!HTTP11]]
+
+        Otherwise, the <code>Referer</code> (sic) header must be omitted, regardless of its value.
+    9. If the algorithm was not invoked with the <i>synchronous flag</i>, perform the remaining
+        steps <a>in parallel</a>.
+    10. If the <code>Document</code> with which any <a>tasks</a> <a>queued</a> by this algorithm
+        would be associated doesn't have an associated <a>browsing context</a>, then abort these
+        steps.
+    11. This is the <i>main step</i>.
+
+        If the resource is to be obtained from an <a>application cache</a>, then use the data from
+        that <a>application cache</a>, as if it had been obtained in the manner appropriate given
+        its <a>URL</a>.
+
+        If the resource is identified by an <a>absolute URL</a>, and the resource is to be obtained
+        using an idempotent action (such as an HTTP GET <a>or equivalent</a>), and it is already
+        being downloaded for other reasons (e.g. another invocation of this algorithm), and this
+        request would be identical to the previous one (e.g. same <code>Accept</code> and
+        <code>Origin</code> headers), and the user agent is configured such that it is to reuse the
+        data from the existing download instead of initiating a new one, then use the results of the
+        existing download instead of starting a new one.
+
+        Otherwise, if the resource is identified by an <a>absolute URL</a> with a scheme that does
+        not define a mechanism to obtain the resource (e.g. it is a <code>mailto:</code> URL) or
+        that the user agent does not support, then act as if the resource was an HTTP 204 No Content
+        response with no other metadata.
+
+        Otherwise, if the resource is identified by the <a>URL</a>
+        <dfn><code>about:blank</code></dfn>, then the resource is immediately available and consists
+        of the empty string, with no metadata.
+
+        Otherwise, at a time convenient to the user and the user agent, download (or otherwise
+        obtain) the resource, applying the semantics of the relevant specifications (e.g. performing
+        an HTTP GET or POST operation, or reading the file from disk, or expanding
+        <a><code>data:</code> URLs</a>, etc).
+
+        For the purposes of the <code>Referer</code> (sic) header, use the
+        <i>address of the resource from which Request-URIs are obtained</i> generated in the earlier
+        step.
+
+        For the purposes of the <code>Origin</code> header, if the <a>fetching algorithm</a> was
+        explicitly initiated from an <i>origin</i>, then
+        <i>the origin that initiated the HTTP request</i> is <i>origin</i>. Otherwise, this is
+        <i>a request from a "privacy-sensitive" context</i>. [[!ORIGIN]]
+    12. If the algorithm was not invoked with the <i>block cookies flag</i>, and there are cookies
+        to be set, then the user agent must run the following substeps:
+        1. Wait until ownership of the <a>storage mutex</a> can be taken by this instance of the
+            <a>fetching</a> algorithm.
+        2. Take ownership of the <a>storage mutex</a>.
+        3. Update the cookies. [[!COOKIES]]
+            <a class="fingerprint" href="#fingerprinting-vector"><img height="21" src="images/fingerprint.png" width="15" alt="(This is a fingerprinting vector.)" /></a>
+        4. Release the <a>storage mutex</a> so that it is once again free.
+    13. If the fetched resource is an HTTP redirect <a>or equivalent</a>, then:
+
+        <dl class="switch">
+          <dt>
+            If the <i>force same-origin flag</i> is set and the <a>URL</a> of the target of the
+            redirect does not have the <a>same origin</a> as the <a>URL</a> for which the
+            <a>fetch</a> algorithm was invoked
+          </dt>
+          <dd>
+            Abort these steps and return failure from this algorithm, as if the remote host could
+            not be contacted.
+          </dd>
+
+          <dt>If the <i>manual redirect flag</i> is set</dt>
+          <dd>
+            Continue, using the fetched resource (the redirect) as the result of the algorithm. If
+            the calling algorithm subsequently requires the user agent to
+            <dfn>transparently follow the redirect</dfn>, then the user agent must resume this
+            algorithm from the <i>main step</i>, but using the target of the redirect as the
+            resource to fetch, rather than the original resource.
+          </dd>
+
+          <dt>Otherwise</dt>
+          <dd>
+            First, apply any relevant requirements for redirects (such as showing any appropriate
+            prompts). Then, redo <i>main step</i>, but using the target of the redirect as the
+            resource to fetch, rather than the original resource. For HTTP requests, the new request
+            must include the same headers as the original request, except for headers for which
+            other requirements are specified (such as the <code>Host</code> header). [[!HTTP11]]
+
+            <p class="note">
+              The HTTP specification requires that 301, 302, and 307 redirects, when applied to
+              methods other than the safe methods, not be followed without user confirmation. That
+              would be an appropriate prompt for the purposes of the requirement in the paragraph
+              above. [[!HTTP11]]
+          </dd>
+        </dl>
+    14. If the algorithm was not invoked with the <i>synchronous flag</i>: When the resource is
+        available, or if there is an error of some description, <a>queue a task</a> that uses the
+        resource as appropriate. If the resource can be processed incrementally, as, for instance,
+        with a progressively interlaced JPEG or an HTML file, additional tasks may be queued to
+        process the data as it is downloaded. The <a>task source</a> for these <a>tasks</a> is the
+        <a>networking task source</a>.
+
+        Otherwise, return the resource or error information to the calling algorithm.
+
+    If the user agent can determine the actual length of the resource being <a>fetched</a> for an
+    instance of this algorithm, and if that length is finite, then that length is the file's
+    <dfn>size</dfn>. Otherwise, the subject of the algorithm (that is, the resource being fetched)
+    has no known <a>size</a>. (For example, the HTTP <code>Content-Length</code> header might
+    provide this information.)
+
+    The user agent must also keep track of the <dfn>number of bytes downloaded</dfn> for each
+    instance of this algorithm. This number must exclude any out-of-band metadata, such as HTTP
+    headers.
+
+    <p class="note">
+      The <a>application cache</a> processing model introduces some
+      <a>changes to the networking model</a> to handle the returning of cached resources.
+
+    <p class="note">
+      The <a>navigation</a> processing model handles redirects itself, overriding the redirection
+      handling that would be done by the fetching algorithm.
+    </p>
+
+    <p class="note">
+      Whether the <a>type sniffing rules</a> apply to the fetched resource depends on the algorithm
+      that invokes the rules &mdash; they are not always applicable.
+    </p>
+
+    <h4 id="encrypted-http-and-related-security-concerns">Encrypted HTTP and related security concerns</h4>
+
+    Anything in this specification that refers to HTTP also applies to HTTP-over-TLS, as represented
+    by <a>URLs</a> representing the <code>https</code> scheme. [[!HTTP11]]
+
+    <p class="warning">
+      User agents should report certificate errors to the user and must either refuse to download
+      resources sent with erroneous certificates or must act as if such resources were in fact
+      served with no encryption.
+    </p>
+
+    User agents should warn the user that there is a potential problem whenever the user visits a
+    page that the user has previously visited, if the page uses less secure encryption on the second
+    visit.
+
+    Not doing so can result in users not noticing man-in-the-middle attacks.
+
+    <div class="example">
+      If a user connects to a server with a self-signed certificate, the user agent could allow the
+      connection but just act as if there had been no encryption. If the user agent instead allowed
+      the user to override the problem and then displayed the page as if it was fully and safely
+      encrypted, the user could be easily tricked into accepting man-in-the-middle connections.
+
+      If a user connects to a server with full encryption, but the page then refers to an external
+      resource that has an expired certificate, then the user agent will act as if the resource was
+      unavailable, possibly also reporting the problem to the user. If the user agent instead
+      allowed the resource to be used, then an attacker could just look for "secure" sites that used
+      resources from a different host and only apply man-in-the-middle attacks to that host, for
+      example taking over scripts in the page.
+
+      If a user bookmarks a site that uses a CA-signed certificate, and then later revisits that
+      site directly but the site has started using a self-signed certificate, the user agent could
+      warn the user that a man-in-the-middle attack is likely underway, instead of simply acting as
+      if the page was not encrypted.
+    </div>
+
+    <h4 id="content-type-sniffing">Determining the type of a resource</h4>
+
+    The <dfn>Content-Type metadata</dfn> of a resource must be obtained and interpreted in a manner
+    consistent with the requirements of the MIME Sniffing specification. [[!MIMESNIFF]]
+
+    The <dfn>sniffed type of a resource</dfn> must be found in a manner consistent with the
+    requirements given in the MIME Sniffing specification for finding the <i>sniffed media type</i>
+    of the relevant sequence of octets. [[!MIMESNIFF]]
+
+    The <dfn>rules for sniffing images specifically</dfn> and the <dfn>rules for distinguishing if a
+    resource is text or binary</dfn> are also defined in the MIME Sniffing specification. Both sets
+    of rules return a <a>MIME type</a> as their result. [[!MIMESNIFF]]
+
+    <p class="warning">
+      It is imperative that the rules in the MIME Sniffing specification be followed exactly. When a
+      user agent uses different heuristics for content type detection than the server expects,
+      security problems can occur. For more details, see the MIME Sniffing specification.
+      [[!MIMESNIFF]]
+    </p>
+
+    <h4 id="extracting-character-encodings-from-meta-elements">Extracting character encodings from <code>meta</code> elements</h4>
+
+    The <dfn>algorithm for extracting a character encoding from a <code>meta</code> element</dfn>,
+    given a string <var>s</var>, is as follows. It either returns a character encoding or nothing.
+
+    1. Let <var>position</var> be a pointer into <var>s</var>, initially pointing at the start of
+        the string.
+    2. <i>Loop</i>: Find the first seven characters in <var>s</var> after <var>position</var> that
+        are an <a>ASCII case-insensitive</a> match for the word "<code>charset</code>". If no such
+        match is found, return nothing and abort these steps.
+    3. Skip any <a>space characters</a> that immediately follow the word "<code>charset</code>"
+        (there might not be any).
+    4. If the next character is not a U+003D EQUALS SIGN (=), then move <var>position</var> to point
+        just before that next character, and jump back to the step labeled <i>loop</i>.
+    5. Skip any <a>space characters</a> that immediately follow the equals sign (there might not be
+        any).
+    6. Process the next character as follows:
+        <dl class="switch">
+          <dt>
+            If it is a U+0022 QUOTATION MARK character (") and there is a later U+0022 QUOTATION
+            MARK character (") in <var>s</var>
+          </dt>
+          <dt>
+            If it is a U+0027 APOSTROPHE character (') and there is a later U+0027 APOSTROPHE
+            character (') in <var>s</var>
+          </dt>
+          <dd>
+            Return the result of <a>getting an encoding</a> from the substring that is between
+            this character and the next earliest occurrence of this character.
+          </dd>
+
+          <dt>If it is an unmatched U+0022 QUOTATION MARK character (")</dt>
+          <dt>If it is an unmatched U+0027 APOSTROPHE character (')</dt>
+          <dt>If there is no next character</dt>
+          <dd>Return nothing.</dd>
+
+          <dt>Otherwise</dt>
+          <dd>
+            Return the result of <a>getting an encoding</a> from the substring that consists of this
+            character up to but not including the first <a>space character</a> or U+003B SEMICOLON
+            character (;), or the end of <var>s</var>, whichever comes first.
+          </dd>
+        </dl>
+
+    <p class="note">
+      This algorithm is distinct from those in the HTTP specification (for example, HTTP doesn't
+      allow the use of single quotes and requires supporting a backslash-escape mechanism that is
+      not supported by this algorithm). While the algorithm is used in contexts that, historically,
+      were related to HTTP, the syntax as supported by implementations diverged some time ago.
+      [[!HTTP11]]
+    </p>
+  </div>
+
+
+<h4 id="cors-settings-attributes">CORS settings attributes</h4>
+
+  A <dfn>CORS settings attribute</dfn> is an <a>enumerated attribute</a>. The following table lists
+  the keywords and states for the attribute &mdash; the keywords in the left column map to the
+  states in the cell in the second column on the same row as the keyword.
+
+  <table>
+    <thead>
+    <tr>
+      <th>Keyword</th>
+      <th>State</th>
+      <th>Brief description</th>
+    <tbody>
+    <tr>
+      <td><dfn><code>anonymous</code></dfn></td>
+      <td><dfn>Anonymous</dfn></td>
+      <td>
+        <a>Requests</a> for the element will have their <a>mode</a> set to "<code>cors</code>" and
+        their <a>credentials mode</a> set to "<code>same-origin</code>".
+      </td>
+    <tr>
+      <td><dfn><code>use-credentials</code></dfn></td>
+      <td><dfn>Use Credentials</dfn></td>
+      <td>
+        <a>Requests</a> for the element will have their <a>mode</a> set to "<code>cors</code>" and
+        their <a>credentials mode</a> set to "<code>include</code>".
+      </td>
+  </table>
+
+  The empty string is also a valid keyword, and maps to the <a>Anonymous</a> state. The attribute's
+  <i>invalid value default</i> is the <a>Anonymous</a> state. For the purposes of <a>reflection</a>,
+  the canonical case for the <a>Anonymous</a> state is the <code>anonymous</code> keyword. The
+  <i>missing value default</i>, used when the attribute is omitted, is the <dfn>No CORS</dfn> state.
+
+  <div class="impl">
+    <h4 id="cors-enabled-fetch">CORS-enabled fetch</h4>
+
+    When the user agent is required to perform a <dfn>potentially CORS-enabled fetch</dfn> of an
+    <a>absolute URL</a> <var>URL</var> with a mode <var>mode</var> that is either "<a>No CORS</a>",
+    "<a>Anonymous</a>", or "<a>Use Credentials</a>", optionally using a <a>referrer source</a>
+    <var>referrer source</var>, with an <a>origin</a> <var>origin</var>, and with a default origin
+    behavior <var>default</var> which is either "<i>taint</i>" or "<i>fail</i>", it must run the
+    first applicable set of steps from the following list. The default origin behavior is only used
+    if <var>mode</var> is "<a>No CORS</a>". This algorithm wraps the <a>fetch</a> algorithm above,
+    and labels the obtained resource as either <dfn>CORS-same-origin</dfn> or
+    <dfn>CORS-cross-origin</dfn>, or blocks the resource entirely.
+
+    <dl class="switch">
+      <dt>If the <var>URL</var> has the <a>same origin</a> as <var>origin</var></dt>
+      <dt>If the <var>URL</var> is a <a><code>data:</code> URL</a></dt>
+      <dt>If the <var>URL</var> is <code>about:blank</code></dt>
+      <dd>
+        Run these substeps:
+
+        1. <a>Fetch</a> <var>URL</var>, using <var>referrer source</var> if one was specified, with
+            the <i>manual redirect flag</i> set.</li>
+        2. <i>Loop</i>: Wait for the <a>fetch</a> algorithm to know if the result is a redirect or
+            not.
+        3. Follow the first appropriate steps from the following list:
+
+            <dl class="switch">
+              <dt>
+                If the result of the <a>fetch</a> is a redirect, and the <a>origin</a> of the target
+                URL of the redirect is not the <a>same origin</a> as <var>origin</var>
+              </dt>
+              <dd>
+                Set <var>URL</var> to the target URL of the redirect and return to the top of the
+                <a>potentially CORS-enabled fetch</a> algorithm (this time, one of the other
+                branches below might be taken, based on the value of <var>mode</var>).
+              </dd>
+
+              <dt>If the result of the <a>fetch</a> is a redirect</dt>
+              <dd>
+                <p class="note">
+                  The <a>origin</a> of the target URL of the redirect is the <a>same origin</a>
+                  as <var>origin</var>.
+                </p>
+
+                <a>Transparently follow the redirect</a> and jump to the step labeled <i>loop</i>
+                above.
+
+              <dt>Otherwise</dt>
+              <dd>
+                <p class="note">
+                  The resource is available, it is not a redirect, and its <a>origin</a> is the
+                  <a>same origin</a> as <var>origin</var>.
+                </p>
+
+                The <a>tasks</a> from the <a>fetch</a> algorithm are <a>queued</a> normally, and for
+                the purposes of the calling algorithm, the obtained resource is
+                <a>CORS-same-origin</a>.
+              </dd>
+            </dl>
+      </dd>
+
+      <dt>If <var>mode</var> is "<a>No CORS</a>" and <var>default</var> is <i>taint</i></dt>
+      <dd>
+        <p class="note">
+          The <var>URL</var> does not have the <a>same origin</a> as <var>origin</var>.
+        </p>
+
+        <a>Fetch</a> <var>URL</var>, using <var>referrer source</var> if one was
+        specified.
+
+        The <a>tasks</a> from the <a>fetch</a> algorithm are <a>queued</a> normally, but for the
+        purposes of the calling algorithm, the obtained resource is <a>CORS-cross-origin</a>. The
+        user agent may report a cross-origin resource access failure to the user (e.g. in a
+        debugging console).
+      </dd>
+
+      <dt>If <var>mode</var> is "<a>No CORS</a>"</dt>
+      <dd>
+        <p class="note">
+          The <var>URL</var> does not have the <a>same origin</a> as <var>origin</var>, and
+          <var>default</var> is <i>fail</i>.
+        </p>
+
+        Discard any data fetched as part of this algorithm, and prevent any <a>tasks</a> from such
+        invocations of the <a>fetch</a> algorithm from being <a>queued</a>.
+
+        For the purposes of the calling algorithm, the user agent must act as if there was a fatal
+        network error and no resource was obtained. The user agent may report a cross-origin
+        resource access failure to the user (e.g. in a debugging console).
+      </dd>
+
+      <dt>If <var>mode</var> is "<a>Anonymous</a>" or "<a>Use Credentials</a>"</dt>
+      <dd>
+        <p class="note">
+          The <var>URL</var> does not have the <a>same origin</a> as <var>origin</var>.
+        </p>
+
+        Run these steps:
+
+        1. Perform a <a>cross-origin request</a> with the <i>request URL</i> set to <var>URL</var>,
+            with the CORS <i>referrer source</i> set to <var>referrer source</var> if one was
+            specified, the <i>source origin</i> set to <var>origin</var>, and with the
+            <i>omit credentials flag</i> set if <var>mode</var> is "<a>Anonymous</a>" and not set
+            otherwise. [[!FETCH]]
+        2. Wait for the CORS <a>cross-origin request status</a> to have a value.
+        3. Jump to the appropriate step from the following list:
+
+            <dl class="switch">
+              <dt>If the CORS <a>cross-origin request status</a> is not <i>success</i></dt>
+              <dd>
+                Discard all fetched data and prevent any <a>tasks</a> from the <a>fetch</a>
+                algorithm from being <a>queued</a>. For the purposes of the calling algorithm, the
+                user agent must act as if there was a fatal network error and no resource was
+                obtained. If a CORS <a>resource sharing check</a> failed, the user agent may report
+                a cross-origin resource access failure to the user (e.g. in a debugging console).
+              </dd>
+
+              <dt>If the CORS <a>cross-origin request status</a> is <i>success</i></dt>
+              <dd>
+                The <a>tasks</a> from the <a>fetch</a> algorithm are <a>queued</a> normally, and for
+                the purposes of the calling algorithm, the obtained resource is
+                <a>CORS-same-origin</a>.
+              </dd>
+            </dl>
+      </dd>
+    </dl>
+  </div>
+
+
+<h3 id="common-dom-interfaces">Common DOM interfaces</h3>
+
+<h4 id="reflecting-content-attributes-in-idl-attributes">Reflecting content attributes in IDL attributes</h4>
+
+  Some IDL attributes are defined to <dfn>reflect</dfn> a particular content attribute. This means
+  that on getting, the IDL attribute returns the current value of the content attribute, and on
+  setting, the IDL attribute changes the value of the content attribute to the given value.
+
+  <div class="impl">
+    In general, on getting, if the content attribute is not present, the IDL attribute must act as
+    if the content attribute's value is the empty string; and on setting, if the content attribute
+    is not present, it must first be added.
+
+    If a reflecting IDL attribute is a <code>DOMString</code> attribute whose content attribute is
+    defined to contain a <a>URL</a>, then on getting, the IDL attribute must <a>resolve</a> the
+    value of the content attribute relative to the element and return the resulting
+    <a>absolute URL</a> if that was successful, or the empty string otherwise; and on setting, must
+    set the content attribute to the specified literal value. If the content attribute is absent,
+    the IDL attribute must return the default value, if the content attribute has one, or else the
+    empty string.
+
+    If a reflecting IDL attribute is a <code>DOMString</code> attribute whose content attribute is
+    defined to contain one or more <a>URLs</a>, then on getting, the IDL attribute must <a>split the
+    content attribute on spaces</a> and return the concatenation of <a>resolving</a> each token URL
+    to an <a>absolute URL</a> relative to the element, with a single U+0020 SPACE character between
+    each URL, ignoring any tokens that did not resolve successfully. If the content attribute is
+    absent, the IDL attribute must return the default value, if the content attribute has one, or
+    else the empty string. On setting, the IDL attribute must set the content attribute to the
+    specified literal value.
+
+    If a reflecting IDL attribute is a <code>DOMString</code> attribute whose content attribute is
+    an <a>enumerated attribute</a>, and the IDL attribute is <dfn>limited to only known values</dfn>,
+    then, on getting, the IDL attribute must return the conforming value associated with the state
+    the attribute is in (in its canonical case), if any, or the empty string if the attribute is in
+    a state that has no associated keyword value or if the attribute is not in a defined state (e.g.
+    the attribute is missing and there is no <i>missing value default</i>); and on setting, the
+    content attribute must be set to the specified new value.
+
+    If a reflecting IDL attribute is a nullable <code>DOMString</code> attribute whose content
+    attribute is an <a>enumerated attribute</a>, then, on getting, if the corresponding content
+    attribute is in its <i>missing value default</i> then the IDL attribute must return null,
+    otherwise, the IDL attribute must return the conforming value associated with the state the
+    attribute is in (in its canonical case); and on setting, if the new value is null, the content
+    attribute must be removed, and otherwise, the content attribute must be set to the specified new
+    value.
+
+    If a reflecting IDL attribute is a <code>DOMString</code> attribute but doesn't fall into any
+    of the above categories, then the getting and setting must be done in a transparent,
+    case-preserving manner.
+
+    If a reflecting IDL attribute is a <code>boolean</code> attribute, then on getting the IDL
+    attribute must return true if the content attribute is set, and false if it is absent. On
+    setting, the content attribute must be removed if the IDL attribute is set to false, and must be
+    set to the empty string if the IDL attribute is set to true. (This corresponds to the rules for
+    <a>boolean content attributes</a>.)
+
+    If a reflecting IDL attribute has a signed integer type (<code>long</code>) then, on getting,
+    the content attribute must be parsed according to the <a>rules for parsing signed integers</a>,
+    and if that is successful, and the value is in the range of the IDL attribute's type, the
+    resulting value must be returned. If, on the other hand, it fails or returns an out of range
+    value, or if the attribute is absent, then the default value must be returned instead, or 0 if
+    there is no default value. On setting, the given value must be converted to the shortest
+    possible string representing the number as a <a>valid integer</a> and then that string must be
+    used as the new content attribute value.
+
+    If a reflecting IDL attribute has a signed integer type (<code>long</code>)
+    that is <dfn>limited to only non-negative numbers</dfn> then, on getting, the content attribute
+    must be parsed according to the <a>rules for parsing non-negative integers</a>, and if that
+    is successful, and the value is in the range of the IDL attribute's type, the resulting value must
+    be returned. If, on the other hand, it fails or returns an out of range value, or if the attribute
+    is absent, the default value must be returned instead, or &#x2212;1 if there is no default value.
+    On setting, if the value is negative, the user agent must throw an <code>IndexSizeError</code>
+    exception. Otherwise, the given value must be converted to the shortest possible string
+    representing the number as a <a>valid non-negative integer</a> and then that string must be
+    used as the new content attribute value.
+
+    If a reflecting IDL attribute has an <em>unsigned</em> integer type (<code>unsigned long</code>)
+    then, on getting, the content attribute must be parsed according to the <a>rules for parsing
+    non-negative integers</a>, and if that is successful, and the value is in the range 0 to
+    2147483647 inclusive, the resulting value must be returned. If, on the other hand, it fails or
+    returns an out of range value, or if the attribute is absent, the default value must be returned
+    instead, or 0 if there is no default value. On setting, first, if the new value is in the range
+    0 to 2147483647, then let <var>n</var> be the new value, otherwise let <var>n</var> be the
+    default value, or 0 if there is no default value; then, <var>n</var> must be converted to the
+    shortest possible string representing the number as a <a>valid non-negative integer</a> and that
+    string must be used as the new content attribute value.
+
+    If a reflecting IDL attribute has an unsigned integer type (<code>unsigned long</code>) that is
+    <dfn>limited to only non-negative numbers greater than zero</dfn>, then the behavior is similar
+    to the previous case, but zero is not allowed. On getting, the content attribute must first be
+    parsed according to the <a>rules for parsing non-negative integers</a>, and if that is
+    successful, and the value is in the range 1 to 2147483647 inclusive, the resulting value must be
+    returned. If, on the other hand, it fails or returns an out of range value, or if the attribute
+    is absent, the default value must be returned instead, or 1 if there is no default value. On
+    setting, if the value is zero, the user agent must throw an <code>IndexSizeError</code>
+    exception. Otherwise, first, if the new value is in the range 1 to 2147483647, then let
+    <var>n</var> be the new value, otherwise let <var>n</var> be the default value, or 1 if there is
+    no default value; then, <var>n</var> must be converted to the shortest possible string
+    representing the number as a <a>valid non-negative integer</a> and that string must be used as
+    the new content attribute value.
+
+    If a reflecting IDL attribute has a floating-point number type (<code>double</code> or
+    <code>unrestricted double</code>), then, on getting, the content attribute must be parsed
+    according to the <a>rules for parsing floating-point number values</a>, and if that is
+    successful, the resulting value must be returned. If, on the other hand, it fails, or if the
+    attribute is absent, the default value must be returned instead, or 0.0 if there is no default
+    value. On setting, the given value must be converted to the <a>best representation of the number
+    as a floating-point number</a> and then that string must be used as the new content attribute
+    value.
+
+    If a reflecting IDL attribute has a floating-point number type (<code>double</code> or
+    <code>unrestricted double</code>) that is <dfn>limited to numbers greater than zero</dfn>, then
+    the behavior is similar to the previous case, but zero and negative values are not allowed. On
+    getting, the content attribute must be parsed according to the <a>rules for parsing
+    floating-point number values</a>, and if that is successful and the value is greater than 0.0,
+    the resulting value must be returned. If, on the other hand, it fails or returns an out of range
+    value, or if the attribute is absent, the default value must be returned instead, or 0.0 if
+    there is no default value. On setting, if the value is less than or equal to zero, then the
+    value must be ignored. Otherwise, the given value must be converted to the
+    <a>best representation of the number as a floating-point number</a> and then that string must be
+    used as the new content attribute value.
+
+    <p class="note">
+      The values Infinity and Not-a-Number (NaN) values throw an exception on setting, as defined in
+      the Web IDL specification. [[!WEBIDL]]
+    </p>
+
+    If a reflecting IDL attribute has the type <code>DOMTokenList</code> or
+    <code>DOMSettableTokenList</code>, then on getting it must return a <code>DOMTokenList</code> or
+    <code>DOMSettableTokenList</code> object (as appropriate) whose associated element is the
+    element in question and whose associated attribute's local name is the name of the attribute in
+    question. The same <code>DOMTokenList</code> or <code>DOMSettableTokenList</code> object must be
+    returned every time for each attribute.
+
+    If a reflecting IDL attribute has the type <code>HTMLElement</code>, or an interface that
+    descends from <code>HTMLElement</code>, then, on getting, it must run the following algorithm
+    (stopping at the first point where a value is returned):
+
+    1. If the corresponding content attribute is absent, then the IDL attribute must return null.
+    2. Let <var>candidate</var> be the element that the <code>document.getElementById()</code>
+        method would find when called on the content attribute's element's <a>node document</a> if
+        it were passed as its argument the current value of the corresponding content attribute.
+    3. If <var>candidate</var> is null, or if it is not type-compatible with the IDL attribute, then
+        the IDL attribute must return null.
+    4. Otherwise, it must return <var>candidate</var>.
+
+    On setting, if the given element has an <code>id</code> attribute, and has the same
+    <a>home subtree</a> as the element of the attribute being set, and the given element is the
+    first element in that <a>home subtree</a> whose <a>ID</a> is the value of that <code>id</code>
+    attribute, then the content attribute must be set to the value of that <code>id</code>
+    attribute. Otherwise, the content attribute must be set to the empty string.
+  </div>
+
+<h4 id="collections">Collections</h4>
+
+  The <code>HTMLAllCollection</code>, <code>HTMLFormControlsCollection</code>,
+  <code>HTMLOptionsCollection</code>, interfaces are <a>collections</a> derived from the
+  <code>HTMLCollection</code> interface.
+
+<h5 id="htmlallcollection">HTMLAllCollection</h5>
+
+  The <code>HTMLAllCollection</code> interface is used for the legacy <code>document.all</code>
+  attribute. It operates similarly to <code>HTMLCollection</code>; the main differences are that its
+  <code>namedItem()</code> method returns an <code>HTMLCollection</code> object when there are
+  multiple matching elements, and that its <code>item()</code> method can be used as a synonym for
+  its <code>namedItem()</code> method.
+
+  <p class="note">
+    All <code>HTMLAllCollection</code> objects are rooted at a <code>Document</code> and have a
+    filter that matches all elements, so the elements <a>represented by the collection</a> of an
+    <code>HTMLAllCollection</code> object consist of all the descendant elements of the root
+    <code>Document</code>.
+  </p>
+
+  <pre class="idl" highlight="webidl">
+  interface HTMLAllCollection {
+    readonly attribute unsigned long length;
+    getter Element? item(unsigned long index);
+    (HTMLCollection or Element)? item(DOMString name);
+    legacycaller getter (HTMLCollection or Element)? namedItem(DOMString name);
+  };</pre>
+
+  <dl class="domintro">
+    <dt><var>collection</var> . <code>length</code></dt>
+    <dd>Returns the number of elements in the collection.</dd>
+
+    <dt><var>element</var> = <var>collection</var> . <code>item</code>(<var>index</var>)</dt>
+    <dt><var>element</var> = <var>collection</var>[<var>index</var>]</dt>
+    <dd>
+      Returns the item with index <var>index</var> from the collection. The items are sorted in
+      <a>tree order</a>.
+    </dd>
+
+    <dt><var>element</var> = <var>collection</var> . <code>item</code>(<var>name</var>)</dt>
+    <dt><var>collection</var> = <var>collection</var> . <code>item</code>(<var>name</var>)</dt>
+    <dt><var>element</var> = <var>collection</var> . <code>namedItem</code>(<var>name</var>)</dt>
+    <dt><var>collection</var> = <var>collection</var> . <code>namedItem</code>(<var>name</var>)</dt>
+    <dt><var>element</var> = <var>collection</var>(<var>name</var>)</dt>
+    <dt><var>collection</var> = <var>collection</var>(<var>name</var>)</dt>
+    <dt><var>element</var> = <var>collection</var>[<var>name</var>]</dt>
+    <dt><var>collection</var> = <var>collection</var>[<var>name</var>]</dt>
+    <dd>
+      Returns the item with <a>ID</a> or name <var>name</var> from the collection.
+
+      If there are multiple matching items, then an <code>HTMLCollection</code> object containing
+      all those elements is returned.
+
+      Only <code>button</code>, <code>form</code>, <code>iframe</code>, <code>input</code>,
+      <code>map</code>, <code>meta</code>, <code>object</code>, <code>select</code>, and
+      <code>textarea</code> elements can have a name for the purpose of this method; their name is
+      given by the value of their <code>name</code> attribute.
+    </dd>
+  </dl>
+
+  <div class="impl">
+    The object's <a>supported property indices</a> are as defined for <code>HTMLCollection</code>
+    objects.
+
+    The following elements are <dfn>"all"-named elements</dfn>: <code>a</code>, <code>applet</code>,
+    <code>button</code>, <code>embed</code>, <code>form</code>, <code>frame</code>,
+    <code>frameset</code>, <code>iframe</code>, <code>img</code>, <code>input</code>,
+    <code>map</code>, <code>meta</code>, <code>object</code>, <code>select</code>, and
+    <code>textarea</code>
+
+    The <a>supported property names</a> consist of the non-empty values of all the <code>id</code>
+    attributes of all the elements <a>represented by the collection</a>, and the non-empty values of
+    all the <code>name</code> attributes of all the <a>"all"-named elements</a> <a>represented by
+    the collection</a>, in <a>tree order</a>, ignoring later duplicates, with the <code>id</code> of
+    an element preceding its <code>name</code> if it contributes both, they differ from each other,
+    and neither is the duplicate of an earlier entry.
+
+    The properties exposed in this way must be <a>unenumerable</a>.
+
+    On getting, the <code>length</code> attribute must return the number of nodes
+    <a>represented by the collection</a>.
+
+    The <code>item(<var>index</var>)</code> method must return the <var>index</var><sup>th</sup>
+    element in the collection. If there is no <var>index</var><sup>th</sup> element in the
+    <a>collection</a>, then the method must return null.
+
+    The <code>item(<var>name</var>)</code> and <code>namedItem(<var>name</var>)</code> methods must
+    act according to the following algorithm:
+
+    1. If <var>name</var> is the empty string, return null and stop the algorithm.
+    2. Let <var>collection</var> be an <code>HTMLCollection</code> object rooted at the same
+        <code>Document</code> as the <code>HTMLAllCollection</code> object on which the method was
+        invoked, whose filter matches only elements that are either:
+        * <a>"all"-named elements</a> with a <code>name</code> attribute equal to <var>name</var>,
+            or,
+        * elements with an <a>ID</a> equal to <var>name</var>.
+    3. If, at the time the method is called, there is exactly one node in <var>collection</var>,
+        then return that node and stop the algorithm.
+    4. Otherwise, if, at the time the method is called, <var>collection</var> is empty, return null
+        and stop the algorithm.
+    5. Otherwise, return <var>collection</var>.
+  </div>
+
+<h5 id="the-htmlformcontrolscollection-interface">The <code>HTMLFormControlsCollection</code> interface</h5>
+
+  The <code>HTMLFormControlsCollection</code> interface is used for <a>collections</a> of
+  <a>listed elements</a> in <code>form</code> and <code>fieldset</code> elements.
+
+  <pre class="idl" highlight="webidl">
+  interface HTMLFormControlsCollection : HTMLCollection {
+    // inherits length and item()
+    getter (RadioNodeList or Element)? namedItem(DOMString name); // shadows inherited namedItem()
+  };
+
+  interface RadioNodeList : NodeList {
+            attribute DOMString value;
+  };</pre>
+
+  <dl class="domintro">
+    <dt><var>collection</var> . <code>length</code></dt>
+    <dd>Returns the number of elements in the collection.</dd>
+
+    <dt><var>element</var> = <var>collection</var> . <code>item</code>(<var>index</var>)</dt>
+    <dt><var>element</var> = <var>collection</var>[<var>index</var>]</dt>
+    <dd>
+      Returns the item with index <var>index</var> from the collection. The items are sorted in
+      <a>tree order</a>.
+    </dd>
+
+    <dt><var>element</var> = <var>collection</var> . <code>namedItem</code>(<var>name</var>)</dt>
+    <dt><var>radioNodeList</var> = <var>collection</var> . <code>namedItem</code>(<var>name</var>)</dt>
+    <dt><var>element</var> = <var>collection</var>[<var>name</var>]</dt>
+    <dt><var>radioNodeList</var> = <var>collection</var>[<var>name</var>]</dt>
+    <dd>
+      Returns the item with <a>ID</a> or <code>name</code> <var>name</var> from the collection.
+
+      If there are multiple matching items, then a <code>RadioNodeList</code> object containing all
+      those elements is returned.
+    </dd>
+
+    <dt><var>radioNodeList</var> . <var>value</var> [ = <var>value</var> ]</dt>
+    <dd>
+      Returns the value of the first checked radio button represented by the object.
+
+      Can be set, to check the first radio button with the given value represented by the object.
+    </dd>
+  </dl>
+
+  <div class="impl">
+    The object's <a>supported property indices</a> are as defined for <code>HTMLCollection</code>
+    objects.
+
+    The <a>supported property names</a> consist of the non-empty values of all the <code>id</code>
+    and <code>name</code> attributes of all the elements <a>represented by the collection</a>, in
+    <a>tree order</a>, ignoring later duplicates, with the <code>id</code> of an element preceding its
+    <code>name</code> if it contributes both, they differ from each other, and neither is the
+    duplicate of an earlier entry.
+
+    The properties exposed in this way must be <a>unenumerable</a>.
+
+    The <dfn><code>namedItem(<var>name</var>)</code></dfn> method must act according to the following
+    algorithm:
+
+    1. If <var>name</var> is the empty string, return null and stop the algorithm.
+    2. If, at the time the method is called, there is exactly one node in the collection that has
+        either an <code>id</code> attribute or a <code>name</code> attribute equal to <var>name</var>,
+        then return that node and stop the algorithm.
+    3. Otherwise, if there are no nodes in the collection that have either an <code>id</code>
+        attribute or a <code>name</code> attribute equal to <var>name</var>, then return null and stop
+        the algorithm.
+    4. Otherwise, create a new <code>RadioNodeList</code> object representing a <a>live</a> view of
+        the <code>HTMLFormControlsCollection</code> object, further filtered so that the only nodes in
+        the <code>RadioNodeList</code> object are those that have either an <code>id</code> attribute
+        or a <code>name</code> attribute equal to <var>name</var>. The nodes in the
+        <code>RadioNodeList</code> object must be sorted in <a>tree order</a>.
+    5. Return that <code>RadioNodeList</code> object.
+
+    <hr />
+
+    Members of the <code>RadioNodeList</code> interface inherited from the <code>NodeList</code>
+    interface must behave as they would on a <code>NodeList</code> object.
+
+    The <dfn><code>value</code></dfn> IDL attribute on the <code>RadioNodeList</code> object, on
+    getting, must return the value returned by running the following steps:
+
+    1. Let <var>element</var> be the first element in <a>tree order</a> represented by the
+        <code>RadioNodeList</code> object that is an <code>input</code> element whose
+        <code>type</code> attribute is in the <a>Radio Button</a> state and whose <a>checkedness</a>
+        is true. Otherwise, let it be null.
+    2. If <var>element</var> is null, return the empty string.
+    3. If <var>element</var> is an element with no <code>value</code> attribute, return the string
+        "<code>on</code>".
+    4. Otherwise, return the value of <var>element</var>'s <code>value</code> attribute.
+
+    On setting, the <code>value</code> IDL attribute must run the following steps:
+
+    1. If the new value is the string "<code>on</code>": let <var>element</var> be the first element
+        in <a>tree order</a> represented by the <code>RadioNodeList</code> object that is an
+        <code>input</code> element whose <code>type</code> attribute is in the <a>Radio Button</a>
+        state and whose <code>value</code> content attribute is either absent, or present and equal
+        to the new value, if any. If no such element exists, then instead let <var>element</var> be
+        null.
+
+        Otherwise: let <var>element</var> be the first element in <a>tree order</a>
+        represented by the <code>RadioNodeList</code> object that is an <code>input</code> element
+        whose <code>type</code> attribute is in the <a>Radio Button</a> state and whose
+        <code>value</code> content attribute is present and equal to the new value, if any. If no
+        such element exists, then instead let <var>element</var> be null.
+    2. If <var>element</var> is not null, then set its <a>checkedness</a> to true.
+  </div>
+
+<h5 id="the-htmloptionscollection-interface">The <code>HTMLOptionsCollection</code> interface</h5>
+
+  The <code>HTMLOptionsCollection</code> interface is used for <a>collections</a> of
+  <code>option</code> elements. It is always rooted on a <code>select</code> element and has
+  attributes and methods that manipulate that element's descendants.
+
+  <pre class="idl" highlight="webidl">
+  interface HTMLOptionsCollection : HTMLCollection {
+    // inherits item(), namedItem()
+    attribute unsigned long length; // shadows inherited length
+    setter void (unsigned long index, HTMLOptionElement? option);
+    void add((HTMLOptionElement or HTMLOptGroupElement) element, optional (HTMLElement or long)? before = null);
+    void remove(long index);
+    attribute long selectedIndex;
+  };</pre>
+
+  <dl class="domintro">
+    <dt><var>collection</var> . <code subdfn>length</code> [ = <var>value</var> ]</dt>
+    <dd>
+      Returns the number of elements in the collection.
+
+      When set to a smaller number, truncates the number of <code>option</code> elements in the
+      corresponding container.
+
+      When set to a greater number, adds new blank <code>option</code> elements to that container.
+    </dd>
+
+    <dt><var>element</var> = <var>collection</var> . <code>item</code>(<var>index</var>)</dt>
+    <dt><var>element</var> = <var>collection</var>[<var>index</var>]</dt>
+    <dd>
+      Returns the item with index <var>index</var> from the collection. The items are sorted in
+      <a>tree order</a>.
+    </dd>
+
+    <dt><var>collection</var>[<var>index</var>] = <var>element</var></dt>
+    <dd>
+      When <var>index</var> is a greater number than the number of items in the collection, adds
+      new blank <code>option</code> elements in the corresponding container.
+
+      When set to null, removes the item at index <var>index</var> from the collection.
+
+      When set to an <code>option</code> element, adds or replaces it at index <var>index</var>
+      from the collection.
+    </dd>
+
+    <dt><var>element</var> = <var>collection</var> . <code >namedItem</code>(<var>name</var>)</dt>
+    <dt><var>element</var> = <var>collection</var>[<var>name</var>]</dt>
+    <dd>
+      Returns the item with <a>ID</a> or <code>name</code> <var>name</var> from the collection.
+
+      If there are multiple matching items, then the first is returned.
+    </dd>
+
+    <dt><var>collection</var> . <code>add</code>(<var>element</var> [, <var>before</var> ] )</dt>
+    <dd>
+      Inserts <var>element</var> before the node given by <var>before</var>.
+
+      The <var>before</var> argument can be a number, in which case <var>element</var> is inserted
+      before the item with that number, or an element from the collection, in which case
+      <var>element</var> is inserted before that element.
+
+      If <var>before</var> is omitted, null, or a number out of range, then <var>element</var> will
+      be added at the end of the list.
+
+      This method will throw a <code>HierarchyRequestError</code> exception if <var>element</var> is
+      an ancestor of the element into which it is to be inserted.
+    </dd>
+
+    <dt><var>collection</var> . <code >remove</code>(<var>index</var>)</dt>
+    <dd>Removes the item with index <var>index</var> from the collection.</dd>
+
+    <dt><var>collection</var> . <code >selectedIndex</code> [ = <var>value</var> ]</dt>
+    <dd>
+      Returns the index of the first selected item, if any, or &#x2212;1 if there is no selected
+      item.
+
+      Can be set, to change the selection.
+    </dd>
+  </dl>
+
+  <div class="impl">
+
+  The object's <a>supported property indices</a> are as defined for
+  <code>HTMLCollection</code> objects.</p>
+
+  On getting, the <dfn><code>length</code></dfn>
+  attribute must return the number of nodes <a>represented by the collection</a>.</p>
+
+  On setting, the behavior depends on whether the new value is equal to, greater than, or less
+  than the number of nodes <a>represented by the collection</a> at that time. If the number is
+  the same, then setting the attribute must do nothing. If the new value is greater, then <var>n</var> new <code>option</code> elements with no attributes and no child nodes must be
+  appended to the <code>select</code> element on which the <code>HTMLOptionsCollection</code> is
+  rooted, where <var>n</var> is the difference between the two numbers (new value minus old
+  value). Mutation events must be fired as if a <code>DocumentFragment</code> containing the new
+  <code>option</code> elements had been inserted. If the new value is lower, then the last <var>n</var> nodes in the collection must be removed from their parent nodes, where <var>n</var> is the difference between the two numbers (old value minus new value).</p>
+
+  <p class="note">Setting <code>length</code> never removes
+  or adds any <code>optgroup</code> elements, and never adds new children to existing
+  <code>optgroup</code> elements (though it can remove children from them).</p>
+
+  The <a>supported property names</a> consist of the non-empty values of all the <code
+ >id</code> and <code>name</code> attributes of all the
+  elements <a>represented by the collection</a>, in <a>tree order</a>, ignoring later
+  duplicates, with the <code>id</code> of an element preceding its <code
+ >name</code> if it contributes both, they differ from each other, and neither is
+  the duplicate of an earlier entry.</p>
+
+  The properties exposed in this way must be <a>unenumerable</a>.</p>
+
+  When the user agent is to <dfn>set the value of a new
+  indexed property or set the value of an existing indexed property</dfn> for a given property index
+  <var>index</var> to a new value <var>value</var>, it must run the following
+  algorithm:</p>
+
+  <ol>
+
+   <li>If <var>value</var> is null, invoke the steps for the <code
+  >remove</code> method with <var>index</var> as
+   the argument, and abort these steps.
+
+   <li>Let <var>length</var> be the number of nodes <span>represented by the
+   collection</span>.
+
+   <li>Let <var>n</var> be <var>index</var> minus <var>length</var>.
+
+   <li>If <var>n</var> is greater than zero, then <span
+  >append</span> a <code>DocumentFragment</code> consisting of <span
+  ><var>n</var>-1</span> new <code>option</code> elements with no attributes and
+   no child nodes to the <code>select</code> element on which the <code>HTMLOptionsCollection</code>
+   is rooted.
+
+   <li>If <var>n</var> is greater than or equal to zero, <span
+  >append</span> <var>value</var> to the <code>select</code>
+   element. Otherwise, <a>replace</a> the <var>index</var>th element in the collection by <var>value</var>.
+
+  </ol>
+
+  The <dfn><code>add(<var>element</var>, <var>before</var>)</code></dfn> method must act according to the following algorithm:</p>
+
+  <ol>
+
+   <li>If <var>element</var> is an ancestor of the <code>select</code> element on which
+   the <code>HTMLOptionsCollection</code> is rooted, then throw a <code>HierarchyRequestError</code>
+   exception and abort these steps.</li>
+
+   <li>If <var>before</var> is an element, but that element isn't a descendant of the
+   <code>select</code> element on which the <code>HTMLOptionsCollection</code> is rooted, then throw
+   a <code>NotFoundError</code> exception and abort these steps.
+
+   <li>If <var>element</var> and <var>before</var> are the same element, then
+   return and abort these steps.</li>
+
+   <li>If <var>before</var> is a node, then let <var>reference</var> be that
+   node. Otherwise, if <var>before</var> is an integer, and there is a <var>before</var>th node in the collection, let <var>reference</var> be that node.
+   Otherwise, let <var>reference</var> be null.
+
+   <li>If <var>reference</var> is not null, let <var>parent</var> be the parent
+   node of <var>reference</var>. Otherwise, let <var>parent</var> be the
+   <code>select</code> element on which the <code>HTMLOptionsCollection</code> is rooted.
+
+   <li>Act as if the DOM <code>insertBefore()</code> method was
+   invoked on the <var>parent</var> node, with <var>element</var> as the first
+   argument and <var>reference</var> as the second argument.</p>
+
+  </ol>
+
+  The <dfn><code>remove(<var>index</var>)</code></dfn> method must act according to the following algorithm:</p>
+
+  <ol>
+
+   <li>If the number of nodes <a>represented by the collection</a> is zero, abort these
+   steps.</li>
+
+   <li>If <var>index</var> is not a number greater than or equal to 0 and less than the
+   number of nodes <a>represented by the collection</a>, abort these steps.
+   <!-- note that Web IDL converts 'a', NaN, -0.5, 0.5, most objects, and null to 0, and numbers in
+   general truncate. so what we're checking against here in a way has very little to do with what's
+   going on in the JS -->
+   <!-- objects get converted by calling ToNumber which calls ToPrimitive which eventually calls valueOf:
+         http://software.hixie.ch/utilities/js/live-dom-viewer/saved/2828
+         http://software.hixie.ch/utilities/js/live-dom-viewer/saved/2833
+    -->
+   <!-- same for select.remove(), which calls this algorithm also:
+         http://software.hixie.ch/utilities/js/live-dom-viewer/saved/2826
+         http://software.hixie.ch/utilities/js/live-dom-viewer/saved/2825
+         http://software.hixie.ch/utilities/js/live-dom-viewer/saved/2827
+     -->
+
+   <li>Let <var>element</var> be the <var>index</var>th element in the
+   collection.
+
+   <li>Remove <var>element</var> from its parent node.
+
+  </ol>
+
+  The <dfn><code>selectedIndex</code></dfn> IDL
+  attribute must act like the identically named attribute on the <code>select</code> element on
+  which the <code>HTMLOptionsCollection</code> is rooted</p>
+
+  <!-- see also http://ln.hixie.ch/?start=1161042744&count=1 -->
+
+  </div>
+
+
+<!--TOPIC:DOM APIs-->
+  <h4 id="domstringmap">DOMStringMap</h4>
+
+  The <code>DOMStringMap</code> interface represents a set of name-value pairs. It exposes these
+  using the scripting language's native mechanisms for property access.</p>
+
+  <div class="impl">
+
+  When a <code>DOMStringMap</code> object is instantiated, it is associated with three
+  algorithms, one for getting the list of name-value pairs, one for setting names to certain values,
+  and one for deleting names.</p>
+
+  <pre class="idl" highlight="webidl">
+  [OverrideBuiltins]
+  interface <dfn>DOMStringMap</dfn> {
+    <a>getter</a> DOMString (DOMString name);
+    <a>setter</a> void (DOMString name, DOMString value);
+    <a>deleter</a> void (DOMString name);
+  };</pre>
+
+  The <a>supported property names</a> on a <code>DOMStringMap</code> object at any instant
+  are the names of each pair returned from the algorithm for getting the list of name-value pairs at
+  that instant, in the order returned.</p>
+
+  To <dfn>determine the value of a named property</dfn> <var>name</var> in a <code>DOMStringMap</code>, the user agent must return the value component
+  of the name-value pair whose name component is <var>name</var> in the list returned by
+  the algorithm for getting the list of name-value pairs.</p>
+
+  To <dfn>set</dfn> the value of a named property
+  <var>name</var> to value <var>value</var>, the algorithm for setting names to certain values must
+  be run, passing <var>name</var> as the name and <var>value</var> as the value.</p>
+
+  To <dfn>delete an existing named property</dfn> <var>name</var>, the algorithm for deleting names must be run, passing <var>name</var> as the name.</p>
+
+  <p class="note">The <code>DOMStringMap</code> interface definition here is only intended for
+  JavaScript environments. Other language bindings will need to define how <code>DOMStringMap</code>
+  is to be implemented for those languages.</p>
+
+  </div>
+
+  <div class="example">
+
+   The <code>dataset</code> attribute on elements exposes the <code>data-*</code> attributes on the element.</p>
+
+   Given the following fragment and elements with similar constructions:</p>
+
+    <pre highlight="html">&lt;img class="tower" id="tower5" data-x="12" data-y="5" data-ai="robotarget" data-hp="46" data-ability="flames" src="towers/rocket.png" alt="Rocket Tower"></pre>
+
+    ...one could imagine a function <code>splashDamage()</code> that takes some arguments, the first
+    of which is the element to process:
+
+    <pre highlight="javascript">
+    function splashDamage(node, x, y, damage) {
+      if (node.classList.contains('tower') && // checking the 'class' attribute
+          node.dataset.x == x && // reading the 'data-x' attribute
+          node.dataset.y == y) { // reading the 'data-y' attribute
+        var hp = parseInt(node.dataset.hp); // reading the 'data-hp' attribute
+        hp = hp - damage;
+        if (hp &lt; 0) {
+          hp = 0;
+          node.dataset.ai = 'dead'; // setting the 'data-ai' attribute
+          delete node.dataset.ability; // removing the 'data-ability' attribute
+        }
+        node.dataset.hp = hp; // setting the 'data-hp' attribute
+      }
+    }</pre>
+
+  </div>
+
+
+  <h4 id="domelementmap">DOMElementMap</h4>
+
+  The <code>DOMElementMap</code> interface represents a set of name-element mappings. It exposes
+  these using the scripting language's native mechanisms for property access.</p>
+
+  <div class="impl">
+
+  When a <code>DOMElementMap</code> object is instantiated, it is associated with three
+  algorithms, one for getting the list of name-element mappings, one for mapping a name to a certain
+  element, and one for deleting mappings by name.</p>
+
+  <pre class="idl" highlight="webidl">
+  interface DOMElementMap {
+    getter Element (DOMString name);
+    setter creator void (DOMString name, Element value);
+    deleter void (DOMString name);
+  };</pre>
+
+  The <a>supported property names</a> on a <code>DOMElementMap</code> object at any instant
+  are the names for each mapping returned from the algorithm for getting the list of name-element
+  mappings at that instant, in the order returned.</p>
+
+  To <dfn>determine the value of a named property</dfn> <var
+ >name</var> in a <code>DOMElementMap</code>, the user agent must return the element
+  component of the name-element mapping whose name component is <var>name</var> in the list
+  returned by the algorithm for getting the list of name-element mappings.</p>
+
+  To set the value of a <dfn>new</dfn> or <dfn
+ >existing</dfn> named property <var>name</var> to value
+  <var>value</var>, the algorithm for mapping a name to a certain element must be run,
+  passing <var>name</var> as the name <var>value</var> as the element.</p>
+
+  To <dfn>delete an existing named property</dfn> <var
+ >name</var>, the algorithm for deleting mappings must be run, passing <var
+ >name</var> as the name component of the mapping to be deleted.</p>
+
+  <p class="note">The <code>DOMElementMap</code> interface definition here is only intended for
+  JavaScript environments. Other language bindings will need to define how
+  <code>DOMElementMap</code> is to be implemented for those languages.</p>
+
+  </div>
+
+<h4 id="transferable-objects">Transferable objects</h4>
+
+  Some objects support being copied and closed in one operation. This is called
+  <i>transferring</i> the object, and is used in particular to transfer ownership of unsharable or
+  expensive resources across worker boundaries.</p>
+
+  The following <code>Transferable</code> types exist:</p>
+
+  <ul class="brief">
+   <li><code>ArrayBuffer</code> <a href="#refsECMA262">\[ECMA262]</a>
+   <li><code>CanvasProxy</code> (defined in this specification)
+   <!--START FORK-->
+   <li><code>MessagePort</code>
+   <!--END FORK-->
+  </ul>
+
+  <div class="impl">
+
+  The following IDL block formalizes this:</p>
+
+  <pre class="idl" highlight="webidl">typedef (ArrayBuffer or CanvasProxy or MessagePort) Transferable;</pre>
+
+  To <dfn>transfer a <code>Transferable</code> object</dfn> to a new owner, the user agent must
+  run the steps defined for the type of object in question. The steps will return a new object of
+  the same type, and will permanently <dfn>neuter</dfn> the
+  original object. (This is an irreversible and non-idempotent operation; once an object has been
+  transferred, it cannot be transferred, or indeed used, again.)</p>
+
+  <p id="transferArrayBuffer">To <a>transfer</a> an
+  <code>ArrayBuffer</code> object <var>old</var> to a new owner <var>owner</var>, a user agent must create a new <code>ArrayBuffer</code> object pointing at
+  the same underlying data as <var>old</var>, thus obtaining <var>new</var>,
+  must <a>neuter</a> the <var>old</var>
+  object, and must finally return <var>new</var>. <a href="#refsECMA262">\[ECMA262]</a></p>
+  <!-- I'm expecting this section to move to the JS spec eventually so I'm leaving it as is for now -->
+
+  <p class="note">Rules for how to <a href="#transferCanvasProxy">transfer a
+  <code>CanvasProxy</code> object</a> and how to <a href="#refsWEBMSG">transfer a
+  <code>MessagePort</code> object</a> are given in the relevant sections of this specification.</p>
+
+  </div>
+
+  <div class="impl">
+
+  <h4 id="safe-passing-of-structured-data">Safe passing of structured data</h4>
+
+  When a user agent is required to obtain a <dfn>structured clone</dfn> of a value, optionally
+  with a <i>transfer map</i>, it must run the following algorithm, which either returns a separate
+  value, or throws an exception. If a <i>transfer map</i> is provided, it consists of an association
+  list of <code>Transferable</code> objects to placeholder objects.</p>
+
+  <ol>
+
+   <li>Let <var>input</var> be the value being cloned.
+
+   <li>Let <var>transfer map</var> be the <i>transfer map</i> passed to the algorithm, if any, or
+   the empty list otherwise.
+
+   <li>Let <var>memory</var> be an association list of pairs of objects, initially empty. This is
+   used to handle duplicate references. In each pair of objects, one is called the <i>source</i> object and the other the <i>destination</i> object.
+
+   <li>For each mapping in <var>transfer map</var>, add a mapping from the
+   <code>Transferable</code> object (the source object) to the placeholder object (the destination
+   object) to <var>memory</var>.
+
+   <li>Let <var>output</var> be the value resulting from calling the <span>internal structured
+   cloning algorithm</span> with <var>input</var> as the "<var>input</var>" argument, and
+   <var>memory</var> as the "<var>memory</var>" argument.
+
+   <li>Return <var>output</var>.
+
+  </ol>
+
+  The <dfn>internal structured cloning algorithm</dfn> is always called with two arguments,
+  <var>input</var> and <var>memory</var>, and its behavior is as follows:</p>
+
+  <ol>
+
+   <li>If <var>input</var> is the source object of a pair of objects in <var>memory</var>, then
+   return the destination object in that pair of objects and abort these steps.
+
+   <li>If <var>input</var> is a primitive value, then return that value and abort these
+   steps.
+
+   <li>Let <var>deep clone</var> be <i>none</i>.
+
+   <li>
+
+    The <var>input</var> value is an object. Jump to the appropriate step below:</p>
+
+    <dl class="switch">
+
+     <dt>If <var>input</var> is a <code>Boolean</code> object</dt>
+
+     <dd>Let <var>output</var> be a newly constructed Boolean object with the same value as
+     <var>input</var>.</p></dd>
+
+     <dt>If <var>input</var> is a <code>Number</code> object</dt>
+
+     <dd>Let <var>output</var> be a newly constructed Number object with the same value as
+     <var>input</var>.</p></dd>
+
+     <dt>If <var>input</var> is a <code>String</code> object</dt>
+
+     <dd>Let <var>output</var> be a newly constructed String object with the same value as
+     <var>input</var>.</p></dd>
+
+     <dt>If <var>input</var> is a <code>Date</code> object</dt>
+
+     <dd>Let <var>output</var> be a newly constructed <code>Date</code> object with the same
+     value as <var>input</var>.</p></dd>
+
+     <dt>If <var>input</var> is a <code>RegExp</code> object</dt>
+
+     <dd>
+
+      Let <var>output</var> be a newly constructed <code>RegExp</code> object with the same
+      pattern and flags as <var>input</var>.</p>
+
+      <p class="note">The value of the <code>lastIndex</code> property is not copied.</p>
+
+     </dd>
+
+     <dt>If <var>input</var> is a <code>Blob</code> object</dt>
+
+     <dd>If <var>input</var> has been disabled through the <code
+    >close()</code> method, throw a <code>DataCloneError</code> exception
+     and abort the overall <a>structured clone</a> algorithm. Otherwise, let <var>output</var>
+     be a newly constructed object of the same class as <var>input</var>, corresponding to the same
+     underlying data.</p></dd>
+
+     <dt>If <var>input</var> is a <code>FileList</code> object</dt>
+
+     <dd>Let <var>output</var> be a newly constructed <code>FileList</code> object containing a
+     list of newly constructed <code>File</code> objects corresponding to the same underlying data
+     as those in <var>input</var>, maintaining their relative order.</p></dd>
+
+     <dt>If <var>input</var> is an <code>ImageData</code> object</dt>
+
+     <dd>Let <var>output</var> be a newly constructed <code>ImageData</code> object whose <code
+    >width</code> and <code>height</code>
+     have values equal to the corresponding attributes on <var>input</var>, and whose <code
+    >data</code> attribute has the value obtained from invoking the
+     <a>internal structured cloning algorithm</a> recursively with the value of the <code
+    >data</code> attribute on <var>input</var> as the new
+     "<var>input</var>" argument and <var>memory</var> as the new "<var>memory</var>"
+     argument.</p></dd>
+
+     <dt>If <var>input</var> is an <code>ImageBitmap</code> object</dt>
+
+     <dd>Let <var>output</var> be a newly constructed <code>ImageBitmap</code> object whose
+     bitmap data is a copy of <var>input</var>'s bitmap data.</p></dd>
+
+     <dt>If <var>input</var> is an <code>ArrayBuffer</code> object</dt>
+
+     <dd>If <var>input</var> has been <span
+    >neutered</span>, throw a <code>DataCloneError</code>
+     exception and abort the overall <a>structured clone</a> algorithm. Otherwise, let
+     <var>output</var> be a newly constructed <code>ArrayBuffer</code> object whose contents are a
+     copy of <var>input</var>'s contents, with the same length.</p></dd>
+
+     <dt>If <var>input</var> is an object with a [[DataView]] internal slot</dt>
+
+     <dd>
+
+      Let <var>output</var> be a newly constructed object of the same class as <var>input</var>,
+      with its [[DataView]] internal property present, its [[ViewedArrayBuffer]] internal property
+      set to the value obtained from invoking the <a>internal structured cloning algorithm</a>
+      recursively with the value of the internal property on <var>input</var> as the new
+      "<var>input</var>" argument and <var>memory</var> as the new "<var>memory</var>" argument, and
+      with the [[ByteLength]] and [[ByteOffset]] internal properties set to the same value as their
+      counterparts on <var>input</var>.</p>
+
+      <!-- the above might not make much sense, but it'll become moot when JS takes over defining
+      how to clone ArrayBufferView objects -->
+
+     </dd>
+
+     <dt>If <var>input</var> is an <code>Array</code> object</dt>
+
+     <dd>
+
+      Let <var>output</var> be a newly constructed empty <code>Array</code>
+      object whose <code>length</code> is equal to the <code>length</code> of
+      <var>input</var>, and set <var>deep clone</var> to <i>own</i>.</p>
+
+      <p class="note">This means that the length of sparse arrays is preserved.</p>
+
+     </dd>
+
+     <dt>If <var>input</var> is an <code>Object</code> object</dt>
+
+     <dd>Let <var>output</var> be a newly constructed empty <code
+    >Object</code> object, and set <var>deep clone</var> to <i>own</i>.</p></dd>
+
+     <dt>If <var>input</var> is a <code>Map</code> object</dt>
+
+     <dd>Let <var>output</var> be a newly constructed empty <code>Map</code>
+     object, and set <var>deep clone</var> to <i>map</i>.</p></dd>
+
+     <dt>If <var>input</var> is a <code>Set</code> object</dt>
+
+     <dd>Let <var>output</var> be a newly constructed empty <code>Set</code>
+     object, and set <var>deep clone</var> to <i>set</i>.</p></dd>
+
+     <dt>If <var>input</var> is an object that another specification defines how to clone</dt>
+
+     <dd>Let <var>output</var> be a clone of the object as defined by the other
+     specification.</p></dd>
+
+     <dt>If <var>input</var> is another native object type (e.g. <code
+    >Error</code>, <code>Function</code>)</dt> <dt>If
+     <var>input</var> is a host object (e.g. a DOM node)</dt>
+
+     <dd>Throw a <code>DataCloneError</code> exception and abort the overall <span>structured
+     clone</span> algorithm.</p></dd>
+
+    </dl>
+
+    For the purposes of the algorithm above, an object is a particular type of object
+    <var>class</var> if its [[Class]] internal property is equal to <var>class</var>.</p>
+
+    <p class="example">For example, "<var>input</var> is an <code>Object</code>
+    object" if <var>input</var>'s [[Class]] internal property is equal to the string "<code
+   >Object</code>".</p>
+
+   </li>
+
+   <li>Add a mapping from <var>input</var> (the source object) to <var>output</var> (the
+   destination object) to <var>memory</var>.
+
+   <li>
+
+    If <var>deep clone</var> is set to <i>map</i>, then run these substeps. These substeps use
+    the terminology and typographic conventions used in the JavaScript specification's definition of
+    Maps. <a href="#refsECMA262">\[ECMA262]</a></p>
+
+    <ol>
+
+     <li>Let <var>original</var> be the List that is the value of <var>input</var>'s [[MapData]]
+     internal slot. <a href="#refsECMA262">\[ECMA262]</a>
+
+     <li>Let <var>source</var> be a new empty List.
+
+   <li>
+
+      For each Record {[[key]], [[value]]} <var>entry</var> that is an element of
+      <var>original</var>, run the following substeps:</p>
+
+    <ol>
+
+       <li>Let <var>new entry</var> be the Record {[[key]]: <var>entry</var>.[[key]], [[value]]:
+       <var>entry</var>.[[value]]}.
+
+       <li>If <var>new entry</var>.[[key]] is not <i>empty</i>, append <var>new entry</var> as
+       the last element of <var>source</var>.
+
+      </ol>
+
+     <li>Let <var>target</var> be the List that is the value of <var>output</var>'s [[MapData]]
+     internal slot.
+
+     <li>
+
+      For each Record {[[key]], [[value]]} <var>entry</var> that is an element of
+      <var>source</var>, run the following substeps:</p>
+
+      <ol>
+
+       <li>Let <var>key</var> have the value obtained from invoking the <span>internal structured
+       cloning algorithm</span> recursively with <var>entry</var>.[[key]] as the new
+       "<var>input</var>" argument and <var>memory</var> as the new "<var>memory</var>"
+       argument.
+
+       <li>Let <var>value</var> have the value obtained from invoking the <span>internal
+       structured cloning algorithm</span> recursively with <var>entry</var>.[[value]] as the new
+       "<var>input</var>" argument and <var>memory</var> as the new "<var>memory</var>"
+       argument.
+
+       <li>Let <var>new entry</var> be the Record {[[key]]: <var>key</var>, [[value]]:
+       <var>value</var>}.
+
+       <li>Append <var>new entry</var> as the last element of <var>target</var>.
+
+      </ol>
+
+     </li>
+
+     <li>Set <var>deep clone</var> to <i>own</i>.
+
+    </ol>
+
+   </li>
+
+   <li>
+
+    If <var>deep clone</var> is set to <i>set</i>, then run these substeps. These
+    substeps use the terminology and typographic conventions used in the JavaScript specification's
+    definition of Sets. <a href="#refsECMA262">\[ECMA262]</a></p>
+
+    <ol>
+
+     <li>Let <var>source</var> be a copy of the List that is the value of <var>input</var>'s
+     [[SetData]] internal slot. <a href="#refsECMA262">\[ECMA262]</a>
+
+     <li>Let <var>target</var> be the List that is the value of <var>output</var>'s [[SetData]]
+     internal slot.
+
+     <li>
+
+      For each <var>entry</var> that is an element of <var>source</var> that is not <i>empty</i>,
+      run the following substeps:</p>
+
+      <ol>
+
+       <li>Let <var>new entry</var> have the value obtained from invoking the <span>internal
+       structured cloning algorithm</span> recursively with <var>entry</var> as the new
+       "<var>input</var>" argument and <var>memory</var> as the new "<var>memory</var>"
+       argument.
+
+       <li>Append <var>new entry</var> as the last element of <var>target</var>.
+
+      </ol>
+
+     </li>
+
+     <li>Set <var>deep clone</var> to <i>own</i>.
+
+    </ol>
+
+   </li>
+
+   <li>
+
+    If <var>deep clone</var> is set to <i>own</i>, then, for each enumerable own property in
+    <var>input</var>, run the following steps:</p>
+
+    <ol>
+
+     <li>Let <var>name</var> be the name of the property.
+
+     <li>Let <var>source value</var> be the result of calling the [[Get]] internal method of
+     <var>input</var> with the argument <var>name</var>. If the [[Get]] internal method of a
+     property involved executing script, and that script threw an uncaught exception, then abort the
+     overall <a>structured clone</a> algorithm, with that exception being passed through to
+     the caller.
+
+     <li>Let <var>cloned value</var> be the result of invoking the <span>internal structured
+     cloning algorithm</span> recursively with <var>source value</var> as the "<var>input</var>"
+     argument and <var>memory</var> as the "<var>memory</var>" argument. If this results in an
+     exception, then abort the overall <a>structured clone</a> algorithm, with that exception
+     being passed through to the caller.
+
+     <li>Add a new property to <var>output</var> having the name <var>name</var>, and having
+     the value <var>cloned value</var>, using
+     CreateDataProperty(<var>output</var>, <var>name</var>, <var>cloned value</var>).
+
+    </ol>
+
+    The order of the properties in the <var>input</var> and <var>output</var> objects must be the
+    same, and any properties whose [[Get]] internal method involves running script must be processed
+    in that same order.</p>
+
+    <p class="note">This does not walk the prototype chain.</p>
+
+    <p class="note">Property descriptors, setters, getters, and analogous features are not copied in
+    this process. For example, the property in the input could be marked as read-only, but in the
+    output it would just have the default state (typically read-write, though that could depend on
+    the scripting environment).</p>
+
+    <p class="note">Properties of Array objects are not treated any differently than those of other
+    Objects. In particular, this means that non-index properties of arrays are copied as well.</p>
+
+   </li>
+
+   <li>Return <var>output</var>.
+
+  </ol>
+
+  <p class="note">This algorithm preserves cycles and preserves the identity of duplicate objects in
+  graphs.</p>
+
+  </div>
+
+
+  <h4 id="callbacks">Callbacks</h4>
+
+  The following callback function type is used in various APIs that interact with
+  <code>File</code> objects:</p>
+
+  <pre class="idl" highlight="webidl">callback <dfn>FileCallback</dfn> = void (<a>File</a> file);</pre>
+
+
+  <div class="impl">
+
+  <h4 id="garbage-collection">Garbage collection</h4>
+
+  There is an <dfn>implied strong reference</dfn> from any IDL attribute that returns a
+  pre-existing object to that object.</p>
+
+  <div class="example">
+
+   For example, the <code>document.location</code> attribute means
+   that there is a strong reference from a <code>Document</code> object to its <code>Location</code>
+   object. Similarly, there is always a strong reference from a <code>Document</code> to any
+   descendant nodes, and from any node to its owner <code>Document</code>.</p>
+
+  </div>
+
+  </div>
+
+
+<!--TOPIC:HTML Syntax and Parsing-->
+  <h3 id="namespaces">Namespaces</h3>
+
+  The <dfn>HTML namespace</dfn> is: <code>http://www.w3.org/1999/xhtml</code></p>
+
+  The <dfn>MathML namespace</dfn> is: <code>http://www.w3.org/1998/Math/MathML</code></p>
+
+  The <dfn>SVG namespace</dfn> is: <code>http://www.w3.org/2000/svg</code></p>
+
+  The <dfn>XLink namespace</dfn> is: <code>http://www.w3.org/1999/xlink</code></p>
+
+  The <dfn>XML namespace</dfn> is: <code>http://www.w3.org/XML/1998/namespace</code></p>
+
+  The <dfn>XMLNS namespace</dfn> is: <code>http://www.w3.org/2000/xmlns/</code></p>
+
+  <hr>
+
+  Data mining tools and other user agents that perform operations
+  on content without running scripts, evaluating CSS or XPath
+  expressions, or otherwise exposing the resulting DOM to arbitrary
+  content, may "support namespaces" by just asserting that their DOM
+  node analogs are in certain namespaces, without actually exposing
+  the above strings.</p>
+
+  <hr>
+
+  <p class="note">In <a>the HTML syntax</a>, namespace prefixes
+  and namespace declarations do not have the same effect as in XML.
+  For instance, the colon has no special meaning in HTML element
+  names.</p>
 
 <hr />
 <hr />
@@ -4043,62 +6327,62 @@ on attribute values</h4>
   The DOM specification defines a <{Document}> interface, which this specification extends
   significantly:
 
-  <pre class="idl" highlights="webidl">enum <dfn>DocumentReadyState</dfn> { "loading", "interactive", "complete" };
+  <pre class="idl" highlights="webidl">
+  enum DocumentReadyState { "loading", "interactive", "complete" };
 
+  [OverrideBuiltins]
+  partial /*sealed*/ interface Document {
+    // resource metadata management
+    [PutForwards=href, Unforgeable] readonly attribute Location? location;
+    attribute DOMString domain;
+    readonly attribute DOMString referrer;
+    attribute DOMString cookie;
+    readonly attribute DOMString lastModified;
+    readonly attribute DocumentReadyState readyState;
 
-[OverrideBuiltins]
-partial /*sealed*/ interface <dfn>Document</dfn> {
-  // resource metadata management
-  [PutForwards=href, Unforgeable] readonly attribute Location? location;
-  attribute DOMString domain;
-  readonly attribute DOMString referrer;
-  attribute DOMString cookie;
-  readonly attribute DOMString lastModified;
-  readonly attribute DocumentReadyState readyState;
+    // DOM tree accessors
+    getter object (DOMString name);
+    attribute DOMString title;
+    attribute DOMString dir;
+    attribute HTMLElement? body;
+    readonly attribute HTMLHeadElement? head;
+    [SameObject] readonly attribute HTMLCollection images;
+    [SameObject] readonly attribute HTMLCollection embeds;
+    [SameObject] readonly attribute HTMLCollection plugins;
+    [SameObject] readonly attribute HTMLCollection links;
+    [SameObject] readonly attribute HTMLCollection forms;
+    [SameObject] readonly attribute HTMLCollection scripts;
+    NodeList getElementsByName(DOMString elementName);
+    readonly attribute HTMLScriptElement? currentScript;
 
-  // DOM tree accessors
-  getter object (DOMString name);
-  attribute DOMString title;
-  attribute DOMString dir;
-  attribute HTMLElement? body;
-  readonly attribute HTMLHeadElement? head;
-  [SameObject] readonly attribute HTMLCollection images;
-  [SameObject] readonly attribute HTMLCollection embeds;
-  [SameObject] readonly attribute HTMLCollection plugins;
-  [SameObject] readonly attribute HTMLCollection links;
-  [SameObject] readonly attribute HTMLCollection forms;
-  [SameObject] readonly attribute HTMLCollection scripts;
-  NodeList getElementsByName(DOMString elementName);
-  readonly attribute HTMLScriptElement? currentScript;
+    // dynamic markup insertion
+    Document open(optional DOMString type = "text/html", optional DOMString replace = "");
+    WindowProxy open(DOMString url, DOMString name, DOMString features, optional boolean replace = false);
+    void close();
+    void write(DOMString... text);
+    void writeln(DOMString... text);
 
-  // dynamic markup insertion
-  Document open(optional DOMString type = "text/html", optional DOMString replace = "");
-  WindowProxy open(DOMString url, DOMString name, DOMString features, optional boolean replace = false);
-  void close();
-  void write(DOMString... text);
-  void writeln(DOMString... text);
+    // user interaction
+    readonly attribute WindowProxy? defaultView;
+    readonly attribute Element? activeElement;
+    boolean hasFocus();
+    attribute DOMString designMode;
+    boolean execCommand(DOMString commandId, optional boolean showUI = false, optional DOMString value = "");
+    boolean queryCommandEnabled(DOMString commandId);
+    boolean queryCommandIndeterm(DOMString commandId);
+    boolean queryCommandState(DOMString commandId);
+    boolean queryCommandSupported(DOMString commandId);
+    DOMString queryCommandValue(DOMString commandId);
 
-  // user interaction
-  readonly attribute WindowProxy? defaultView;
-  readonly attribute Element? activeElement;
-  boolean hasFocus();
-  attribute DOMString designMode;
-  boolean execCommand(DOMString commandId, optional boolean showUI = false, optional DOMString value = "");
-  boolean queryCommandEnabled(DOMString commandId);
-  boolean queryCommandIndeterm(DOMString commandId);
-  boolean queryCommandState(DOMString commandId);
-  boolean queryCommandSupported(DOMString commandId);
-  DOMString queryCommandValue(DOMString commandId);
-
-  // special event handler IDL attributes that only apply to Document objects
-  [LenientThis] attribute EventHandler onreadystatechange;
-};
-Document implements GlobalEventHandlers;</pre>
+    // special event handler IDL attributes that only apply to Document objects
+    [LenientThis] attribute EventHandler onreadystatechange;
+  };
+  Document implements GlobalEventHandlers;</pre>
 
 <h4 id="resource-metadata-management">Resource metadata management</h4>
 
   : <var>document</var> . <code>referrer</code>
-  :: Returns <span>the address</span> of the <{Document}> from which the user navigated to
+  :: Returns <a>the address</a> of the <{Document}> from which the user navigated to
     this one, unless it was blocked or there was no such document, in which case it returns the
     empty string.
 
@@ -4129,10 +6413,10 @@ Document implements GlobalEventHandlers;</pre>
 
     * A <{Document}> that has no <a>browsing context</a>.
 
-    * A <{Document}> whose <span>address</span> does not use a server-based naming
+    * A <{Document}> whose <a>address</a> does not use a server-based naming
         authority.
 
-    On getting, if the document is a <span>cookie-averse <{Document}> object</span>, then
+    On getting, if the document is a <span>cookie-averse <code>Document</code> object</span>, then
     the user agent must return the empty string. Otherwise, if the <{Document}>'s
     <a>origin</a> is not a scheme/host/port tuple, the user agent must throw a
     <code>SecurityError</code> exception. Otherwise, the user agent must first
@@ -4141,10 +6425,10 @@ Document implements GlobalEventHandlers;</pre>
     [[!COOKIES]]
     <a class="fingerprint" href="#fingerprinting-vector"><img height="21" src="images/fingerprint.png" width="15" alt="(This is a fingerprinting vector.)" /></a>
 
-    On setting, if the document is a <span>cookie-averse <{Document}> object</span>, then
-    the user agent must do nothing. Otherwise, if the <{Document}>'s <span>origin</span> is
+    On setting, if the document is a <span>cookie-averse <code>Document</code> object</span>, then
+    the user agent must do nothing. Otherwise, if the <{Document}>'s <a>origin</a> is
     not a scheme/host/port tuple, the user agent must throw a <code>SecurityError</code> exception.
-    Otherwise, the user agent must <span>obtain the storage mutex</span> and then act as it would
+    Otherwise, the user agent must <a>obtain the storage mutex</a> and then act as it would
     when <a>receiving a set-cookie-string</a> for <a>the document's address</a> via a "non-HTTP"
     API, consisting of the new value encoded as UTF-8. [[!COOKIES]] [[!ENCODING]]
 
