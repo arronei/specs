@@ -383,12 +383,12 @@
    <header>
     <p data-fill-with="logo"><a href="http://www.w3.org/"><img alt="W3C" height="48" src="https://www.w3.org/Icons/w3c_home" width="72"></a></p>
     <h1 class="p-name no-ref allcaps" id="title">HTML [LEVEL]</h1>
-    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">W3C Working Draft, <time class="dt-updated" datetime="2015-11-17">17 November 2015</time></span></h2>
+    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">W3C Working Draft, <time class="dt-updated" datetime="2015-11-18">18 November 2015</time></span></h2>
    </header>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="http://www.w3.org/TR/2015/WD-html-5.1-20151117/">http://www.w3.org/TR/2015/WD-html-5.1-20151117/</a>
+     <dd><a class="u-url" href="http://www.w3.org/TR/2015/WD-html-5.1-20151118/">http://www.w3.org/TR/2015/WD-html-5.1-20151118/</a>
      <dt>Latest version:
      <dd><a href="http://www.w3.org/TR/html/">http://www.w3.org/TR/html/</a>
      <dt>Editor's Draft:
@@ -969,8 +969,8 @@ syntaxes</span>.</p>
   information that can be used to group a user’s requests. (In this case, by potentially exposing,
   via a brute force search, which fonts a user has installed, information which can vary
   considerably from user to user.)</p>
-   <p>Features in this specification which can be <dfn data-dfn-type="dfn" data-noexport="" id="used-to-fingerprint-the-user">used to fingerprint the user<a class="self-link" href="#used-to-fingerprint-the-user"></a></dfn> are marked as
-  this paragraph is. <a class="fingerprint" href="#fingerprinting-vector"><img alt="(This is a fingerprinting vector.)" height="21" src="images/fingerprint.png" width="15"></a></p>
+   <p>Features in this specification which can be <dfn data-dfn-type="dfn" data-noexport="" id="fingerprinting-vector">used to fingerprint
+  the user<a class="self-link" href="#fingerprinting-vector"></a></dfn> are marked as this paragraph is. <a class="fingerprint" href="#fingerprinting-vector"><img alt="(This is a fingerprinting vector.)" height="21" src="images/fingerprint.png" width="15"></a></p>
    <p>Other features in the platform can be used for the same purpose, though, including, though not
   limited to:</p>
    <ul>
@@ -1919,8 +1919,8 @@ on attribute values</span><a class="self-link" href="#restrictions-on-content-mo
     the processor would instead treat the <code>script</code> element as an opaque element that
     forms part of the transform. </p>
       <p>Web browsers that support <a data-link-type="dfn">the HTML syntax</a> must process documents labeled with an <a data-link-type="dfn" href="#html-mime-type">HTML MIME type</a> as described in this specification, so that users can interact with them.</p>
-      <p>User agents that support scripting must also be conforming implementations of the IDL fragments
-  in this specification, as described in the Web IDL specification. <a data-link-type="biblio" href="#biblio-webidl">[WEBIDL]</a></p>
+      <p>User agents that support scripting must also be conforming implementations of the IDL
+  fragments in this specification, as described in the Web IDL specification. <a data-link-type="biblio" href="#biblio-webidl">[WEBIDL]</a></p>
       <p class="note" role="note"> Unless explicitly stated, specifications that override the semantics of HTML elements do not
     override the requirements on DOM objects representing those elements. For example, the <code>script</code> element in the example above would still implement the <code>HTMLScriptElement</code> interface. </p>
      <dt data-md="">
@@ -3308,30 +3308,30 @@ without risk of conflicting with future additions to the specification.</p>
    </div>
    <div class="impl">
     <h4 class="heading settled" data-level="2.4.1" id="common-parser-idioms"><span class="secno">2.4.1. </span><span class="content">Common parser idioms</span><a class="self-link" href="#common-parser-idioms"></a></h4>
-   </div>
-   <p>The <dfn data-dfn-type="dfn" data-noexport="" id="space-characters">space characters<a class="self-link" href="#space-characters"></a></dfn>, for the purposes of this specification, are U+0020 SPACE, U+0009
+    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="space-characters">space characters<a class="self-link" href="#space-characters"></a></dfn>, for the purposes of this specification, are U+0020 SPACE, U+0009
   CHARACTER TABULATION (tab), U+000A LINE FEED (LF), U+000C FORM FEED (FF), and U+000D CARRIAGE
   RETURN (CR).</p>
-   <p>The <dfn data-dfn-type="dfn" data-noexport="" id="white_space-characters">White_Space characters<a class="self-link" href="#white_space-characters"></a></dfn> are those that have the Unicode property "White_Space" in
+    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="white_space-characters">White_Space characters<a class="self-link" href="#white_space-characters"></a></dfn> are those that have the Unicode property "White_Space" in
   the Unicode <code>PropList.txt</code> data file. <a data-link-type="biblio" href="#biblio-unicode">[UNICODE]</a></p>
-   <p class="note" role="note"> This should not be confused with the "White_Space" value (abbreviated "WS") of the "Bidi_Class"
+    <p class="note" role="note"> This should not be confused with the "White_Space" value (abbreviated "WS") of the "Bidi_Class"
     property in the <code>Unicode.txt</code> data file. </p>
-   <p>The <dfn data-dfn-type="dfn" data-noexport="" id="control-characters">control characters<a class="self-link" href="#control-characters"></a></dfn> are those whose Unicode "General_Category" property has the
+    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="control-characters">control characters<a class="self-link" href="#control-characters"></a></dfn> are those whose Unicode "General_Category" property has the
   value "Cc" in the Unicode <code>UnicodeData.txt</code> data file. <a data-link-type="biblio" href="#biblio-unicode">[UNICODE]</a></p>
-   <p>The <dfn data-dfn-type="dfn" data-noexport="" id="uppercase-ascii-letters">uppercase ASCII letters<a class="self-link" href="#uppercase-ascii-letters"></a></dfn> are the characters in the range U+0041 LATIN CAPITAL LETTER
+    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="uppercase-ascii-letters">uppercase ASCII letters<a class="self-link" href="#uppercase-ascii-letters"></a></dfn> are the characters in the range U+0041 LATIN CAPITAL LETTER
   A to U+005A LATIN CAPITAL LETTER Z.</p>
-   <p>The <dfn data-dfn-type="dfn" data-noexport="" id="lowercase-ascii-letters">lowercase ASCII letters<a class="self-link" href="#lowercase-ascii-letters"></a></dfn> are the characters in the range U+0061 LATIN SMALL LETTER A
+    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="lowercase-ascii-letters">lowercase ASCII letters<a class="self-link" href="#lowercase-ascii-letters"></a></dfn> are the characters in the range U+0061 LATIN SMALL LETTER A
   to U+007A LATIN SMALL LETTER Z.</p>
-   <p>The <dfn data-dfn-type="dfn" data-noexport="" id="ascii-digits">ASCII digits<a class="self-link" href="#ascii-digits"></a></dfn> are the characters in the range U+0030 DIGIT ZERO (0) to U+0039 DIGIT
+    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="ascii-digits">ASCII digits<a class="self-link" href="#ascii-digits"></a></dfn> are the characters in the range U+0030 DIGIT ZERO (0) to U+0039 DIGIT
   NINE (9).</p>
-   <p>The <dfn data-dfn-type="dfn" data-noexport="" id="alphanumeric-ascii-characters">alphanumeric ASCII characters<a class="self-link" href="#alphanumeric-ascii-characters"></a></dfn> are those that are either <a data-link-type="dfn" href="#uppercase-ascii-letters">uppercase ASCII letters</a>, <a data-link-type="dfn" href="#lowercase-ascii-letters">lowercase ASCII letters</a>, or <a data-link-type="dfn" href="#ascii-digits">ASCII digits</a>.</p>
-   <p>The <dfn data-dfn-type="dfn" data-noexport="" id="ascii-hex-digits">ASCII hex digits<a class="self-link" href="#ascii-hex-digits"></a></dfn> are the characters in the ranges U+0030 DIGIT ZERO (0) to U+0039
+    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="alphanumeric-ascii-characters">alphanumeric ASCII characters<a class="self-link" href="#alphanumeric-ascii-characters"></a></dfn> are those that are either <a data-link-type="dfn" href="#uppercase-ascii-letters">uppercase ASCII letters</a>, <a data-link-type="dfn" href="#lowercase-ascii-letters">lowercase ASCII letters</a>, or <a data-link-type="dfn" href="#ascii-digits">ASCII digits</a>.</p>
+    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="ascii-hex-digits">ASCII hex digits<a class="self-link" href="#ascii-hex-digits"></a></dfn> are the characters in the ranges U+0030 DIGIT ZERO (0) to U+0039
   DIGIT NINE (9), U+0041 LATIN CAPITAL LETTER A to U+0046 LATIN CAPITAL LETTER F, and U+0061 LATIN
   SMALL LETTER A to U+0066 LATIN SMALL LETTER F.</p>
-   <p>The <dfn data-dfn-type="dfn" data-noexport="" id="uppercase-ascii-hex-digits">uppercase ASCII hex digits<a class="self-link" href="#uppercase-ascii-hex-digits"></a></dfn> are the characters in the ranges U+0030 DIGIT ZERO (0)
+    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="uppercase-ascii-hex-digits">uppercase ASCII hex digits<a class="self-link" href="#uppercase-ascii-hex-digits"></a></dfn> are the characters in the ranges U+0030 DIGIT ZERO (0)
   to U+0039 DIGIT NINE (9) and U+0041 LATIN CAPITAL LETTER A to U+0046 LATIN CAPITAL LETTER F only.</p>
-   <p>The <dfn data-dfn-type="dfn" data-noexport="" id="lowercase-ascii-hex-digits">lowercase ASCII hex digits<a class="self-link" href="#lowercase-ascii-hex-digits"></a></dfn> are the characters in the ranges U+0030 DIGIT ZERO (0)
+    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="lowercase-ascii-hex-digits">lowercase ASCII hex digits<a class="self-link" href="#lowercase-ascii-hex-digits"></a></dfn> are the characters in the ranges U+0030 DIGIT ZERO (0)
   to U+0039 DIGIT NINE (9) and U+0061 LATIN SMALL LETTER A to U+0066 LATIN SMALL LETTER F only.</p>
+   </div>
    <div class="impl">
      Some of the micro-parsers described below follow the pattern of having an <var>input</var> variable that holds the string being parsed, and having a <var>position</var> variable pointing at
   the next character to parse in <var>input</var>. 
@@ -3534,19 +3534,19 @@ subtracting <var>value</var> from zero.</p>
    <div class="impl">
      The <dfn data-dfn-type="dfn" data-noexport="" id="best-representation-of-the-number-n-as-a-floating-point-number">best representation of the number <var>n</var> as a floating-point number<a class="self-link" href="#best-representation-of-the-number-n-as-a-floating-point-number"></a></dfn> is the
     string obtained from applying the JavaScript operator ToString to <var>n</var>. The JavaScript
-    operator ToString is not uniquely determined. When there are multiple possible strings that could
-    be obtained from the JavaScript operator ToString for a particular value, the user agent must
-    always return the same string for that value (though it may differ from the value used by other
-    user agents). 
+    operator ToString is not uniquely determined. When there are multiple possible strings that
+    could be obtained from the JavaScript operator ToString for a particular value, the user agent
+    must always return the same string for that value (though it may differ from the value used by
+    other user agents). 
     <p>The <dfn data-dfn-type="dfn" data-noexport="" id="rules-for-parsing-floating-point-number-values">rules for parsing floating-point number values<a class="self-link" href="#rules-for-parsing-floating-point-number-values"></a></dfn> are as given in the following
-    algorithm. This algorithm must be aborted at the first step that returns something. This algorithm
-    will return either a number or an error.</p>
+    algorithm. This algorithm must be aborted at the first step that returns something. This
+    algorithm will return either a number or an error.</p>
     <ol>
      <li data-md="">
       <p>Let <var>input</var> be the string being parsed.</p>
      <li data-md="">
-      <p>Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start of
-the string.</p>
+      <p>Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start
+of the string.</p>
      <li data-md="">
       <p>Let <var>value</var> have the value 1.</p>
      <li data-md="">
@@ -3567,12 +3567,12 @@ the string.</p>
        <li data-md="">
         <p>If <var>position</var> is past the end of <var>input</var>, return an error.</p>
       </ol>
-      <p>Otherwise, if the character indicated by <var>position</var> (the first character) is a U+002B
-PLUS SIGN character (+):</p>
+      <p>Otherwise, if the character indicated by <var>position</var> (the first character) is a
+U+002B PLUS SIGN character (+):</p>
       <ol>
        <li data-md="">
-        <p>Advance <var>position</var> to the next character. (The "<code>+</code>" is ignored, but it
-is not conforming.)</p>
+        <p>Advance <var>position</var> to the next character. (The "<code>+</code>" is ignored, but
+it is not conforming.)</p>
        <li data-md="">
         <p>If <var>position</var> is past the end of <var>input</var>, return an error.</p>
       </ol>
@@ -3580,16 +3580,16 @@ is not conforming.)</p>
       <p>If the character indicated by <var>position</var> is a U+002E FULL STOP (.), and that is not
 the last character in <var>input</var>, and the character after the character indicated by <var>position</var> is an <a data-link-type="dfn" href="#ascii-digits">ASCII digit</a>, then set <var>value</var> to zero and jump to the step labeled <i>fraction</i>.</p>
      <li data-md="">
-      <p>If the character indicated by <var>position</var> is not an <a data-link-type="dfn" href="#ascii-digits">ASCII digit</a>, then return an
-error.</p>
+      <p>If the character indicated by <var>position</var> is not an <a data-link-type="dfn" href="#ascii-digits">ASCII digit</a>, then return
+an error.</p>
      <li data-md="">
       <p><a data-link-type="dfn" href="#collect-a-sequence-of-characters">Collect a sequence of characters</a> that are <a data-link-type="dfn" href="#ascii-digits">ASCII digits</a>, and interpret the
 resulting sequence as a base-ten integer. Multiply <var>value</var> by that integer.</p>
      <li data-md="">
       <p>If <var>position</var> is past the end of <var>input</var>, jump to the step labeled <i>conversion</i>.</p>
      <li data-md="">
-      <p><i>Fraction</i>: If the character indicated by <var>position</var> is a U+002E FULL STOP (.),
-run these substeps:</p>
+      <p><i>Fraction</i>: If the character indicated by <var>position</var> is a U+002E FULL STOP
+(.), run these substeps:</p>
       <ol>
        <li data-md="">
         <p>Advance <var>position</var> to the next character.</p>
@@ -3604,8 +3604,8 @@ these substeps.</p>
        <li data-md="">
         <p><i>Fraction loop</i>: Multiply <var>divisor</var> by ten.</p>
        <li data-md="">
-        <p>Add the value of the character indicated by <var>position</var>, interpreted as a base-ten
-digit (0..9) and divided by <var>divisor</var>, to <var>value</var>.</p>
+        <p>Add the value of the character indicated by <var>position</var>, interpreted as a
+base-ten digit (0..9) and divided by <var>divisor</var>, to <var>value</var>.</p>
        <li data-md="">
         <p>Advance <var>position</var> to the next character.</p>
        <li data-md="">
@@ -3661,7 +3661,8 @@ floating-point values except −0, but with two special values added: 2<sup>1024
 close values. (The two special values 2<sup>1024</sup> and −2<sup>1024</sup> are
 considered to have even significands for this purpose.)</p>
      <li data-md="">
-      <p>If <var>rounded-value</var> is 2<sup>1024</sup> or −2<sup>1024</sup>, return an error.</p>
+      <p>If <var>rounded-value</var> is 2<sup>1024</sup> or −2<sup>1024</sup>, return an
+error.</p>
      <li data-md="">
       <p>Return <var>rounded-value</var>.</p>
     </ol>
@@ -3683,17 +3684,19 @@ of the string.</p>
      <li data-md="">
       <p>If <var>position</var> is past the end of <var>input</var>, return an error.</p>
      <li data-md="">
-      <p>If the character indicated by <var>position</var> is a U+002B PLUS SIGN character (+), advance <var>position</var> to the next character.</p>
+      <p>If the character indicated by <var>position</var> is a U+002B PLUS SIGN character (+),
+advance <var>position</var> to the next character.</p>
      <li data-md="">
       <p>If <var>position</var> is past the end of <var>input</var>, return an error.</p>
      <li data-md="">
-      <p>If the character indicated by <var>position</var> is not an <a data-link-type="dfn" href="#ascii-digits">ASCII digit</a>, then return an
-error.</p>
+      <p>If the character indicated by <var>position</var> is not an <a data-link-type="dfn" href="#ascii-digits">ASCII digit</a>, then return
+an error.</p>
      <li data-md="">
       <p><a data-link-type="dfn" href="#collect-a-sequence-of-characters">Collect a sequence of characters</a> that are <a data-link-type="dfn" href="#ascii-digits">ASCII digits</a>, and interpret the
 resulting sequence as a base-ten integer. Let <var>value</var> be that number.</p>
      <li data-md="">
-      <p>If <var>position</var> is past the end of <var>input</var>, return <var>value</var> as a length.</p>
+      <p>If <var>position</var> is past the end of <var>input</var>, return <var>value</var> as a
+length.</p>
      <li data-md="">
       <p>If the character indicated by <var>position</var> is a U+002E FULL STOP character (.):</p>
       <ol>
@@ -3708,8 +3711,8 @@ length.</p>
        <li data-md="">
         <p><i>Fraction loop</i>: Multiply <var>divisor</var> by ten.</p>
        <li data-md="">
-        <p>Add the value of the character indicated by <var>position</var>, interpreted as a base-ten
-digit (0..9) and divided by <var>divisor</var>, to <var>value</var>.</p>
+        <p>Add the value of the character indicated by <var>position</var>, interpreted as a
+base-ten digit (0..9) and divided by <var>divisor</var>, to <var>value</var>.</p>
        <li data-md="">
         <p>Advance <var>position</var> to the next character.</p>
        <li data-md="">
@@ -3729,9 +3732,10 @@ return <var>value</var> as a percentage.</p>
     </ol>
     <h5 class="heading settled" data-level="2.4.4.5" id="non-zero-percentages-and-lengths"><span class="secno">2.4.4.5. </span><span class="content">Non-zero percentages and lengths</span><a class="self-link" href="#non-zero-percentages-and-lengths"></a></h5>
     <p>The <dfn data-dfn-type="dfn" data-noexport="" id="rules-for-parsing-non-zero-dimension-values">rules for parsing non-zero dimension values<a class="self-link" href="#rules-for-parsing-non-zero-dimension-values"></a></dfn> are as given in the following
-    algorithm. When invoked, the steps must be followed in the order given, aborting at the first step
-    that returns a value. This algorithm will return either a number greater than 0.0, or an error; if
-    a number is returned, then it is further categorized as either a percentage or a length.</p>
+    algorithm. When invoked, the steps must be followed in the order given, aborting at the first
+    step that returns a value. This algorithm will return either a number greater than 0.0, or an
+    error; if a number is returned, then it is further categorized as either a percentage or a
+    length.</p>
     <ol>
      <li data-md="">
       <p>Let <var>input</var> be the string being parsed.</p>
@@ -3757,14 +3761,14 @@ return <var>value</var> as a percentage.</p>
      <li data-md="">
       <p>Let <var>input</var> be the string being parsed.</p>
      <li data-md="">
-      <p>Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start of
-the string.</p>
+      <p>Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start
+of the string.</p>
      <li data-md="">
       <p>Let <var>numbers</var> be an initially empty list of integers. This list will be the
 result of this algorithm.</p>
      <li data-md="">
-      <p>If there is a character in the string <var>input</var> at position <var>position</var>, and it
-is either a U+0020 SPACE, U+002C COMMA, or U+003B SEMICOLON character, then advance <var>position</var> to the next character in <var>input</var>, or to beyond the end of the
+      <p>If there is a character in the string <var>input</var> at position <var>position</var>, and
+it is either a U+0020 SPACE, U+002C COMMA, or U+003B SEMICOLON character, then advance <var>position</var> to the next character in <var>input</var>, or to beyond the end of the
 string if there are no more characters.</p>
      <li data-md="">
       <p>If <var>position</var> points to beyond the end of <var>input</var>, return <var>numbers</var> and abort.</p>
@@ -3776,10 +3780,11 @@ SPACE, U+002C COMMA, or U+003B SEMICOLON character, then return to step 4.</p>
      <li data-md="">
       <p>Let <var>value</var> be 0.</p>
      <li data-md="">
-      <p>Let <var>started</var> be false. This variable is set to true when the parser sees a number or
-a U+002D HYPHEN-MINUS character (-).</p>
+      <p>Let <var>started</var> be false. This variable is set to true when the parser sees a number
+or a U+002D HYPHEN-MINUS character (-).</p>
      <li data-md="">
-      <p>Let <var>got number</var> be false. This variable is set to true when the parser sees a number.</p>
+      <p>Let <var>got number</var> be false. This variable is set to true when the parser sees a
+number.</p>
      <li data-md="">
       <p>Let <var>finished</var> be false. This variable is set to true to switch parser into a mode
 where it ignores characters until the next separator.</p>
@@ -3835,8 +3840,8 @@ happens if an entry in the list has no digits, as in "<code>1,2,x,4</code>".</p>
           <p>Jump to step 4 in the overall set of steps.</p>
         </ol>
        <dt> A character in the range U+0001 to U+001F, U+0021 to U+002B, U+002D to U+002F, U+003A,
-    U+003C to U+0040, U+005B to U+0060, U+007b to U+007F (i.e. any other non-alphabetic ASCII
-    character) 
+    U+003C to U+0040, U+005B to U+0060, U+007b to U+007F (i.e. any other non-alphabetic
+    ASCII character) 
        <dd>
          Follow these substeps: 
         <ol>
@@ -3858,17 +3863,16 @@ happens if an entry in the list has no digits, as in "<code>1,2,x,4</code>".</p>
          <li data-md="">
           <p>Let <var>bogus</var> be true.</p>
          <li data-md="">
-          <p>If <var>started</var> is true, then return the <var>numbers</var> list, and abort. (The
-value in <var>value</var> is not appended to the list first; it is dropped.)</p>
+          <p>If <var>started</var> is true, then return the <var>numbers</var> list, and abort.
+(The value in <var>value</var> is not appended to the list first; it is dropped.)</p>
         </ol>
       </dl>
      <li data-md="">
-      <p>Advance <var>position</var> to the next character in <var>input</var>, or to beyond the end of
-the string if there are no more characters.</p>
+      <p>Advance <var>position</var> to the next character in <var>input</var>, or to beyond the end
+of the string if there are no more characters.</p>
       <p></p>
      <li data-md="">
-      <p>If <var>position</var> points to a character (and not to beyond the end of <var>input</var>),
-jump to the big <i>Parser</i> step above.</p>
+      <p>If <var>position</var> points to a character (and not to beyond the end of <var>input</var>), jump to the big <i>Parser</i> step above.</p>
      <li data-md="">
       <p>If <var>negated</var> is true, then negate <var>value</var>.</p>
      <li data-md="">
@@ -3879,13 +3883,13 @@ jump to the big <i>Parser</i> step above.</p>
    </div>
    <div class="impl">
     <h5 class="heading settled" data-level="2.4.4.7" id="lists-of-dimensions"><span class="secno">2.4.4.7. </span><span class="content">Lists of dimensions</span><a class="self-link" href="#lists-of-dimensions"></a></h5>
-    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="rules-for-parsing-a-list-of-dimensions">rules for parsing a list of dimensions<a class="self-link" href="#rules-for-parsing-a-list-of-dimensions"></a></dfn> are as follows. These rules return a list of
-    zero or more pairs consisting of a number and a unit, the unit being one of <i>percentage</i>, <i>relative</i>, and <i>absolute</i>.</p>
+    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="rules-for-parsing-a-list-of-dimensions">rules for parsing a list of dimensions<a class="self-link" href="#rules-for-parsing-a-list-of-dimensions"></a></dfn> are as follows. These rules return a list
+    of zero or more pairs consisting of a number and a unit, the unit being one of <i>percentage</i>, <i>relative</i>, and <i>absolute</i>.</p>
     <p></p>
     <ol>
      <li data-md="">
-      <p>If the last character in <var>raw input</var> is a U+002C COMMA character (,), then remove that
-character from <var>raw input</var>.</p>
+      <p>If the last character in <var>raw input</var> is a U+002C COMMA character (,), then remove
+that character from <var>raw input</var>.</p>
      <li data-md="">
       <p><a data-link-type="dfn">Split the string <var>raw input</var> on commas</a>. Let <var>raw tokens</var> be the
 resulting list of tokens.</p>
@@ -3897,15 +3901,15 @@ resulting list of tokens.</p>
        <li data-md="">
         <p>Let <var>input</var> be the token.</p>
        <li data-md="">
-        <p>Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start
-of the string.</p>
+        <p>Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the
+start of the string.</p>
        <li data-md="">
         <p>Let <var>value</var> be the number 0.</p>
        <li data-md="">
         <p>Let <var>unit</var> be <i>absolute</i>.</p>
        <li data-md="">
-        <p>If the character at <var>position</var> is an <a data-link-type="dfn" href="#ascii-digits">ASCII digit</a>, <a data-link-type="dfn" href="#collect-a-sequence-of-characters">collect a sequence of
-characters</a> that are <a data-link-type="dfn" href="#ascii-digits">ASCII digits</a>, interpret the resulting sequence as an
+        <p>If the character at <var>position</var> is an <a data-link-type="dfn" href="#ascii-digits">ASCII digit</a>, <a data-link-type="dfn" href="#collect-a-sequence-of-characters">collect a sequence
+of characters</a> that are <a data-link-type="dfn" href="#ascii-digits">ASCII digits</a>, interpret the resulting sequence as an
 integer in base ten, and increment <var>value</var> by that integer.</p>
        <li data-md="">
         <p>If the character at <var>position</var> is a U+002E FULL STOP character (.), run these
@@ -3919,8 +3923,8 @@ substeps:</p>
           <p>If <var>s</var> is not the empty string, run these subsubsteps:</p>
           <ol>
            <li data-md="">
-            <p>Let <var>length</var> be the number of characters in <var>s</var> (after the spaces
-were removed).</p>
+            <p>Let <var>length</var> be the number of characters in <var>s</var> (after the
+spaces were removed).</p>
            <li data-md="">
             <p>Let <var>fraction</var> be the result of interpreting <var>s</var> as a base-ten
 integer, and then dividing that number by <a data-link-type="dfn">10<sup><var>length</var></sup></a>.</p>
@@ -3952,10 +3956,10 @@ the unit given by <var>unit</var>.</p>
    <p></p>
    <div class="impl">
     <p class="note" role="note"> While the formats described here are intended to be subsets of the corresponding ISO8601
-      formats, this specification defines parsing rules in much more detail than ISO8601. Implementors
-      are therefore encouraged to carefully examine any date parsing libraries before using them to
-      implement the parsing rules described below; ISO8601 libraries might not parse dates and times
-      in exactly the same manner. <span>[ISO8601]</span> </p>
+      formats, this specification defines parsing rules in much more detail than ISO8601.
+      Implementors are therefore encouraged to carefully examine any date parsing libraries before
+      using them to implement the parsing rules described below; ISO8601 libraries might not parse
+      dates and times in exactly the same manner. <span>[ISO8601]</span> </p>
    </div>
    <p>Where this specification refers to the <dfn data-dfn-type="dfn" data-noexport="" id="proleptic-gregorian-calendar">proleptic Gregorian calendar<a class="self-link" href="#proleptic-gregorian-calendar"></a></dfn>, it means the
   modern Gregorian calendar, extrapolated backwards to year 1. A date in the <a data-link-type="dfn" href="#proleptic-gregorian-calendar">proleptic Gregorian calendar</a>, sometimes explicitly referred to as a <dfn data-dfn-type="dfn" data-noexport="" id="proleptic-gregorian-date">proleptic-Gregorian date<a class="self-link" href="#proleptic-gregorian-date"></a></dfn>, is one that is described using that calendar even if that
@@ -3987,32 +3991,32 @@ the unit given by <var>unit</var>.</p>
       <p>Let <var>input</var> be the string being parsed.</p>
       <p></p>
      <li data-md="">
-      <p>Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start of
-the string.</p>
+      <p>Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start
+of the string.</p>
      <li data-md="">
-      <p><a data-link-type="dfn" href="#parse-a-month-component">Parse a month component</a> to obtain <var>year</var> and <var>month</var>. If this returns
-nothing, then fail.</p>
+      <p><a data-link-type="dfn" href="#parse-a-month-component">Parse a month component</a> to obtain <var>year</var> and <var>month</var>. If this
+returns nothing, then fail.</p>
      <li data-md="">
       <p>If <var>position</var> is <em>not</em> beyond the end of <var>input</var>, then fail.</p>
      <li data-md="">
       <p>Return <var>year</var> and <var>month</var>.</p>
     </ol>
-    <p>The rules to <dfn data-dfn-type="dfn" data-noexport="" id="parse-a-month-component">parse a month component<a class="self-link" href="#parse-a-month-component"></a></dfn>, given an <var>input</var> string and a <var>position</var>, are as follows. This will return either a year and a month, or nothing. If at
-    any point the algorithm says that it "fails", this means that it is aborted at that point and
+    <p>The rules to <dfn data-dfn-type="dfn" data-noexport="" id="parse-a-month-component">parse a month component<a class="self-link" href="#parse-a-month-component"></a></dfn>, given an <var>input</var> string and a <var>position</var>, are as follows. This will return either a year and a month, or nothing. If
+    at any point the algorithm says that it "fails", this means that it is aborted at that point and
     returns nothing.</p>
     <ol>
      <li data-md="">
-      <p><a data-link-type="dfn" href="#collect-a-sequence-of-characters">Collect a sequence of characters</a> that are <a data-link-type="dfn" href="#ascii-digits">ASCII digits</a>. If the collected sequence
-is not at least four characters long, then fail. Otherwise, interpret the resulting sequence
-as a base-ten integer. Let that number be the <var>year</var>.</p>
+      <p><a data-link-type="dfn" href="#collect-a-sequence-of-characters">Collect a sequence of characters</a> that are <a data-link-type="dfn" href="#ascii-digits">ASCII digits</a>. If the collected
+sequence is not at least four characters long, then fail. Otherwise, interpret the resulting
+sequence as a base-ten integer. Let that number be the <var>year</var>.</p>
      <li data-md="">
       <p>If <var>year</var> is not a number greater than zero, then fail.</p>
      <li data-md="">
       <p>If <var>position</var> is beyond the end of <var>input</var> or if the character at <var>position</var> is not a U+002D HYPHEN-MINUS character, then fail. Otherwise, move <var>position</var> forwards one character.</p>
      <li data-md="">
-      <p><a data-link-type="dfn" href="#collect-a-sequence-of-characters">Collect a sequence of characters</a> that are <a data-link-type="dfn" href="#ascii-digits">ASCII digits</a>. If the collected sequence
-is not exactly two characters long, then fail. Otherwise, interpret the resulting sequence as
-a base-ten integer. Let that number be the <var>month</var>.</p>
+      <p><a data-link-type="dfn" href="#collect-a-sequence-of-characters">Collect a sequence of characters</a> that are <a data-link-type="dfn" href="#ascii-digits">ASCII digits</a>. If the collected
+sequence is not exactly two characters long, then fail. Otherwise, interpret the resulting
+sequence as a base-ten integer. Let that number be the <var>month</var>.</p>
      <li data-md="">
       <p>If <var>month</var> is not a number in the range
 1 ≤ <var>month</var> ≤ 12, then fail.</p>
@@ -4037,18 +4041,17 @@ a base-ten integer. Let that number be the <var>month</var>.</p>
    </ol>
    <div class="impl">
      The rules to <dfn data-dfn-type="dfn" data-noexport="" id="parse-a-date-string">parse a date string<a class="self-link" href="#parse-a-date-string"></a></dfn> are as follows. This will return either a date, or
-    nothing. If at any point the algorithm says that it "fails", this means that it is aborted at that
-    point and returns nothing. 
+    nothing. If at any point the algorithm says that it "fails", this means that it is aborted at
+    that point and returns nothing. 
     <ol>
      <li data-md="">
       <p>Let <var>input</var> be the string being parsed.</p>
       <p></p>
      <li data-md="">
-      <p>Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start of
-the string.</p>
+      <p>Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start
+of the string.</p>
      <li data-md="">
-      <p><a data-link-type="dfn" href="#parse-a-date-component">Parse a date component</a> to obtain <var>year</var>, <var>month</var>, and <var>day</var>.
-If this returns nothing, then fail.</p>
+      <p><a data-link-type="dfn" href="#parse-a-date-component">Parse a date component</a> to obtain <var>year</var>, <var>month</var>, and <var>day</var>. If this returns nothing, then fail.</p>
      <li data-md="">
       <p>If <var>position</var> is <em>not</em> beyond the end of <var>input</var>, then fail.</p>
      <li data-md="">
@@ -4057,12 +4060,12 @@ If this returns nothing, then fail.</p>
       <p>Return <var>date</var>.</p>
     </ol>
     <p>The rules to <dfn data-dfn-type="dfn" data-noexport="" id="parse-a-date-component">parse a date component<a class="self-link" href="#parse-a-date-component"></a></dfn>, given an <var>input</var> string and a <var>position</var>, are as follows. This will return either a year, a month, and a day, or
-    nothing. If at any point the algorithm says that it "fails", this means that it is aborted at that
-    point and returns nothing.</p>
+    nothing. If at any point the algorithm says that it "fails", this means that it is aborted at
+    that point and returns nothing.</p>
     <ol>
      <li data-md="">
-      <p><a data-link-type="dfn" href="#parse-a-month-component">Parse a month component</a> to obtain <var>year</var> and <var>month</var>. If this returns
-nothing, then fail.</p>
+      <p><a data-link-type="dfn" href="#parse-a-month-component">Parse a month component</a> to obtain <var>year</var> and <var>month</var>. If this
+returns nothing, then fail.</p>
      <li data-md="">
       <p>Let <var>maxday</var> be the <a data-link-type="dfn" href="#number-of-days-in-month-month-of-year-year">number of days in month <var>month</var> of year <var>year</var></a>.</p>
      <li data-md="">
@@ -4107,8 +4110,8 @@ sequence as a base-ten integer. Let that number be the <var>day</var>.</p>
      <li data-md="">
       <p>Let <var>input</var> be the string being parsed.</p>
      <li data-md="">
-      <p>Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start of
-the string.</p>
+      <p>Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start
+of the string.</p>
      <li data-md="">
       <p><a data-link-type="dfn" href="#parse-a-yearless-date-component">Parse a yearless date component</a> to obtain <var>month</var> and <var>day</var>. If this
 returns nothing, then fail.</p>
@@ -4117,17 +4120,17 @@ returns nothing, then fail.</p>
      <li data-md="">
       <p>Return <var>month</var> and <var>day</var>.</p>
     </ol>
-    <p>The rules to <dfn data-dfn-type="dfn" data-noexport="" id="parse-a-yearless-date-component">parse a yearless date component<a class="self-link" href="#parse-a-yearless-date-component"></a></dfn>, given an <var>input</var> string and a <var>position</var>, are as follows. This will return either a month and a day, or nothing. If at
-    any point the algorithm says that it "fails", this means that it is aborted at that point and
+    <p>The rules to <dfn data-dfn-type="dfn" data-noexport="" id="parse-a-yearless-date-component">parse a yearless date component<a class="self-link" href="#parse-a-yearless-date-component"></a></dfn>, given an <var>input</var> string and a <var>position</var>, are as follows. This will return either a month and a day, or nothing. If
+    at any point the algorithm says that it "fails", this means that it is aborted at that point and
     returns nothing.</p>
     <ol>
      <li data-md="">
       <p><a data-link-type="dfn" href="#collect-a-sequence-of-characters">Collect a sequence of characters</a> that are U+002D HYPHEN-MINUS characters (-). If the
 collected sequence is not exactly zero or two characters long, then fail.</p>
      <li data-md="">
-      <p><a data-link-type="dfn" href="#collect-a-sequence-of-characters">Collect a sequence of characters</a> that are <a data-link-type="dfn" href="#ascii-digits">ASCII digits</a>. If the collected sequence
-is not exactly two characters long, then fail. Otherwise, interpret the resulting sequence as
-a base-ten integer. Let that number be the <var>month</var>.</p>
+      <p><a data-link-type="dfn" href="#collect-a-sequence-of-characters">Collect a sequence of characters</a> that are <a data-link-type="dfn" href="#ascii-digits">ASCII digits</a>. If the collected
+sequence is not exactly two characters long, then fail. Otherwise, interpret the resulting
+sequence as a base-ten integer. Let that number be the <var>month</var>.</p>
      <li data-md="">
       <p>If <var>month</var> is not a number in the range
 1 ≤ <var>month</var> ≤ 12, then fail.</p>
@@ -4137,9 +4140,9 @@ leap year (e.g. 4 or 2000).</p>
      <li data-md="">
       <p>If <var>position</var> is beyond the end of <var>input</var> or if the character at <var>position</var> is not a U+002D HYPHEN-MINUS character, then fail. Otherwise, move <var>position</var> forwards one character.</p>
      <li data-md="">
-      <p><a data-link-type="dfn" href="#collect-a-sequence-of-characters">Collect a sequence of characters</a> that are <a data-link-type="dfn" href="#ascii-digits">ASCII digits</a>. If the collected sequence
-is not exactly two characters long, then fail. Otherwise, interpret the resulting sequence as
-a base-ten integer. Let that number be the <var>day</var>.</p>
+      <p><a data-link-type="dfn" href="#collect-a-sequence-of-characters">Collect a sequence of characters</a> that are <a data-link-type="dfn" href="#ascii-digits">ASCII digits</a>. If the collected
+sequence is not exactly two characters long, then fail. Otherwise, interpret the resulting
+sequence as a base-ten integer. Let that number be the <var>day</var>.</p>
      <li data-md="">
       <p>If <var>day</var> is not a number in the range
 1 ≤ <var>day</var> ≤ <var>maxday</var>, then fail.</p>
@@ -4370,7 +4373,8 @@ U+002D HYPHEN-MINUS (-), then:</p>
       <ol>
        <li data-md="">
         <p>If the character at <var>position</var> is a U+002B PLUS SIGN (+), let <var>sign</var> be
-"positive". Otherwise, it’s a U+002D HYPHEN-MINUS (-); let <var>sign</var> be "negative".</p>
+"positive". Otherwise, it’s a U+002D HYPHEN-MINUS (-); let <var>sign</var> be
+"negative".</p>
        <li data-md="">
         <p>Advance <var>position</var> to the next character in <var>input</var>.</p>
        <li data-md="">
@@ -4512,8 +4516,7 @@ well coordinated or measured until relatively recent decades.</p>
       <p>Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start
 of the string.</p>
      <li data-md="">
-      <p><a data-link-type="dfn" href="#parse-a-date-component">Parse a date component</a> to obtain <var>year</var>, <var>month</var>, and <var>day</var>.
-If this returns nothing, then fail.</p>
+      <p><a data-link-type="dfn" href="#parse-a-date-component">Parse a date component</a> to obtain <var>year</var>, <var>month</var>, and <var>day</var>. If this returns nothing, then fail.</p>
      <li data-md="">
       <p>If <var>position</var> is beyond the end of <var>input</var> or if the character at <var>position</var> is neither a U+0054 LATIN CAPITAL LETTER T character (T) nor a U+0020
 SPACE character, then fail. Otherwise, move <var>position</var> forwards one character.</p>
@@ -4757,7 +4760,8 @@ sequence as a base-ten integer, and let <var>N</var> be that number.</p>
 (If <var>next character</var> was a U+002E FULL STOP character (.) before, it will still
 be that character this time.)</p>
        <li data-md="">
-        <p>If <var>next character</var> is a U+002E FULL STOP character (.), then run these substeps:</p>
+        <p>If <var>next character</var> is a U+002E FULL STOP character (.), then run these
+substeps:</p>
         <ol>
          <li data-md="">
           <p><a data-link-type="dfn" href="#collect-a-sequence-of-characters">Collect a sequence of characters</a> that are <a data-link-type="dfn" href="#ascii-digits">ASCII digits</a>. Let <var>s</var> be the resulting sequence.</p>
@@ -4785,8 +4789,7 @@ a U+0073 LATIN SMALL LETTER S character, then fail.</p>
         <p>Otherwise, run these substeps:</p>
         <ol>
          <li data-md="">
-          <p>If <var>next character</var> is a <a data-link-type="dfn" href="#space-characters">space character</a>, then <a data-link-type="dfn" href="#skip-whitespace">skip whitespace</a>,
-set <var>next character</var> to the character in <var>input</var> pointed to by <var>position</var>, and advance <var>position</var> to the next character.</p>
+          <p>If <var>next character</var> is a <a data-link-type="dfn" href="#space-characters">space character</a>, then <a data-link-type="dfn" href="#skip-whitespace">skip whitespace</a>, set <var>next character</var> to the character in <var>input</var> pointed to by <var>position</var>, and advance <var>position</var> to the next character.</p>
          <li data-md="">
           <p>If <var>next character</var> is a U+0059 LATIN CAPITAL LETTER Y character, or a
 U+0079 LATIN SMALL LETTER Y character, set <var>units</var> to <i>years</i> and set <var>M-disambiguator</var> to <i>months</i>.</p>
@@ -4862,8 +4865,7 @@ of the string.</p>
      <li data-md="">
       <p>Set the <var>date present</var> and <var>time present</var> flags to true.</p>
      <li data-md="">
-      <p><a data-link-type="dfn" href="#parse-a-date-component">Parse a date component</a> to obtain <var>year</var>, <var>month</var>, and <var>day</var>.
-If this fails, then set the <var>date present</var> flag to false.</p>
+      <p><a data-link-type="dfn" href="#parse-a-date-component">Parse a date component</a> to obtain <var>year</var>, <var>month</var>, and <var>day</var>. If this fails, then set the <var>date present</var> flag to false.</p>
      <li data-md="">
       <p>If <var>date present</var> is true, and <var>position</var> is not beyond the end of <var>input</var>, and the character at <var>position</var> is either a U+0054 LATIN CAPITAL
 LETTER T character (T) or a U+0020 SPACE character, then advance <var>position</var> to the
@@ -4944,9 +4946,9 @@ blue component of <var>result</var>.</p>
     </ol>
     <hr>
     <p>Some obsolete legacy attributes parse colors in a more complicated manner, using the <dfn data-dfn-type="dfn" data-noexport="" id="rules-for-parsing-a-legacy-color-value">rules
-    for parsing a legacy color value<a class="self-link" href="#rules-for-parsing-a-legacy-color-value"></a></dfn>, which are given in the following algorithm. When invoked,
-    the steps must be followed in the order given, aborting at the first step that returns a value.
-    This algorithm will return either a <a data-link-type="dfn" href="#simple-color">simple color</a> or an error.</p>
+    for parsing a legacy color value<a class="self-link" href="#rules-for-parsing-a-legacy-color-value"></a></dfn>, which are given in the following algorithm. When
+    invoked, the steps must be followed in the order given, aborting at the first step that returns
+    a value. This algorithm will return either a <a data-link-type="dfn" href="#simple-color">simple color</a> or an error.</p>
     <ol>
      <li data-md="">
       <p>Let <var>input</var> be the string being parsed.</p>
@@ -5030,13 +5032,14 @@ only the first two characters in each.</p>
    <p class="note" role="note"> How tokens in a <a data-link-type="dfn" href="#set-of-space-separated-tokens">set of space-separated tokens</a> are to be compared (e.g. case-sensitively
     or not) is defined on a per-set basis. </p>
    <div class="impl">
-     When a user agent has to <dfn data-dfn-type="dfn" data-noexport="" id="split-a-string-on-spaces">split a string on spaces<a class="self-link" href="#split-a-string-on-spaces"></a></dfn>, it must use the following algorithm: 
+     When a user agent has to <dfn data-dfn-type="dfn" data-noexport="" id="split-a-string-on-spaces">split a string on spaces<a class="self-link" href="#split-a-string-on-spaces"></a></dfn>, it must use the following
+    algorithm: 
     <ol>
      <li data-md="">
       <p>Let <var>input</var> be the string being parsed.</p>
      <li data-md="">
-      <p>Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start of
-the string.</p>
+      <p>Let <var>position</var> be a pointer into <var>input</var>, initially pointing at the start
+of the string.</p>
      <li data-md="">
       <p>Let <var>tokens</var> be an ordered list of tokens, initially empty.</p>
      <li data-md="">
@@ -5102,7 +5105,8 @@ character.</p>
   the value of the <code>name</code> attribute of an element with type <var>type</var> in
   the document.</p>
    <div class="impl">
-     The <dfn data-dfn-type="dfn" data-noexport="" id="rules-for-parsing-a-hash-name-reference">rules for parsing a hash-name reference<a class="self-link" href="#rules-for-parsing-a-hash-name-reference"></a></dfn> to an element of type <var>type</var>, given a context node <var>scope</var>, are as follows: 
+     The <dfn data-dfn-type="dfn" data-noexport="" id="rules-for-parsing-a-hash-name-reference">rules for parsing a hash-name reference<a class="self-link" href="#rules-for-parsing-a-hash-name-reference"></a></dfn> to an element of type <var>type</var>,
+    given a context node <var>scope</var>, are as follows: 
     <ol>
      <li data-md="">
       <p>If the string being parsed does not contain a U+0023 NUMBER SIGN character, or if the first
@@ -5201,11 +5205,11 @@ a <a data-link-type="dfn" href="#compatibility-caseless">compatibility caseless<
        If the <a data-link-type="dfn" href="#absolute-url">absolute URL</a> identified by the hyperlink is being shown to the user, or if any
         data derived from that URL is affecting the display, then the <code>href</code> attribute
         should be <a data-link-type="dfn">re-resolved</a> relative to the element and the UI updated appropriately. 
-      <p class="example" id="example-b1011463"><a class="self-link" href="#example-b1011463"></a> For example, the CSS <code>:link</code>/<code>:visited</code> pseudo-classes might have been
-          affected. </p>
+      <p class="example" id="example-edfd2806"><a class="self-link" href="#example-edfd2806"></a> For example, the CSS <code>:link</code>/<code>:visited</code> pseudo-classes might have
+          been affected. </p>
      <dt> If the element is a <code>q</code>, <code>blockquote</code>, <code>ins</code>, or <code>del</code> element with a <code>cite</code> attribute 
-     <dd> If the <a data-link-type="dfn" href="#absolute-url">absolute URL</a> identified by the <code>cite</code> attribute is being shown to the
-        user, or if any data derived from that URL is affecting the display, then the <a data-link-type="dfn" href="#url">URL</a> should be <a data-link-type="dfn">re-resolved</a> relative to the element and the UI updated appropriately. 
+     <dd> If the <a data-link-type="dfn" href="#absolute-url">absolute URL</a> identified by the <code>cite</code> attribute is being shown to
+        the user, or if any data derived from that URL is affecting the display, then the <a data-link-type="dfn" href="#url">URL</a> should be <a data-link-type="dfn">re-resolved</a> relative to the element and the UI updated appropriately. 
      <dt>Otherwise
      <dd>
        The element is not directly affected. 
@@ -5592,12 +5596,12 @@ otherwise. <a data-link-type="biblio" href="#biblio-fetch">[FETCH]</a></p>
     <p>If a reflecting IDL attribute has a signed integer type (<code>long</code>)
     that is <dfn data-dfn-type="dfn" data-noexport="" id="limited-to-only-non-negative-numbers">limited to only non-negative numbers<a class="self-link" href="#limited-to-only-non-negative-numbers"></a></dfn> then, on getting, the content attribute
     must be parsed according to the <a data-link-type="dfn" href="#rules-for-parsing-non-negative-integers">rules for parsing non-negative integers</a>, and if that
-    is successful, and the value is in the range of the IDL attribute’s type, the resulting value must
-    be returned. If, on the other hand, it fails or returns an out of range value, or if the attribute
-    is absent, the default value must be returned instead, or −1 if there is no default value.
-    On setting, if the value is negative, the user agent must throw an <code>IndexSizeError</code> exception. Otherwise, the given value must be converted to the shortest possible string
-    representing the number as a <a data-link-type="dfn" href="#valid-non-negative-integer">valid non-negative integer</a> and then that string must be
-    used as the new content attribute value.</p>
+    is successful, and the value is in the range of the IDL attribute’s type, the resulting value
+    must be returned. If, on the other hand, it fails or returns an out of range value, or if the
+    attribute is absent, the default value must be returned instead, or −1 if there is no
+    default value. On setting, if the value is negative, the user agent must throw an <code>IndexSizeError</code> exception. Otherwise, the given value must be converted to the
+    shortest possible string representing the number as a <a data-link-type="dfn" href="#valid-non-negative-integer">valid non-negative integer</a> and then
+    that string must be used as the new content attribute value.</p>
     <p>If a reflecting IDL attribute has an <em>unsigned</em> integer type (<code>unsigned long</code>)
     then, on getting, the content attribute must be parsed according to the <a data-link-type="dfn" href="#rules-for-parsing-non-negative-integers">rules for parsing
     non-negative integers</a>, and if that is successful, and the value is in the range 0 to
@@ -5715,7 +5719,7 @@ invoked, whose filter matches only elements that are either:</p>
       <ul>
        <li data-md="">
         <p><a data-link-type="dfn" href="#all-named-elements">"all"-named elements</a> with a <code>name</code> attribute equal to <var>name</var>,
-  or,</p>
+or,</p>
        <li data-md="">
         <p>elements with an <a data-link-type="dfn" href="#id">ID</a> equal to <var>name</var>.</p>
       </ul>
@@ -5760,26 +5764,25 @@ interface <dfn class="idl-code" data-dfn-type="interface" data-export="" id="rad
    </dl>
    <div class="impl">
      The object’s <a data-link-type="dfn" href="#supported-property-indices">supported property indices</a> are as defined for <code>HTMLCollection</code> objects. 
-    <p>The <a data-link-type="dfn" href="#supported-property-names">supported property names</a> consist of the non-empty values of all the <code>id</code> and <code>name</code> attributes of all the elements <a data-link-type="dfn" href="#represented-by-the-collection">represented by the collection</a>, in <a data-link-type="dfn" href="#tree-order">tree order</a>, ignoring later duplicates, with the <code>id</code> of an element preceding its <code>name</code> if it contributes both, they differ from each other, and neither is the
+    <p>The <a data-link-type="dfn" href="#supported-property-names">supported property names</a> consist of the non-empty values of all the <code>id</code> and <code>name</code> attributes of all the elements <a data-link-type="dfn" href="#represented-by-the-collection">represented by the collection</a>, in <a data-link-type="dfn" href="#tree-order">tree order</a>, ignoring later duplicates, with the <code>id</code> of an element preceding
+    its <code>name</code> if it contributes both, they differ from each other, and neither is the
     duplicate of an earlier entry.</p>
     <p>The properties exposed in this way must be <a data-link-type="dfn" href="#unenumerable">unenumerable</a>.</p>
-    <p>The <dfn class="css" data-dfn-type="function" data-export="" data-lt="namedItem()" id="funcdef-nameditem"><code>namedItem(<var>name</var>)</code><a class="self-link" href="#funcdef-nameditem"></a></dfn> method must act according to the following
-    algorithm:</p>
+    <p>The <dfn class="css" data-dfn-type="function" data-export="" data-lt="namedItem()" id="funcdef-nameditem"><code>namedItem(<var>name</var>)</code><a class="self-link" href="#funcdef-nameditem"></a></dfn> method must act according to the
+    following algorithm:</p>
     <ol>
      <li data-md="">
       <p>If <var>name</var> is the empty string, return null and stop the algorithm.</p>
      <li data-md="">
       <p>If, at the time the method is called, there is exactly one node in the collection that has
-either an <code>id</code> attribute or a <code>name</code> attribute equal to <var>name</var>,
-then return that node and stop the algorithm.</p>
+either an <code>id</code> attribute or a <code>name</code> attribute equal to <var>name</var>, then return that node and stop the algorithm.</p>
      <li data-md="">
-      <p>Otherwise, if there are no nodes in the collection that have either an <code>id</code> attribute or a <code>name</code> attribute equal to <var>name</var>, then return null and stop
-the algorithm.</p>
+      <p>Otherwise, if there are no nodes in the collection that have either an <code>id</code> attribute or a <code>name</code> attribute equal to <var>name</var>, then return null and
+stop the algorithm.</p>
      <li data-md="">
       <p>Otherwise, create a new <code>RadioNodeList</code> object representing a <a data-link-type="dfn" href="#live">live</a> view of
-the <code>HTMLFormControlsCollection</code> object, further filtered so that the only nodes in
-the <code>RadioNodeList</code> object are those that have either an <code>id</code> attribute
-or a <code>name</code> attribute equal to <var>name</var>. The nodes in the <code>RadioNodeList</code> object must be sorted in <a data-link-type="dfn" href="#tree-order">tree order</a>.</p>
+the <code>HTMLFormControlsCollection</code> object, further filtered so that the only nodes
+in the <code>RadioNodeList</code> object are those that have either an <code>id</code> attribute or a <code>name</code> attribute equal to <var>name</var>. The nodes in the <code>RadioNodeList</code> object must be sorted in <a data-link-type="dfn" href="#tree-order">tree order</a>.</p>
      <li data-md="">
       <p>Return that <code>RadioNodeList</code> object.</p>
     </ol>
@@ -5826,166 +5829,144 @@ such element exists, then instead let <var>element</var> be null.</p>
    <dl class="domintro">
     <dt><var>collection</var> . <code subdfn="">length</code> [ = <var>value</var> ]
     <dd>
-      Returns the number of elements in the collection.
-     <p></p>
-     <p>When set to a smaller number, truncates the number of <code>option</code> elements in the corresponding container.</p>
-     <p></p>
+      Returns the number of elements in the collection. 
+     <p>When set to a smaller number, truncates the number of <code>option</code> elements in the
+      corresponding container.</p>
      <p>When set to a greater number, adds new blank <code>option</code> elements to that container.</p>
-     <p></p>
     <dt><var>element</var> = <var>collection</var> . <code>item</code>(<var>index</var>)
     <dt><var>element</var> = <var>collection</var>[<var>index</var>]
-    <dd>
-      Returns the item with index <var>index</var> from the collection. The items are sorted in <a data-link-type="dfn" href="#tree-order">tree order</a>.
-     <p></p>
+    <dd> Returns the item with index <var>index</var> from the collection. The items are sorted in <a data-link-type="dfn" href="#tree-order">tree order</a>. 
     <dt><var>collection</var>[<var>index</var>] = <var>element</var>
     <dd>
       When <var>index</var> is a greater number than the number of items in the collection, adds
-    new blank <code>option</code> elements in the corresponding container. 
+      new blank <code>option</code> elements in the corresponding container. 
      <p>When set to null, removes the item at index <var>index</var> from the collection.</p>
-     <p></p>
      <p>When set to an <code>option</code> element, adds or replaces it at index <var>index</var> from the collection.</p>
-     <p></p>
-    <dt><var>element</var> = <var>collection</var> . <code subdfn="">namedItem</code>(<var>name</var>)
+    <dt><var>element</var> = <var>collection</var> . <code>namedItem</code>(<var>name</var>)
     <dt><var>element</var> = <var>collection</var>[<var>name</var>]
     <dd>
-      Returns the item with <a data-link-type="dfn" href="#id">ID</a> or <code>name</code> <var>name</var> from the collection.
-     <p></p>
+      Returns the item with <a data-link-type="dfn" href="#id">ID</a> or <code>name</code> <var>name</var> from the collection. 
      <p>If there are multiple matching items, then the first is returned.</p>
-     <p></p>
-    <dt><var>collection</var> . <code subdfn="">add</code>(<var>element</var> [, <var>before</var> ] )
+    <dt><var>collection</var> . <code>add</code>(<var>element</var> [, <var>before</var> ] )
     <dd>
-      Inserts <var>element</var> before the node given by <var>before</var>.
-     <p></p>
-     <p>The <var>before</var> argument can be a number, in which case <var>element</var> is inserted before the item with that number, or an element from the
-    collection, in which case <var>element</var> is inserted before that element.</p>
-     <p></p>
-     <p>If <var>before</var> is omitted, null, or a number out of range, then <var>element</var> will be added at the end of the list.</p>
-     <p></p>
-     <p>This method will throw a <code>HierarchyRequestError</code> exception if <var>element</var> is an ancestor of the element into which it is to be inserted.</p>
-     <p></p>
-    <dt><var>collection</var> . <code subdfn="">remove</code>(<var>index</var>)
+      Inserts <var>element</var> before the node given by <var>before</var>. 
+     <p>The <var>before</var> argument can be a number, in which case <var>element</var> is inserted
+      before the item with that number, or an element from the collection, in which case <var>element</var> is inserted before that element.</p>
+     <p>If <var>before</var> is omitted, null, or a number out of range, then <var>element</var> will
+      be added at the end of the list.</p>
+     <p>This method will throw a <code>HierarchyRequestError</code> exception if <var>element</var> is
+      an ancestor of the element into which it is to be inserted.</p>
+    <dt><var>collection</var> . <code>remove</code>(<var>index</var>)
+    <dd>Removes the item with index <var>index</var> from the collection.
+    <dt><var>collection</var> . <code>selectedIndex</code> [ = <var>value</var> ]
     <dd>
-      Removes the item with index <var>index</var> from the collection.
-     <p></p>
-    <dt><var>collection</var> . <code subdfn="">selectedIndex</code> [ = <var>value</var> ]
-    <dd>
-     <p>Returns the index of the first selected item, if any, or −1 if there is no selected
-    item.</p>
-     <p></p>
+      Returns the index of the first selected item, if any, or −1 if there is no selected
+      item. 
      <p>Can be set, to change the selection.</p>
-     <p></p>
    </dl>
    <div class="impl">
-    <p>The object’s <a data-link-type="dfn" href="#supported-property-indices">supported property indices</a> are as defined for <code>HTMLCollection</code> objects.</p>
-    <p></p>
+     The object’s <a data-link-type="dfn" href="#supported-property-indices">supported property indices</a> are as defined for <code>HTMLCollection</code> objects. 
     <p>On getting, the <dfn data-dfn-type="dfn" data-noexport="" id="length"><code>length</code><a class="self-link" href="#length"></a></dfn> attribute must return the number of nodes <a data-link-type="dfn" href="#represented-by-the-collection">represented by the collection</a>.</p>
-    <p></p>
-    <p>On setting, the behavior depends on whether the new value is equal to, greater than, or less
-  than the number of nodes <a data-link-type="dfn" href="#represented-by-the-collection">represented by the collection</a> at that time. If the number is
-  the same, then setting the attribute must do nothing. If the new value is greater, then <var>n</var> new <code>option</code> elements with no attributes and no child nodes must be
-  appended to the <code>select</code> element on which the <code>HTMLOptionsCollection</code> is
-  rooted, where <var>n</var> is the difference between the two numbers (new value minus old
-  value). Mutation events must be fired as if a <code>DocumentFragment</code> containing the new <code>option</code> elements had been inserted. If the new value is lower, then the last <var>n</var> nodes in the collection must be removed from their parent nodes, where <var>n</var> is the difference between the two numbers (old value minus new value).</p>
-    <p></p>
-    <p class="note" role="note">Setting <code>length</code> never removes
-  or adds any <code>optgroup</code> elements, and never adds new children to existing <code>optgroup</code> elements (though it can remove children from them).</p>
-    <p>The <a data-link-type="dfn" href="#supported-property-names">supported property names</a> consist of the non-empty values of all the <code>id</code> and <code>name</code> attributes of all the
-  elements <a data-link-type="dfn" href="#represented-by-the-collection">represented by the collection</a>, in <a data-link-type="dfn" href="#tree-order">tree order</a>, ignoring later
-  duplicates, with the <code>id</code> of an element preceding its <code>name</code> if it contributes both, they differ from each other, and neither is
-  the duplicate of an earlier entry.</p>
-    <p></p>
+    <p>On setting, the behavior depends on whether the new value is equal to, greater than, or less than
+  the number of nodes <a data-link-type="dfn" href="#represented-by-the-collection">represented by the collection</a> at that time. If the number is the same,
+  then setting the attribute must do nothing. If the new value is greater, then <var>n</var> new <code>option</code> elements with no attributes and no child nodes must be appended to the <code>select</code> element on which the <code>HTMLOptionsCollection</code> is rooted, where <var>n</var> is the difference between the two numbers (new value minus old value). Mutation
+  events must be fired as if a <code>DocumentFragment</code> containing the new <code>option</code> elements had been inserted. If the new value is lower, then the last <var>n</var> nodes in the
+  collection must be removed from their parent nodes, where <var>n</var> is the difference between
+  the two numbers (old value minus new value).</p>
+    <p class="note" role="note"> Setting <code>length</code> never removes or adds any <code>optgroup</code> elements, and never
+    adds new children to existing <code>optgroup</code> elements (though it can remove children from
+    them). </p>
+    <p>The <a data-link-type="dfn" href="#supported-property-names">supported property names</a> consist of the non-empty values of all the <code>id</code> and <code>name</code> attributes of all the elements <a data-link-type="dfn" href="#represented-by-the-collection">represented by the collection</a>, in <a data-link-type="dfn" href="#tree-order">tree order</a>, ignoring later duplicates, with the <code>id</code> of an element preceding its <code>name</code> if it contributes both, they differ from each other, and neither is the
+  duplicate of an earlier entry.</p>
     <p>The properties exposed in this way must be <a data-link-type="dfn" href="#unenumerable">unenumerable</a>.</p>
-    <p></p>
-    <p>When the user agent is to <dfn data-dfn-type="dfn" data-noexport="" id="set-the-value-of-a-new-indexed-property-or-set-the-value-of-an-existing-indexed-property">set the value of a new
-  indexed property or set the value of an existing indexed property<a class="self-link" href="#set-the-value-of-a-new-indexed-property-or-set-the-value-of-an-existing-indexed-property"></a></dfn> for a given property index <var>index</var> to a new value <var>value</var>, it must run the following
+    <p>When the user agent is to <dfn data-dfn-type="dfn" data-noexport="" id="set-the-value-of-a-new-indexed-property-or-set-the-value-of-an-existing-indexed-property">set the value of a new indexed property or set the value of an
+  existing indexed property<a class="self-link" href="#set-the-value-of-a-new-indexed-property-or-set-the-value-of-an-existing-indexed-property"></a></dfn> for a given property index <var>index</var> to a new value <var>value</var>, it must run the following algorithm:</p>
+    <ol>
+     <li data-md="">
+      <p>If <var>value</var> is null, invoke the steps for the <code>remove</code> method with <var>index</var> as the argument, and abort these steps.</p>
+     <li data-md="">
+      <p>Let <var>length</var> be the number of nodes <a data-link-type="dfn" href="#represented-by-the-collection">represented by the collection</a>.</p>
+     <li data-md="">
+      <p>Let <var>n</var> be <var>index</var> minus <var>length</var>.</p>
+     <li data-md="">
+      <p>If <var>n</var> is greater than zero, then <a data-link-type="dfn" href="#append">append</a> a <code>DocumentFragment</code> consisting of <a data-link-type="dfn"><var>n</var>-1</a> new <code>option</code> elements with no attributes and no
+  child nodes to the <code>select</code> element on which the <code>HTMLOptionsCollection</code> is rooted.</p>
+     <li data-md="">
+      <p>If <var>n</var> is greater than or equal to zero, <a data-link-type="dfn" href="#append">append</a> <var>value</var> to the <code>select</code> element. Otherwise, <a data-link-type="dfn" href="#replace">replace</a> the <var>index</var>th element in the
+  collection by <var>value</var>.</p>
+    </ol>
+    <p>The <dfn class="css" data-dfn-type="function" data-export="" data-lt="add()" id="funcdef-add"><code>add(<var>element</var>, <var>before</var>)</code><a class="self-link" href="#funcdef-add"></a></dfn> method must act according
+  to the following algorithm:</p>
+    <ol>
+     <li data-md="">
+      <p>If <var>element</var> is an ancestor of the <code>select</code> element on which the <code>HTMLOptionsCollection</code> is rooted, then throw a <code>HierarchyRequestError</code> exception and abort these steps.</p>
+     <li data-md="">
+      <p>If <var>before</var> is an element, but that element isn’t a descendant of the <code>select</code> element on which the <code>HTMLOptionsCollection</code> is rooted, then
+  throw a <code>NotFoundError</code> exception and abort these steps.</p>
+     <li data-md="">
+      <p>If <var>element</var> and <var>before</var> are the same element, then return and abort these
+  steps.</p>
+     <li data-md="">
+      <p>If <var>before</var> is a node, then let <var>reference</var> be that node. Otherwise, if <var>before</var> is an integer, and there is a <var>before</var>th node in the collection,
+  let <var>reference</var> be that node. Otherwise, let <var>reference</var> be null.</p>
+     <li data-md="">
+      <p>If <var>reference</var> is not null, let <var>parent</var> be the parent node of <var>reference</var>. Otherwise, let <var>parent</var> be the <code>select</code> element on
+  which the <code>HTMLOptionsCollection</code> is rooted.</p>
+     <li data-md="">
+      <p>Act as if the DOM <code>insertBefore()</code> method was invoked on the <var>parent</var> node,
+  with <var>element</var> as the first argument and <var>reference</var> as the second argument.</p>
+    </ol>
+    <p>The <dfn class="css" data-dfn-type="function" data-export="" data-lt="remove()" id="funcdef-remove"><code>remove(<var>index</var>)</code><a class="self-link" href="#funcdef-remove"></a></dfn> method must act according to the following
   algorithm:</p>
-    <p></p>
     <ol>
-     <li>If <var>value</var> is null, invoke the steps for the <code>remove</code> method with <var>index</var> as
-   the argument, and abort these steps. 
-     <li>Let <var>length</var> be the number of nodes <span>represented by the
-   collection</span>. 
-     <li>Let <var>n</var> be <var>index</var> minus <var>length</var>. 
-     <li>If <var>n</var> is greater than zero, then <span>append</span> a <code>DocumentFragment</code> consisting of <span><var>n</var>-1</span> new <code>option</code> elements with no attributes and
-   no child nodes to the <code>select</code> element on which the <code>HTMLOptionsCollection</code> is rooted. 
-     <li>If <var>n</var> is greater than or equal to zero, <span>append</span> <var>value</var> to the <code>select</code> element. Otherwise, <a data-link-type="dfn" href="#replace">replace</a> the <var>index</var>th element in the collection by <var>value</var>. 
+     <li data-md="">
+      <p>If the number of nodes <a data-link-type="dfn" href="#represented-by-the-collection">represented by the collection</a> is zero, abort these steps.</p>
+     <li data-md="">
+      <p>If <var>index</var> is not a number greater than or equal to 0 and less than the number of
+  nodes <a data-link-type="dfn" href="#represented-by-the-collection">represented by the collection</a>, abort these steps.</p>
+     <li data-md="">
+      <p>Let <var>element</var> be the <var>index</var>th element in the collection.</p>
+     <li data-md="">
+      <p>Remove <var>element</var> from its parent node.</p>
     </ol>
-    <p>The <dfn class="css" data-dfn-type="function" data-export="" data-lt="add()" id="funcdef-add"><code>add(<var>element</var>, <var>before</var>)</code><a class="self-link" href="#funcdef-add"></a></dfn> method must act according to the following algorithm:</p>
-    <p></p>
-    <ol>
-     <li>If <var>element</var> is an ancestor of the <code>select</code> element on which
-   the <code>HTMLOptionsCollection</code> is rooted, then throw a <code>HierarchyRequestError</code> exception and abort these steps.
-     <li>If <var>before</var> is an element, but that element isn’t a descendant of the <code>select</code> element on which the <code>HTMLOptionsCollection</code> is rooted, then throw
-   a <code>NotFoundError</code> exception and abort these steps. 
-     <li>If <var>element</var> and <var>before</var> are the same element, then
-   return and abort these steps.
-     <li>If <var>before</var> is a node, then let <var>reference</var> be that
-   node. Otherwise, if <var>before</var> is an integer, and there is a <var>before</var>th node in the collection, let <var>reference</var> be that node.
-   Otherwise, let <var>reference</var> be null. 
-     <li>If <var>reference</var> is not null, let <var>parent</var> be the parent
-   node of <var>reference</var>. Otherwise, let <var>parent</var> be the <code>select</code> element on which the <code>HTMLOptionsCollection</code> is rooted. 
-     <li>
-      Act as if the DOM <code>insertBefore()</code> method was
-   invoked on the <var>parent</var> node, with <var>element</var> as the first
-   argument and <var>reference</var> as the second argument.
-      <p></p>
-    </ol>
-    <p>The <dfn class="css" data-dfn-type="function" data-export="" data-lt="remove()" id="funcdef-remove"><code>remove(<var>index</var>)</code><a class="self-link" href="#funcdef-remove"></a></dfn> method must act according to the following algorithm:</p>
-    <p></p>
-    <ol>
-     <li>If the number of nodes <a data-link-type="dfn" href="#represented-by-the-collection">represented by the collection</a> is zero, abort these
-   steps.
-     <li>If <var>index</var> is not a number greater than or equal to 0 and less than the
-   number of nodes <a data-link-type="dfn" href="#represented-by-the-collection">represented by the collection</a>, abort these steps. 
-     <li>Let <var>element</var> be the <var>index</var>th element in the
-   collection. 
-     <li>Remove <var>element</var> from its parent node. 
-    </ol>
-    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="selectedindex"><code>selectedIndex</code><a class="self-link" href="#selectedindex"></a></dfn> IDL
-  attribute must act like the identically named attribute on the <code>select</code> element on
-  which the <code>HTMLOptionsCollection</code> is rooted</p>
-    <p></p>
+    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="selectedindex"><code>selectedIndex</code><a class="self-link" href="#selectedindex"></a></dfn> IDL attribute must act like the identically named
+  attribute on the <code>select</code> element on which the <code>HTMLOptionsCollection</code> is
+  rooted</p>
    </div>
    <h4 class="heading settled" data-level="2.7.3" id="domstringmap"><span class="secno">2.7.3. </span><span class="content">DOMStringMap</span><a class="self-link" href="#domstringmap"></a></h4>
    <p>The <code>DOMStringMap</code> interface represents a set of name-value pairs. It exposes these
   using the scripting language’s native mechanisms for property access.</p>
-   <p></p>
    <div class="impl">
-    <p>When a <code>DOMStringMap</code> object is instantiated, it is associated with three
-  algorithms, one for getting the list of name-value pairs, one for setting names to certain values,
-  and one for deleting names.</p>
-    <p></p>
+     When a <code>DOMStringMap</code> object is instantiated, it is associated with three algorithms,
+  one for getting the list of name-value pairs, one for setting names to certain values, and one for
+  deleting names. 
 <pre class="idl">[OverrideBuiltins]
 interface <dfn class="idl-code" data-dfn-type="interface" data-export="" id="domstringmap0">DOMStringMap<a class="self-link" href="#domstringmap0"></a></dfn> {
   getter DOMString (DOMString <dfn class="idl-code" data-dfn-for="DOMStringMap/__getter__(name)" data-dfn-type="argument" data-export="" id="dom-domstringmap-__getter__-name-name">name<a class="self-link" href="#dom-domstringmap-__getter__-name-name"></a></dfn>);
   setter void (DOMString <dfn class="idl-code" data-dfn-for="DOMStringMap/__setter__(name, value)" data-dfn-type="argument" data-export="" id="dom-domstringmap-__setter__-name-value-name">name<a class="self-link" href="#dom-domstringmap-__setter__-name-value-name"></a></dfn>, DOMString <dfn class="idl-code" data-dfn-for="DOMStringMap/__setter__(name, value)" data-dfn-type="argument" data-export="" id="dom-domstringmap-__setter__-name-value-value">value<a class="self-link" href="#dom-domstringmap-__setter__-name-value-value"></a></dfn>);
   deleter void (DOMString <dfn class="idl-code" data-dfn-for="DOMStringMap/__deleter__(name)" data-dfn-type="argument" data-export="" id="dom-domstringmap-__deleter__-name-name">name<a class="self-link" href="#dom-domstringmap-__deleter__-name-name"></a></dfn>);
 };</pre>
-    <p>The <a data-link-type="dfn" href="#supported-property-names">supported property names</a> on a <code>DOMStringMap</code> object at any instant
-  are the names of each pair returned from the algorithm for getting the list of name-value pairs at
-  that instant, in the order returned.</p>
-    <p></p>
-    <p>To <dfn data-dfn-type="dfn" data-noexport="" id="determine-the-value-of-a-named-property0">determine the value of a named property<a class="self-link" href="#determine-the-value-of-a-named-property0"></a></dfn> <var>name</var> in a <code>DOMStringMap</code>, the user agent must return the value component
-  of the name-value pair whose name component is <var>name</var> in the list returned by
-  the algorithm for getting the list of name-value pairs.</p>
-    <p></p>
-    <p>To <dfn data-dfn-type="dfn" data-noexport="" id="set1">set<a class="self-link" href="#set1"></a></dfn> the value of a named property <var>name</var> to value <var>value</var>, the algorithm for setting names to certain values must
-  be run, passing <var>name</var> as the name and <var>value</var> as the value.</p>
-    <p></p>
-    <p>To <dfn data-dfn-type="dfn" data-noexport="" id="delete-an-existing-named-property">delete an existing named property<a class="self-link" href="#delete-an-existing-named-property"></a></dfn> <var>name</var>, the algorithm for deleting names must be run, passing <var>name</var> as the name.</p>
-    <p></p>
-    <p class="note" role="note">The <code>DOMStringMap</code> interface definition here is only intended for
-  JavaScript environments. Other language bindings will need to define how <code>DOMStringMap</code> is to be implemented for those languages.</p>
+    <p>The <a data-link-type="dfn" href="#supported-property-names">supported property names</a> on a <code>DOMStringMap</code> object at any instant are the
+  names of each pair returned from the algorithm for getting the list of name-value pairs at that
+  instant, in the order returned.</p>
+    <p>To <dfn data-dfn-type="dfn" data-noexport="" id="determine-the-value-of-a-named-property0">determine the value of a named property<a class="self-link" href="#determine-the-value-of-a-named-property0"></a></dfn> <var>name</var> in a <code>DOMStringMap</code>, the user agent must return the value component of the name-value pair
+  whose name component is <var>name</var> in the list returned by the algorithm for getting the list
+  of name-value pairs.</p>
+    <p>To <dfn data-dfn-type="dfn" data-noexport="" id="set1">set<a class="self-link" href="#set1"></a></dfn> the value of a named property <var>name</var> to value <var>value</var>, the
+  algorithm for setting names to certain values must be run, passing <var>name</var> as the name and <var>value</var> as the value.</p>
+    <p>To <dfn data-dfn-type="dfn" data-noexport="" id="delete-an-existing-named-property">delete an existing named property<a class="self-link" href="#delete-an-existing-named-property"></a></dfn> <var>name</var>, the algorithm for deleting names
+  must be run, passing <var>name</var> as the name.</p>
+    <p class="note" role="note"> The <code>DOMStringMap</code> interface definition here is only intended for JavaScript
+    environments. Other language bindings will need to define how <code>DOMStringMap</code> is to be
+    implemented for those languages. </p>
    </div>
-   <div class="example" id="example-2ffc3fba">
-    <a class="self-link" href="#example-2ffc3fba"></a> 
-    <p>The <code>dataset</code> attribute on elements exposes the <code>data-*</code> attributes on the element.</p>
-    <p></p>
+   <div class="example" id="example-4d2bb124">
+    <a class="self-link" href="#example-4d2bb124"></a> The <code>dataset</code> attribute on elements exposes the <code>data-*</code> attributes on the
+  element. 
     <p>Given the following fragment and elements with similar constructions:</p>
-    <p></p>
 <pre class="highlight"><span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"tower"</span> <span class="na">id=</span><span class="s">"tower5"</span> <span class="na">data-x=</span><span class="s">"12"</span> <span class="na">data-y=</span><span class="s">"5"</span> <span class="na">data-ai=</span><span class="s">"robotarget"</span> <span class="na">data-hp=</span><span class="s">"46"</span> <span class="na">data-ability=</span><span class="s">"flames"</span> <span class="na">src=</span><span class="s">"towers/rocket.png"</span> <span class="na">alt=</span><span class="s">"Rocket Tower"</span><span class="nt">></span></pre>
     <p>...one could imagine a function <code>splashDamage()</code> that takes some arguments, the first
-    of which is the element to process:</p>
+  of which is the element to process:</p>
 <pre class="highlight"><span class="kd">function</span> <span class="nx">splashDamage</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">damage</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s1">'tower'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="c1">// checking the 'class' attribute</span>
       <span class="nx">node</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">x</span> <span class="o">==</span> <span class="nx">x</span> <span class="o">&amp;&amp;</span> <span class="c1">// reading the 'data-x' attribute</span>
@@ -6004,316 +5985,273 @@ interface <dfn class="idl-code" data-dfn-type="interface" data-export="" id="dom
    <h4 class="heading settled" data-level="2.7.4" id="domelementmap"><span class="secno">2.7.4. </span><span class="content">DOMElementMap</span><a class="self-link" href="#domelementmap"></a></h4>
    <p>The <code>DOMElementMap</code> interface represents a set of name-element mappings. It exposes
   these using the scripting language’s native mechanisms for property access.</p>
-   <p></p>
    <div class="impl">
-    <p>When a <code>DOMElementMap</code> object is instantiated, it is associated with three
-  algorithms, one for getting the list of name-element mappings, one for mapping a name to a certain
-  element, and one for deleting mappings by name.</p>
-    <p></p>
+    <p>When a <code>DOMElementMap</code> object is instantiated, it is associated with three algorithms,
+  one for getting the list of name-element mappings, one for mapping a name to a certain element,
+  and one for deleting mappings by name.</p>
 <pre class="idl">interface <dfn class="idl-code" data-dfn-type="interface" data-export="" id="domelementmap0">DOMElementMap<a class="self-link" href="#domelementmap0"></a></dfn> {
   getter <a data-link-type="idl-name" href="https://dom.spec.whatwg.org/#element">Element</a> (DOMString <dfn class="idl-code" data-dfn-for="DOMElementMap/__getter__(name)" data-dfn-type="argument" data-export="" id="dom-domelementmap-__getter__-name-name">name<a class="self-link" href="#dom-domelementmap-__getter__-name-name"></a></dfn>);
   setter creator void (DOMString <dfn class="idl-code" data-dfn-for="DOMElementMap/__setter__(name, value)" data-dfn-type="argument" data-export="" id="dom-domelementmap-__setter__-name-value-name">name<a class="self-link" href="#dom-domelementmap-__setter__-name-value-name"></a></dfn>, <a data-link-type="idl-name" href="https://dom.spec.whatwg.org/#element">Element</a> <dfn class="idl-code" data-dfn-for="DOMElementMap/__setter__(name, value)" data-dfn-type="argument" data-export="" id="dom-domelementmap-__setter__-name-value-value">value<a class="self-link" href="#dom-domelementmap-__setter__-name-value-value"></a></dfn>);
   deleter void (DOMString <dfn class="idl-code" data-dfn-for="DOMElementMap/__deleter__(name)" data-dfn-type="argument" data-export="" id="dom-domelementmap-__deleter__-name-name">name<a class="self-link" href="#dom-domelementmap-__deleter__-name-name"></a></dfn>);
 };</pre>
-    <p>The <a data-link-type="dfn" href="#supported-property-names">supported property names</a> on a <code>DOMElementMap</code> object at any instant
-  are the names for each mapping returned from the algorithm for getting the list of name-element
-  mappings at that instant, in the order returned.</p>
-    <p></p>
-    <p>To <dfn data-dfn-type="dfn" data-noexport="" id="determine-the-value-of-a-named-property1">determine the value of a named property<a class="self-link" href="#determine-the-value-of-a-named-property1"></a></dfn> <var>name</var> in a <code>DOMElementMap</code>, the user agent must return the element
-  component of the name-element mapping whose name component is <var>name</var> in the list
-  returned by the algorithm for getting the list of name-element mappings.</p>
-    <p></p>
-    <p>To set the value of a <dfn data-dfn-type="dfn" data-noexport="" id="new">new<a class="self-link" href="#new"></a></dfn> or <dfn data-dfn-type="dfn" data-noexport="" id="existing">existing<a class="self-link" href="#existing"></a></dfn> named property <var>name</var> to value <var>value</var>, the algorithm for mapping a name to a certain element must be run,
-  passing <var>name</var> as the name <var>value</var> as the element.</p>
-    <p></p>
-    <p>To <dfn data-dfn-type="dfn" data-noexport="" id="delete-an-existing-named-property0">delete an existing named property<a class="self-link" href="#delete-an-existing-named-property0"></a></dfn> <var>name</var>, the algorithm for deleting mappings must be run, passing <var>name</var> as the name component of the mapping to be deleted.</p>
-    <p></p>
-    <p class="note" role="note">The <code>DOMElementMap</code> interface definition here is only intended for
-  JavaScript environments. Other language bindings will need to define how <code>DOMElementMap</code> is to be implemented for those languages.</p>
+    <p>The <a data-link-type="dfn" href="#supported-property-names">supported property names</a> on a <code>DOMElementMap</code> object at any instant are the
+  names for each mapping returned from the algorithm for getting the list of name-element mappings
+  at that instant, in the order returned.</p>
+    <p>To <dfn data-dfn-type="dfn" data-noexport="" id="determine-the-value-of-a-named-property1">determine the value of a named property<a class="self-link" href="#determine-the-value-of-a-named-property1"></a></dfn> <var>name</var> in a <code>DOMElementMap</code>, the user agent must return the element component of the name-element
+  mapping whose name component is <var>name</var> in the list returned by the algorithm for getting
+  the list of name-element mappings.</p>
+    <p>To set the value of a <dfn data-dfn-type="dfn" data-noexport="" id="new">new<a class="self-link" href="#new"></a></dfn> or <dfn data-dfn-type="dfn" data-noexport="" id="existing">existing<a class="self-link" href="#existing"></a></dfn> named property <var>name</var> to
+  value <var>value</var>, the algorithm for mapping a name to a certain element must be run, passing <var>name</var> as the name <var>value</var> as the element.</p>
+    <p>To <dfn data-dfn-type="dfn" data-noexport="" id="delete-an-existing-named-property0">delete an existing named property<a class="self-link" href="#delete-an-existing-named-property0"></a></dfn> <var>name</var>, the algorithm for deleting
+  mappings must be run, passing <var>name</var> as the name component of the mapping to be deleted.</p>
+    <p class="note" role="note"> The <code>DOMElementMap</code> interface definition here is only intended for JavaScript
+    environments. Other language bindings will need to define how <code>DOMElementMap</code> is to
+    be implemented for those languages. </p>
    </div>
    <h4 class="heading settled" data-level="2.7.5" id="transferable-objects"><span class="secno">2.7.5. </span><span class="content">Transferable objects</span><a class="self-link" href="#transferable-objects"></a></h4>
-   <p>Some objects support being copied and closed in one operation. This is called <i>transferring</i> the object, and is used in particular to transfer ownership of unsharable or
-  expensive resources across worker boundaries.</p>
-   <p></p>
+   <p>Some objects support being copied and closed in one operation. This is called <i>transferring</i> the object, and is used in particular to transfer ownership of unsharable or expensive resources
+  across worker boundaries.</p>
    <p>The following <code>Transferable</code> types exist:</p>
-   <p></p>
-   <ul class="brief">
-    <li><code>ArrayBuffer</code> <a href="#refsECMA262">[ECMA262]</a> 
-    <li><code>CanvasProxy</code> (defined in this specification) 
-    <li><code>MessagePort</code> 
+   <ul>
+    <li data-md="">
+     <p><code>ArrayBuffer</code> <a data-link-type="biblio" href="#biblio-ecma-262">[ECMA-262]</a></p>
+    <li data-md="">
+     <p><code>CanvasProxy</code> (defined in this specification)</p>
+    <li data-md="">
+     <p><code>MessagePort</code></p>
    </ul>
    <div class="impl">
     <p>The following IDL block formalizes this:</p>
-    <p></p>
 <pre class="idl">typedef (ArrayBuffer or <a data-link-type="idl-name">CanvasProxy</a> or <a data-link-type="idl-name">MessagePort</a>) <dfn class="idl-code" data-dfn-type="typedef" data-export="" id="typedefdef-transferable">Transferable<a class="self-link" href="#typedefdef-transferable"></a></dfn>;</pre>
-    <p>To <dfn data-dfn-type="dfn" data-noexport="" id="transfer-a-transferable-object">transfer a <code>Transferable</code> object<a class="self-link" href="#transfer-a-transferable-object"></a></dfn> to a new owner, the user agent must
-  run the steps defined for the type of object in question. The steps will return a new object of
-  the same type, and will permanently <dfn data-dfn-type="dfn" data-noexport="" id="neuter">neuter<a class="self-link" href="#neuter"></a></dfn> the
-  original object. (This is an irreversible and non-idempotent operation; once an object has been
-  transferred, it cannot be transferred, or indeed used, again.)</p>
-    <p></p>
-    <p id="transferArrayBuffer">To <a data-link-type="dfn">transfer</a> an <code>ArrayBuffer</code> object <var>old</var> to a new owner <var>owner</var>, a user agent must create a new <code>ArrayBuffer</code> object pointing at
-  the same underlying data as <var>old</var>, thus obtaining <var>new</var>,
-  must <a data-link-type="dfn" href="#neuter">neuter</a> the <var>old</var> object, and must finally return <var>new</var>. <a href="#refsECMA262">[ECMA262]</a></p>
-    <p class="note" role="note">Rules for how to <a href="#transferCanvasProxy">transfer a <code>CanvasProxy</code> object</a> and how to <a href="#refsWEBMSG">transfer a <code>MessagePort</code> object</a> are given in the relevant sections of this specification.</p>
+    <p>To <dfn data-dfn-type="dfn" data-noexport="" id="transfer-a-transferable-object">transfer a <code>Transferable</code> object<a class="self-link" href="#transfer-a-transferable-object"></a></dfn> to a new owner, the user agent must run
+  the steps defined for the type of object in question. The steps will return a new object of the
+  same type, and will permanently <dfn data-dfn-type="dfn" data-noexport="" id="neuter">neuter<a class="self-link" href="#neuter"></a></dfn> the original object. (This is an irreversible
+  and non-idempotent operation; once an object has been transferred, it cannot be transferred, or
+  indeed used, again.)</p>
+    <p>To <a data-link-type="dfn">transfer</a> an <code>ArrayBuffer</code> object <var>old</var> to a new owner <var>owner</var>, a user agent must create a new <code>ArrayBuffer</code> object pointing at the
+  same underlying data as <var>old</var>, thus obtaining <var>new</var>, must <a data-link-type="dfn" href="#neuter">neuter</a> the <var>old</var> object, and must finally return <var>new</var>. <a data-link-type="biblio" href="#biblio-ecma-262">[ECMA-262]</a></p>
+    <p class="note" role="note"> Rules for how to <a data-link-type="dfn">transfer a <code>CanvasProxy</code> object</a> and how to <a data-link-type="dfn">transfer a <code>MessagePort</code> object</a> are given in the relevant sections of this
+    specification. </p>
    </div>
    <div class="impl">
     <h4 class="heading settled" data-level="2.7.6" id="safe-passing-of-structured-data"><span class="secno">2.7.6. </span><span class="content">Safe passing of structured data</span><a class="self-link" href="#safe-passing-of-structured-data"></a></h4>
-    <p>When a user agent is required to obtain a <dfn data-dfn-type="dfn" data-noexport="" id="structured-clone">structured clone<a class="self-link" href="#structured-clone"></a></dfn> of a value, optionally
-  with a <i>transfer map</i>, it must run the following algorithm, which either returns a separate
-  value, or throws an exception. If a <i>transfer map</i> is provided, it consists of an association
-  list of <code>Transferable</code> objects to placeholder objects.</p>
-    <p></p>
+    <p>When a user agent is required to obtain a <dfn data-dfn-type="dfn" data-noexport="" id="structured-clone">structured clone<a class="self-link" href="#structured-clone"></a></dfn> of a value, optionally with
+  a <i>transfer map</i>, it must run the following algorithm, which either returns a separate value,
+  or throws an exception. If a <i>transfer map</i> is provided, it consists of an association list
+  of <code>Transferable</code> objects to placeholder objects.</p>
     <ol>
-     <li>Let <var>input</var> be the value being cloned. 
-     <li>Let <var>transfer map</var> be the <i>transfer map</i> passed to the algorithm, if any, or
-   the empty list otherwise. 
-     <li>Let <var>memory</var> be an association list of pairs of objects, initially empty. This is
-   used to handle duplicate references. In each pair of objects, one is called the <i>source</i> object and the other the <i>destination</i> object. 
-     <li>For each mapping in <var>transfer map</var>, add a mapping from the <code>Transferable</code> object (the source object) to the placeholder object (the destination
-   object) to <var>memory</var>. 
-     <li>Let <var>output</var> be the value resulting from calling the <span>internal structured
-   cloning algorithm</span> with <var>input</var> as the "<var>input</var>" argument, and <var>memory</var> as the "<var>memory</var>" argument. 
-     <li>Return <var>output</var>. 
+     <li data-md="">
+      <p>Let <var>input</var> be the value being cloned.</p>
+     <li data-md="">
+      <p>Let <var>transfer map</var> be the <i>transfer map</i> passed to the algorithm, if any, or the
+  empty list otherwise.</p>
+     <li data-md="">
+      <p>Let <var>memory</var> be an association list of pairs of objects, initially empty. This is used
+  to handle duplicate references. In each pair of objects, one is called the <i>source</i> object and the other the <i>destination</i> object.</p>
+     <li data-md="">
+      <p>For each mapping in <var>transfer map</var>, add a mapping from the <code>Transferable</code> object (the source object) to the placeholder object (the destination object) to <var>memory</var>.</p>
+     <li data-md="">
+      <p>Let <var>output</var> be the value resulting from calling the <span>internal structured cloning
+  algorithm</span> with <var>input</var> as the "<var>input</var>" argument, and <var>memory</var> as the "<var>memory</var>" argument.</p>
+     <li data-md="">
+      <p>Return <var>output</var>.</p>
     </ol>
     <p>The <dfn data-dfn-type="dfn" data-noexport="" id="internal-structured-cloning-algorithm">internal structured cloning algorithm<a class="self-link" href="#internal-structured-cloning-algorithm"></a></dfn> is always called with two arguments, <var>input</var> and <var>memory</var>, and its behavior is as follows:</p>
-    <p></p>
     <ol>
-     <li>If <var>input</var> is the source object of a pair of objects in <var>memory</var>, then
-   return the destination object in that pair of objects and abort these steps. 
-     <li>If <var>input</var> is a primitive value, then return that value and abort these
-   steps. 
-     <li>Let <var>deep clone</var> be <i>none</i>. 
-     <li>
+     <li data-md="">
+      <p>If <var>input</var> is the source object of a pair of objects in <var>memory</var>, then return
+  the destination object in that pair of objects and abort these steps.</p>
+     <li data-md="">
+      <p>If <var>input</var> is a primitive value, then return that value and abort these steps.</p>
+     <li data-md="">
+      <p>Let <var>deep clone</var> be <i>none</i>.</p>
+     <li data-md="">
       <p>The <var>input</var> value is an object. Jump to the appropriate step below:</p>
-      <p></p>
       <dl class="switch">
        <dt>If <var>input</var> is a <code>Boolean</code> object
-       <dd>
-        Let <var>output</var> be a newly constructed Boolean object with the same value as <var>input</var>.
-        <p></p>
+       <dd> Let <var>output</var> be a newly constructed Boolean object with the same value as <var>input</var>. 
        <dt>If <var>input</var> is a <code>Number</code> object
-       <dd>
-        Let <var>output</var> be a newly constructed Number object with the same value as <var>input</var>.
-        <p></p>
+       <dd> Let <var>output</var> be a newly constructed Number object with the same value as <var>input</var>. 
        <dt>If <var>input</var> is a <code>String</code> object
-       <dd>
-        Let <var>output</var> be a newly constructed String object with the same value as <var>input</var>.
-        <p></p>
+       <dd> Let <var>output</var> be a newly constructed String object with the same value as <var>input</var>. 
        <dt>If <var>input</var> is a <code>Date</code> object
-       <dd>
-        Let <var>output</var> be a newly constructed <code>Date</code> object with the same
-     value as <var>input</var>.
-        <p></p>
+       <dd> Let <var>output</var> be a newly constructed <code>Date</code> object with the same
+      value as <var>input</var>. 
        <dt>If <var>input</var> is a <code>RegExp</code> object
        <dd>
-        <p>Let <var>output</var> be a newly constructed <code>RegExp</code> object with the same
-      pattern and flags as <var>input</var>.</p>
-        <p></p>
+         Let <var>output</var> be a newly constructed <code>RegExp</code> object with the same
+      pattern and flags as <var>input</var>. 
         <p class="note" role="note">The value of the <code>lastIndex</code> property is not copied.</p>
        <dt>If <var>input</var> is a <code>Blob</code> object
-       <dd>
-        If <var>input</var> has been disabled through the <code>close()</code> method, throw a <code>DataCloneError</code> exception
-     and abort the overall <a data-link-type="dfn" href="#structured-clone">structured clone</a> algorithm. Otherwise, let <var>output</var> be a newly constructed object of the same class as <var>input</var>, corresponding to the same
-     underlying data.
-        <p></p>
+       <dd> If <var>input</var> has been disabled through the <code>close()</code> method, throw a <code>DataCloneError</code> exception and abort the overall <a data-link-type="dfn" href="#structured-clone">structured clone</a> algorithm. Otherwise, let <var>output</var> be a newly constructed object of the same
+      class as <var>input</var>, corresponding to the same underlying data. 
        <dt>If <var>input</var> is a <code>FileList</code> object
-       <dd>
-        Let <var>output</var> be a newly constructed <code>FileList</code> object containing a
-     list of newly constructed <code>File</code> objects corresponding to the same underlying data
-     as those in <var>input</var>, maintaining their relative order.
-        <p></p>
+       <dd> Let <var>output</var> be a newly constructed <code>FileList</code> object containing a
+      list of newly constructed <code>File</code> objects corresponding to the same underlying
+      data as those in <var>input</var>, maintaining their relative order. 
        <dt>If <var>input</var> is an <code>ImageData</code> object
-       <dd>
-        Let <var>output</var> be a newly constructed <code>ImageData</code> object whose <code>width</code> and <code>height</code> have values equal to the corresponding attributes on <var>input</var>, and whose <code>data</code> attribute has the value obtained from invoking the <a data-link-type="dfn" href="#internal-structured-cloning-algorithm">internal structured cloning algorithm</a> recursively with the value of the <code>data</code> attribute on <var>input</var> as the new
-     "<var>input</var>" argument and <var>memory</var> as the new "<var>memory</var>"
-     argument.
-        <p></p>
+       <dd> Let <var>output</var> be a newly constructed <code>ImageData</code> object whose <code>width</code> and <code>height</code> have values equal to the corresponding
+      attributes on <var>input</var>, and whose <code>data</code> attribute has the value
+      obtained from invoking the <a data-link-type="dfn" href="#internal-structured-cloning-algorithm">internal structured cloning algorithm</a> recursively with
+      the value of the <code>data</code> attribute on <var>input</var> as the new
+      "<var>input</var>" argument and <var>memory</var> as the new "<var>memory</var>" argument. 
        <dt>If <var>input</var> is an <code>ImageBitmap</code> object
-       <dd>
-        Let <var>output</var> be a newly constructed <code>ImageBitmap</code> object whose
-     bitmap data is a copy of <var>input</var>’s bitmap data.
-        <p></p>
+       <dd> Let <var>output</var> be a newly constructed <code>ImageBitmap</code> object whose bitmap
+      data is a copy of <var>input</var>’s bitmap data. 
        <dt>If <var>input</var> is an <code>ArrayBuffer</code> object
-       <dd>
-        If <var>input</var> has been <span>neutered</span>, throw a <code>DataCloneError</code> exception and abort the overall <a data-link-type="dfn" href="#structured-clone">structured clone</a> algorithm. Otherwise, let <var>output</var> be a newly constructed <code>ArrayBuffer</code> object whose contents are a
-     copy of <var>input</var>’s contents, with the same length.
-        <p></p>
-       <dt>If <var>input</var> is an object with a <span>[DataView]</span> internal slot
-       <dd>
-        <p>Let <var>output</var> be a newly constructed object of the same class as <var>input</var>,
-      with its <span>[DataView]</span> internal property present, its <span>[ViewedArrayBuffer]</span> internal property
-      set to the value obtained from invoking the <a data-link-type="dfn" href="#internal-structured-cloning-algorithm">internal structured cloning algorithm</a> recursively with the value of the internal property on <var>input</var> as the new
-      "<var>input</var>" argument and <var>memory</var> as the new "<var>memory</var>" argument, and
-      with the <span>[ByteLength]</span> and <span>[ByteOffset]</span> internal properties set to the same value as their
-      counterparts on <var>input</var>.</p>
-        <p></p>
+       <dd> If <var>input</var> has been <a data-link-type="dfn" href="#neuter">neutered</a>, throw a <code>DataCloneError</code> exception and abort the overall <a data-link-type="dfn" href="#structured-clone">structured clone</a> algorithm. Otherwise, let <var>output</var> be a newly constructed <code>ArrayBuffer</code> object whose contents
+      are a copy of <var>input</var>’s contents, with the same length. 
+       <dt>If <var>input</var> is an object with a [[DataView|]] internal slot
+       <dd> Let <var>output</var> be a newly constructed object of the same class as <var>input</var>,
+      with its [[DataView|]] internal property present, its <span>[ViewedArrayBuffer]</span> internal property set to the value obtained from invoking
+      the <a data-link-type="dfn" href="#internal-structured-cloning-algorithm">internal structured cloning algorithm</a> recursively with the value of the
+      internal property on <var>input</var> as the new "<var>input</var>" argument and <var>memory</var> as the new "<var>memory</var>" argument, and with the <span>[ByteLength]</span> and <span>[ByteOffset]</span> internal properties set to the same
+      value as their counterparts on <var>input</var>. 
        <dt>If <var>input</var> is an <code>Array</code> object
        <dd>
-        <p>Let <var>output</var> be a newly constructed empty <code>Array</code> object whose <code>length</code> is equal to the <code>length</code> of <var>input</var>, and set <var>deep clone</var> to <i>own</i>.</p>
-        <p></p>
+         Let <var>output</var> be a newly constructed empty <code>Array</code> object whose <code>length</code> is equal to the <code>length</code> of <var>input</var>, and set <var>deep clone</var> to <i>own</i>. 
         <p class="note" role="note">This means that the length of sparse arrays is preserved.</p>
        <dt>If <var>input</var> is an <code>Object</code> object
-       <dd>
-        Let <var>output</var> be a newly constructed empty <code>Object</code> object, and set <var>deep clone</var> to <i>own</i>.
-        <p></p>
+       <dd> Let <var>output</var> be a newly constructed empty <code>Object</code> object, and set <var>deep clone</var> to <i>own</i>. 
        <dt>If <var>input</var> is a <code>Map</code> object
-       <dd>
-        Let <var>output</var> be a newly constructed empty <code>Map</code> object, and set <var>deep clone</var> to <i>map</i>.
-        <p></p>
+       <dd> Let <var>output</var> be a newly constructed empty <code>Map</code> object, and set <var>deep clone</var> to <i>map</i>. 
        <dt>If <var>input</var> is a <code>Set</code> object
-       <dd>
-        Let <var>output</var> be a newly constructed empty <code>Set</code> object, and set <var>deep clone</var> to <i>set</i>.
-        <p></p>
+       <dd> Let <var>output</var> be a newly constructed empty <code>Set</code> object, and set <var>deep clone</var> to <i>set</i>. 
        <dt>If <var>input</var> is an object that another specification defines how to clone
-       <dd>
-        Let <var>output</var> be a clone of the object as defined by the other
-     specification.
-        <p></p>
-       <dt>If <var>input</var> is another native object type (e.g. <code>Error</code>, <code>Function</code>)
-       <dt>If <var>input</var> is a host object (e.g. a DOM node)
-       <dd>
-        Throw a <code>DataCloneError</code> exception and abort the overall <span>structured
-     clone</span> algorithm.
-        <p></p>
+       <dd> Let <var>output</var> be a clone of the object as defined by the other specification. 
+       <dt> If <var>input</var> is another native object type (e.g. <code>Error</code>, <code>Function</code>) 
+       <dt>If<var>input</var> is a host object (e.g. a DOM node)
+       <dd> Throw a <code>DataCloneError</code> exception and abort the overall <a data-link-type="dfn" href="#structured-clone">structured clone</a> algorithm. 
       </dl>
       <p>For the purposes of the algorithm above, an object is a particular type of object <var>class</var> if its <span>[Class]</span> internal property is equal to <var>class</var>.</p>
-      <p></p>
-      <p class="example" id="example-9f89d81e"><a class="self-link" href="#example-9f89d81e"></a>For example, "<var>input</var> is an <code>Object</code> object" if <var>input</var>’s <span>[Class]</span> internal property is equal to the string "<code>Object</code>".</p>
-     <li>Add a mapping from <var>input</var> (the source object) to <var>output</var> (the
-   destination object) to <var>memory</var>. 
-     <li>
-      <p>If <var>deep clone</var> is set to <i>map</i>, then run these substeps. These substeps use
-    the terminology and typographic conventions used in the JavaScript specification’s definition of
-    Maps. <a href="#refsECMA262">[ECMA262]</a></p>
-      <p></p>
+      <p class="example" id="example-02c7076f"><a class="self-link" href="#example-02c7076f"></a> For example, "<var>input</var> is an <code>Object</code> object" if <var>input</var>’s <span>[Class]</span> internal property is equal to the string "<code>Object</code>". </p>
+     <li data-md="">
+      <p>Add a mapping from <var>input</var> (the source object) to <var>output</var> (the destination
+  object) to <var>memory</var>.</p>
+     <li data-md="">
+      <p>If <var>deep clone</var> is set to <i>map</i>, then run these substeps. These substeps use the
+  terminology and typographic conventions used in the JavaScript specification’s definition of
+  Maps. <a data-link-type="biblio" href="#biblio-ecma-262">[ECMA-262]</a></p>
       <ol>
-       <li>Let <var>original</var> be the List that is the value of <var>input</var>’s <span>[MapData]</span> internal slot. <a href="#refsECMA262">[ECMA262]</a> 
-       <li>Let <var>source</var> be a new empty List. 
-       <li>
-        <p>For each Record {<span>[key]</span>, <span>[value]</span>} <var>entry</var> that is an element of <var>original</var>, run the following substeps:</p>
-        <p></p>
+       <li data-md="">
+        <p>Let <var>original</var> be the List that is the value of <var>input</var>’s <span>[MapData]</span> internal slot. <a data-link-type="biblio" href="#biblio-ecma-262">[ECMA-262]</a></p>
+       <li data-md="">
+        <p>Let <var>source</var> be a new empty List.</p>
+       <li data-md="">
+        <p>For each Record {<span>[key]</span>, <span>[value]</span>} <var>entry</var> that is an
+  element of <var>original</var>, run the following substeps:</p>
         <ol>
-         <li>Let <var>new entry</var> be the Record {<span>[key]</span>: <var>entry</var>.<span>[key]</span>, <span>[value]</span>: <var>entry</var>.<span>[value]</span>}. 
-         <li>If <var>new entry</var>.<span>[key]</span> is not <i>empty</i>, append <var>new entry</var> as
-       the last element of <var>source</var>. 
+         <li data-md="">
+          <p>Let <var>new entry</var> be the Record {<span>[key]</span>: <var>entry</var>. <span>[key]</span>, <span>[value]</span>: <var>entry</var>.<span>[value]</span>}.</p>
+         <li data-md="">
+          <p>If <var>new entry</var>.<span>[key]</span> is not <i>empty</i>, append <var>new entry</var> as the
+  last element of <var>source</var>.</p>
         </ol>
-       <li>Let <var>target</var> be the List that is the value of <var>output</var>’s <span>[MapData]</span> internal slot. 
-       <li>
-        <p>For each Record {<span>[key]</span>, <span>[value]</span>} <var>entry</var> that is an element of <var>source</var>, run the following substeps:</p>
-        <p></p>
+       <li data-md="">
+        <p>Let <var>target</var> be the List that is the value of <var>output</var>’s <span>[MapData]</span> internal slot.</p>
+       <li data-md="">
+        <p>For each Record {<span>[key]</span>, <span>[value]</span>} <var>entry</var> that is an
+  element of <var>source</var>, run the following substeps:</p>
         <ol>
-         <li>Let <var>key</var> have the value obtained from invoking the <span>internal structured
-       cloning algorithm</span> recursively with <var>entry</var>.<span>[key]</span> as the new
-       "<var>input</var>" argument and <var>memory</var> as the new "<var>memory</var>"
-       argument. 
-         <li>Let <var>value</var> have the value obtained from invoking the <span>internal
-       structured cloning algorithm</span> recursively with <var>entry</var>.<span>[value]</span> as the new
-       "<var>input</var>" argument and <var>memory</var> as the new "<var>memory</var>"
-       argument. 
-         <li>Let <var>new entry</var> be the Record {<span>[key]</span>: <var>key</var>, <span>[value]</span>: <var>value</var>}. 
-         <li>Append <var>new entry</var> as the last element of <var>target</var>. 
+         <li data-md="">
+          <p>Let <var>key</var> have the value obtained from invoking the <a data-link-type="dfn" href="#internal-structured-cloning-algorithm">internal structured cloning algorithm</a> recursively with <var>entry</var>. <span>[key]</span> as the new "<var>input</var>" argument and <var>memory</var> as the
+  new "<var>memory</var>" argument.</p>
+         <li data-md="">
+          <p>Let <var>value</var> have the value obtained from invoking the <a data-link-type="dfn" href="#internal-structured-cloning-algorithm">internal structured cloning algorithm</a> recursively with <var>entry</var>. <span>[value]</span> as the new "<var>input</var>" argument and <var>memory</var> as
+  the new "<var>memory</var>" argument.</p>
+         <li data-md="">
+          <p>Let <var>new entry</var> be the Record {<span>[key]</span>: <var>key</var>, <span>[value]</span>: <var>value</var>}.</p>
+         <li data-md="">
+          <p>Append <var>new entry</var> as the last element of <var>target</var>.</p>
         </ol>
-       <li>Set <var>deep clone</var> to <i>own</i>. 
+       <li data-md="">
+        <p>Set <var>deep clone</var> to <i>own</i>.</p>
       </ol>
-     <li>
-      <p>If <var>deep clone</var> is set to <i>set</i>, then run these substeps. These
-    substeps use the terminology and typographic conventions used in the JavaScript specification’s
-    definition of Sets. <a href="#refsECMA262">[ECMA262]</a></p>
-      <p></p>
+     <li data-md="">
+      <p>If <var>deep clone</var> is set to <i>set</i>, then run these substeps. These substeps use the
+  terminology and typographic conventions used in the JavaScript specification’s definition of
+  Sets. <a data-link-type="biblio" href="#biblio-ecma-262">[ECMA-262]</a></p>
       <ol>
-       <li>Let <var>source</var> be a copy of the List that is the value of <var>input</var>’s <span>[SetData]</span> internal slot. <a href="#refsECMA262">[ECMA262]</a> 
-       <li>Let <var>target</var> be the List that is the value of <var>output</var>’s <span>[SetData]</span> internal slot. 
-       <li>
+       <li data-md="">
+        <p>Let <var>source</var> be a copy of the List that is the value of <var>input</var>’s <span>[SetData]</span> internal slot. <a data-link-type="biblio" href="#biblio-ecma-262">[ECMA-262]</a></p>
+       <li data-md="">
+        <p>Let <var>target</var> be the List that is the value of <var>output</var>’s <span>[SetData]</span> internal slot.</p>
+       <li data-md="">
         <p>For each <var>entry</var> that is an element of <var>source</var> that is not <i>empty</i>,
-      run the following substeps:</p>
-        <p></p>
+  run the following substeps:</p>
         <ol>
-         <li>Let <var>new entry</var> have the value obtained from invoking the <span>internal
-       structured cloning algorithm</span> recursively with <var>entry</var> as the new
-       "<var>input</var>" argument and <var>memory</var> as the new "<var>memory</var>"
-       argument. 
-         <li>Append <var>new entry</var> as the last element of <var>target</var>. 
+         <li data-md="">
+          <p>Let <var>new entry</var> have the value obtained from invoking the <a data-link-type="dfn" href="#internal-structured-cloning-algorithm">internal structured cloning algorithm</a> recursively with <var>entry</var> as
+  the new "<var>input</var>" argument and <var>memory</var> as the new
+  "<var>memory</var>" argument.</p>
+         <li data-md="">
+          <p>Append <var>new entry</var> as the last element of <var>target</var>.</p>
         </ol>
-       <li>Set <var>deep clone</var> to <i>own</i>. 
+       <li data-md="">
+        <p>Set <var>deep clone</var> to <i>own</i>.</p>
       </ol>
-     <li>
+     <li data-md="">
       <p>If <var>deep clone</var> is set to <i>own</i>, then, for each enumerable own property in <var>input</var>, run the following steps:</p>
-      <p></p>
       <ol>
-       <li>Let <var>name</var> be the name of the property. 
-       <li>Let <var>source value</var> be the result of calling the <span>[Get]</span> internal method of <var>input</var> with the argument <var>name</var>. If the <span>[Get]</span> internal method of a
-     property involved executing script, and that script threw an uncaught exception, then abort the
-     overall <a data-link-type="dfn" href="#structured-clone">structured clone</a> algorithm, with that exception being passed through to
-     the caller. 
-       <li>Let <var>cloned value</var> be the result of invoking the <span>internal structured
-     cloning algorithm</span> recursively with <var>source value</var> as the "<var>input</var>"
-     argument and <var>memory</var> as the "<var>memory</var>" argument. If this results in an
-     exception, then abort the overall <a data-link-type="dfn" href="#structured-clone">structured clone</a> algorithm, with that exception
-     being passed through to the caller. 
-       <li>Add a new property to <var>output</var> having the name <var>name</var>, and having
-     the value <var>cloned value</var>, using
-     CreateDataProperty(<var>output</var>, <var>name</var>, <var>cloned value</var>). 
+       <li data-md="">
+        <p>Let <var>name</var> be the name of the property.</p>
+       <li data-md="">
+        <p>Let <var>source value</var> be the result of calling the <span>[Get]</span> internal method
+  of <var>input</var> with the argument <var>name</var>. If the <span>[Get]</span> internal
+  method of a property involved executing script, and that script threw an uncaught
+  exception, then abort the overall <a data-link-type="dfn" href="#structured-clone">structured clone</a> algorithm, with that exception
+  being passed through to the caller.</p>
+       <li data-md="">
+        <p>Let <var>cloned value</var> be the result of invoking the <a data-link-type="dfn" href="#internal-structured-cloning-algorithm">internal structured cloning algorithm</a> recursively with <var>source value</var> as
+  the "<var>input</var>" argument and <var>memory</var> as the "<var>memory</var>" argument.
+  If this results in an exception, then abort the overall <a data-link-type="dfn" href="#structured-clone">structured clone</a> algorithm,
+  with that exception being passed through to the caller.</p>
+       <li data-md="">
+        <p>Add a new property to <var>output</var> having the name <var>name</var>, and having the
+  value <var>cloned value</var>, using CreateDataProperty(<var>output</var>, <var>name</var>, <var>cloned value</var>).</p>
       </ol>
       <p>The order of the properties in the <var>input</var> and <var>output</var> objects must be the
-    same, and any properties whose <span>[Get]</span> internal method involves running script must be processed
-    in that same order.</p>
-      <p></p>
+  same, and any properties whose <span>[Get]</span> internal method involves running script must be
+  processed in that same order.</p>
       <p class="note" role="note">This does not walk the prototype chain.</p>
-      <p class="note" role="note">Property descriptors, setters, getters, and analogous features are not copied in
-    this process. For example, the property in the input could be marked as read-only, but in the
-    output it would just have the default state (typically read-write, though that could depend on
-    the scripting environment).</p>
-      <p class="note" role="note">Properties of Array objects are not treated any differently than those of other
-    Objects. In particular, this means that non-index properties of arrays are copied as well.</p>
-     <li>Return <var>output</var>. 
+      <p class="note" role="note"> Property descriptors, setters, getters, and analogous features are not copied in this process.
+    For example, the property in the input could be marked as read-only, but in the output it would
+    just have the default state (typically read-write, though that could depend on the scripting
+    environment). </p>
+      <p class="note" role="note"> Properties of Array objects are not treated any differently than those of other Objects. In
+    particular, this means that non-index properties of arrays are copied as well. </p>
+     <li data-md="">
+      <p>Return <var>output</var>.</p>
     </ol>
-    <p class="note" role="note">This algorithm preserves cycles and preserves the identity of duplicate objects in
-  graphs.</p>
+    <p class="note" role="note"> This algorithm preserves cycles and preserves the identity of duplicate objects in graphs. </p>
    </div>
    <h4 class="heading settled" data-level="2.7.7" id="callbacks"><span class="secno">2.7.7. </span><span class="content">Callbacks</span><a class="self-link" href="#callbacks"></a></h4>
    <p>The following callback function type is used in various APIs that interact with <code>File</code> objects:</p>
-   <p></p>
 <pre class="idl">callback <dfn class="idl-code" data-dfn-type="callback" data-export="" id="callbackdef-filecallback">FileCallback<a class="self-link" href="#callbackdef-filecallback"></a></dfn> = void (<a data-link-type="idl-name">File</a> <dfn class="idl-code" data-dfn-for="FileCallback" data-dfn-type="argument" data-export="" id="dom-filecallback-file">file<a class="self-link" href="#dom-filecallback-file"></a></dfn>);</pre>
    <div class="impl">
     <h4 class="heading settled" data-level="2.7.8" id="garbage-collection"><span class="secno">2.7.8. </span><span class="content">Garbage collection</span><a class="self-link" href="#garbage-collection"></a></h4>
-    <p>There is an <dfn data-dfn-type="dfn" data-noexport="" id="implied-strong-reference">implied strong reference<a class="self-link" href="#implied-strong-reference"></a></dfn> from any IDL attribute that returns a
-  pre-existing object to that object.</p>
-    <p></p>
-    <div class="example" id="example-1d3d45cc">
-     <a class="self-link" href="#example-1d3d45cc"></a> 
-     <p>For example, the <code>document.location</code> attribute means
-   that there is a strong reference from a <code>Document</code> object to its <code>Location</code> object. Similarly, there is always a strong reference from a <code>Document</code> to any
-   descendant nodes, and from any node to its owner <code>Document</code>.</p>
-     <p></p>
-    </div>
+    <p>There is an <dfn data-dfn-type="dfn" data-noexport="" id="implied-strong-reference">implied strong reference<a class="self-link" href="#implied-strong-reference"></a></dfn> from any IDL attribute that returns a pre-existing
+  object to that object.</p>
+    <div class="example" id="example-2210e458"><a class="self-link" href="#example-2210e458"></a> For example, the <code>document.location</code> attribute means that there is a strong reference
+    from a <code>Document</code> object to its <code>Location</code> object. Similarly, there is
+    always a strong reference from a <code>Document</code> to any descendant nodes, and from any
+    node to its owner <code>Document</code>. </div>
    </div>
    <h3 class="heading settled" data-level="2.8" id="namespaces"><span class="secno">2.8. </span><span class="content">Namespaces</span><a class="self-link" href="#namespaces"></a></h3>
    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="html-namespace">HTML namespace<a class="self-link" href="#html-namespace"></a></dfn> is: <code>http://www.w3.org/1999/xhtml</code></p>
-   <p></p>
    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="mathml-namespace">MathML namespace<a class="self-link" href="#mathml-namespace"></a></dfn> is: <code>http://www.w3.org/1998/Math/MathML</code></p>
-   <p></p>
    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="svg-namespace">SVG namespace<a class="self-link" href="#svg-namespace"></a></dfn> is: <code>http://www.w3.org/2000/svg</code></p>
-   <p></p>
    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="xlink-namespace">XLink namespace<a class="self-link" href="#xlink-namespace"></a></dfn> is: <code>http://www.w3.org/1999/xlink</code></p>
-   <p></p>
    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="xml-namespace">XML namespace<a class="self-link" href="#xml-namespace"></a></dfn> is: <code>http://www.w3.org/XML/1998/namespace</code></p>
-   <p></p>
    <p>The <dfn data-dfn-type="dfn" data-noexport="" id="xmlns-namespace">XMLNS namespace<a class="self-link" href="#xmlns-namespace"></a></dfn> is: <code>http://www.w3.org/2000/xmlns/</code></p>
-   <p></p>
    <hr>
-   <p>Data mining tools and other user agents that perform operations
-  on content without running scripts, evaluating CSS or XPath
-  expressions, or otherwise exposing the resulting DOM to arbitrary
-  content, may "support namespaces" by just asserting that their DOM
-  node analogs are in certain namespaces, without actually exposing
-  the above strings.</p>
-   <p></p>
+   <p>Data mining tools and other user agents that perform operations on content without running
+  scripts, evaluating CSS or XPath expressions, or otherwise exposing the resulting DOM to arbitrary
+  content, may "support namespaces" by just asserting that their DOM node analogs are in certain
+  namespaces, without actually exposing the above strings.</p>
    <hr>
-   <p class="note" role="note">In <a data-link-type="dfn">the HTML syntax</a>, namespace prefixes
-  and namespace declarations do not have the same effect as in XML.
-  For instance, the colon has no special meaning in HTML element
-  names.</p>
+   <p class="note" role="note"> In <a data-link-type="dfn">the HTML syntax</a>, namespace prefixes and namespace declarations do not have the same
+    effect as in XML. For instance, the colon has no special meaning in HTML element names. </p>
    <hr>
    <hr>
    <hr>
@@ -6558,7 +6496,7 @@ form "<code>MM/DD/YYYY hh:mm:ss</code>", in the user’s local time zone.</p>
    <li><a href="#alertdialog">alertdialog</a><span>, in §2.2.2</span>
    <li><a href="#algorithm-for-extracting-a-character-encoding-from-a-meta-element">algorithm for extracting a character encoding from a meta element</a><span>, in §2.6.5</span>
    <li><a href="#all-named-elements">"all"-named elements</a><span>, in §2.7.2.1</span>
-   <li><a href="#alphanumeric-ascii-characters">alphanumeric ASCII characters</a><span>, in §2.4</span>
+   <li><a href="#alphanumeric-ascii-characters">alphanumeric ASCII characters</a><span>, in §2.4.1</span>
    <li><a href="#alternate-flag">alternate flag</a><span>, in §2.2.2</span>
    <li><a href="#alternative-style-sheet-sets">Alternative style sheet sets</a><span>, in §2.2.2</span>
    <li><a href="#anonymous">anonymous</a><span>, in §2.6.6</span>
@@ -6597,8 +6535,8 @@ form "<code>MM/DD/YYYY hh:mm:ss</code>", in the user’s local time zone.</p>
    <li><a href="#article">article</a><span>, in §2.2.2</span>
    <li><a href="#ascii-case-insensitive">ASCII case-insensitive</a><span>, in §2.3</span>
    <li><a href="#ascii-compatible-character-encoding">ASCII-compatible character encoding</a><span>, in §2.1.6</span>
-   <li><a href="#ascii-digits">ASCII digits</a><span>, in §2.4</span>
-   <li><a href="#ascii-hex-digits">ASCII hex digits</a><span>, in §2.4</span>
+   <li><a href="#ascii-digits">ASCII digits</a><span>, in §2.4.1</span>
+   <li><a href="#ascii-hex-digits">ASCII hex digits</a><span>, in §2.4.1</span>
    <li><a href="#associated-css-style-sheet">associated CSS style sheet</a><span>, in §2.2.2</span>
    <li><a href="#attr">Attr</a><span>, in §2.2.2</span>
    <li><a href="#attribute-list">attribute list</a><span>, in §2.2.2</span>
@@ -6674,7 +6612,7 @@ form "<code>MM/DD/YYYY hh:mm:ss</code>", in the user’s local time zone.</p>
    <li><a href="#content-security-policy-syntax">Content Security Policy syntax</a><span>, in §2.2.2</span>
    <li><a href="#content-type">content type</a><span>, in §2.2.2</span>
    <li><a href="#content-type-metadata">Content-Type metadata</a><span>, in §2.6.4</span>
-   <li><a href="#control-characters">control characters</a><span>, in §2.4</span>
+   <li><a href="#control-characters">control characters</a><span>, in §2.4.1</span>
    <li><a href="#converting">Converting</a><span>, in §2.2.2</span>
    <li><a href="#converting-a-string-to-ascii-lowercase">Converting a string to ASCII lowercase</a><span>, in §2.3</span>
    <li><a href="#converting-a-string-to-ascii-uppercase">Converting a string to ASCII uppercase</a><span>, in §2.3</span>
@@ -7004,8 +6942,8 @@ form "<code>MM/DD/YYYY hh:mm:ss</code>", in the user’s local time zone.</p>
     </ul>
    <li><a href="#log">log</a><span>, in §2.2.2</span>
    <li><a href="#long">long</a><span>, in §2.2.2</span>
-   <li><a href="#lowercase-ascii-hex-digits">lowercase ASCII hex digits</a><span>, in §2.4</span>
-   <li><a href="#lowercase-ascii-letters">lowercase ASCII letters</a><span>, in §2.4</span>
+   <li><a href="#lowercase-ascii-hex-digits">lowercase ASCII hex digits</a><span>, in §2.4.1</span>
+   <li><a href="#lowercase-ascii-letters">lowercase ASCII letters</a><span>, in §2.4.1</span>
    <li><a href="#mailto">mailto:</a><span>, in §2.2.2</span>
    <li><a href="#main">main</a><span>, in §2.2.2</span>
    <li><a href="#map">Map</a><span>, in §2.2.2</span>
@@ -7302,8 +7240,8 @@ form "<code>MM/DD/YYYY hh:mm:ss</code>", in the user’s local time zone.</p>
    <li><a href="#set-of-space-separated-tokens">set of space-separated tokens</a><span>, in §2.4.7</span>
    <li><a href="#set-the-password">set the password</a><span>, in §2.2.2</span>
    <li><a href="#set-the-username">set the username</a><span>, in §2.2.2</span>
-   <li><a href="#set-the-value-of-a-new-indexed-property-or-set-the-value-of-an-existing-indexed-property">set the value of a new
-  indexed property or set the value of an existing indexed property</a><span>, in §2.7.2.3</span>
+   <li><a href="#set-the-value-of-a-new-indexed-property-or-set-the-value-of-an-existing-indexed-property">set the value of a new indexed property or set the value of an
+  existing indexed property</a><span>, in §2.7.2.3</span>
    <li><a href="#setting">setting</a><span>, in §2.1.4</span>
    <li><a href="#shown">shown</a><span>, in §2.1</span>
    <li><a href="#dom-document-execcommand-commandid-showui-value-showui">showUI</a><span>, in §3.1.1</span>
@@ -7313,7 +7251,7 @@ form "<code>MM/DD/YYYY hh:mm:ss</code>", in the user’s local time zone.</p>
    <li><a href="#slider">slider</a><span>, in §2.2.2</span>
    <li><a href="#sms">sms:</a><span>, in §2.2.2</span>
    <li><a href="#sniffed-type-of-a-resource">sniffed type of a resource</a><span>, in §2.6.4</span>
-   <li><a href="#space-characters">space characters</a><span>, in §2.4</span>
+   <li><a href="#space-characters">space characters</a><span>, in §2.4.1</span>
    <li><a href="#spinbutton">spinbutton</a><span>, in §2.2.2</span>
    <li><a href="#split-a-string-on-commas">split a string on commas</a><span>, in §2.4.8</span>
    <li><a href="#split-a-string-on-spaces">split a string on spaces</a><span>, in §2.4.7</span>
@@ -7428,8 +7366,8 @@ form "<code>MM/DD/YYYY hh:mm:ss</code>", in the user’s local time zone.</p>
    <li><a href="#unordered-set-of-unique-space-separated-tokens">unordered set of unique space-separated tokens</a><span>, in §2.4.7</span>
    <li><a href="#unrestricted-double">unrestricted double</a><span>, in §2.2.2</span>
    <li><a href="#unsigned-long">unsigned long</a><span>, in §2.2.2</span>
-   <li><a href="#uppercase-ascii-hex-digits">uppercase ASCII hex digits</a><span>, in §2.4</span>
-   <li><a href="#uppercase-ascii-letters">uppercase ASCII letters</a><span>, in §2.4</span>
+   <li><a href="#uppercase-ascii-hex-digits">uppercase ASCII hex digits</a><span>, in §2.4.1</span>
+   <li><a href="#uppercase-ascii-letters">uppercase ASCII letters</a><span>, in §2.4.1</span>
    <li><a href="#url">URL</a><span>, in §2.2.2</span>
    <li>
     url
@@ -7445,7 +7383,8 @@ form "<code>MM/DD/YYYY hh:mm:ss</code>", in the user’s local time zone.</p>
    <li><a href="#urn">urn:</a><span>, in §2.2.2</span>
    <li><a href="#use-credentials0">Use Credentials</a><span>, in §2.6.6</span>
    <li><a href="#use-credentials">use-credentials</a><span>, in §2.6.6</span>
-   <li><a href="#used-to-fingerprint-the-user">used to fingerprint the user</a><span>, in §1.8</span>
+   <li><a href="#fingerprinting-vector">used to fingerprint
+  the user</a><span>, in §1.8</span>
    <li><a href="#username">username</a><span>, in §2.2.2</span>
    <li><a href="#use-url-credentials-flag">use-URL-credentials flag</a><span>, in §2.2.2</span>
    <li><a href="#usvstring">USVString</a><span>, in §2.2.2</span>
@@ -7499,7 +7438,7 @@ form "<code>MM/DD/YYYY hh:mm:ss</code>", in the user’s local time zone.</p>
    <li><a href="#webvtt-parser">WebVTT parser</a><span>, in §2.2.2</span>
    <li><a href="#week">week</a><span>, in §2.4.5.8</span>
    <li><a href="#week-number-of-the-last-day">week number of the last day</a><span>, in §2.4.5.8</span>
-   <li><a href="#white_space-characters">White_Space characters</a><span>, in §2.4</span>
+   <li><a href="#white_space-characters">White_Space characters</a><span>, in §2.4.1</span>
    <li><a href="#typedef-whitespace-token">&lt;whitespace-token></a><span>, in §2.2.2</span>
    <li><a href="#willful-violation">willful violation</a><span>, in §1.5.2</span>
    <li><a href="#dom-document-write">write()</a><span>, in §3.1.1</span>
