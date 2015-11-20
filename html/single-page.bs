@@ -7041,7 +7041,7 @@ spec:url; type:dfn; for:url; text:url
     </pre>
   </div>
 
-<h5 id="the-"nothing"-content-model">The "nothing" content model</h5>
+<h5 id="the-nothing-content-model">The "nothing" content model</h5>
 
   When an element's content model is <dfn>nothing</dfn>, the element must contain no
   <code>Text</code> nodes (other than <a>inter-element whitespace</a>) and no element nodes.
@@ -7052,7 +7052,7 @@ spec:url; type:dfn; for:url; text:url
     these are entirely separate concepts.
   </p>
 
-  <h5 id="kinds-of-content">Kinds of content</h5>
+<h5 id="kinds-of-content">Kinds of content</h5>
 
   Each element in HTML falls into zero or more <dfn>categories</dfn> that group elements with
   similar characteristics together. The following broad categories are used in this specification:
@@ -7074,7 +7074,7 @@ spec:url; type:dfn; for:url; text:url
 
   These categories are related as follows:
 
-  <object width="1000" height="288" data="images/content-venn.svg"><img src="images/content-venn.png" alt="" width="512" height="288"></object>
+  <object width="1000" height="288" data="images/content-venn.svg"><img src="images/content-venn.png" alt="" width="512" height="288" /></object>
 
   Sectioning content, heading content, phrasing content, embedded content, and interactive content
   are all types of flow content. Metadata is sometimes flow content. Metadata and interactive
