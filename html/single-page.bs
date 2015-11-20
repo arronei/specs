@@ -2727,7 +2727,7 @@ spec:url; type:dfn; for:url; text:url
     For events, experimental event types should be prefixed with vendor-specific strings.
 
     <div class="example">
-      For example, if a user agent called "Pleas<!--e h-->old" were to add an event to indicate when
+      For example, if a user agent called "Pleasold" were to add an event to indicate when
       the user is going up in an elevator, it could use the prefix "<code>pleasold</code>" and
       thus name the event "<code>pleasoldgoingup</code>", possibly with an event handler attribute
       named "<code>onpleasoldgoingup</code>".</p>
@@ -4734,7 +4734,7 @@ spec:url; type:dfn; for:url; text:url
 
     <h4 id="processing-model">Processing model</h4>
 
-    When a user agent is to <dfn>fetch</dfn><!--FETCH--> a resource or <a>URL</a>, optionally
+    When a user agent is to <dfn>fetch</dfn> a resource or <a>URL</a>, optionally
     <strong>from</strong> an origin <i>origin</i>, optionally <strong>using</strong> a specific
     <a>referrer source</a> as an <i>override referrer source</i>, and optionally with any of a
     <i>synchronous flag</i>, a <i>manual redirect flag</i>, a <i>force same-origin flag</i>, and a
@@ -6689,9 +6689,9 @@ spec:url; type:dfn; for:url; text:url
   <div class="impl">
     <h4 id="loading-xml-documents">Loading XML documents</h4>
 
-    <pre class="idl">
-      partial interface <a>XMLDocument</a> {
-        boolean <a>load</a>(DOMString url);
+    <pre class="idl" highlight="webidl">
+      partial interface XMLDocument {
+        boolean load(DOMString url);
       };
     </pre>
 
@@ -6881,8 +6881,8 @@ spec:url; type:dfn; for:url; text:url
   specification. This includes <a>HTML elements</a> in <a>XML documents</a>, even when those
   documents are in another context (e.g. inside an XSLT transform).
 
-  Elements in the DOM <dfn data-x="represents">represent</dfn> things; that is, they have intrinsic
-  <em>meaning</em>, also known as semantics.
+  Elements in the DOM <dfn>represent</dfn> things; that is, they have intrinsic <em>meaning</em>,
+  also known as semantics.
 
   <p class="example">For example, an <code>ol</code> element represents an ordered list.</p>
 
@@ -7033,7 +7033,7 @@ spec:url; type:dfn; for:url; text:url
     script is conforming, even though <code>td</code> elements are otherwise only supposed to be used
     inside <code>tr</code> elements.
 
-    <pre>
+    <pre highlight="javascript">
       var data = {
         name: "Banana",
         cell: document.createElement('td'),
@@ -7703,7 +7703,7 @@ spec:url; type:dfn; for:url; text:url
 
     To avoid this confusion, explicit <code>p</code> elements can be used. For example:
 
-    <pre>
+    <pre highlight="html">
       &lt;section>
         &lt;h2>My Cats&lt;/h2>
         &lt;p>You can play with my cat simulator.&lt;/p>
@@ -8146,8 +8146,8 @@ spec:url; type:dfn; for:url; text:url
         &lt;body>
           &lt;p>The Bee Game is a text adventure game in English.&lt;/p>
           &lt;p>When the game launches, the first thing you should do is type
-            &lt;kbd <strong>translate=no</strong>>eat honey&lt;/kbd>. The game will respond with:&lt;/p>
-        &lt;pre>&lt;samp <strong>translate=no</strong>>Yum yum! That was some good honey!&lt;/samp>&lt;/pre>
+            &lt;kbd translate=no>eat honey&lt;/kbd>. The game will respond with:&lt;/p>
+        &lt;pre>&lt;samp translate=no>Yum yum! That was some good honey!&lt;/samp>&lt;/pre>
         &lt;/body>
       &lt;/html>
     </pre>
@@ -9677,7 +9677,7 @@ spec:url; type:dfn; for:url; text:url
     painful reading of lots of punctuation. Using the features described in this section, one can
     instead make the ATs skip the ASCII art and just read the caption:
 
-    <pre>
+    <pre highlight="html">
       &lt;figure <strong>role="img" aria-labelledby="fish-caption"</strong>>
         &lt;pre>
         o           .'`/
@@ -10543,7 +10543,749 @@ spec:url; type:dfn; for:url; text:url
 <hr />
 <hr />
 
+<h2 id="semantics">The elements of HTML</h2>
 
+<h3 id="the-root-element">The root element</h3>
+
+<h4 id="the-html-element">The <dfn><code>html</code></dfn> element</h4>
+
+  <dl class="element">
+    <dt><a>Categories</a>:</dt>
+    <dd>None.</dd>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
+    <dd>As the root element of a document.</dd>
+    <dd>Wherever a subdocument fragment is allowed in a compound document.</dd>
+    <dt><a>Content model</a>:</dt>
+    <dd>A <code>head</code> element followed by a <code>body</code> element.</dd>
+    <dt><a>Content attributes</a>:</dt>
+    <dd><a>Global attributes</a></dd>
+    <dd><code>manifest</code> — <a >Application cache manifest</a></dd>
+    <dt><a>Tag omission in text/html</a>:</dt>
+    <dd>
+      An <code>html</code> element's <a>start tag</a> can be omitted if the first thing inside the
+      <code>html</a></code> element is not a <a>comment</a>.
+    </dd>
+    <dd>
+      An <code>html</code> element's <a>end tag</a> can be omitted if the <code>html</code> element is
+      not immediately followed by a <a>comment</a>.
+    </dd>
+    <dt>Allowed <a >ARIA role attribute</a> values:</dt>
+    <dd>None</dd>
+    <dt>Allowed <a >ARIA state and property attributes</a>:</dt>
+    <dd><a >Global aria-* attributes</a></dd>
+    <dt><a>DOM interface</a>:</dt>
+    <dd>
+      <pre class="idl" highlight="webidl">
+        interface HTMLHtmlElement : HTMLElement {};
+      </pre>
+    </dd>
+  </dl>
+
+  The <code>html</code> element <a>represents</a> the root of an HTML document.
+
+  Authors are encouraged to specify a <code>lang</code> attribute on the root <code>html</code>
+  element, giving the document's language. This aids speech synthesis tools to determine what
+  pronunciations to use, translation tools to determine what rules to use, and so
+  forth.
+
+  The <dfn><code>manifest</code></dfn> attribute gives the address of the document's
+  <a>application cache</a> <a>manifest</a>, if there is one. If the attribute is present,
+  the attribute's value must be a <a>valid non-empty URL potentially surrounded by spaces</a>.
+
+  The <code>manifest</code> attribute only <a>has an effect</a> during the early stages of document
+  load. Changing the attribute dynamically thus has no effect (and thus, no DOM API is provided for
+  this attribute).
+
+  <p class="note">
+    For the purposes of <a>application cache selection</a>, later <code>base</code> elements cannot
+    affect the <a>resolving of relative URLs</a> in <code>manifest</code> attributes, as the
+    attributes are processed before those elements are seen.
+  </p>
+
+  <p class="note">
+    The <code>window.applicationCache</code> IDL attribute provides scripted access to the offline
+    <a>application cache</a> mechanism.
+  </p>
+
+  <div class="example">
+    The <code>html</code> element in the following example declares that the document's language is
+    English.
+
+    <pre highlight="html">
+      &lt;!DOCTYPE html>
+      &lt;html lang="en">
+        &lt;head>
+          &lt;title>Swapping Songs&lt;/title>
+        &lt;/head>
+        &lt;body>
+          &lt;h1>Swapping Songs&lt;/h1>
+          &lt;p>Tonight I swapped some of the songs I wrote with some friends, who
+          gave me some of the songs they wrote. I love sharing my music.&lt;/p>
+        &lt;/body>
+      &lt;/html>
+    </pre>
+  </div>
+
+<h3 id="document-metadata">Document metadata</h3>
+
+<h4 id="the-head-element">The <dfn><code>head</code></dfn> element</h4>
+
+  <dl class="element">
+    <dt><a>Categories</a>:</dt>
+    <dd>None.</dd>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
+    <dd>As the first element in an <code>html</code> element.</dd>
+    <dt><a>Content model</a>:</dt>
+    <dd>
+      If the document is <a>an <code>iframe</code> <code>srcdoc</code> document</a> or if title
+      information is available from a higher-level protocol: Zero or more elements of
+      <a>metadata content</a>, of which no more than one is a <code>title</code> element and no more
+      than one is a <code>base</code> element.
+    </dd>
+    <dd>
+      Otherwise: One or more elements of <a>metadata content</a>, of which exactly one is a
+      <code>title</code> element and no more than one is a <code>base</code> element.
+    </dd>
+    <dt><a>Content attributes</a>:</dt>
+    <dd><a>Global attributes</a></dd>
+    <dt><a>Tag omission in text/html</a>:</dt>
+    <dd>
+      A <code>head</code> element's <a>start tag</a> may be omitted if the element is empty, or if
+      the first thing inside the <code>head</code> element is an element.
+    </dd>
+    <dd>
+      A <code>head</code> element's <a>end tag</a> may be omitted if the <code>head</code> element
+      is not immediately followed by a <a>space character</span> or a <span>comment</a>.
+    </dd>
+    <dt>Allowed <a>ARIA role attribute</a> values:</dt>
+    <dd>None</dd>
+    <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
+    <dd><a>Global aria-* attributes</a></dd>
+    <dt><a>DOM interface</a>:</dt>
+    <dd>
+      <pre class="idl" highlight="webidl">
+        interface <dfn>HTMLHeadElement</dfn> : <a>HTMLElement</a> {};
+      </pre>
+    </dd>
+  </dl>
+
+  The <code>head</code> element <a>represents</a> a collection of metadata for the
+  <code>Document</code>.
+
+  <div class="example">
+    The collection of metadata in a <code>head</code> element can be large or small. Here is an
+    example of a very short one:
+
+    <pre highlight="html">
+      &lt;!doctype html>
+      &lt;html>
+        &lt;head>
+          &lt;title>A document with a short head&lt;/title>
+        &lt;/head>
+        &lt;body>
+          ...
+    </pre>
+
+    Here is an example of a longer one:
+
+    <pre highlight="html">
+      &lt;!DOCTYPE HTML>
+        &lt;HTML>
+        &lt;HEAD>
+          &lt;META CHARSET="UTF-8">
+          &lt;BASE HREF="http://www.example.com/">
+          &lt;TITLE>An application with a long head&lt;/TITLE>
+          &lt;LINK REL="STYLESHEET" HREF="default.css">
+          &lt;LINK REL="STYLESHEET ALTERNATE" HREF="big.css" TITLE="Big Text">
+          &lt;SCRIPT SRC="support.js">&lt;/SCRIPT>
+          &lt;META NAME="APPLICATION-NAME" CONTENT="Long headed application">
+        &lt;/HEAD>
+        &lt;BODY>
+          ...
+    </pre>
+  </div>
+
+  <p class="note">
+    The <code>title</code> element is a required child in most situations, but when a higher-level
+    protocol provides title information, e.g. in the Subject line of an e-mail when HTML is used as
+    an e-mail authoring format, the <code>title</code> element can be omitted.
+  </p>
+
+<h4 id="the-title-element">The <dfn><code>title</code></dfn> element</h4>
+
+  <dl class="element">
+    <dt><a>Categories</a>:</dt>
+    <dd><a>Metadata content</a>.</dd>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
+    <dd>In a <code>head</code> element containing no other <code>title</code> elements.</dd>
+    <dt><a>Content model</a>:</dt>
+    <dd><a>Text</a> that is not <a>inter-element whitespace</a>.</dd>
+    <dt><a>Content attributes</a>:</dt>
+    <dd><a>Global attributes</a></dd>
+    <dt><a>Tag omission in text/html</a>:</dt>
+    <dd>Neither tag is omissible.</dd>
+    <dt>Allowed <a>ARIA role attribute</a> values:</dt>
+    <dd>None</dd>
+    <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
+    <dd><a>Global aria-* attributes</a></dd>
+    <dt><a>DOM interface</a>:</dt>
+    <dd>
+      <pre class="idl" hightlight="webidl">
+        interface HTMLTitleElement : HTMLElement {
+          attribute DOMString text;
+        };
+      </pre>
+    </dd>
+  </dl>
+
+  The <code>title</code> element <a>represents</a> the document's title or name. Authors should use
+  titles that identify their documents even when they are used out of context, for example in a
+  user's history or bookmarks, or in search results. The document's title is often different from
+  its first heading, since the first heading does not have to stand alone when taken out of context.
+
+  There must be no more than one <code>title</code> element per document.
+
+  <p class="note">
+    If it's reasonable for the <code>Document</code> to have no title, then the <code>title</code>
+    element is probably not required. See the <code>head</code> element's content model for a
+    description of when the element is required.
+  </p>
+
+  <dl class="domintro">
+    <dt><var>title</var> . <code>text</code> [ = <var>value</var> ]</dt>
+    <dd>
+      Returns the contents of the element, ignoring child nodes that aren't <code>Text</code> nodes.
+
+      Can be set, to replace the element's children with the given value.
+    </dd>
+  </dl>
+
+  <div class="impl">
+    The IDL attribute <dfn><code>text</code></dfn> must return a concatenation of the contents of
+    all the <code>Text</code> nodes that are children of the <code>title</code> element (ignoring
+    any other nodes such as comments or elements), in <a>tree order</a>. On setting, it must act the
+    same way as the <code>textContent</code> IDL attribute.
+  </div>
+
+  <div class="example">
+    Here are some examples of appropriate titles, contrasted with the top-level headings that
+    might be used on those same pages.
+
+    <pre highlight="html">
+      &lt;title>Introduction to The Mating Rituals of Bees&lt;/title>
+      ...
+      &lt;h1>Introduction&lt;/h1>
+      &lt;p>This companion guide to the highly successful
+      &lt;cite>Introduction to Medieval Bee-Keeping&lt;/cite> book is...
+    </pre>
+
+    The next page might be a part of the same site. Note how the title describes the subject matter
+    unambiguously, while the first heading assumes the reader knows what the context is and
+    therefore won't wonder if the dances are Salsa or Waltz:
+
+    <pre highlight="html">
+      &lt;title>Dances used during bee mating rituals&lt;/title>
+      ...
+      &lt;h2>The Dances&lt;/h2>
+    </pre>
+  </div>
+
+  The string to use as the document's title is given by the <code>document.title</code> IDL
+  attribute.
+
+  <div class="impl">
+    User agents should use the document's title when referring to the document in their user
+    interface. When the contents of a <code>title</code> element are used in this way,
+    <a>the directionality</a> of that <code>title</code> element should be used to set the
+    directionality of the document's title in the user interface.
+  </div>
+
+<h4 id="the-base-element">The <dfn><code>base</code></dfn> element</h4>
+
+  <dl class="element">
+    <dt><a>Categories</a>:</dt>
+    <dd><a>Metadata content</a>.</dd>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
+    <dd>In a <code>head</code> element containing no other <code>base</code> elements.</dd>
+    <dt><a>Content model</a>:</dt>
+    <dd><a>Nothing</a>.</dd>
+    <dt><a>Content attributes</a>:</dt>
+    <dd><a>Global attributes</a></dd>
+    <dd><code>href</code> — <a>Document base URL</a></dd>
+    <dd>
+      <code>target</code> — Default <a>browsing context</a> for <a>hyperlink</a> <a>navigation</a>
+      and <a>form submission</a>
+    </dd>
+    <dt><a>Tag omission in text/html</a>:</dt>
+    <dd>No end tag.</dd>
+    <dt>Allowed <a>ARIA role attribute</a> values:</dt>
+    <dd>None</dd>
+    <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
+    <dd><a>Global aria-* attributes</a>.</dd>
+    <dt><a>DOM interface</a>:</dt>
+    <dd>
+      <pre class="idl" highlight="webidl">
+        interface HTMLBaseElement : HTMLElement {
+          attribute DOMString href;
+          attribute DOMString target;
+        };
+      </pre>
+    </dd>
+  </dl>
+
+  The <code>base</code> element allows authors to specify the <a>document base URL</a> for the
+  purposes of <a>resolving relative URLs</a>, and the name of the default <a>browsing context</a>
+  for the purposes of <a>following hyperlinks</a>. The element does not <a>represent</a> any content
+  beyond this information.
+
+  There must be no more than one <code>base</code> element per document.
+
+  A <code>base</code> element must have either an <code>href</code> attribute, a <code>target</code>
+  attribute, or both.
+
+  The <dfn><code>href</code></dfn> content attribute, if specified, must contain a <a>valid URL
+  potentially surrounded by spaces</a>.
+
+  A <code>base</code> element, if it has an <code>href</code> attribute, must come before any other
+  elements in the tree that have attributes defined as taking <a>URLs</a>, except the
+  <code>html</code> element (its <code>manifest</code> attribute isn't affected by
+  <code>xml:base</code> attributes or <code>base</code> elements).
+
+  <div class="impl">
+    <p class="note">
+      If there are multiple <code>base</code> elements with <code>href</code> attributes, all but
+      the first are ignored.
+    </p>
+  </div>
+
+  The <dfn><code>target</code></dfn> attribute, if specified, must contain a <a>valid browsing
+  context name or keyword</a>, which specifies which <a>browsing context</a> is to be used as the
+  default when <a>hyperlinks</a> and <a>forms</a> in the <code>Document</code> cause
+  <a>navigation</a>.
+
+  A <code>base</code> element, if it has a <code>target</code> attribute, must come before any
+  elements in the tree that represent <a>hyperlinks</a>.
+
+  <div class="impl">
+    <p class="note">
+      If there are multiple <code>base</code> elements with <code>target</code> attributes, all but
+      the first are ignored.
+    </p>
+
+    A <code>base</code> element that is the first <code>base</code> element with an
+    <code>href</code> content attribute in a particular <code>Document</code> has a
+    <dfn>frozen base URL</dfn>. The <a>frozen base URL</a> must be <a>immediately</a> <a>set</a>
+    whenever any of the following situations occur:
+
+    * The <code>base</code> element becomes the first <code>base</code> element in <a>tree order</a>
+        with an <code>href</code> content attribute in its <code>Document</code>.
+
+    * The <code>base</code> element is the first <code>base</code> element in <a>tree order</a> with
+        an <code>href</code> content attribute in its <code>Document</code>, and its
+        <code>href</code> content attribute is changed.
+
+    To <dfn>set the frozen base URL</dfn>, <a>resolve</a> the value of the element's
+    <code>href</code> content attribute relative to the <code>Document</code>'s
+    <a>fallback base URL</a>; if this is successful, set the <a>frozen base URL</a> to the
+    <a>resulting absolute URL</a>, otherwise, set the <a>frozen base URL</a> to the
+    <a>fallback base URL</a>.
+
+    The <dfn><code>href</code></dfn> IDL attribute, on getting, must return the result of running
+    the following algorithm:
+
+    1. If the <code>base</code> element has no <code>href</code> content attribute, then return the
+        <a>document base URL</a> and abort these steps.
+    2. Let <var>fallback base url</var> be the <code>Document</code>'s <a>fallback base URL</a>.
+    3. Let <var>url</var> be the value of the <code>href</code> attribute of the <code>base</code>
+        element.
+    4. <a>Resolve</a> <var>url</var> relative to <var>fallback base url</var> (thus, the
+        <code>base</code>'s <code>href</code> attribute isn't affected by other <code>base</code>
+        elements).
+    5. If the previous step was successful, return the resulting <a>absolute URL</a> and abort these
+        steps.
+    6. Otherwise, return the empty string.
+
+    The <code>href</code> IDL attribute, on setting, must set the <code>href</code> content
+    attribute to the given new value.
+
+    The <dfn><code>target</code></dfn> IDL attribute must <a>reflect</a> the content attribute of
+    the same name.
+  </div>
+
+  <div class="example">
+    In this example, a <code>base</code> element is used to set the <a>document base
+    URL</a>:
+
+    <pre highlight="html">
+      &lt;!DOCTYPE html>
+      &lt;html>
+        &lt;head>
+          &lt;title>This is an example for the &amp;lt;base&amp;gt; element&lt;/title>
+          &lt;base href="http://www.example.com/news/index.html">
+        &lt;/head>
+        &lt;body>
+          &lt;p>Visit the &lt;a href="archives.html">archives&lt;/a>.&lt;/p>
+        &lt;/body>
+      &lt;/html>
+    </pre>
+
+    The link in the above example would be a link to
+    "<code>http://www.example.com/news/archives.html</code>".
+  </div>
+
+<h4 id="the-link-element">The <dfn><code>link</code></dfn> element</h4>
+
+  <dl class="element">
+    <dt><a>Categories</a>:</dt>
+    <dd><a>Metadata content</a>.</dd>
+    <dd>If the <code>itemprop</code> attribute is present: <a>flow content</a>.</dd>
+    <dd>If the <code>itemprop</code> attribute is present: <a>phrasing content</a>.</dd>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
+    <dd>Where <a>metadata content</a> is expected.</dd>
+    <dd>In a <code>noscript</code> element that is a child of a <code>head</code> element.</dd>
+    <dd>
+      If the <code>itemprop</code> attribute is present: where <a>phrasing content</a> is expected.
+    </dd>
+    <dt><a>Content model</a>:</dt>
+    <dd><a>Nothing</a>.</dd>
+    <dt><a>Content attributes</a>:</dt>
+    <dd><a>Global attributes</a></dd>
+    <dd><code>href</code> — Address of the <a>hyperlink</a></dd>
+    <dd><code>crossorigin</code> — How the element handles crossorigin requests</dd>
+    <dd>
+      <code>rel</code> — Relationship between the document containing the hyperlink and the
+      destination resource
+    </dd>
+    <dd><code>media</code> — Applicable media</dd>
+    <dd><code>hreflang</code> — Language of the linked resource</dd>
+    <dd><code>type</code> — Hint for the type of the referenced resource</dd>
+    <dd><code>sizes</code> — Sizes of the icons (for <code>rel</code>="<code>icon</code>")</dd>
+    <dd>
+      Also, the <code>title</code> attribute has special semantics on this element:  Title of the
+      link; alternative style sheet set name.
+    </dd>
+    <dt><a>Tag omission in text/html</a>:</dt>
+    <dd>No <a>end tag</a>.</dd>
+    <dt>Allowed <a>ARIA role attribute</a> values:</dt>
+    <dd><a><code title="">link</code></a> (default - <a><em>do not set</em></a>).</dd>
+    <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
+    <dd><a>Global aria-* attributes</a></dd>
+    <dd>Any <code title="">aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
+    <dd>For <code>role</code> value </dd>
+    <dt><a>DOM interface</a>:</dt>
+    <dd>
+      <pre class="idl" highlight="webidl">
+        interface HTMLLinkElement : HTMLElement {
+          attribute DOMString href;
+          attribute DOMString? crossOrigin;
+          attribute DOMString rel;
+
+          attribute DOMString rev;
+          readonly attribute DOMTokenList relList;
+          attribute DOMString media;
+          attribute DOMString hreflang;
+          attribute DOMString type;
+          [PutForwards=value] readonly attribute DOMSettableTokenList sizes;
+        };
+        HTMLLinkElement implements LinkStyle;
+      </pre>
+    </dd>
+  </dl>
+
+  The <code>link</code> element allows authors to link their document to other resources.
+
+  The destination of the link(s) is given by the <dfn><code>href</code></dfn> attribute, which must
+  be present and must contain a <a>valid non-empty URL potentially surrounded by spaces</a>.
+  <span class="impl">If the <code>href</code> attribute is absent, then the element does not define
+  a link.</span>
+
+  A <code>link</code> element must have either a <code>rel</code> attribute or an
+  <code>itemprop</code> attribute, but not both.
+
+  <p class="note">
+    If the <code>rel</code> attribute is used, the element is restricted to the <code>head</code>
+    element. When used with the <code>itemprop</code> attribute, the element can be used both in the
+    <code>head</code> element and in the <code>body</code> of the page, subject to the constraints
+    of the microdata model.
+  </p>
+
+  The types of link indicated (the relationships) are given by the value of the
+  <dfn><code>rel</code></dfn> attribute, which, if present, must have a value that is a <a>set of
+  space-separated tokens</a>. The <a>allowed keywords and their meanings</a> are defined in a later
+  section. <span class="impl">If the <code>rel</code> attribute is absent, has no keywords, or if
+  none of the keywords used are allowed according to the definitions in this specification, then the
+  element does not create any links.</span>
+
+  Two categories of links can be created using the <code>link</code> element:
+  <a>Links to external resources</a> and <a>hyperlinks</a>. The <a>link types section</a> defines
+  whether a particular link type is an external resource or a hyperlink. One <code>link</code>
+  element can create multiple links (of which some might be external resource links and some might
+  be hyperlinks); exactly which and how many links are created depends on the keywords given in the
+  <code>rel</code> attribute. User agents must process the links on a per-link
+  basis, not a per-element basis.
+
+  <p class="note">
+    Each link created for a <code>link</code> element is handled separately. For instance, if there
+    are two <code>link</code> elements with <code>rel="stylesheet"</code>, they each count as a
+    separate external resource, and each is affected by its own attributes independently. Similarly,
+    if a single <code>link</code> element has a <code>rel</code> attribute with the value
+    <code>next stylesheet</code>, it creates both a <a>hyperlink</a> (for the <code>next</code>
+    keyword) and an <a>external resource link</a> (for the <code>stylesheet</code> keyword), and
+    they are affected by other attributes (such as <code>media</code> or <code>title</code>)
+    differently.
+  </p>
+
+  <div class="example">
+    For example, the following <code>link</code> element creates two hyperlinks (to the same page):
+
+    <pre highlight="html">&lt;link rel="author license" href="/about"></pre>
+
+    The two links created by this element are one whose semantic is that the target page has
+    information about the current page's author, and one whose semantic is that the target page has
+    information regarding the license under which the current page is provided.
+  </div>
+
+  The <dfn><code>crossorigin</code></dfn> attribute is a <a>CORS settings attribute</a>. It is
+  intended for use with external resource links.
+
+  The exact behavior for links to external resources depends on the exact relationship, as defined
+  for the relevant link type. Some of the attributes control whether or not the external resource is
+  to be applied (as defined below).
+
+  <div class="impl">
+    For external resources that are represented in the DOM (for example, style sheets), the DOM
+    representation must be made available (modulo cross-origin restrictions) even if the resource is
+    not applied. To <dfn>obtain the resource</dfn>, the user agent must
+    run the following steps:
+
+    1. If the <code>href</code> attribute's value is the empty string, then abort these steps.
+    2. <a>Resolve</a> the <a>URL</a> given by the <code>href</code> attribute, relative to the element.
+    3. If the previous step fails, then abort these steps.
+    4. Let <var>corsAttributeState</var> be the current state of the element's
+        <code>crossorigin</code> content attribute.
+    5. Let <var>request</var> be the result of <a>creating a potential-CORS request</a> given the
+        <a>absolute URL</a> and <var>corsAttributeState</var>.
+    6. Set <var>request</var>'s <a>client</a> to the <code>link</code> element's
+        <a>node document</a>'s <code>Window</code> object's <a>environment settings object</a>.
+    7. <a>Fetch</a> <var>request</var>.
+
+    User agents may opt to only try to obtain such resources when they are needed, instead of
+    pro-actively fetching all the external resources that are not applied.
+
+    The semantics of the protocol used (e.g. HTTP) must be followed when fetching external
+    resources. (For example, redirects will be followed and 404 responses will cause the external
+    resource to not be applied.)
+
+    Once the attempts to obtain the resource and its <a>critical subresources</a> are complete, the
+    user agent must, if the loads were successful, <a>queue a task</a> to <a>fire a simple event</a>
+    named <code>load</code> at the <code>link</code> element, or, if the resource or one of its
+    <a>critical subresources</a> failed to completely load for any reason (e.g. DNS error, HTTP 404
+    response, a connection being prematurely closed, unsupported Content-Type), <a>queue a task</a>
+    to <a>fire a simple event</a> named <code>error</code> at the <code>link</code> element.
+    Non-network errors in processing the resource or its subresources (e.g. CSS parse errors, PNG
+    decoding errors) are not failures for the purposes of this paragraph.
+
+    The <a>task source</a> for these <a>tasks</a> is the <a>DOM manipulation task source</a>.
+
+    The element must <a>delay the load event</a> of the element's <a>node document</a> until all the
+    attempts to obtain the resource and its <a>critical subresources</a> are complete. (Resources
+    that the user agent has not yet attempted to obtain, e.g. because it is waiting for the resource
+    to be needed, do not <a>delay the load event</a>.)
+
+    <hr />
+
+    Interactive user agents may provide users with a means to <a>follow the hyperlinks</a> created
+    using the <code>link</code> element, somewhere within their user interface. The exact interface
+    is not defined by this specification, but it could include the following information (obtained
+    from the element's attributes, again as defined below), in some form or another (possibly
+    simplified), for each hyperlink created with each <code>link</code> element in the document:
+
+    * The relationship between this document and the resource (given by the <code>rel</code> attribute)
+    * The title of the resource (given by the <code>title</code> attribute).
+    * The address of the resource (given by the <code>href</code> attribute).
+    * The language of the resource (given by the <code>hreflang</code> attribute).
+    * The optimum media for the resource (given by the <code>media</code> attribute).
+
+    User agents could also include other information, such as the type of the resource (as given by
+    the <code>type</code> attribute).
+  </div>
+
+  <p class="note">
+    Hyperlinks created with the <code>link</code> element and its <code>rel</code> attribute apply
+    to the whole page. This contrasts with the <code>rel</code> attribute of <code>a</code> and
+    <code>area</code> elements, which indicates the type of a link whose context is given by the
+    link's location within the document.
+  </p>
+
+  The <dfn><code>media</code></dfn> attribute says which media the resource applies to. The value
+  must be a <a>valid media query list</a>.
+
+  <div class="impl">
+    If the link is a <a>hyperlink</a> then the <code>media</code> attribute is purely advisory, and
+    describes for which media the document in question was designed.
+
+    However, if the link is an <a>external resource link</a>, then the <code>media</code> attribute
+    is prescriptive. The user agent must apply the external resource when the <code>media</code>
+    attribute's value <a>matches the environment</a> and the other relevant conditions apply, and
+    must not apply it otherwise.
+
+    <p class="note">
+      The external resource might have further restrictions defined within that limit its
+      applicability. For example, a CSS style sheet might have some <code>@media</code> blocks. This
+      specification does not override such further restrictions or requirements.
+    </p>
+  </div>
+
+  The default, if the <code>media</code> attribute is omitted, is "<code>all</code>", meaning that
+  by default links apply to all media.
+
+  The <dfn><code>hreflang</code></dfn> attribute on the <code>link</code> element has the same
+  semantics as the <a><code>hreflang</code> attribute on the <code>a</code> element</a>.
+
+  The <dfn><code>type</code></dfn> attribute gives the <a>MIME type</a> of the linked resource. It
+  is purely advisory. The value must be a <a>valid MIME type</a>.
+
+  For <a>external resource links</a>, the <code>type</code> attribute is used as a hint to user
+  agents so that they can avoid fetching resources they do not support. <span class="impl">If the
+  attribute is present, then the user agent must assume that the resource is of the given type (even
+  if that is not a <a>valid MIME type</a>, e.g. the empty string). If the attribute is omitted, but
+  the external resource link type has a default type defined, then the user agent must assume that
+  the resource is of that type. If the UA does not support the given <a>MIME type</a> for the given
+  link relationship, then the UA should not <a>obtain</a> the resource; if the UA does support the
+  given <a>MIME type</a> for the given link relationship, then the UA should <a>obtain</a> the
+  resource at the appropriate time as specified for the <a>external resource link</a>'s particular
+  type. If the attribute is omitted, and the external resource link type does not have a default
+  type defined, but the user agent would <a>obtain</a> the resource if the type was known and
+  supported, then the user agent should <a>obtain</a> the resource under the assumption that it will
+  be supported.</span>
+
+  <div class="impl">
+    User agents must not consider the <code>type</code> attribute authoritative &mdash; upon
+    fetching the resource, user agents must not use the <code>type</code> attribute to determine its
+    actual type. Only the actual type (as defined in the next paragraph) is used to determine
+    whether to <em>apply</em> the resource, not the aforementioned assumed type.
+
+    If the external resource link type defines rules for processing the resource's
+    <a>Content-Type metadata</a>, then those rules apply. Otherwise, if the resource is expected to
+    be an image, user agents may apply the <a>image sniffing rules</a>, with the
+    <var>official type</var> being the type determined from the resource's
+    <a>Content-Type metadata</a>, and use the resulting sniffed type of the resource as if it was
+    the actual type. Otherwise, if neither of these conditions apply or if the user agent opts not
+    to apply the image sniffing rules, then the user agent must use the resource's
+    <a>Content-Type metadata</a> to determine the type of the resource. If there is no type
+    metadata, but the external resource link type has a default type defined, then the user agent
+    must assume that the resource is of that type.
+
+    <p class="note">
+      The <code>stylesheet</code> link type defines rules for processing the resource's
+      <a>Content-Type metadata</a>.
+    </p>
+
+    Once the user agent has established the type of the resource, the user agent must apply the
+    resource if it is of a supported type and the other relevant conditions apply, and must ignore
+    the resource otherwise.
+
+    <div class="example">
+      If a document contains style sheet links labeled as follows:
+
+      <pre highlight="html">
+        &lt;link rel="stylesheet" href="A" type="text/plain"&gt;
+        &lt;link rel="stylesheet" href="B" type="text/css"&gt;
+        &lt;link rel="stylesheet" href="C"&gt;
+      </pre>
+
+     ...then a compliant UA that supported only CSS style sheets would fetch the B and C files, and
+     skip the A file (since <code>text/plain</code> is not the <a>MIME type</a> for CSS style
+     sheets).
+
+     For files B and C, it would then check the actual types returned by the server. For those that
+     are sent as <code>text/css</code>, it would apply the styles, but for those labeled as
+     <code>text/plain</code>, or any other type, it would not.
+
+     If one of the two files was returned without a <a>Content-Type</a> metadata, or with a
+     syntactically incorrect type like <code>Content-Type:&nbsp;"null"</code>, then the default type
+     for <code>stylesheet</code> links would kick in. Since that default type is
+     <code>text/css</code>, the style sheet <em>would</em> nonetheless be applied.
+    </div>
+  </div>
+
+  The <dfn><code>title</code></dfn> attribute gives the title of the link. With one exception, it is
+  purely advisory. The value is text. The exception is for style sheet links, where the
+  <code>title</code> attribute defines <a>alternative style sheet sets</a>.
+
+  <p class="note">
+    The <code>title</code> attribute on <code>link</code> elements differs from the global
+    <code>title</code> attribute of most other elements in that a link without a title does not
+    inherit the title of the parent element: it merely has no title.
+  </p>
+
+  The <code>sizes</code> attribute is used with the <code>icon</code> link type. The attribute must
+  not be specified on <code>link</code> elements that do not have a <code>rel</code> attribute that
+  specifies the <code>icon</code> keyword.
+
+  <div class="impl">
+    The <a>activation behavior</a> of <code>link</code> elements that create <a>hyperlinks</a> is to
+    run the following steps:
+
+    1. If the <code>link</code> element's <a>node document</a> is not <a>fully active</a>, then abort
+        these steps.
+    2. <a>Follow the hyperlink</a> created by the<code>link</code> element.
+
+    HTTP <code>Link:</code> headers, if supported, must be assumed to come before any links in the
+    document, in the order that they were given in the HTTP message. These headers are to be
+    processed according to the rules given in the relevant specifications. [[!HTTP11]] [[!RFC5988]]
+
+    <p class="note">
+      Registration of relation types in HTTP Link: headers is distinct from <a>HTML link types</a>,
+      and thus their semantics can be different from same-named HTML types.
+    </p>
+
+    The IDL attributes <dfn><code>href</code></dfn>, <dfn><code>rel</code></dfn>,
+    <dfn><code>rev</code></dfn>, <dfn><code>media</code></dfn>, <dfn><code>hreflang</code></dfn>,
+    <dfn><code>type</code></dfn>, and <dfn><code>sizes</code></dfn> each must <a>reflect</a> the
+    respective content attributes of the same name.
+
+    The <dfn><code>crossOrigin</code></dfn> IDL attribute must <a>reflect</a> the
+    <code>crossorigin</code> content attribute.
+
+    The IDL attribute <dfn><code>relList</code></dfn> <span class="impl">must</span> <a>reflect</a>
+    the <code>rel</code> content attribute.
+  </div>
+
+  The <code>LinkStyle</code> interface is also implemented by this element. [[!CSSOM]]
+
+  <div class="example">
+    Here, a set of <code>link</code> elements provide some style sheets:
+
+    <pre highlight="html">
+      &lt;!-- a persistent style sheet -->
+      &lt;link rel="stylesheet" href="default.css">
+
+      &lt;!-- the preferred alternate style sheet -->
+      &lt;link rel="stylesheet" href="green.css" title="Green styles">
+
+      &lt;!-- some alternate style sheets -->
+      &lt;link rel="alternate stylesheet" href="contrast.css" title="High contrast">
+      &lt;link rel="alternate stylesheet" href="big.css" title="Big fonts">
+      &lt;link rel="alternate stylesheet" href="wide.css" title="Wide screen">
+    </pre>
+  </div>
+
+  <div class="example">
+    The following example shows how you can specify versions of the page that use alternative
+    formats, are aimed at other languages, and that are intended for other media:
+
+    <pre highlight="html">
+      &lt;link rel=alternate href="/en/html" hreflang=en type=text/html title="English HTML">
+      &lt;link rel=alternate href="/fr/html" hreflang=fr type=text/html title="French HTML">
+      &lt;link rel=alternate href="/en/html/print" hreflang=en type=text/html media=print title="English HTML (for printing)">
+      &lt;link rel=alternate href="/fr/html/print" hreflang=fr type=text/html media=print title="French HTML (for printing)">
+      &lt;link rel=alternate href="/en/pdf" hreflang=en type=application/pdf title="English PDF">
+      &lt;link rel=alternate href="/fr/pdf" hreflang=fr type=application/pdf title="French PDF">
+    </pre>
+  </div>
+
+<!-- add section 4 stuff here -->
 
 <hr />
 <hr />
@@ -11817,8 +12559,10 @@ spec:url; type:dfn; for:url; text:url
 
     The suggested processing of this markup, however, would be equivalent to the following:
 
-    <pre>&lt;meta name="eGMS.subject.keyword" content="Abandoned vehicles">
-    &lt;meta name="eGMS.subject.keyword" content="Mah car: kthxbye"></pre>
+    <pre highlight="html">
+      &lt;meta name="eGMS.subject.keyword" content="Abandoned vehicles">
+      &lt;meta name="eGMS.subject.keyword" content="Mah car: kthxbye">
+    </pre>
   </div>
 
   The <dfn><code>scheme</code></dfn> IDL attribute of the <code>meta</code> element must

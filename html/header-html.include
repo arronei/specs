@@ -157,9 +157,9 @@
 
        .toc dfn, h1 dfn, h2 dfn, h3 dfn, h4 dfn, h5 dfn, h6 dfn { font: inherit; }
        img.extra, p.overview { float: right; }
-       pre.idl { border: solid thin #d3d3d3; background: #FCFCFC; color: black; padding: 0.5em 1em; position: relative; }
-       pre.idl :link, pre.idl :visited { color: inherit; background: transparent; }
-       pre.idl::before { content: "IDL"; font: bold small sans-serif; padding: 0.5em; background: white; position: absolute; top: 0; margin: -1px 0 0 -4em; width: 1.5em; border: thin solid; border-radius: 0 0 0 0.5em }
+       pre.idl, pre.idl-ignore { border: solid thin #d3d3d3; background: #FCFCFC; color: black; padding: 0.5em 1em; position: relative; }
+       pre.idl :link, pre.idl :visited, pre.idl-ignore :link, pre.idl-ignore :visited { color: inherit; background: transparent; }
+       pre.idl::before, pre.idl-ignore::before { content: "IDL"; font: bold small sans-serif; padding: 0.5em; background: white; position: absolute; top: 0; margin: -1px 0 0 -4em; width: 1.5em; border: thin solid; border-radius: 0 0 0 0.5em }
        pre.css { border: solid thin; background: #FFFFEE; color: black; padding: 0.5em 1em; }
        pre.css:first-line { color: #AAAA50; }
        dl.domintro {padding: 0.5em 1em; border: none; background:#E9FBE9; border: 1px solid lightgray; }
