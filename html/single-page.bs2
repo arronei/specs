@@ -721,10 +721,10 @@ spec:url; type:dfn; for:url; text:url
       all data in the server.
 
       When writing filters to validate user input, it is imperative that filters always be
-      safelist-based, allowing known-safe constructs and disallowing all other input. Blocklist-based
-      filters that disallow known-bad inputs and allow everything else are not secure, as not
-      everything that is bad is yet known (for example, because it might be invented in the
-      future).
+      safelist-based, allowing known-safe constructs and disallowing all other input.
+      Blocklist-based filters that disallow known-bad inputs and allow everything else are not
+      secure, as not everything that is bad is yet known (for example, because it might be invented
+      in the future).
 
       <div class="example">
         For example, suppose a page looked at its URL's query string to determine what to display,
@@ -5451,7 +5451,9 @@ spec:url; type:dfn; for:url; text:url
     </dd>
 
     <dt><var>element</var> = <var>collection</var> . <code>namedItem</code>(<var>name</var>)</dt>
-    <dt><var>radioNodeList</var> = <var>collection</var> . <code>namedItem</code>(<var>name</var>)</dt>
+    <dt>
+      <var>radioNodeList</var> = <var>collection</var> . <code>namedItem</code>(<var>name</var>)
+    </dt>
     <dt><var>element</var> = <var>collection</var>[<var>name</var>]</dt>
     <dt><var>radioNodeList</var> = <var>collection</var>[<var>name</var>]</dt>
     <dd>
@@ -6022,8 +6024,8 @@ spec:url; type:dfn; for:url; text:url
           element of <var>original</var>, run the following substeps:
           1. Let <var>new entry</var> be the Record {\[[key]]: <var>entry</var>.
               \[[key]], \[[value]]: <var>entry</var>.\[[value]]}.
-          2. If <var>new entry</var>.\[[key]] is not <i>empty</i>, append <var>new entry</var> as the
-              last element of <var>source</var>.
+          2. If <var>new entry</var>.\[[key]] is not <i>empty</i>, append <var>new entry</var> as
+              the last element of <var>source</var>.
       4. Let <var>target</var> be the List that is the value of <var>output</var>'s
           \[[MapData]] internal slot.
       5. For each Record {\[[key]], \[[value]]} <var>entry</var> that is an
@@ -6080,10 +6082,10 @@ spec:url; type:dfn; for:url; text:url
       <p class="note">This does not walk the prototype chain.</p>
 
       <p class="note">
-        Property descriptors, setters, getters, and analogous features are not copied in this process.
-        For example, the property in the input could be marked as read-only, but in the output it would
-        just have the default state (typically read-write, though that could depend on the scripting
-        environment).
+        Property descriptors, setters, getters, and analogous features are not copied in this
+        process. For example, the property in the input could be marked as read-only, but in the
+        output it would just have the default state (typically read-write, though that could depend
+        on the scripting environment).
       </p>
 
       <p class="note">
@@ -6663,7 +6665,8 @@ spec:url; type:dfn; for:url; text:url
     4. Otherwise return an <code>HTMLCollection</code> rooted at the <code>Document</code> node,
         whose filter matches only <a>named elements</a> with the name <var>name</var>.
 
-    <dfn>Named elements</dfn> with the name <var>name</var>, for the purposes of the above algorithm, are those that are either:
+    <dfn>Named elements</dfn> with the name <var>name</var>, for the purposes of the above
+    algorithm, are those that are either:
 
     * <code>applet</code>, <a>exposed</a> <code>embed</code>, <code>form</code>,
         <code>iframe</code>, <code>img</code>, or <a>exposed</a> <code>object</code> elements that
@@ -7030,8 +7033,8 @@ spec:url; type:dfn; for:url; text:url
 
   <div class="example">
     For example, creating a <code>td</code> element and storing it in a global variable in a
-    script is conforming, even though <code>td</code> elements are otherwise only supposed to be used
-    inside <code>tr</code> elements.
+    script is conforming, even though <code>td</code> elements are otherwise only supposed to be
+    used inside <code>tr</code> elements.
 
     <pre highlight="javascript">
       var data = {
@@ -8264,8 +8267,8 @@ spec:url; type:dfn; for:url; text:url
       If such a character is found and it is of bidirectional character type L,
       <a>the directionality</a> of the element is '<a>ltr</a>'.
 
-      Otherwise, if the element is a <a>root element</a>, <a>the directionality</a> of the element is
-      '<a>ltr</a>'.
+      Otherwise, if the element is a <a>root element</a>, <a>the directionality</a> of the element
+      is '<a>ltr</a>'.
 
       Otherwise, <a>the directionality</a> of the element the same as the element's parent element's
       <a>directionality</a>.
@@ -8522,7 +8525,8 @@ spec:url; type:dfn; for:url; text:url
     <a>custom data attribute</a> to be used.
   </div>
 
-  Every <a>HTML element</a> may have any number of <a>custom data attributes</a> specified, with any value.
+  Every <a>HTML element</a> may have any number of <a>custom data attributes</a> specified, with any
+  value.
 
   <hr />
 
@@ -8757,9 +8761,9 @@ spec:url; type:dfn; for:url; text:url
 
     * <a>Using WAI-ARIA in HTML</a> - A practical guide for developers on how to to add
         accessibility information to HTML elements using the Accessible Rich Internet Applications
-        specification [[!WAI-ARIA]]. In particular the <a>Recommendations Table</a> provides a complete
-        reference for authors as to which ARIA roles, states and properties are appropriate to use on
-        each HTML element.
+        specification [[!WAI-ARIA]]. In particular the <a>Recommendations Table</a> provides a
+        complete reference for authors as to which ARIA roles, states and properties are appropriate
+        to use on each HTML element.
 
     * <a>WAI-ARIA 1.0 Authoring Practices</a> - An author's guide to understanding and implementing
         Accessible Rich Internet Applications.
@@ -8823,8 +8827,8 @@ spec:url; type:dfn; for:url; text:url
   ARIA State and Property attributes can be used on any element. They are not always meaningful,
   however, and in such cases user agents might not perform any processing aside from including them
   in the DOM. State and property attributes are processed according to the requirements of the
-  sections <a>Strong Native Semantics</a> and <a>Implicit ARIA semantics</a>, as well as [[!WAI-ARIA]]
-  and [[!WAI-ARIA-IMPLEMENTATION]].
+  sections <a>Strong Native Semantics</a> and <a>Implicit ARIA semantics</a>, as well as
+  [[!WAI-ARIA]] and [[!WAI-ARIA-IMPLEMENTATION]].
 
 <h5 id="sec-strong-native-semantics">Strong Native Semantics</h5>
 
@@ -9055,7 +9059,10 @@ spec:url; type:dfn; for:url; text:url
         </td>
       </tr>
       <tr>
-        <td><code>input</code> element with a <code>type</code> attribute in the <a>Submit Button</a> state</td>
+        <td>
+          <code>input</code> element with a <code>type</code> attribute in the <a>Submit Button</a>
+          state
+        </td>
         <td><code>button</code> role</td>
       </tr>
       <tr>
@@ -9559,8 +9566,10 @@ spec:url; type:dfn; for:url; text:url
       <tr>
         <td><code>object</code> element</td>
         <td><a>No role</a></td>
-        <td>If specified, role must be one of the following: <code>application</code>, <code>document</code>, <code>img</code>,
-          or <code>presentation</code></td>
+        <td>
+          If specified, role must be one of the following: <code>application</code>,
+          <code>document</code>, <code>img</code>, or <code>presentation</code>
+        </td>
       </tr>
       <tr>
         <td><code>ol</code> element</td>
@@ -9704,8 +9713,8 @@ spec:url; type:dfn; for:url; text:url
   <p class="note">
     The following table provides an informative reference to the ARIA roles, states and properties
     permitted for use in HTML. All ARIA roles, states and properties are normatively defined in the
-    [[!WAI-ARIA]] specification. Links to ARIA roles, states and properties in the table reference the
-    normative [[!WAI-ARIA]] definitions.
+    [[!WAI-ARIA]] specification. Links to ARIA roles, states and properties in the table reference
+    the normative [[!WAI-ARIA]] definitions.
   </p>
 
   <table>
@@ -9810,7 +9819,9 @@ spec:url; type:dfn; for:url; text:url
       <tr>
         <td><code><a>button</a></code></td>
         <td>
-          An input that allows for user-triggered actions when clicked or pressed. See related <code>link</code>.</td>
+          An input that allows for user-triggered actions when clicked or pressed. See related
+          <code>link</code>.
+        </td>
         <td>none</td>
         <td>
 
@@ -9865,7 +9876,11 @@ spec:url; type:dfn; for:url; text:url
       </tr>
       <tr>
         <td><code><a>complementary</a></code></td>
-        <td>A supporting section of the document, designed to be complementary to the main content at a similar level in the DOM hierarchy, but remains meaningful when separated from the main content.</td>
+        <td>
+          A supporting section of the document, designed to be complementary to the main content at
+          a similar level in the DOM hierarchy, but remains meaningful when separated from the main
+          content.
+        </td>
         <td>none</td>
         <td>
 
@@ -9919,7 +9934,10 @@ spec:url; type:dfn; for:url; text:url
       </tr>
       <tr>
         <td><code><a>document</a></code></td>
-        <td>A region containing related information that is declared as document content, as opposed to a web application.</td>
+        <td>
+          A region containing related information that is declared as document content, as opposed
+          to a web application.
+        </td>
         <td>none</td>
         <td>
 
@@ -10170,7 +10188,10 @@ spec:url; type:dfn; for:url; text:url
       </tr>
       <tr>
         <td><code><a>navigation</a></code></td>
-        <td>A collection of navigational elements (usually links) for navigating the document or related documents.</td>
+        <td>
+          A collection of navigational elements (usually links) for navigating the document or
+          related documents.
+        </td>
         <td>none</td>
         <td>
 
@@ -10344,7 +10365,9 @@ spec:url; type:dfn; for:url; text:url
       </tr>
       <tr>
         <td><code><a>separator</a></code></td>
-        <td>A divider that separates and distinguishes sections of content or groups of menuitems.</td>
+        <td>
+          A divider that separates and distinguishes sections of content or groups of menuitems.
+        </td>
         <td>none</td>
         <td>
 
@@ -10566,8 +10589,8 @@ spec:url; type:dfn; for:url; text:url
       <code>html</a></code> element is not a <a>comment</a>.
     </dd>
     <dd>
-      An <code>html</code> element's <a>end tag</a> can be omitted if the <code>html</code> element is
-      not immediately followed by a <a>comment</a>.
+      An <code>html</code> element's <a>end tag</a> can be omitted if the <code>html</code> element
+      is not immediately followed by a <a>comment</a>.
     </dd>
     <dt>Allowed <a >ARIA role attribute</a> values:</dt>
     <dd>None</dd>
@@ -11059,7 +11082,8 @@ spec:url; type:dfn; for:url; text:url
     run the following steps:
 
     1. If the <code>href</code> attribute's value is the empty string, then abort these steps.
-    2. <a>Resolve</a> the <a>URL</a> given by the <code>href</code> attribute, relative to the element.
+    2. <a>Resolve</a> the <a>URL</a> given by the <code>href</code> attribute, relative to the
+        element.
     3. If the previous step fails, then abort these steps.
     4. Let <var>corsAttributeState</var> be the current state of the element's
         <code>crossorigin</code> content attribute.
@@ -11100,7 +11124,8 @@ spec:url; type:dfn; for:url; text:url
     from the element's attributes, again as defined below), in some form or another (possibly
     simplified), for each hyperlink created with each <code>link</code> element in the document:
 
-    * The relationship between this document and the resource (given by the <code>rel</code> attribute)
+    * The relationship between this document and the resource (given by the <code>rel</code>
+      attribute)
     * The title of the resource (given by the <code>title</code> attribute).
     * The address of the resource (given by the <code>href</code> attribute).
     * The language of the resource (given by the <code>hreflang</code> attribute).
@@ -11227,8 +11252,8 @@ spec:url; type:dfn; for:url; text:url
     The <a>activation behavior</a> of <code>link</code> elements that create <a>hyperlinks</a> is to
     run the following steps:
 
-    1. If the <code>link</code> element's <a>node document</a> is not <a>fully active</a>, then abort
-        these steps.
+    1. If the <code>link</code> element's <a>node document</a> is not <a>fully active</a>, then
+        abort these steps.
     2. <a>Follow the hyperlink</a> created by the<code>link</code> element.
 
     HTTP <code>Link:</code> headers, if supported, must be assumed to come before any links in the
@@ -11285,7 +11310,682 @@ spec:url; type:dfn; for:url; text:url
     </pre>
   </div>
 
-<!-- add section 4 stuff here -->
+<h4 id="the-meta-element">The <dfn id="meta"><code>meta</code></dfn> element</h4>
+
+  <dl class="element">
+    <dt><a>Categories</a>:</dt>
+    <dd><a>Metadata content</a>.</dd>
+    <dd>If the <code>itemprop</code> attribute is present: <a>flow content</a>.</dd>
+    <dd>If the <code>itemprop</code> attribute is present: <a>phrasing content</a>.</dd>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
+    <dd>
+      If the <code>charset</code> attribute is present, or if the element's <code>http-equiv</code>
+      attribute is in the <a>Encoding declaration state</a>: in a <code>head</code> element.
+    </dd>
+    <dd>
+      If the <code>http-equiv</code> attribute is present but not in the
+      <a>Encoding declaration state</a>: in a <code>head</code> element.
+    </dd>
+    <dd>
+      If the <code>http-equiv</code> attribute is present but not in the
+      <a>Encoding declaration state</a>: in a <code>noscript</code> element that is a child of a
+      <code>head</code> element.
+    </dd>
+    <dd>
+      If the <code>name</code> attribute is present: where <a>metadata content</a> is expected.
+    </dd>
+    <dd>
+      If the <code>itemprop</code> attribute is present: where <a>metadata content</a> is expected.
+    </dd>
+    <dd>
+      If the <code>itemprop</code> attribute is present: where <a>phrasing content</a> is expected.
+    </dd>
+    <dt><a>Content model</a>:</dt>
+    <dd><a>Nothing</a>.</dd>
+    <dt><a>Content attributes</a>:</dt>
+    <dd><a>Global attributes</a></dd>
+    <dd><code>name</code> — Metadata name</dd>
+    <dd><code>http-equiv</code> — Pragma directive</dd>
+    <dd><code>content</code> — Value of the element</dd>
+    <dd><code>charset</code> — <a>Character encoding declaration</a></dd>
+    <dt><a>Tag omission in text/html</a>:</dt>
+    <dd>No <a>end tag</a>.</dd>
+    <dt>Allowed <a>ARIA role attribute</a> values:</dt>
+    <dd>None</dd>
+    <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
+    <dd><a>Global aria-* attributes</a></dd>
+    <dt><a>DOM interface</a>:</dt>
+    <dd>
+      <pre class="idl" highlight="webidl">
+        interface HTMLMetaElement : HTMLElement {
+          attribute DOMString name;
+          attribute DOMString httpEquiv;
+          attribute DOMString content;
+        };
+      </pre>
+    </dd>
+  </dl>
+
+  The <code>meta</code> element <a>represents</a> various kinds of metadata that cannot be
+  expressed using the <code>title</code>, <code>base</code>, <code>link</code>, <code>style</code>,
+  and <code>script</code> elements.
+
+  The <code>meta</code> element can represent document-level metadata with the <code>name</code>
+  attribute, pragma directives with the <code>http-equiv</code> attribute, and the file's
+  <a>character encoding declaration</a> when an HTML document is serialized to string form (e.g. for
+  transmission over the network or for disk storage) with the <code>charset</code> attribute.
+
+  Exactly one of the <code>name</code>, <code>http-equiv</code>, <code>charset</code>,
+  and <code>itemprop</code> attributes must be specified.
+
+  If either <code>name</code>, <code>http-equiv</code>, or <code>itemprop</code> is
+  specified, then the <code>content</code> attribute must also be
+  specified. Otherwise, it must be omitted.
+
+  The <dfn><code>charset</code></dfn> attribute specifies the character
+  encoding used by the document. This is a <a>character encoding declaration</a>. If the
+  attribute is present in an <a>XML document</a>, its value must be an
+  <a>ASCII case-insensitive</a> match for the string "<code>UTF-8</code>" (and the
+  document is therefore forced to use UTF-8 as its encoding).
+
+  <p class="note">The <code>charset</code> attribute on the
+  <code>meta</code> element has no effect in XML documents, and is only allowed in order to
+  facilitate migration to and from XHTML.</p>
+
+  There must not be more than one <code>meta</code> element with a <code>charset</code> attribute
+  per document.
+
+  The <dfn><code>content</code></dfn> attribute gives the value of the
+  document metadata or pragma directive when the element is used for those purposes. The allowed
+  values depend on the exact context, as described in subsequent sections of this specification.
+
+  If a <code>meta</code> element has a <dfn><code>name</code></dfn>
+  attribute, it sets document metadata. Document metadata is expressed in terms of name-value pairs,
+  the <code>name</code> attribute on the <code>meta</code> element giving the
+  name, and the <code>content</code> attribute on the same element giving
+  the value. The name specifies what aspect of metadata is being set; valid names and the meaning of
+  their values are described in the following sections. If a <code>meta</code> element has no
+  <code>content</code> attribute, then the value part of the metadata name-value pair is the empty
+  string.
+
+  <div class="impl">
+    The <dfn><code>name</code></dfn> and <dfn><code>content</code></dfn> IDL attributes must
+    <a>reflect</a> the respective content attributes of the same name. The IDL attribute
+    <dfn><code>httpEquiv</code></dfn> must <a>reflect</a> the content attribute
+    <code>http-equiv</code>.
+  </div>
+
+<h5 id="standard-metadata-names">Standard metadata names</h5>
+
+  This specification defines a few names for the <code>name</code> attribute of the
+  <code>meta</code> element.
+
+  Names are case-insensitive<span class="impl">, and must be compared in an
+  <a>ASCII case-insensitive</a> manner</span>.
+
+  : <dfn><code>application-name</code></dfn>
+  :: The value must be a short free-form string giving the name of the Web application that the page
+      represents. If the page is not a Web application, the <code>application-name</code> metadata
+      name must not be used. Translations of the Web application's name may be given, using the
+      <code>lang</code> attribute to specify the language of each name.
+
+      There must not be more than one <code>meta</code> element with a given <a>language</a> and
+      with its <code>name</code> attribute set to the value <code>application-name</code> per
+      document.
+
+      <div class="impl">
+        User agents may use the application name in UI in preference to the page's
+        <code>title</code>, since the title might include status messages and the like relevant to
+        the status of the page at a particular moment in time instead of just being the name of the
+        application.
+
+        To find the application name to use given an ordered list of languages (e.g. British
+        English, American English, and English), user agents must run the following steps:
+
+        1. Let <var>languages</var> be the list of languages.
+        2. Let <var>default language</var> be the <a>language</a> of the <code>Document</code>'s
+            <a>root element</a>, if any, and if that language is not unknown.
+        3. If there is a <var>default language</var>, and if it is not the same language as any of
+            the languages in <var>languages</var>, append it to <var>languages</var>.
+        4. Let <var>winning language</var> be the first language in <var>languages</var> for which
+            there is a <code>meta</code> element in the <code>Document</code> that has its
+            <code>name</code> attribute set to the value <code>application-name</code> and whose
+            <a>language</a> is the language in question.
+
+            If none of the languages have such a <code>meta</code> element, then abort these steps;
+            there's no given application name.
+        5. Return the value of the <code>content</code> attribute of the first <code>meta</code>
+            element in the <code>Document</code> in <a>tree order</a> that has its <code>name</code>
+            attribute set to the value <code>application-name</code> and whose <a>language</a> is
+            <var>winning language</var>.
+
+        <p class="note">
+          This algorithm would be used by a browser when it needs a name for the page, for instance,
+          to label a bookmark. The languages it would provide to the algorithm would be the user's
+          preferred languages.
+        </p>
+      </div>
+
+  : <dfn><code>author</code></dfn>
+  :: The value must be a free-form string giving the name of one of the page's authors.
+
+  : <dfn><code>description</code></dfn>
+  :: The value must be a free-form string that describes the page. The value must be appropriate for
+      use in a directory of pages, e.g. in a search engine. There must not be more than one
+      <code>meta</code> element with its <code>name</code> attribute set to the value
+      <code>description</code> per document.
+
+  : <dfn><code>generator</code></dfn>
+  :: The value must be a free-form string that identifies one of the software packages used to
+      generate the document. This value must not be used on pages whose markup is not generated by
+      software, e.g. pages whose markup was written by a user in a text editor.
+
+      <div class="example">
+        Here is what a tool called "Frontweaver" could include in its output, in the page's
+        <code>head</code> element, to identify itself as the tool used to generate the page:
+
+        <pre highlight="html">&lt;meta name=generator content="Frontweaver 8.2"&gt;</pre>
+      </div>
+
+  : <dfn><code>keywords</code></dfn>
+  :: The value must be a <a>set of comma-separated tokens</a>, each of which is a keyword relevant
+      to the page.
+
+      <div class="example">
+        This page about typefaces on British motorways uses a <code>meta</code> element to specify
+        some keywords that users might use to look for the page:
+
+        <pre highlight="html">
+          &lt;!DOCTYPE HTML&gt;
+          &lt;html lang="en-GB"&gt;
+            &lt;head&gt;
+              &lt;title&gt;Typefaces on UK motorways&lt;/title&gt;
+              &lt;meta name="keywords" content="british,type face,font,fonts,highway,highways"&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+            ...
+        </pre>
+      </div>
+
+      <p class="note">
+        Many search engines do not consider such keywords, because this feature has historically
+        been used unreliably and even misleadingly as a way to spam search engine results in a way
+        that is not helpful for users.
+      </p>
+
+      <div class="impl">
+        To obtain the list of keywords that the author has specified as applicable to the page, the
+        user agent must run the following steps:
+
+        1. Let <var>keywords</var> be an empty list.
+        2. For each <code>meta</code> element with a <code>name</code> attribute and a
+            <code>content</code> attribute and whose <code>name</code> attribute's value is
+            <code>keywords</code>, run the following substeps:
+            1. <a>Split the value of the element's <code>content</code> attribute on commas</a>.
+            2. Add the resulting tokens, if any, to <var>keywords</var>.
+        3. Remove any duplicates from <var>keywords</var>.
+        4. Return <var>keywords</var>. This is the list of keywords that the author has specified as
+            applicable to the page.
+
+        User agents should not use this information when there is insufficient confidence in the
+        reliability of the value.
+
+        <p class="example">
+          For instance, it would be reasonable for a content management system to use the keyword
+          information of pages within the system to populate the index of a site-specific search
+          engine, but a large-scale content aggregator that used this information would likely find
+          that certain users would try to game its ranking mechanism through the use of
+          inappropriate keywords.
+        </p>
+      </div>
+
+<h5 id="other-metadata-names">Other metadata names</h5>
+
+  <dfn>Extensions to the predefined set of metadata names</dfn> may be registered in the
+  <a>WHATWG Wiki MetaExtensions page</a>. [[!WHATWGWIKI]]
+
+  Anyone is free to edit the WHATWG Wiki MetaExtensions page at any time to add a type. These new
+  names must be specified with the following information:
+
+  : Keyword
+  :: The actual name being defined. The name should not be confusingly similar to any other defined
+      name (e.g. differing only in case).
+
+  : Brief description
+  :: A short non-normative description of what the metadata name's meaning is, including the format
+      the value is required to be in.
+
+  : Specification
+  :: A link to a more detailed description of the metadata name's semantics and requirements. It
+      could be another page on the Wiki, or a link to an external page.
+
+  : Synonyms
+  :: A list of other names that have exactly the same processing requirements. Authors should not
+      use the names defined to be synonyms, they are only intended to allow user agents to support
+      legacy content. Anyone may remove synonyms that are not used in practice; only names that need
+      to be processed as synonyms for compatibility with legacy content are to be registered in this
+      way.
+
+  : Status
+  :: One of the following:
+      : Proposed
+      :: The name has not received wide peer review and approval. Someone has proposed it and is, or
+          soon will be, using it.
+
+      : Ratified
+      :: The name has received wide peer review and approval. It has a specification that
+          unambiguously defines how to handle pages that use the name, including when they use it in
+          incorrect ways.
+
+      : Discontinued
+      :: The metadata name has received wide peer review and it has been found wanting. Existing
+          pages are using this metadata name, but new pages should avoid it. The "brief description"
+          and "specification" entries will give details of what authors should use instead, if
+          anything.
+
+      If a metadata name is found to be redundant with existing values, it should be removed and
+      listed as a synonym for the existing value.
+
+      If a metadata name is registered in the "proposed" state for a period of a month or more
+      without being used or specified, then it may be removed from the registry.
+
+      If a metadata name is added with the "proposed" status and found to be redundant with existing
+      values, it should be removed and listed as a synonym for the existing value. If a metadata
+      name is added with the "proposed" status and found to be harmful, then it should be changed to
+      "discontinued" status.
+
+      Anyone can change the status at any time, but should only do so in accordance with the
+      definitions above.
+
+  <div class="impl">
+    Conformance checkers may use the information given on the WHATWG Wiki MetaExtensions page to
+    establish if a value is allowed or not: values defined in this specification or marked as
+    "proposed" or "ratified" must be accepted, whereas values marked as "discontinued" or not listed
+    in either this specification or on the aforementioned page must be reported as invalid.
+    Conformance checkers may cache this information (e.g. for performance reasons or to avoid the
+    use of unreliable network connectivity).
+
+    When an author uses a new metadata name not defined by either this specification or the Wiki
+    page, conformance checkers should offer to add the value to the Wiki, with the details described
+    above, with the "proposed" status.
+  </div>
+
+  Metadata names whose values are to be <a>URLs</a> must not be proposed or accepted. Links must be
+  represented using the <code>link</code> element, not the <code>meta</code> element.
+
+<h5 id="pragma-directives">Pragma directives</h5>
+
+  When the <dfn><code>http-equiv</code></dfn> attribute is specified on a <code>meta</code> element,
+  the element is a pragma directive.
+
+  The <code>http-equiv</code> attribute is an <a>enumerated attribute</a>. The following table lists
+  the keywords defined for this attribute. The states given in the first cell of the rows with
+  keywords give the states to which those keywords map. <span class="impl">Some of the keywords are
+  non-conforming, as noted in the last column.</span>
+
+  <table id="table-http-equiv">
+    <thead>
+      <tr>
+        <th>State</th>
+        <th>Keyword</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="impl">
+        <td><a>Content Language</a></td>
+        <td><code>content-language</code></td>
+        <td>Non-conforming</td>
+      </tr>
+      <tr>
+        <td><a>Encoding declaration</a></td>
+        <td><code>content-type</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a>Default style</a></td>
+        <td><code>default-style</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a>Refresh</a></td>
+        <td><code>refresh</code></td>
+        <td></td>
+      </tr>
+      <tr class="impl">
+        <td><a>Cookie setter</a></td>
+        <td><code>set-cookie</code></td>
+        <td>Non-conforming</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="impl">
+    When a <code>meta</code> element is <a>inserted into the document</a>, if its
+    <code>http-equiv</code> attribute is present and represents one of the above states, then the
+    user agent must run the algorithm appropriate for that state, as described in the following
+    list:
+  </div>
+
+  <div class="impl">
+  : <dfn>Content language state</dfn> (<code>http-equiv="content-language"</code>)
+  :: <p class="note">
+      This feature is non-conforming. Authors are encouraged to use the <code>lang</code> attribute
+      instead.
+     </p>
+
+      This pragma sets the <dfn>pragma-set default language</dfn>. Until such a pragma is
+      successfully processed, there is no <a>pragma-set default language</a>.
+
+      1. If the <code>meta</code> element has no <code>content</code> attribute, then abort these
+          steps.
+      2. If the element's <code>content</code> attribute contains a U+002C COMMA character (,) then
+          abort these steps.
+      3. Let <var>input</var> be the value of the element's <code>content</code> attribute.
+      4. Let <var>position</var> point at the first character of <var>input</var>.
+      5. <a>Skip whitespace</a>.
+      6. <a>Collect a sequence of characters</a> that are not <a>space characters</a>.
+      7. Let <var>candidate</var> be the string that resulted from the previous step.
+      8. If <var>candidate</var> is the empty string, abort these steps.
+      9. Set the <a>pragma-set default language</a> to <var>candidate</var>.
+          <p class="note">
+            If the value consists of multiple space-separated tokens, tokens after the first are
+            ignored.
+          </p>
+
+      <p class="note">
+        This pragma is almost, but not quite, entirely unlike the HTTP <code>Content-Language</code>
+        header of the same name. [[!HTTP]]
+      </p>
+  </div>
+
+  : <dfn>Encoding declaration state</dfn> (<code>http-equiv="content-type"</code>)
+  :: The <a>Encoding declaration state</a> is just an alternative form of setting the
+      <code>charset</code> attribute: it is a <a>character encoding declaration</a>.
+      <span class="impl">This state's user agent requirements are all handled by the parsing section
+      of the specification.</span>
+
+      For <code>meta</code> elements with an <code>http-equiv</code> attribute in the <a>Encoding
+      declaration state</a>, the <code>content</code> attribute must have a value that is an
+      <a>ASCII case-insensitive</a> match for a string that consists of: the literal string
+      "<code>text/html;</code>", optionally followed by any number of <a>space characters</a>,
+      followed by the literal string "<code>charset=</code>", followed by one of the <a>labels</a>
+      of the <a>character encoding</a> of the <a>character encoding declaration</a>.
+
+      A document must not contain both a <code>meta</code> element with an <code>http-equiv</code>
+      attribute in the <a>Encoding declaration state</a> and a <code>meta</code> element with the
+      <code>charset</code> attribute present.
+
+      The <a>encoding declaration state</a> may be used in <a>HTML documents</a> and in
+      <a>XML Documents</a>. If the <a>encoding declaration state</a> is used in
+      <a>XML Documents</a>, the name of the <a>character encoding</a> must be an
+      <a>ASCII case-insensitive</a> match for the string "<code>UTF-8</code>" (and	the document is
+      therefore forced to use UTF-8 as its encoding).
+
+      <p class="note">
+        The <a>encoding declaration state</a> has no effect in XML documents, and is only allowed in
+        order to facilitate migration to and from XHTML.
+      </p>
+
+  : <dfn>Default style state</dfn> (<code>http-equiv="default-style"</code>)
+  :: This pragma sets the name of the default <a>alternative style sheet set</a>.
+      <div class="impl">
+        1. If the <code>meta</code> element has no <code>content</code> attribute, or if that
+            attribute's value is the empty string, then abort these steps.
+        2. Set the <a>preferred style sheet set</a> to the value of the element's
+            <code>content</code> attribute. [[!CSSOM]]
+      </div>
+
+  : <dfn>Refresh state</dfn> (<code>http-equiv="refresh"</code>)
+  :: This pragma acts as timed redirect.
+      <div class="impl">
+        1. If another <code>meta</code> element with an <code>http-equiv</code> attribute in the
+            <a>Refresh state</a> has already been successfully processed (i.e. when it was inserted
+            the user agent processed it and reached the last step of this list of steps), then abort
+            these steps.
+        2. If the <code>meta</code> element has no <code>content</code> attribute, or if that
+            attribute's value is the empty string, then abort these steps.
+        3. Let <var>input</var> be the value of the element's <code>content</code> attribute.
+        4. Let <var>position</var> point at the first character of <var>input</var>.
+        5. <a>Skip whitespace</a>.
+        6. <a>Collect a sequence of characters</a> that are <a>ASCII digits</a>, and parse the
+            resulting string using the <a>rules for parsing non-negative integers</a>. If the
+            sequence of characters collected is the empty string, then no number will have been
+            parsed; abort these steps. Otherwise, let <var>time</var> be the parsed number.
+        7. <a>Collect a sequence of characters</a> that are <a>ASCII digits</a> and U+002E FULL STOP
+            characters (.). Ignore any collected characters.
+        8. <a>Skip whitespace</a>.
+        9. Let <var>url</var> be the address of the current page.
+        10. If the character in <var>input</var> pointed to by <var>position</var> is a U+003B
+            SEMICOLON character (;) or a U+002C COMMA character (,), then advance
+            <var>position</var> to the next character.
+        11. <a>Skip whitespace</a>.
+        12. If the character in <var>input</var> pointed to by <var>position</var> is a U+0055 LATIN
+            CAPITAL LETTER U character (U) or a U+0075 LATIN SMALL LETTER U character (u), then
+            advance <var>position</var> to the next character. Otherwise, jump to the last step.
+        13. If the character in <var>input</var> pointed to by <var>position</var> is a U+0052 LATIN
+            CAPITAL LETTER R character (R) or a U+0072 LATIN SMALL LETTER R character (r), then
+            advance <var>position</var> to the next character. Otherwise, jump to the last step.
+        14. If the character in <var>input</var> pointed to by <var>position</var> is s U+004C LATIN
+            CAPITAL LETTER L character (L) or a U+006C LATIN SMALL LETTER L character (l), then
+            advance <var>position</var> to the next character. Otherwise, jump to the last step.
+        15. <a>Skip whitespace</a>.
+        16. If the character in <var>input</var> pointed to by <var>position</var> is a U+003D
+            EQUALS SIGN (=), then advance <var>position</var> to the next character. Otherwise, jump
+            to the last step.
+        17. <a>Skip whitespace</a>.
+        18. If the character in <var>input</var> pointed to by <var>position</var> is either a
+            U+0027 APOSTROPHE character (') or U+0022 QUOTATION MARK character ("), then let
+            <var>quote</var> be that character, and advance <var>position</var> to the next
+            character. Otherwise, let <var>quote</var> be the empty string.
+        19. Let <var>url</var> be equal to the substring of <var>input</var> from the character at
+            <var>position</var> to the end of the string.
+        20. If <var>quote</var> is not the empty string, and there is a character in <var>url</var>
+            equal to <var>quote</var>, then truncate <var>url</var> at that character, so that it
+            and all subsequent characters are removed.
+        21. Strip any trailing <a>space characters</a> from the end of <var>url</var>.
+        22. Strip any U+0009 CHARACTER TABULATION (tab), U+000A LINE FEED (LF), and U+000D CARRIAGE
+            RETURN (CR) characters from <var>url</var>.
+        23. <a>Resolve</a> the <var>url</var> value to an <a>absolute URL</a>, relative to the
+            <code>meta</code> element. If this fails, abort these steps.
+        24. Perform one or more of the following steps:
+
+            * After the refresh has come due (as defined below), if the user has not canceled the
+              redirect and if the <code>meta</code> element's <a>node document</a>'s <a>active
+              sandboxing flag set</a> does not have the <a>sandboxed automatic features browsing
+              context flag</a> set, <a>navigate</a> the <code>Document</code>'s
+              <a>browsing context</a> to <var>url</var>, with <a>replacement enabled</a>, and with
+              the <code>Document</code>'s <a>browsing context</a> as the
+              <a>source browsing context</a>.
+
+              For the purposes of the previous paragraph, a refresh is said to have come due as soon
+              as the <em>later</em> of the following two conditions occurs:
+
+              * At least <var>time</var> seconds have elapsed since the document has
+                <a>completely loaded</a>, adjusted to take into account user or user agent
+                preferences.
+              * At least <var>time</var> seconds have elapsed since the <code>meta</code> element
+                was <a>inserted into the <code>Document</code></a>, adjusted to take into account
+                user or user agent preferences.
+
+            * Provide the user with an interface that, when selected, <a>navigates</a> a
+              <a>browsing context</a> to <var>url</var>, with the <code>Document</code>'s
+              <a>browsing context</a> as the <a>source browsing context</a>.
+            * Do nothing.
+
+            In addition, the user agent may, as with anything, inform the user of any and all
+            aspects of its operation, including the state of any timers, the destinations of any
+            timed redirects, and so forth.
+      </div>
+
+      For <code>meta</code> elements with an <code>http-equiv</code> attribute in the
+      <a>Refresh state</a>, the <code>content</code> attribute must have a value consisting either
+      of:
+
+      * just a <a>valid non-negative integer</a>, or
+      * a <a>valid non-negative integer</a>, followed by a U+003B SEMICOLON character (;), followed
+        by one or more <a>space characters</a>, followed by a substring that is an
+        <a>ASCII case-insensitive</a> match for the string "<code>URL</code>", followed by a U+003D
+        EQUALS SIGN character (=), followed by a <a>valid URL</a> that does not start with a literal
+        U+0027 APOSTROPHE (') or U+0022 QUOTATION MARK (") character.
+
+      In the former case, the integer represents a number of seconds before the page is to be
+      reloaded; in the latter case the integer represents a number of seconds before the page is to
+      be replaced by the page at the given <a>URL</a>.
+
+      <div class="example">
+        A news organization's front page could include the following markup in the page's
+        <code>head</code> element, to ensure that the page automatically reloads from the server
+        every five minutes:
+
+        <pre highlight="html">&lt;meta http-equiv="Refresh" content="300"&gt;</pre>
+      </div>
+
+      <div class="example">
+        A sequence of pages could be used as an automated slide show by making each page refresh to
+        the next page in the sequence, using markup such as the following:
+
+        <pre highlight="html">&lt;meta http-equiv="Refresh" content="20; URL=page4.html"&gt;</pre>
+      </div>
+
+  <div class="impl">
+  : <dfn>Cookie setter</dfn> (<code>http-equiv="set-cookie"</code>)
+  :: This pragma sets an HTTP cookie. [[!COOKIES]]
+
+      It is non-conforming. Real HTTP headers should be used instead.
+
+      1. If the <code>meta</code> element has no <code>content</code> attribute, or if that
+          attribute's value is the empty string, then abort these steps.
+      2. <a>Obtain the storage mutex</a>.
+      3. Act as if <a>receiving a set-cookie-string</a> for <a>the document's address</a> via a
+          "non-HTTP" API, consisting of the value of the element's <code>content</code> attribute
+          encoded as UTF-8. [[!COOKIES]] [[!ENCODING]]
+  </div>
+
+  There must not be more than one <code>meta</code> element with any particular state in the
+  document at a time.
+
+<h5 id="other-pragma-directives">Other pragma directives</h5>
+
+  <dfn>Extensions to the predefined set of pragma directives</dfn> may, under certain conditions, be
+  registered in the <a>WHATWG Wiki PragmaExtensions page</a>. [[!WHATWGWIKI]]
+
+  Such extensions must use a name that is identical to an HTTP header registered in the Permanent
+  Message Header Field Registry, and must have behavior identical to that described for the HTTP
+  header. [[!IANAPERMHEADERS]]
+
+  Pragma directives corresponding to headers describing metadata, or not requiring specific user
+  agent processing, must not be registered; instead, use <a>metadata names</a>. Pragma directives
+  corresponding to headers that affect the HTTP processing model (e.g. caching) must not be
+  registered, as they would result in HTTP-level behavior being different for user agents that
+  implement HTML than for user agents that do not.
+
+  Anyone is free to edit the WHATWG Wiki PragmaExtensions page at any time to add a pragma directive
+  satisfying these conditions. Such registrations must specify the following information:
+
+  : Keyword
+  :: The actual name being defined. The name must match a previously-registered HTTP name with the
+      same requirements.
+
+  : Brief description
+  :: A short non-normative description of the purpose of the pragma directive.
+
+  : Specification
+  :: A link to the specification defining the corresponding HTTP header.
+
+  <div class="impl">
+    Conformance checkers must use the information given on the WHATWG Wiki PragmaExtensions page to
+    establish if a value is allowed or not: values defined in this specification or listed on the
+    aforementioned page must be accepted, whereas values not listed in either this specification or
+    on the aforementioned page must be rejected as invalid. Conformance checkers may cache this
+    information (e.g. for performance reasons or to avoid the use of unreliable network
+    connectivity).
+  </div>
+
+<h5 id="specifying-the-documents-character-encoding">Specifying the document'''s character encoding</h5>
+
+  A <dfn>character encoding declaration</dfn> is a mechanism by which the <a>character encoding</a>
+  used to store or transmit a document is specified.
+
+  The following restrictions apply to <a>character encoding declarations</a>:
+
+  * The character encoding name given must be an <a>ASCII case-insensitive</a> match for one of the
+    <a>labels</a> of the <a>character encoding</a> used to serialize the file. [[!ENCODING]]
+  * The character encoding declaration must be serialized without the use of
+    <a>character references</a> or character escapes of any kind.
+  * <a>The element containing the character encoding declaration must be serialized completely
+    within the first 1024 bytes of the document.</a>
+
+  In addition, due to a number of restrictions on <code>meta</code> elements, there can only be one
+  <code>meta</code>-based character encoding declaration per document.
+
+  If an <a>HTML document</a> does not start with a BOM, and its <a>encoding</a> is not explicitly
+  given by <a>Content-Type metadata</a>, and the document is not <a>an <code>iframe</code>
+  <code>srcdoc</code> document</a>, then the character encoding used must be an
+  <a>ASCII-compatible encoding</a>, and the encoding must be specified using a <code>meta</code>
+  element with a <code>charset</code> attribute or a <code>meta</code> element with an
+  <code>http-equiv</code> attribute in the <a>Encoding declaration state</a>.
+
+  <p class="note">
+    A character encoding declaration is required (either in the <a>Content-Type metadata</a> or
+    explicitly in the file) even if the encoding is US-ASCII, because a character encoding is needed
+    to process non-ASCII characters entered by the user in forms, in URLs generated by scripts, and
+    so forth.
+  </p>
+
+  If the document is <a>an <code>iframe</code> <code>srcdoc</code> document</a>, the document must
+  not have a <a>character encoding declaration</a>. (In this case, the source is already decoded,
+  since it is part of the document that contained the <code>iframe</code>.)
+
+  If an <a>HTML document</a> contains a <code>meta</code> element with a <code>charset</code>
+  attribute or a <code>meta</code> element with an <code>http-equiv</code> attribute in the
+  <a>Encoding declaration state</a>, then the character encoding used must be an
+  <a>ASCII-compatible encoding</a>.
+
+  Authors should use UTF-8. Conformance checkers may advise authors against using legacy encodings.
+  [[!ENCODING]]
+
+  <div class="impl">
+    Authoring tools should default to using UTF-8 for newly-created documents. [[!ENCODING]]
+  </div>
+
+  Encodings in which a series of bytes in the range 0x20 to 0x7E can encode characters other than
+  the corresponding characters in the range U+0020 to U+007E represent a potential security
+  vulnerability: a user agent that does not support the encoding (or does not support the label used
+  to declare the encoding, or does not use the same mechanism to detect the encoding of unlabeled
+  content as another user agent) might end up interpreting technically benign plain text content as
+  HTML tags and JavaScript. Authors should therefore not use these encodings. For example, this
+  applies to encodings in which the bytes corresponding to "<code>&lt;script&gt;</code>" in ASCII
+  can encode a different string. Authors should not use such encodings, which are known to include
+  JIS_C6226-1983, JIS_X0212-1990, HZ-GB-2312, JOHAB (Windows code page 1361), encodings based on
+  ISO-2022, and encodings based on EBCDIC. Furthermore, authors must not use the CESU-8, UTF-7,
+  BOCU-1 and SCSU encodings, which also fall into this category; these encodings were never intended
+  for use for Web content. [[!RFC1345]] [[!RFC1842]] [[!RFC1468]] [[!RFC2237]] [[!RFC1554]]
+  [[!CP50220]] [[!RFC1922]] [[!RFC1557]] [[!CESU8]] [[!UTF7]] [[!BOCU1]] [[!SCSU]]
+
+  Authors should not use UTF-32, as the encoding detection algorithms described in this
+  specification intentionally do not distinguish it from UTF-16. [[!UNICODE]]
+
+  <p class="note">
+    Using non-UTF-8 encodings can have unexpected results on form submission and URL encodings,
+    which use the <a>document's character encoding</a> by default.
+  </p>
+
+  In XHTML, the XML declaration should be used for inline character encoding information, if
+  necessary.
+
+  <div class="example">
+    In HTML, to declare that the character encoding is UTF-8, the author could include the following
+    markup near the top of the document (in the <code>head</code> element):
+
+    <pre highlight="html">&lt;meta charset="utf-8"&gt;</pre>
+
+    In XML, the XML declaration would be used instead, at the very top of the markup:
+
+    <pre highlight="html">&lt;?xml version="1.0" encoding="utf-8"?&gt;</pre>
+  </div>
+
+<!-- more 4 here -->
 
 <hr />
 <hr />
