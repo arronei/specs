@@ -391,7 +391,7 @@ spec:url; type:dfn; for:url; text:url
 
     <p class="warning">This is a warning.</p>
 
-    <pre class="idl-ignore" highlight="webidl">
+    <pre class="idl-ignore" data-highlight="webidl">
       interface <dfn>Example</dfn> {
           // this is an IDL definition
       };
@@ -2216,7 +2216,7 @@ spec:url; type:dfn; for:url; text:url
 
       The following helper IDL is used for referring to <code>ArrayBuffer</code>-related types:
 
-      <pre class="idl-ignore" highlight="webidl">
+      <pre class="idl-ignore" data-highlight="webidl">
         typedef (Int8Array or Uint8Array or Uint8ClampedArray or Int16Array or Uint16Array or Int32Array or Uint32Array or Float32Array or Float64Array or DataView) ArrayBufferView;
       </pre>
 
@@ -5339,7 +5339,7 @@ spec:url; type:dfn; for:url; text:url
     <code>Document</code>.
   </p>
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     interface HTMLAllCollection {
       readonly attribute unsigned long length;
       getter Element? item(unsigned long index);
@@ -5428,7 +5428,7 @@ spec:url; type:dfn; for:url; text:url
   The <code>HTMLFormControlsCollection</code> interface is used for <a>collections</a> of
   <a>listed elements</a> in <code>form</code> and <code>fieldset</code> elements.
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     interface HTMLFormControlsCollection : HTMLCollection {
       // inherits length and item()
       getter (RadioNodeList or Element)? namedItem(DOMString name); // shadows inherited namedItem()
@@ -5540,7 +5540,7 @@ spec:url; type:dfn; for:url; text:url
   <code>option</code> elements. It is always rooted on a <code>select</code> element and has
   attributes and methods that manipulate that element's descendants.
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     interface HTMLOptionsCollection : HTMLCollection {
       // inherits item(), namedItem()
       attribute unsigned long length; // shadows inherited length
@@ -5707,7 +5707,7 @@ spec:url; type:dfn; for:url; text:url
   one for getting the list of name-value pairs, one for setting names to certain values, and one for
   deleting names.
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     [OverrideBuiltins]
     interface <dfn>DOMStringMap</dfn> {
       <a>getter</a> DOMString (DOMString name);
@@ -5779,7 +5779,7 @@ spec:url; type:dfn; for:url; text:url
   one for getting the list of name-element mappings, one for mapping a name to a certain element,
   and one for deleting mappings by name.
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     interface DOMElementMap {
       getter Element (DOMString name);
       setter creator void (DOMString name, Element value);
@@ -5825,7 +5825,7 @@ spec:url; type:dfn; for:url; text:url
 <div class="impl">
   The following IDL block formalizes this:
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     typedef (ArrayBuffer or CanvasProxy or MessagePort) Transferable;
   </pre>
 
@@ -6105,7 +6105,7 @@ spec:url; type:dfn; for:url; text:url
   The following callback function type is used in various APIs that interact with <code>File</code>
   objects:
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     callback <dfn>FileCallback</dfn> = void (<a>File</a> file);
   </pre>
 
@@ -6692,7 +6692,7 @@ spec:url; type:dfn; for:url; text:url
   <div class="impl">
     <h4 id="loading-xml-documents">Loading XML documents</h4>
 
-    <pre class="idl" highlight="webidl">
+    <pre class="idl" data-highlight="webidl">
       partial interface XMLDocument {
         boolean load(DOMString url);
       };
@@ -6893,7 +6893,7 @@ spec:url; type:dfn; for:url; text:url
   <span class="impl">and which must be used by elements that have no additional requirements,</span>
   is the <code>HTMLElement</code> interface.
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     interface HTMLElement : Element {
       // metadata attributes
       attribute DOMString title;
@@ -8692,7 +8692,7 @@ spec:url; type:dfn; for:url; text:url
   <dfn>bidirectional-algorithm formatting character ranges</dfn> must match the <code>string</code>
   production in the following ABNF, the character set for which is Unicode. [[!ABNF]]
 
-  <pre highlight="abnf">
+  <pre data-highlight="abnf">
     string        = *( plaintext ( embedding / override / isolation ) ) plaintext
     embedding     = ( lre / rle ) string pdf
     override      = ( lro / rlo ) string pdf
@@ -10598,7 +10598,7 @@ spec:url; type:dfn; for:url; text:url
     <dd><a >Global aria-* attributes</a></dd>
     <dt><a>DOM interface</a>:</dt>
     <dd>
-      <pre class="idl" highlight="webidl">
+      <pre class="idl" data-highlight="webidl">
         interface HTMLHtmlElement : HTMLElement {};
       </pre>
     </dd>
@@ -10686,7 +10686,7 @@ spec:url; type:dfn; for:url; text:url
     <dd><a>Global aria-* attributes</a></dd>
     <dt><a>DOM interface</a>:</dt>
     <dd>
-      <pre class="idl" highlight="webidl">
+      <pre class="idl" data-highlight="webidl">
         interface <dfn>HTMLHeadElement</dfn> : <a>HTMLElement</a> {};
       </pre>
     </dd>
@@ -10847,7 +10847,7 @@ spec:url; type:dfn; for:url; text:url
     <dd><a>Global aria-* attributes</a>.</dd>
     <dt><a>DOM interface</a>:</dt>
     <dd>
-      <pre class="idl" highlight="webidl">
+      <pre class="idl" data-highlight="webidl">
         interface HTMLBaseElement : HTMLElement {
           attribute DOMString href;
           attribute DOMString target;
@@ -10997,7 +10997,7 @@ spec:url; type:dfn; for:url; text:url
     <dd>For <code>role</code> value </dd>
     <dt><a>DOM interface</a>:</dt>
     <dd>
-      <pre class="idl" highlight="webidl">
+      <pre class="idl" data-highlight="webidl">
         interface HTMLLinkElement : HTMLElement {
           attribute DOMString href;
           attribute DOMString? crossOrigin;
@@ -11125,7 +11125,7 @@ spec:url; type:dfn; for:url; text:url
     simplified), for each hyperlink created with each <code>link</code> element in the document:
 
     * The relationship between this document and the resource (given by the <code>rel</code>
-      attribute)
+        attribute)
     * The title of the resource (given by the <code>title</code> attribute).
     * The address of the resource (given by the <code>href</code> attribute).
     * The language of the resource (given by the <code>hreflang</code> attribute).
@@ -11356,7 +11356,7 @@ spec:url; type:dfn; for:url; text:url
     <dd><a>Global aria-* attributes</a></dd>
     <dt><a>DOM interface</a>:</dt>
     <dd>
-      <pre class="idl" highlight="webidl">
+      <pre class="idl" data-highlight="webidl">
         interface HTMLMetaElement : HTMLElement {
           attribute DOMString name;
           attribute DOMString httpEquiv;
@@ -11668,35 +11668,36 @@ spec:url; type:dfn; for:url; text:url
   </div>
 
   <div class="impl">
-  : <dfn>Content language state</dfn> (<code>http-equiv="content-language"</code>)
-  :: <p class="note">
-      This feature is non-conforming. Authors are encouraged to use the <code>lang</code> attribute
-      instead.
-     </p>
+    : <dfn>Content language state</dfn> (<code>http-equiv="content-language"</code>)
+    ::
+        <p class="note">
+          This feature is non-conforming. Authors are encouraged to use the <code>lang</code>
+          attribute instead.
+        </p>
 
-      This pragma sets the <dfn>pragma-set default language</dfn>. Until such a pragma is
-      successfully processed, there is no <a>pragma-set default language</a>.
+        This pragma sets the <dfn>pragma-set default language</dfn>. Until such a pragma is
+        successfully processed, there is no <a>pragma-set default language</a>.
 
-      1. If the <code>meta</code> element has no <code>content</code> attribute, then abort these
-          steps.
-      2. If the element's <code>content</code> attribute contains a U+002C COMMA character (,) then
-          abort these steps.
-      3. Let <var>input</var> be the value of the element's <code>content</code> attribute.
-      4. Let <var>position</var> point at the first character of <var>input</var>.
-      5. <a>Skip whitespace</a>.
-      6. <a>Collect a sequence of characters</a> that are not <a>space characters</a>.
-      7. Let <var>candidate</var> be the string that resulted from the previous step.
-      8. If <var>candidate</var> is the empty string, abort these steps.
-      9. Set the <a>pragma-set default language</a> to <var>candidate</var>.
-          <p class="note">
-            If the value consists of multiple space-separated tokens, tokens after the first are
-            ignored.
-          </p>
+        1. If the <code>meta</code> element has no <code>content</code> attribute, then abort these
+            steps.
+        2. If the element's <code>content</code> attribute contains a U+002C COMMA character (,)
+            then abort these steps.
+        3. Let <var>input</var> be the value of the element's <code>content</code> attribute.
+        4. Let <var>position</var> point at the first character of <var>input</var>.
+        5. <a>Skip whitespace</a>.
+        6. <a>Collect a sequence of characters</a> that are not <a>space characters</a>.
+        7. Let <var>candidate</var> be the string that resulted from the previous step.
+        8. If <var>candidate</var> is the empty string, abort these steps.
+        9. Set the <a>pragma-set default language</a> to <var>candidate</var>.
+            <p class="note">
+              If the value consists of multiple space-separated tokens, tokens after the first are
+              ignored.
+            </p>
 
-      <p class="note">
-        This pragma is almost, but not quite, entirely unlike the HTTP <code>Content-Language</code>
-        header of the same name. [[!HTTP]]
-      </p>
+        <p class="note">
+          This pragma is almost, but not quite, entirely unlike the HTTP
+          <code>Content-Language</code> header of the same name. [[!HTTP11]]
+        </p>
   </div>
 
   : <dfn>Encoding declaration state</dfn> (<code>http-equiv="content-type"</code>)
@@ -11791,26 +11792,26 @@ spec:url; type:dfn; for:url; text:url
         24. Perform one or more of the following steps:
 
             * After the refresh has come due (as defined below), if the user has not canceled the
-              redirect and if the <code>meta</code> element's <a>node document</a>'s <a>active
-              sandboxing flag set</a> does not have the <a>sandboxed automatic features browsing
-              context flag</a> set, <a>navigate</a> the <code>Document</code>'s
-              <a>browsing context</a> to <var>url</var>, with <a>replacement enabled</a>, and with
-              the <code>Document</code>'s <a>browsing context</a> as the
-              <a>source browsing context</a>.
+                redirect and if the <code>meta</code> element's <a>node document</a>'s <a>active
+                sandboxing flag set</a> does not have the <a>sandboxed automatic features browsing
+                context flag</a> set, <a>navigate</a> the <code>Document</code>'s
+                <a>browsing context</a> to <var>url</var>, with <a>replacement enabled</a>, and with
+                the <code>Document</code>'s <a>browsing context</a> as the
+                <a>source browsing context</a>.
 
               For the purposes of the previous paragraph, a refresh is said to have come due as soon
               as the <em>later</em> of the following two conditions occurs:
 
               * At least <var>time</var> seconds have elapsed since the document has
-                <a>completely loaded</a>, adjusted to take into account user or user agent
-                preferences.
+                  <a>completely loaded</a>, adjusted to take into account user or user agent
+                  preferences.
               * At least <var>time</var> seconds have elapsed since the <code>meta</code> element
-                was <a>inserted into the <code>Document</code></a>, adjusted to take into account
-                user or user agent preferences.
+                  was <a>inserted into the <code>Document</code></a>, adjusted to take into account
+                  user or user agent preferences.
 
             * Provide the user with an interface that, when selected, <a>navigates</a> a
-              <a>browsing context</a> to <var>url</var>, with the <code>Document</code>'s
-              <a>browsing context</a> as the <a>source browsing context</a>.
+                <a>browsing context</a> to <var>url</var>, with the <code>Document</code>'s
+                <a>browsing context</a> as the <a>source browsing context</a>.
             * Do nothing.
 
             In addition, the user agent may, as with anything, inform the user of any and all
@@ -11849,17 +11850,17 @@ spec:url; type:dfn; for:url; text:url
       </div>
 
   <div class="impl">
-  : <dfn>Cookie setter</dfn> (<code>http-equiv="set-cookie"</code>)
-  :: This pragma sets an HTTP cookie. [[!COOKIES]]
+    : <dfn>Cookie setter</dfn> (<code>http-equiv="set-cookie"</code>)
+    :: This pragma sets an HTTP cookie. [[!COOKIES]]
 
-      It is non-conforming. Real HTTP headers should be used instead.
+        It is non-conforming. Real HTTP headers should be used instead.
 
-      1. If the <code>meta</code> element has no <code>content</code> attribute, or if that
-          attribute's value is the empty string, then abort these steps.
-      2. <a>Obtain the storage mutex</a>.
-      3. Act as if <a>receiving a set-cookie-string</a> for <a>the document's address</a> via a
-          "non-HTTP" API, consisting of the value of the element's <code>content</code> attribute
-          encoded as UTF-8. [[!COOKIES]] [[!ENCODING]]
+        1. If the <code>meta</code> element has no <code>content</code> attribute, or if that
+            attribute's value is the empty string, then abort these steps.
+        2. <a>Obtain the storage mutex</a>.
+        3. Act as if <a>receiving a set-cookie-string</a> for <a>the document's address</a> via a
+            "non-HTTP" API, consisting of the value of the element's <code>content</code> attribute
+            encoded as UTF-8. [[!COOKIES]] [[!ENCODING]]
   </div>
 
   There must not be more than one <code>meta</code> element with any particular state in the
@@ -11910,11 +11911,11 @@ spec:url; type:dfn; for:url; text:url
   The following restrictions apply to <a>character encoding declarations</a>:
 
   * The character encoding name given must be an <a>ASCII case-insensitive</a> match for one of the
-    <a>labels</a> of the <a>character encoding</a> used to serialize the file. [[!ENCODING]]
+      <a>labels</a> of the <a>character encoding</a> used to serialize the file. [[!ENCODING]]
   * The character encoding declaration must be serialized without the use of
-    <a>character references</a> or character escapes of any kind.
+      <a>character references</a> or character escapes of any kind.
   * <a>The element containing the character encoding declaration must be serialized completely
-    within the first 1024 bytes of the document.</a>
+      within the first 1024 bytes of the document.</a>
 
   In addition, due to a number of restrictions on <code>meta</code> elements, there can only be one
   <code>meta</code>-based character encoding declaration per document.
@@ -11961,7 +11962,7 @@ spec:url; type:dfn; for:url; text:url
   ISO-2022, and encodings based on EBCDIC. Furthermore, authors must not use the CESU-8, UTF-7,
   BOCU-1 and SCSU encodings, which also fall into this category; these encodings were never intended
   for use for Web content. [[!RFC1345]] [[!RFC1842]] [[!RFC1468]] [[!RFC2237]] [[!RFC1554]]
-  [[!CP50220]] [[!RFC1922]] [[!RFC1557]] [[!CESU8]] [[!UTF7]] [[!BOCU1]] [[!SCSU]]
+  [[!CP50220]] [[!RFC1922]] [[!RFC1557]] [[!CESU8]] [[!RFC2152]] [[!BOCU1]] [[!SCSU]]
 
   Authors should not use UTF-32, as the encoding detection algorithms described in this
   specification intentionally do not distinguish it from UTF-16. [[!UNICODE]]
@@ -11985,7 +11986,2443 @@ spec:url; type:dfn; for:url; text:url
     <pre highlight="html">&lt;?xml version="1.0" encoding="utf-8"?&gt;</pre>
   </div>
 
-<!-- more 4 here -->
+<h4 id="the-style-element">The <dfn><code>style</code></dfn> element</h4>
+
+  <dl class="element">
+    <dt><a>Categories</a>:</dt>
+    <dd><a>Metadata content</a>.</dd>
+    <dd>If the <code>scoped</code> attribute is present: <a>flow content</a>.</dd>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
+    <dd>
+      If the <code>scoped</code> attribute is absent: where <a>metadata content</a> is expected.
+    </dd>
+    <dd>
+      If the <code>scoped</code> attribute is absent: in a <code>noscript</code> element that is a
+      child of a <code>head</code> element.
+    </dd>
+    <dd>
+      If the <code>scoped</code> attribute is present: where <a>flow content</a> is expected, but
+      before any other <a>flow content</a> other than <a>inter-element whitespace</a> and
+      <code>style</code> elements, and not as the child of an element whose content model is
+      <a>transparent</a>.
+    </dd>
+    <dt><a>Content model</a>:</dt>
+    <dd>
+      Depends on the value of the <code>type</code> attribute, but must match requirements described
+      in prose below.
+    </dd>
+    <dt><a>Content attributes</a>:</dt>
+    <dd><a>Global attributes</a></dd>
+    <dd><code>media</code> — Applicable media</dd>
+    <dd><code>type</code> — Type of embedded resource</dd>
+    <dd>
+      <code>scoped</code> — Whether the styles apply to the entire document or just the parent
+      subtree
+    </dd>
+    <dd>
+      Also, the <code>title</code> attribute has special semantics on this element: Alternative
+      style sheet set name.
+    </dd>
+    <dt><a>Tag omission in text/html</a>:</dt>
+    <dd>Neither tag is omissible.</dd>
+    <dt>Allowed <a>ARIA role attribute</a> values:</dt>
+    <dd>None</dd>
+    <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
+    <dd><a>Global aria-* attributes</a></dd>
+    <dt><a>DOM interface</a>:</dt>
+    <dd>
+      <pre class="idl" data-highlight="webidl">
+        interface HTMLStyleElement : HTMLElement {
+          attribute DOMString media;
+          attribute DOMString type;
+          attribute boolean scoped;
+        };
+        HTMLStyleElement implements LinkStyle;
+      </pre>
+    </dd>
+  </dl>
+
+  The <code>style</code> element allows authors to embed style information in their documents. The
+  <code>style</code> element is one of several inputs to the styling processing model. The element
+  does not <a>represent</a> content for the user.
+
+  The <dfn><code>type</code></dfn> attribute gives the styling language. If the attribute is
+  present, its value must be a <a>valid MIME type</a> that designates a styling language. The
+  <code>charset</code> parameter must not be specified. The default value for the <code>type</code>
+  attribute, which is used if the attribute is absent, is "<code>text/css</code>". [[!RFC2318]]
+
+  <div class="impl">
+    When examining types to determine if they support the language, user agents must not ignore
+    unknown MIME parameters — types with unknown parameters must be assumed to be unsupported. The
+    <code>charset</code> parameter must be treated as an unknown parameter for the purpose of
+    comparing <a>MIME types</a> here.
+  </div>
+
+  The <dfn><code>media</code></dfn> attribute says which media the styles apply to. The value must
+  be a <a>valid media query list</a>. <span class="impl">The user agent must apply the styles when
+  the <code>media</code> attribute's value <a>matches the environment</a> and the other relevant
+  conditions apply, and must not apply them otherwise.</span>
+
+  <div class="impl">
+    <p class="note">
+      The styles might be further limited in scope, e.g. in CSS with the use of <code>@media</code>
+      blocks. This specification does not override such further restrictions or requirements.
+    </p>
+  </div>
+
+  The default, if the <code>media</code> attribute is omitted, is "<code>all</code>", meaning that
+  by default styles apply to all media.
+
+  The <dfn><code>scoped</code></dfn> attribute is a <a>boolean attribute</a>. If present, it
+  indicates that the styles are intended just for the subtree rooted at the <code>style</code>
+  element's parent element, as opposed to the whole <code>Document</code>.
+
+  If the <code>scoped</code> attribute is present and the element has a parent element, then the
+  <code>style</code> element must precede any <a>flow content</a> in its parent element other than
+  <a>inter-element whitespace</a> and other <code>style</code> elements, and the parent element's
+  content model must not have a <a>transparent</a> component.
+
+  <p class="note">
+    This implies that scoped <code>style</code> elements cannot be children of, e.g., <code>a</code>
+    or <code>ins</code> elements, even when those are used as <a>flow content</a> containers.
+  </p>
+
+  <p class="note">
+    A <code>style</code> element <em>without</em> a <code>scoped</code> attribute is restricted to
+    appearing in the <code>head</code> of the document.
+  </p>
+
+  A style sheet declared by a <code>style</code> element that has a <code>scoped</code> attribute
+  and has a parent node that is an element is <i>scoped</i>, with the <i>scoping root</i> being the
+  <code>style</code> element's parent element. [[!CSS-SCOPING-1]]
+
+  The <dfn><code>title</code></dfn> attribute on <code>style</code> elements defines
+  <a>alternative style sheet sets</a>. If the <code>style</code> element has no <code>title</code>
+  attribute, then it has no title; the <code>title</code> attribute of ancestors does not apply to
+  the <code>style</code> element. [[!CSSOM]]
+
+  <p class="note">
+    The <code>title</code> attribute on <code>style</code> elements, like the <code>title</code>
+    attribute on <code>link</code> elements, differs from the global <code>title</code> attribute in
+    that a <code>style</code> block without a title does not inherit the title of the parent
+    element: it merely has no title.
+  </p>
+
+  The <code>textContent</code> of a <code>style</code> element must match the <code>style</code>
+  production in the following ABNF, the character set for which is Unicode. [[!ABNF]]
+
+  <pre data-highlight="abnf">
+    style         = no-c-start *( c-start no-c-end c-end no-c-start )
+    no-c-start    = &lt; any string that doesn't contain a substring that matches c-start &gt;
+    c-start       = "&lt;!--"
+    no-c-end      = &lt; any string that doesn't contain a substring that matches c-end &gt;
+    c-end         = "--&gt;"
+  </pre>
+
+  <hr />
+
+  <div class="impl">
+    Whenever one of the following conditions occur for an element whose <code>Document</code> is in
+    a <a>browsing context</a>:
+
+    * the element is popped off the <a>stack of open elements</a> of an <a>HTML parser</a> or
+        <a>XML parser</a>,
+
+    * the element is not on the <a>stack of open elements</a> of an <a>HTML parser</a> or
+        <a>XML parser</a>, and it is <a>inserted into a document</a> or
+        <a>removed from a document</a>,
+
+    * the element is not on the <a>stack of open elements</a> of an <a>HTML parser</a> or
+        <a>XML parser</a>, and one of its child nodes is modified by a script,
+
+    ...the user agent must run the <dfn>update a <code>style</code> block</dfn> algorithm that
+    applies for the style sheet language specified by the element's <code>type</code> attribute,
+    passing it the element's <dfn>style data</dfn>.
+
+    For styling languages that consist of pure text (as opposed to XML), a <code>style</code>
+    element's <a>style data</a> is the concatenation of the contents of all the <code>Text</code>
+    nodes that are children of the <code>style</code> element (not any other nodes such as comments
+    or elements), in <a>tree order</a>. For XML-based styling languages, the <a>style data</a>
+    consists of all the child nodes of the <code>style</code> element.
+
+    The <a>update a <code>style</code> block</a> algorithm for CSS (<code>text/css</code>) is as
+    follows:
+
+    1. Let <var>element</var> be the <code>style</code> element.</li>
+    2. If <var>element</var> has an <a>associated CSS style sheet</a>,
+        <a>remove the CSS style sheet</a> in question.</li>
+    3. If <var>element</var> is not <a>in a <code>Document</code></a>, then abort
+        these steps.</li>
+    4. <a>Create a CSS style sheet</a> with the following properties:
+
+        : <a>type</a>
+        :: <code>text/css</code>
+
+        : <a>owner node</a>
+        :: <var>element</var>
+
+        : <a>media</a>
+        :: The <code>media</code> attribute of <var>element</var>.
+
+            <p class="note">
+              This is a reference to the (possibly absent at this time) attribute, rather than a
+              copy of the attribute's current value. The CSSOM specification defines what happens
+              when the attribute is dynamically set, changed, or removed.
+            </p>
+
+        : <a>title</a>
+        :: The <code>title</code> attribute of <var>element</var>.
+
+            <p class="note">Again, this is a <em>reference</em> to the attribute.</p>
+
+        : <a>alternate flag</a>
+        :: Unset.
+
+        : <a>origin-clean flag</a>
+        :: Set.
+
+        : <a>location</a>
+        : <a>parent CSS style sheet</a>
+        : <a>owner CSS rule</a>
+        :: null
+
+        : <a>disabled flag</a>
+        :: Left at its default value.
+
+        : <a>CSS rules</a>
+        :: Left uninitialized.
+
+    This specification does not define any other styling language's
+    <i>update a <code>style</code> block</i> algorithm.
+
+    Once the attempts to obtain the style sheet's <a>critical subresources</a>, if any, are
+    complete, or, if the style sheet has no <a>critical subresources</a>, once the style sheet has
+    been parsed and processed, the user agent must, if the loads were successful or there were none,
+    <a>queue a task</a> to <a>fire a simple event</a> named <code>load</code> at the
+    <code>style</code> element, or, if one of the style sheet's <a>critical subresources</a> failed
+    to completely load for any reason (e.g. DNS error, HTTP 404 response, a connection being
+    prematurely closed, unsupported Content-Type), <a>queue a task</a> to <a>fire a simple event</a>
+    named <code>error</code> at the <code>style</code> element. Non-network errors in processing the
+    style sheet or its subresources (e.g. CSS parse errors, PNG decoding errors) are not failures
+    for the purposes of this paragraph.
+
+    The <a>task source</a> for these <a>tasks</a> is the <a>DOM manipulation task source</a>.
+
+    The element must <a>delay the load event</a> of the element's <a>node document</a> until all the
+    attempts to obtain the style sheet's <a>critical subresources</a>, if any, are complete.
+  </div>
+
+  <p class="note">
+    This specification does not specify a style system, but CSS is expected to be supported by most
+    Web browsers. [[!CSS-2015]]
+  </p>
+
+  <div class="impl">
+    The <dfn><code>media</code></dfn>, <dfn><code>type</code></dfn> and
+    <dfn><code>scoped</code></dfn> IDL attributes must <a>reflect</a> the respective content
+    attributes of the same name.
+  </div>
+
+  The <code>LinkStyle</code> interface is also implemented by this element. [[!CSSOM]]
+
+  <div class="example">
+    The following document has its stress emphasis styled as bright red text rather than italics
+    text, while leaving titles of works and Latin words in their default italics. It shows how using
+    appropriate elements enables easier restyling of documents.
+
+    <pre highlight="html">&lt;!DOCTYPE html&gt;
+      &lt;html&gt;
+        &lt;head&gt;
+          &lt;title&gt;My favorite book&lt;/title&gt;
+          &lt;style&gt;
+            body { color: black; background: white; }
+            em { font-style: normal; color: red; }
+          &lt;/style&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+          &lt;p&gt;My &lt;em&gt;favorite&lt;/em&gt; book of all time has &lt;em&gt;got&lt;/em&gt; to be
+          &lt;cite&gt;A Cat's Life&lt;/cite&gt;. It is a book by P. Rahmel that talks
+          about the &lt;i lang="la"&gt;Felis Catus&lt;/i&gt; in modern human society.&lt;/p&gt;
+        &lt;/body&gt;
+      &lt;/html&gt;</pre>
+  </div>
+
+  <div class="impl">
+    <h4 id="interactions-of-styling-and-scripting">Interactions of styling and scripting</h4>
+
+    Style sheets, whether added by a <code>link</code> element, a <code>style</code> element, an
+    <code>&lt;?xml-stylesheet?&gt;</code> PI, an HTTP <code>Link</code> header, or some other
+    mechanism, have a <dfn>style sheet ready</dfn> flag, which is initially unset.
+
+    When a style sheet is ready to be applied, its <a>style sheet ready</a> flag must be set. If the
+    style sheet referenced no other resources (e.g. it was an internal style sheet given by a
+    <code>style</code> element with no <code>@import</code> rules), then the style rules must be
+    <a>immediately</a> made available to script; otherwise, the style rules must only be made
+    available to script once the <a>event loop</a> reaches its <i>update the rendering</i> step.
+
+    A style sheet in the context of the <code>Document</code> of an <a>HTML parser</a> or
+    <a>XML parser</a> is said to be <dfn>a style sheet that is blocking scripts</dfn> if the element
+    was created by that <code>Document</code>'s parser, and the element is either a
+    <code>style</code> element or a <code>link</code> element that was an <a>external resource link
+    that contributes to the styling processing model</a> when the element was created by the parser,
+    and the element's style sheet was enabled when the element was created by the parser, and the
+    element's <a>style sheet ready</a> flag is not yet set, and, the last time the <a>event loop</a>
+    reached <a>step 1</a>, the element was <a>in that <code>Document</code></a>, and the user agent
+    hasn't given up on that particular style sheet yet. A user agent may give up on a style sheet at
+    any time.
+
+    <p class="note">
+      Giving up on a style sheet before the style sheet loads, if the style sheet eventually does
+      still load, means that the script might end up operating with incorrect information. For
+      example, if a style sheet sets the color of an element to green, but a script that inspects
+      the resulting style is executed before the sheet is loaded, the script will find that the
+      element is black (or whatever the default color is), and might thus make poor choices (e.g.
+      deciding to use black as the color elsewhere on the page, instead of green). Implementors have
+      to balance the likelihood of a script using incorrect information with the performance impact
+      of doing nothing while waiting for a slow network request to finish.
+    </p>
+
+    A <code>Document</code> <dfn>has a style sheet that is blocking scripts</dfn> if there is either
+    <a>a style sheet that is blocking scripts</a> in the context of that <code>Document</code>, or
+    if that <code>Document</code> is in a <a>browsing context</a> that has a
+    <a>parent browsing context</a>, and the <a>active document</a> of that
+    <a>parent browsing context</a> itself <a>has a style sheet that is blocking scripts</a>.
+
+    A <code>Document</code> <dfn>has no style sheet that is blocking scripts</dfn> if it does not
+    <a>have a style sheet that is blocking scripts</a> as defined in the previous paragraph.
+  </div>
+
+<h3 id="sections">Sections</h3>
+<h4 id="the-body-element">The <dfn><code>body</code></dfn> element</h4>
+
+  <dl class="element">
+    <dt><a>Categories</a>:</dt>
+    <dd><a>Sectioning root</a>.</dd>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
+    <dd>As the second element in an <code>html</code> element.</dd>
+    <dt><a>Content model</a>:</dt>
+    <dd><a>Flow content</a>.</dd>
+    <dt><a>Content attributes</a>:</dt>
+    <dd><a>Global attributes</a></dd>
+    <dd><code>onafterprint</code></dd>
+    <dd><code>onbeforeprint</code></dd>
+    <dd><code>onbeforeunload</code></dd>
+    <dd><code>onhashchange</code></dd>
+    <dd><code>onlanguagechange</code></dd>
+    <dd><code>onmessage</code></dd>
+    <dd><code>onoffline</code></dd>
+    <dd><code>ononline</code></dd>
+    <dd><code>onpagehide</code></dd>
+    <dd><code>onpageshow</code></dd>
+    <dd><code>onpopstate</code></dd>
+    <dd><code>onstorage</code></dd>
+    <dd><code>onunload</code></dd>
+    <dt><a>Tag omission in text/html</a>:</dt>
+    <dd>
+      A <code>body</code> element's <a>start tag</a> may be omitted if the element is empty, or if
+      the first thing inside the <code>body</code> element is not a <a>space character</a> or a
+      <a>comment</a>, except if the first thing inside the <code>body</code> element is a
+      <code>meta</code>, <code>link</code>, <code>script</code>, <code>style</code>, or
+      <code>template</code> element.</dd>
+    <dd>
+      A <code>body</code> element's <a>end tag</a> may be omitted if the <code>body</code> element
+      is not immediately followed by a <a>comment</a>.
+    </dd>
+    <dt>Allowed <a>ARIA role attribute</a> values:</dt>
+    <dd>
+      <a><code>document</code></a> role (default - <a><em>do not set</em></a>),
+      <a><code>application</code></a>.
+    </dd>
+    <dt>Allowed <a>ARIA State and Property Attributes</a>:</dt>
+    <dd><a>Global aria-* attributes</a></dd>
+    <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
+    <dt><a>DOM interface</a>:</dt>
+    <dd>
+      <pre class="idl" data-highlight="webidl">
+        interface HTMLBodyElement : HTMLElement {
+        };
+        HTMLBodyElement implements WindowEventHandlers;
+      </pre>
+    </dd>
+  </dl>
+
+  The <code>body</code> element <a>represents</a> the content of the document.
+
+  In conforming documents, there is only one <code>body</code> element. The
+  <code>document.body</code> IDL attribute provides scripts with easy access to a document's
+  <code>body</code> element.
+
+  <p class="note">
+    Some DOM operations (for example, parts of the <a>drag and drop</a> model) are defined in terms
+    of "<a>the body element</a>". This refers to a particular element in the DOM, as per the
+    definition of the term, and not any arbitrary <code>body</code> element.
+  </p>
+
+  The <code>body</code> element exposes as <a>event handler content attributes</a> a number of the
+  <a>event handlers</a> of the <code>Window</code> object. It also mirrors their
+  <a>event handler IDL attributes</a>.
+
+  The <code>onblur</code>, <code>onerror</code>, <code>onfocus</code>, <code>onload</code>,
+  <code>onresize</code>, and <code>onscroll</code> <a>event handlers</a> of the <code>Window</code>
+  object, exposed on the <code>body</code> element, replace the generic <a>event handlers</a> with
+  the same names normally supported by <a>HTML elements</a>.
+
+  <p class="example">
+    Thus, for example, a bubbling <code>error</code> event dispatched on a child of
+    <a>the body element</a> of a <code>Document</code> would first trigger the <code>onerror</code>
+    <a>event handler content attributes</a> of that element, then that of the root <code>html</code>
+    element, and only <em>then</em> would it trigger the <code>onerror</code> <a>event handler
+    content attribute</a> on the <code>body</code> element. This is because the event would bubble
+    from the target, to the <code>body</code>, to the <code>html</code>, to the
+    <code>Document</code>, to the <code>Window</code>, and the <a>event handler</a> on the
+    <code>body</code> is watching the <code>Window</code> not the <code>body</code>. A regular event
+    listener attached to the <code>body</code> using <code>addEventListener()</code>, however, would
+    be run when the event bubbled through the <code>body</code> and not when it reaches the
+    <code>Window</code> object.
+  </p>
+
+  <div class="example">
+    This page updates an indicator to show whether or not the user is online:
+
+    <pre highlight="html">
+      &lt;!DOCTYPE HTML&gt;
+      &lt;html&gt;
+        &lt;head&gt;
+          &lt;title&gt;Online or offline?&lt;/title&gt;
+          &lt;script&gt;
+            function update(online) {
+              document.getElementById('status').textContent =
+              online ? 'Online' : 'Offline';
+            }
+          &lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body ononline="update(true)"
+          onoffline="update(false)"
+          onload="update(navigator.onLine)"&gt;
+          &lt;p&gt;You are: &lt;span id="status"&gt;(Unknown)&lt;/span&gt;&lt;/p&gt;
+        &lt;/body&gt;
+      &lt;/html&gt;
+    </pre>
+  </div>
+
+<h4 id="the-article-element">The <dfn><code>article</code></dfn> element</h4>
+
+  <dl class="element">
+    <dt><a>Categories</a>:</dt>
+    <dd><a>Flow content</a>, but with no <code>main</code> element descendants.</dd>
+    <dd><a>Sectioning content</a>.</dd>
+    <dd><a>Palpable content</a>.</dd>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
+    <dd>Where <a>flow content</a> is expected.</dd>
+    <dt><a>Content model</a>:</dt>
+    <dd><a>Flow content</a>.</dd>
+    <dt><a>Content attributes</a>:</dt>
+    <dd><a>Global attributes</a></dd>
+    <dt><a>Tag omission in text/html</a>:</dt>
+    <dd>Neither tag is omissible</dd>
+    <dt>Allowed <a>ARIA role attribute</a> values:</dt>
+    <dd>
+      <a><code>article</code></a> (default - <a><em>do not set</em></a>),
+      <a><code>application</code></a>, <a><code>document</code></a> or <a><code>main</code></a>.
+    </dd>
+    <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
+    <dd><a>Global aria-* attributes</a></dd>
+    <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
+    <dt><a>DOM interface</a>:</dt>
+    <dd>Uses <code>HTMLElement</code>.</dd>
+  </dl>
+
+  The <code>article</code> element <a>represents</a> a complete, or self-contained, composition in a
+  document, page, application, or site and that is, in principle, independently distributable or
+  reusable, e.g. in syndication. This could be a forum post, a magazine or newspaper article, a blog
+  entry, a user-submitted comment, an interactive widget or gadget, or any other independent item of
+  content. Each <code>article</code> should be identified, typically by including a heading
+  (<code>h1</code>-<code>h6</code> element) as a child of the <code>article</code> element.
+
+  A general rule is that the <code>article</code> element is appropriate only if the element's
+  contents would be listed explicitly in the document's outline.
+
+  When <code>article</code> elements are nested, the inner <code>article</code> elements represent
+  articles that are in principle related to the contents of the outer article. For instance, a blog
+  entry on a site that accepts user-submitted comments could represent the comments as
+  <code>article</code> elements nested within the <code>article</code> element for the blog entry.
+
+  Author information associated with an <code>article</code> element (q.v. the <code>address</code>
+  element) does not apply to nested <code>article</code> elements.
+
+  <p class="note">
+    When used specifically with content to be redistributed in syndication, the <code>article</code>
+    element is similar in purpose to the <code>entry</code> element in Atom. [[!RFC4287]]
+  </p>
+  <p class="note">
+    The schema.org microdata vocabulary can be used to provide the publication date for an
+    <code>article</code> element, using one of the CreativeWork subtypes.
+  </p>
+
+  When the main content of the page (i.e. excluding footers, headers, navigation blocks, and
+  sidebars) is all one single self-contained composition, that content may be marked with an
+  <code>article</code>, but it is technically redundant in that case (since it's self-evident that
+  the page is a single composition, as it is a single document).
+
+  <div class="example">
+    This example shows a blog post using the <code>article</code> element, with some schema.org
+    annotations:
+
+    <pre highlight="html">
+      &lt;article itemscope itemtype="http://schema.org/BlogPosting"&gt;
+        &lt;header&gt;
+          &lt;h2 itemprop="headline"&gt;The Very First Rule of Life&lt;/h2&gt;
+          &lt;p&gt;&lt;time itemprop="datePublished" datetime="2009-10-09"&gt;3 days ago&lt;/time&gt;&lt;/p&gt;
+          &lt;link itemprop="url" href="?comments=0"&gt;
+        &lt;/header&gt;
+        &lt;p&gt;If there's a microphone anywhere near you, assume it's hot and
+        sending whatever you're saying to the world. Seriously.&lt;/p&gt;
+        &lt;p&gt;<em>...</em>&lt;/p&gt;
+        &lt;footer&gt;
+          &lt;a itemprop="discussionUrl" href="?comments=1"&gt;Show comments...&lt;/a&gt;
+        &lt;/footer&gt;
+      &lt;/article&gt;
+    </pre>
+
+    Here is that same blog post, but showing some of the comments:
+
+    <pre highlight="html">
+      &lt;article itemscope itemtype="http://schema.org/BlogPosting"&gt;
+        &lt;header&gt;
+          &lt;h2 itemprop="headline"&gt;The Very First Rule of Life&lt;/h2&gt;
+          &lt;p&gt;&lt;time itemprop="datePublished" datetime="2009-10-09"&gt;3 days ago&lt;/time&gt;&lt;/p&gt;
+          &lt;link itemprop="url" href="?comments=0"&gt;
+        &lt;/header&gt;
+        &lt;p&gt;If there's a microphone anywhere near you, assume it's hot and
+        sending whatever you're saying to the world. Seriously.&lt;/p&gt;
+        &lt;p&gt;<em>...</em>&lt;/p&gt;
+        &lt;section&gt;
+          &lt;h2&gt;Comments&lt;/h2&gt;
+          &lt;article itemprop="comment" itemscope itemtype="http://schema.org/UserComments" id="c1"&gt;
+            &lt;link itemprop="url" href="#c1"&gt;
+            &lt;footer&gt;
+              &lt;p&gt;Posted by: &lt;span itemprop="creator" itemscope itemtype="http://schema.org/Person"&gt;
+              &lt;span itemprop="name"&gt;George Washington&lt;/span&gt;
+              &lt;/span&gt;&lt;/p&gt;
+              &lt;p&gt;&lt;time itemprop="commentTime" datetime="2009-10-10"&gt;15 minutes ago&lt;/time&gt;&lt;/p&gt;
+            &lt;/footer&gt;
+            &lt;p&gt;Yeah! Especially when talking about your lobbyist friends!&lt;/p&gt;
+          &lt;/article&gt;
+          &lt;article itemprop="comment" itemscope itemtype="http://schema.org/UserComments" id="c2"&gt;
+            &lt;link itemprop="url" href="#c2"&gt;
+            &lt;footer&gt;
+              &lt;p&gt;Posted by: &lt;span itemprop="creator" itemscope itemtype="http://schema.org/Person"&gt;
+              &lt;span itemprop="name"&gt;George Hammond&lt;/span&gt;
+              &lt;/span&gt;&lt;/p&gt;
+              &lt;p&gt;&lt;time itemprop="commentTime" datetime="2009-10-10"&gt;5 minutes ago&lt;/time&gt;&lt;/p&gt;
+            &lt;/footer&gt;
+            &lt;p&gt;Hey, you have the same first name as me.&lt;/p&gt;
+          &lt;/article&gt;
+        &lt;/section&gt;
+      &lt;/article&gt;
+    </pre>
+
+    Notice the use of <code>footer</code> to give the information for each comment (such as who
+    wrote it and when): the <code>footer</code> element <em>can</em> appear at the start of its
+    section when appropriate, such as in this case. (Using <code>header</code> in this case wouldn't
+    be wrong either; it's mostly a matter of authoring preference.)
+
+  </div>
+
+<h4 id="the-section-element">The <dfn><code>section</code></dfn> element</h4>
+
+  <dl class="element">
+    <dt><a>Categories</a>:</dt>
+    <dd><a>Flow content</a>.</dd>
+    <dd><a>Sectioning content</a>.</dd>
+    <dd><a>Palpable content</a>.</dd>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
+    <dd>Where <a>flow content</a> is expected.</dd>
+    <dt><a>Content model</a>:</dt>
+    <dd><a>Flow content</a>.</dd>
+    <dt><a>Content attributes</a>:</dt>
+    <dd><a>Global attributes</a></dd>
+    <dt><a>Tag omission in text/html</a>:</dt>
+    <dd>Neither tag is omissible</dd>
+    <dt>Allowed <a>ARIA role attribute</a> values:</dt>
+    <dd>
+      <a><code>region</code></a> role (default - <a><em>do not set</em></a>),
+      <a><code>alert</code></a>, <a><code>alertdialog</code></a>, <a><code>application</code></a>,
+      <a><code>contentinfo</code></a>, <a><code>dialog</code></a>, <a><code>document</code></a>,
+      <a><code>log</code></a>, <a><code>main</code></a>, <a><code>marquee</code></a>,
+      <a><code>presentation</code></a>, <a><code>search</code></a> or <a><code>status</code></a>.
+    </dd>
+    <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
+    <dd><a>Global aria-* attributes</a></dd>
+    <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
+    <dt><a>DOM interface</a>:</dt>
+    <dd>Uses <code>HTMLElement</code>.</dd>
+  </dl>
+
+  The <code>section</code> element <a>represents</a> a generic section of a document or application.
+  A section, in this context, is a thematic grouping of content. Each <code>section</code> should be
+  identified, typically by including a heading (<code>h1</code>-<code>h6</code> element) as a child
+  of the <code>section</code> element.
+
+  <p class="example">
+    Examples of sections would be chapters, the various tabbed pages in a tabbed dialog box, or the
+    numbered sections of a thesis. A Web site's home page could be split into sections for an
+    introduction, news items, and contact information.
+  </p>
+
+  <p class="note">
+    Authors are encouraged to use the <code>article</code> element instead of the
+    <code>section</code> element when it would make sense to syndicate the contents of the element.
+  </p>
+
+  <p class="note">
+    The <code>section</code> element is not a generic container element. When an element is needed
+    only for styling purposes or as a convenience for scripting, authors are encouraged to use the
+    <code>div</code> element instead. A general rule is that the <code>section</code> element is
+    appropriate only if the element's contents would be listed explicitly in the document's
+    <a>outline</a>.
+  </p>
+
+  <div class="example">
+    In the following example, we see an article (part of a larger Web page) about apples,
+    containing two short sections.
+
+    <pre highlight="html">
+      &lt;article&gt;
+        &lt;header&gt;
+          &lt;h2&gt;Apples&lt;/h2&gt;
+          &lt;p&gt;Tasty, delicious fruit!&lt;/p&gt;
+        &lt;/header&gt;
+        &lt;p&gt;The apple is the pomaceous fruit of the apple tree.&lt;/p&gt;
+        &lt;section&gt;
+          &lt;h3&gt;Red Delicious&lt;/h3&gt;
+          &lt;p&gt;These bright red apples are the most common found in many
+          supermarkets.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+          &lt;h3&gt;Granny Smith&lt;/h3&gt;
+          &lt;p&gt;These juicy, green apples make a great filling for
+          apple pies.&lt;/p&gt;
+        &lt;/section&gt;
+      &lt;/article&gt;
+    </pre>
+  </div>
+
+  <div class="example">
+    Here is a graduation program with two sections, one for the list of people graduating, and
+    one for the description of the ceremony. (The markup in this example features an uncommon style
+    sometimes used to minimize the amount of <a>inter-element whitespace</a>.)
+
+    <pre highlight="html">
+      &lt;!DOCTYPE Html&gt;
+      &lt;html
+        &gt;&lt;head
+          &gt;&lt;title
+            &gt;Graduation Ceremony Summer 2022&lt;/title
+          &gt;&lt;/head
+        &gt;&lt;body
+          &gt;&lt;h1
+            &gt;Graduation&lt;/h1
+          &gt;&lt;section
+            &gt;&lt;h2
+              &gt;Ceremony&lt;/h2
+            &gt;&lt;p
+              &gt;Opening Procession&lt;/p
+            &gt;&lt;p
+              &gt;Speech by Validactorian&lt;/p
+            &gt;&lt;p
+              &gt;Speech by Class President&lt;/p
+            &gt;&lt;p
+              &gt;Presentation of Diplomas&lt;/p
+            &gt;&lt;p
+              &gt;Closing Speech by Headmaster&lt;/p
+          &gt;&lt;/section
+          &gt;&lt;section
+            &gt;&lt;h2
+              &gt;Graduates&lt;/h2
+            &gt;&lt;ul
+              &gt;&lt;li
+                &gt;Molly Carpenter&lt;/li
+              &gt;&lt;li
+                &gt;Anastasia Luccio&lt;/li
+              &gt;&lt;li
+                &gt;Ebenezar McCoy&lt;/li
+              &gt;&lt;li
+                &gt;Karrin Murphy&lt;/li
+              &gt;&lt;li
+                &gt;Thomas Raith&lt;/li
+              &gt;&lt;li
+                &gt;Susan Rodriguez&lt;/li
+            &gt;&lt;/ul
+          &gt;&lt;/section
+        &gt;&lt;/body
+      &gt;&lt;/html&gt;
+    </pre>
+  </div>
+
+  <div class="example">
+    In this example, a book author has marked up some sections as chapters and some as appendices,
+    and uses CSS to style the headers in these two classes of section differently. The whole book is
+    wrapped in an <code>article</code> element as part of an even larger document containing other
+    books.
+
+    <pre highlight="html">
+      &lt;article class="book"&gt;
+        &lt;style&gt;
+          section { border: double medium; margin: 2em; }
+          section.chapter h1 { font: 2em Roboto, Helvetica Neue, sans-serif; }
+          section.appendix h1 { font: small-caps 2em Roboto, Helvetica Neue, sans-serif; }
+        &lt;/style&gt;
+        &lt;header&gt;
+          &lt;h2&gt;My Book&lt;/h2&gt;
+          &lt;p&gt;A sample with not much content&lt;/p&gt;
+          &lt;p&gt;&lt;small&gt;Published by Dummy Publicorp Ltd.&lt;/small&gt;&lt;/p&gt;
+        &lt;/header&gt;
+
+        &lt;section class="chapter"&gt;
+          &lt;h3&gt;My First Chapter&lt;/h3&gt;
+          &lt;p&gt;This is the first of my chapters. It doesn't say much.&lt;/p&gt;
+          &lt;p&gt;But it has two paragraphs!&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;section class="chapter"&gt;
+          &lt;h3&gt;It Continutes: The Second Chapter&lt;/h3&gt;
+          &lt;p&gt;Bla dee bla, dee bla dee bla. Boom.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;section class="chapter"&gt;
+          &lt;h3&gt;Chapter Three: A Further Example&lt;/h3&gt;
+          &lt;p&gt;It's not like a battle between brightness and earthtones would go
+          unnoticed.&lt;/p&gt;
+          &lt;p&gt;But it might ruin my story.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;section class="appendix"&gt;
+          &lt;h3&gt;Appendix A: Overview of Examples&lt;/h3&gt;
+          &lt;p&gt;These are demonstrations.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;section class="appendix"&gt;
+          &lt;h3&gt;Appendix B: Some Closing Remarks&lt;/h3&gt;
+          &lt;p&gt;Hopefully this long example shows that you &lt;em&gt;can&lt;/em&gt; style
+          sections, so long as they are used to indicate actual sections.&lt;/p&gt;
+        &lt;/section&gt;
+      &lt;/article&gt;
+    </pre>
+
+  </div>
+
+<h4 id="the-nav-element">The <dfn><code>nav</code></dfn> element</h4>
+
+  <dl class="element">
+    <dt><a>Categories</a>:</dt>
+    <dd><a>Flow content</a>.</dd>
+    <dd><a>Sectioning content</a>.</dd>
+    <dd><a>Palpable content</a>.</dd>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
+    <dd>Where <a>flow content</a> is expected.</dd>
+    <dt><a>Content model</a>:</dt>
+    <dd><a>Flow content</a>, but with no <code>main</code> element descendants.</dd>
+    <dt><a>Content attributes</a>:</dt>
+    <dd><a>Global attributes</a></dd>
+    <dt><a>Tag omission in text/html</a>:</dt>
+    <dd>Neither tag is omissible</dd>
+    <dt>Allowed <a>ARIA role attribute</a> values:</dt>
+    <dd>
+      <a><code>navigation</code></a> role (default - <a><em>do not set</em></a>) or
+      <a><code>presentation</code></a>.
+    </dd>
+    <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
+    <dd><a>Global aria-* attributes</a></dd>
+    <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
+    <dt><a>DOM interface</a>:</dt>
+    <dd>Uses <code>HTMLElement</code>.</dd>
+  </dl>
+
+  The <code>nav</code> element <a>represents</a> a section of a page that links to other pages or to
+  parts within the page: a section with navigation links.
+
+  <p class="note">
+    In cases where the content of a <code>nav</code> element represents a list of items, use list
+    markup to aid understanding and navigation.
+  </p>
+
+  <p class="note">
+    Not all groups of links on a page need to be in a <code>nav</code> element — the element is
+    primarily intended for sections that consist of major navigation blocks. In particular, it is
+    common for footers to have a short list of links to various pages of a site, such as the terms
+    of service, the home page, and a copyright page. The <code>footer</code> element alone is
+    sufficient for such cases; while a <code>nav</code> element can be used in such cases, it is
+    usually unnecessary.
+  </p>
+
+  <p class="note">
+    User agents (such as screen readers) that are targeted at users who can benefit from navigation
+    information being omitted in the initial rendering, or who can benefit from navigation
+    information being immediately available, can use this element as a way to determine what content
+    on the page to initially skip or provide on request (or both).
+  </p>
+
+  <div class="example">
+    In the following example, there are two <code>nav</code> elements, one for primary navigation
+    around the site, and one for secondary navigation around the page itself.
+
+    <pre highlight="html">
+      &lt;body&gt;
+        &lt;h1&gt;The Wiki Center Of Exampland&lt;/h1&gt;
+        &lt;nav&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/events"&gt;Current Events&lt;/a&gt;&lt;/li&gt;
+            <em>...more...</em>
+          &lt;/ul&gt;
+        &lt;/nav&gt;
+        &lt;article&gt;
+          &lt;header&gt;
+            &lt;h2&gt;Demos in Exampland&lt;/h2&gt;
+            &lt;p&gt;Written by A. N. Other.&lt;/p&gt;
+          &lt;/header&gt;
+          &lt;nav&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href="#public"&gt;Public demonstrations&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="#destroy"&gt;Demolitions&lt;/a&gt;&lt;/li&gt;
+              <em>...more...</em>
+            &lt;/ul&gt;
+          &lt;/nav&gt;
+          &lt;div&gt;
+            &lt;section id="public"&gt;
+              &lt;h2&gt;Public demonstrations&lt;/h2&gt;
+              &lt;p&gt;<em>...more...</em>&lt;/p&gt;
+            &lt;/section&gt;
+            &lt;section id="destroy"&gt;
+              &lt;h2&gt;Demolitions&lt;/h2&gt;
+              &lt;p&gt;<em>...more...</em>&lt;/p&gt;
+            &lt;/section&gt;
+            <em>...more...</em>
+          &lt;/div&gt;
+          &lt;footer&gt;
+            &lt;p&gt;&lt;a href="?edit"&gt;Edit&lt;/a&gt; | &lt;a href="?delete"&gt;Delete&lt;/a&gt; | &lt;a href="?Rename"&gt;Rename&lt;/a&gt;&lt;/p&gt;
+          &lt;/footer&gt;
+        &lt;/article&gt;
+        &lt;footer&gt;
+          &lt;p&gt;&lt;small&gt;© copyright 1998 Exampland Emperor&lt;/small&gt;&lt;/p&gt;
+        &lt;/footer&gt;
+      &lt;/body&gt;
+    </pre>
+  </div>
+
+  <div class="example">
+    In the following example, the page has several places where links are present, but only one of
+    those places is considered a navigation section.
+
+    <pre highlight="html">
+      &lt;body itemscope itemtype="http://schema.org/Blog"&gt;
+        &lt;header&gt;
+          &lt;h1&gt;Wake up sheeple!&lt;/h1&gt;
+          &lt;p&gt;&lt;a href="news.html"&gt;News&lt;/a&gt; -
+          &lt;a href="blog.html"&gt;Blog&lt;/a&gt; -
+          &lt;a href="forums.html"&gt;Forums&lt;/a&gt;&lt;/p&gt;
+          &lt;p&gt;Last Modified: &lt;span itemprop="dateModified"&gt;2009-04-01&lt;/span&gt;&lt;/p&gt;
+          &lt;nav&gt;
+            &lt;h2&gt;Navigation&lt;/h2&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href="articles.html"&gt;Index of all articles&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="today.html"&gt;Things sheeple need to wake up for today&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="successes.html"&gt;Sheeple we have managed to wake&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/nav&gt;
+        &lt;/header&gt;
+        &lt;main&gt;
+          &lt;article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting"&gt;
+            &lt;header&gt;
+              &lt;h2 itemprop="headline"&gt;My Day at the Beach&lt;/h2&gt;
+            &lt;/header&gt;
+            &lt;main itemprop="articleBody"&gt;
+              &lt;p&gt;Today I went to the beach and had a lot of fun.&lt;/p&gt;
+              <em>...more content...</em>
+            &lt;/main&gt;
+            &lt;footer&gt;
+              &lt;p&gt;Posted &lt;time itemprop="datePublished" datetime="2009-10-10"&gt;Thursday&lt;/time&gt;.&lt;/p&gt;
+            &lt;/footer&gt;
+          &lt;/article&gt;
+          <em>...more blog posts...</em>
+        &lt;/main&gt;
+        &lt;footer&gt;
+          &lt;p&gt;Copyright ©
+            &lt;span itemprop="copyrightYear"&gt;2010&lt;/span&gt;
+            &lt;span itemprop="copyrightHolder"&gt;The Example Company&lt;/span&gt;
+          &lt;/p&gt;
+          &lt;p&gt;&lt;a href="about.html"&gt;About&lt;/a&gt; -
+            &lt;a href="policy.html"&gt;Privacy Policy&lt;/a&gt; -
+            &lt;a href="contact.html"&gt;Contact Us&lt;/a&gt;&lt;/p&gt;
+        &lt;/footer&gt;
+      &lt;/body&gt;
+    </pre>
+
+    Notice the <code>main</code> element being used to wrap the main content of the page. In this
+    case, all content other than the page header and footer.
+
+    You can also see microdata annotations in the above example that use the schema.org vocabulary
+    to provide the publication date and other metadata about the blog post.
+  </div>
+
+  <div class="example">
+    A <code>nav</code> element doesn't have to contain a list, it can contain other kinds of content
+    as well. In this navigation block, links are provided in prose:
+
+    <pre highlight="html">
+      &lt;nav&gt;
+        &lt;h2&gt;Navigation&lt;/h2&gt;
+        &lt;p&gt;You are on my home page. To the north lies &lt;a href="/blog"&gt;my
+        blog&lt;/a&gt;, from whence the sounds of battle can be heard. To the east
+        you can see a large mountain, upon which many &lt;a
+        href="/school"&gt;school papers&lt;/a&gt; are littered. Far up thus mountain
+        you can spy a little figure who appears to be me, desperately
+        scribbling a &lt;a href="/school/thesis"&gt;thesis&lt;/a&gt;.&lt;/p&gt;
+        &lt;p&gt;To the west are several exits. One fun-looking exit is labeled &lt;a
+        href="http://games.example.com/"&gt;"games"&lt;/a&gt;. Another more
+        boring-looking exit is labeled &lt;a
+        href="http://isp.example.net/"&gt;ISP™&lt;/a&gt;.&lt;/p&gt;
+        &lt;p&gt;To the south lies a dark and dank &lt;a href="/about"&gt;contacts
+        page&lt;/a&gt;. Cobwebs cover its disused entrance, and at one point you
+        see a rat run quickly out of the page.&lt;/p&gt;
+      &lt;/nav&gt;
+    </pre>
+
+  </div>
+
+  <div class="example">
+    In this example, <code>nav</code> is used in an e-mail application, to let the user switch
+    folders:
+
+    <pre highlight="html">
+      &lt;p&gt;&lt;input type=button value="Compose" onclick="compose()"&gt;&lt;/p&gt;
+      &lt;nav&gt;
+        &lt;h2&gt;Folders&lt;/h2&gt;
+        &lt;ul&gt;
+          &lt;li&gt; &lt;a href="/inbox" onclick="return openFolder(this.href)"&gt;Inbox&lt;/a&gt; &lt;span class=count&gt;&lt;/span&gt;
+          &lt;li&gt; &lt;a href="/sent" onclick="return openFolder(this.href)"&gt;Sent&lt;/a&gt;
+          &lt;li&gt; &lt;a href="/drafts" onclick="return openFolder(this.href)"&gt;Drafts&lt;/a&gt;
+          &lt;li&gt; &lt;a href="/trash" onclick="return openFolder(this.href)"&gt;Trash&lt;/a&gt;
+          &lt;li&gt; &lt;a href="/customers" onclick="return openFolder(this.href)"&gt;Customers&lt;/a&gt;
+        &lt;/ul&gt;
+      &lt;/nav&gt;
+    </pre>
+
+  </div>
+
+<h4 id="the-aside-element">The <dfn><code>aside</code></dfn> element</h4>
+
+  <dl class="element">
+    <dt><a>Categories</a>:</dt>
+    <dd><a>Flow content</a>.</dd>
+    <dd><a>Sectioning content</a>.</dd>
+    <dd><a>Palpable content</a>.</dd>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
+    <dd>Where <a>flow content</a> is expected.</dd>
+    <dt><a>Content model</a>:</dt>
+    <dd><a>Flow content</a>, but with no <code>main</code> element descendants.</dd>
+    <dt><a>Content attributes</a>:</dt>
+    <dd><a>Global attributes</a></dd>
+    <dt><a>Tag omission in text/html</a>:</dt>
+    <dd>Neither tag is omissible</dd>
+    <dt>Allowed <a>ARIA role attribute</a> values:</dt>
+    <dd>
+      <a><code>complementary</code></a> role (default - <a><em>do not set</em></a>),
+      <a><code>note</code></a>, <a><code>search</code></a> or <a><code>presentation</code></a>.
+    </dd>
+    <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
+    <dd><a>Global aria-* attributes</a></dd>
+    <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
+    <dt><a>DOM interface</a>:</dt>
+    <dd>Uses <code>HTMLElement</code>.</dd>
+  </dl>
+
+  The <code>aside</code> element <a>represents</a> a section of a page that consists of content that
+  is tangentially related to the content around the <code>aside</code> element, and which could be
+  considered separate from that content. Such sections are often represented as sidebars in printed
+  typography.
+
+  The element can be used for typographical effects like pull quotes or sidebars, for advertising,
+  for groups of <code>nav</code> elements, and for other content that is considered separate from
+  the main content of the page.
+
+  <p class="note">
+    It's not appropriate to use the <code>aside</code> element just for parentheticals, since those
+    are part of the main flow of the document.
+  </p>
+
+  <div class="example">
+    The following example shows how an aside is used to mark up background material on Switzerland
+    in a much longer news story on Europe.
+
+    <pre highlight="html">
+      &lt;aside&gt;
+        &lt;h2&gt;Switzerland&lt;/h2&gt;
+        &lt;p&gt;Switzerland, a land-locked country in the middle of geographic
+        Europe, has not joined the geopolitical European Union, though it is
+        a signatory to a number of European treaties.&lt;/p&gt;
+      &lt;/aside&gt;
+    </pre>
+  </div>
+
+  <div class="example">
+    The following example shows how an aside is used to mark up a pull quote in a longer article.
+
+    <pre highlight="html">
+      ...
+
+      &lt;p&gt;He later joined a large company, continuing on the same work.
+      &lt;q&gt;I love my job. People ask me what I do for fun when I'm not at
+      work. But I'm paid to do my hobby, so I never know what to
+      answer. Some people wonder what they would do if they didn't have to
+      work... but I know what I would do, because I was unemployed for a
+      year, and I filled that time doing exactly what I do now.&lt;/q&gt;&lt;/p&gt;
+
+      &lt;aside&gt;
+        &lt;q&gt; People ask me what I do for fun when I'm not at work. But I'm
+        paid to do my hobby, so I never know what to answer. &lt;/q&gt;
+      &lt;/aside&gt;
+
+      &lt;p&gt;Of course his work — or should that be hobby? —
+      isn't his only passion. He also enjoys other pleasures.&lt;/p&gt;
+
+      ...
+    </pre>
+
+  </div>
+
+  <div class="example">
+    The following extract shows how <code>aside</code> can be used for blogrolls and other side
+    content on a blog:
+
+    <pre highlight="html">
+      &lt;body&gt;
+        &lt;header&gt;
+          &lt;h1&gt;My wonderful blog&lt;/h1&gt;
+          &lt;p&gt;My tagline&lt;/p&gt;
+        &lt;/header&gt;
+        &lt;aside&gt;
+          &lt;!-- <em>this aside contains two sections that are tangentially related
+          to the page, namely, links to other blogs, and links to blog posts
+          from this blog</em> --&gt;
+          &lt;nav&gt;
+            &lt;h2&gt;My blogroll&lt;/h2&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href="http://blog.example.com/"&gt;Example Blog&lt;/a&gt;
+            &lt;/ul&gt;
+          &lt;/nav&gt;
+          &lt;nav&gt;
+            &lt;h2&gt;Archives&lt;/h2&gt;
+            &lt;ol reversed&gt;
+              &lt;li&gt;&lt;a href="/last-post"&gt;My last post&lt;/a&gt;
+              &lt;li&gt;&lt;a href="/first-post"&gt;My first post&lt;/a&gt;
+            &lt;/ol&gt;
+          &lt;/nav&gt;
+        &lt;/aside&gt;
+        &lt;aside&gt;
+          &lt;!-- <em>this aside is tangentially related to the page also, it
+          contains twitter messages from the blog author</em> --&gt;
+          &lt;h2&gt;Twitter Feed&lt;/h2&gt;
+          &lt;blockquote cite="http://twitter.example.net/t31351234"&gt;
+            I'm on vacation, writing my blog.
+          &lt;/blockquote&gt;
+          &lt;blockquote cite="http://twitter.example.net/t31219752"&gt;
+            I'm going to go on vacation soon.
+          &lt;/blockquote&gt;
+        &lt;/aside&gt;
+        &lt;article&gt;
+          &lt;!-- <em>this is a blog post</em> --&gt;
+          &lt;h2&gt;My last post&lt;/h2&gt;
+          &lt;p&gt;This is my last post.&lt;/p&gt;
+          &lt;footer&gt;
+            &lt;p&gt;&lt;a href="/last-post" rel=bookmark&gt;Permalink&lt;/a&gt;
+          &lt;/footer&gt;
+        &lt;/article&gt;
+        &lt;article&gt;
+          &lt;!-- <em>this is also a blog post</em> --&gt;
+          &lt;h2&gt;My first post&lt;/h2&gt;
+          &lt;p&gt;This is my first post.&lt;/p&gt;
+          &lt;aside&gt;
+            &lt;!-- <em>this aside is about the blog post, since it's inside the
+            &lt;article&gt; element; it would be wrong, for instance, to put the
+              blogroll here, since the blogroll isn't really related to this post
+              specifically, only to the page as a whole</em> --&gt;
+              &lt;h1&gt;Posting&lt;/h1&gt;
+              &lt;p&gt;While I'm thinking about it, I wanted to say something about
+              posting. Posting is fun!&lt;/p&gt;
+          &lt;/aside&gt;
+          &lt;footer&gt;
+            &lt;p&gt;&lt;a href="/first-post" rel=bookmark&gt;Permalink&lt;/a&gt;
+          &lt;/footer&gt;
+        &lt;/article&gt;
+        &lt;footer&gt;
+          &lt;nav&gt;
+            &lt;a href="/archives"&gt;Archives&lt;/a&gt; —
+            &lt;a href="/about"&gt;About me&lt;/a&gt; —
+            &lt;a href="/copyright"&gt;Copyright&lt;/a&gt;
+          &lt;/nav&gt;
+        &lt;/footer&gt;
+      &lt;/body&gt;
+    </pre>
+  </div>
+
+<h4 id="the-h1-h2-h3-h4-h5-and--h6-elements">
+  The <dfn id="the-h1-element"><code>h1</code></dfn>, <dfn id="the-h2-element"><code>h2</code></dfn>,
+  <dfn id="the-h3-element"><code>h3</code></dfn>, <dfn id="the-h4-element"><code>h4</code></dfn>,
+  <dfn id="the-h5-element"><code>h5</code></dfn>, and <dfn id="the-h6-element"><code>h6</code></dfn>
+  elements
+</h4>
+
+  <dl class="element">
+    <dt><a>Categories</a>:</dt>
+    <dd><a>Flow content</a>.</dd>
+    <dd><a>Heading content</a>.</dd>
+    <dd><a>Palpable content</a>.</dd>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
+    <dd>Where <a>flow content</a> is expected.</dd>
+    <dt><a>Content model</a>:</dt>
+    <dd><a>Phrasing content</a>.</dd>
+    <dt><a>Content attributes</a>:</dt>
+    <dd><a>Global attributes</a></dd>
+    <dt><a>Tag omission in text/html</a>:</dt>
+    <dd>Neither tag is omissible</dd>
+    <dt>Allowed <a>ARIA role attribute</a> values:</dt>
+    <dd>
+      <a><code>heading</code></a> role (default - <a><em>do not set</em></a>),
+      <a><code>tab</code></a> or <a><code>presentation</code></a>.
+    </dd>
+    <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
+    <dd><a>Global aria-* attributes</a></dd>
+    <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
+    <dt><a>DOM interface</a>:</dt>
+    <dd>
+    <pre class="idl" data-highlight="webidl">interface HTMLHeadingElement : HTMLElement {};
+</pre>
+    </dd>
+  </dl>
+
+  These elements <a>represent</a> headings for their sections.
+
+  The semantics and meaning of these elements are defined in the section on
+  <a>headings and sections</a>.
+
+  These elements have a <dfn>rank</dfn> given by the number in their name. The <code>h1</code>
+  element is said to have the highest rank, the <code>h6</code> element has the lowest rank, and two
+  elements with the same name have equal rank.
+
+  <code>h1</code>–<code>h6</code> elements must not be used to markup subheadings, subtitles,
+  alternative titles and taglines unless intended to be the heading for a new section or subsection.
+  Instead use the markup patterns in the <a>Common idioms without dedicated elements</a> section of
+  the specification.
+
+  <div class="example">
+    As far as their respective document outlines (their heading and section structures) are
+    concerned, these two snippets are semantically equivalent:
+
+    <pre highlight="html">
+      &lt;body&gt;
+        &lt;h1&gt;Let's call it a draw(ing surface)&lt;/h1&gt;
+        &lt;h2&gt;Diving in&lt;/h2&gt;
+        &lt;h2&gt;Simple shapes&lt;/h2&gt;
+        &lt;h2&gt;Canvas coordinates&lt;/h2&gt;
+        &lt;h3&gt;Canvas coordinates diagram&lt;/h3&gt;
+        &lt;h2&gt;Paths&lt;/h2&gt;
+      &lt;/body&gt;
+    </pre>
+
+    <pre highlight="html">
+      &lt;body&gt;
+        &lt;h1&gt;Let's call it a draw(ing surface)&lt;/h1&gt;
+        &lt;section&gt;
+          &lt;h2&gt;Diving in&lt;/h2&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+          &lt;h2&gt;Simple shapes&lt;/h2&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+          &lt;h2&gt;Canvas coordinates&lt;/h2&gt;
+          &lt;section&gt;
+            &lt;h3&gt;Canvas coordinates diagram&lt;/h3&gt;
+          &lt;/section&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+          &lt;h2&gt;Paths&lt;/h2&gt;
+        &lt;/section&gt;
+      &lt;/body&gt;
+    </pre>
+
+    Authors might prefer the former style for its terseness, or the latter style for its convenience
+    in the face of heavy editing; which is best is purely an issue of preferred authoring style.
+
+    The two styles can be combined, for compatibility with legacy tools while still future-proofing
+    for when that compatibility is no longer needed. This third snippet again has the same outline
+    as the previous two:
+
+    <pre highlight="html">
+      &lt;body&gt;
+        &lt;h1&gt;Let's call it a draw(ing surface)&lt;/h1&gt;
+        &lt;section&gt;
+          &lt;h2&gt;Diving in&lt;/h2&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+          &lt;h2&gt;Simple shapes&lt;/h2&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+          &lt;h2&gt;Canvas coordinates&lt;/h2&gt;
+          &lt;section&gt;
+            &lt;h3&gt;Canvas coordinates diagram&lt;/h3&gt;
+          &lt;/section&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+          &lt;h2&gt;Paths&lt;/h2&gt;
+        &lt;/section&gt;
+      &lt;/body&gt;
+    </pre>
+  </div>
+
+<h4 id="the-header-element">The <dfn><code>header</code></dfn> element</h4>
+
+  <dl class="element">
+    <dt><a>Categories</a>:</dt>
+    <dd><a>Flow content</a>.</dd>
+    <dd><a>Palpable content</a>.</dd>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
+    <dd>Where <a>flow content</a> is expected.</dd>
+    <dt><a>Content model</a>:</dt>
+    <dd>
+      <a>Flow content</a>, but with no <code>header</code>, <code>footer</code>, or
+      <code>main</code> element descendants.
+    </dd>
+    <dt><a>Content attributes</a>:</dt>
+    <dd><a>Global attributes</a></dd>
+    <dt><a>Tag omission in text/html</a>:</dt>
+    <dd>Neither tag is omissible</dd>
+    <dt>Allowed <a>ARIA role attribute</a> values:</dt>
+    <dd>
+      <a><code>banner</code></a> role (default - <a><em>do not set</em></a>) or
+      <a><code>presentation</code></a>.
+    </dd>
+    <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
+    <dd><a>Global aria-* attributes</a></dd>
+    <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
+    <dt><a>DOM interface</a>:</dt>
+    <dd>Uses <code>HTMLElement</code>.</dd>
+  </dl>
+
+  The <code>header</code> element <a>represents</a> introductory content for its nearest ancestor
+  <a>sectioning content</a> or <a>sectioning root</a> element. A <code>header</code> typically
+  contains a group of introductory or navigational aids.
+
+  When the nearest ancestor <a>sectioning content</a> or <a>sectioning root</a> element is
+  <a>the body element</a>, then it applies to the whole page.
+
+  <p class="note">
+    A <code>header</code> element is intended to usually contain the section's heading (an
+    <code>h1</code>–<code>h6</code> element), but this is not required. The <code>header</code>
+    element can also be used to wrap a section's table of contents, a search form, or any relevant
+    logos.
+  </p>
+
+  <div class="example">
+    Here are some sample headers. This first one is for a game:
+
+    <pre highlight="html">
+      &lt;header&gt;
+        &lt;p&gt;Welcome to...&lt;/p&gt;
+        &lt;h1&gt;Voidwars!&lt;/h1&gt;
+      &lt;/header&gt;
+    </pre>
+
+    The following snippet shows how the element can be used to mark
+    up a specification's header:
+
+    <pre highlight="html">
+      &lt;header&gt;
+        &lt;h1&gt;Scalable Vector Graphics (SVG) 1.2&lt;/h1&gt;
+        &lt;p&gt;W3C Working Draft 27 October 2004&lt;/p&gt;
+        &lt;dl&gt;
+          &lt;dt&gt;This version:&lt;/dt&gt;
+          &lt;dd&gt;&lt;a href="http://www.w3.org/TR/2004/WD-SVG12-20041027/"&gt;http://www.w3.org/TR/2004/WD-SVG12-20041027/&lt;/a&gt;&lt;/dd&gt;
+          &lt;dt&gt;Previous version:&lt;/dt&gt;
+          &lt;dd&gt;&lt;a href="http://www.w3.org/TR/2004/WD-SVG12-20040510/"&gt;http://www.w3.org/TR/2004/WD-SVG12-20040510/&lt;/a&gt;&lt;/dd&gt;
+          &lt;dt&gt;Latest version of SVG 1.2:&lt;/dt&gt;
+          &lt;dd&gt;&lt;a href="http://www.w3.org/TR/SVG12/"&gt;http://www.w3.org/TR/SVG12/&lt;/a&gt;&lt;/dd&gt;
+          &lt;dt&gt;Latest SVG Recommendation:&lt;/dt&gt;
+          &lt;dd&gt;&lt;a href="http://www.w3.org/TR/SVG/"&gt;http://www.w3.org/TR/SVG/&lt;/a&gt;&lt;/dd&gt;
+          &lt;dt&gt;Editor:&lt;/dt&gt;
+          &lt;dd&gt;Dean Jackson, W3C, &lt;a href="mailto:dean@w3.org"&gt;dean@w3.org&lt;/a&gt;&lt;/dd&gt;
+          &lt;dt&gt;Authors:&lt;/dt&gt;
+          &lt;dd&gt;See &lt;a href="#authors"&gt;Author List&lt;/a&gt;&lt;/dd&gt;
+        &lt;/dl&gt;
+        &lt;p class="copyright"&gt;&lt;a href="http://www.w3.org/Consortium/Legal/ipr-notic <em>...</em>
+      &lt;/header&gt;
+    </pre>
+
+  </div>
+
+  <p class="note">
+    The <code>header</code> element is not <a>sectioning content</a>; it doesn't introduce a new
+    section.
+  </p>
+
+  <div class="example">
+  In this example, the page has a page heading given by the <code>h1</code> element, and two
+  subsections whose headings are given by <code>h2</code> elements. The content after the
+  <code>header</code> element is still part of the last subsection started in the
+  <code>header</code> element, because the <code>header</code> element doesn't take part in the
+  <a>outline</a> algorithm.
+
+  <pre highlight="html">
+    &lt;body&gt;
+      &lt;header&gt;
+        &lt;h1&gt;Little Green Guys With Guns&lt;/h1&gt;
+        &lt;nav&gt;
+          &lt;ul&gt;
+          &lt;li&gt;&lt;a href="/games"&gt;Games&lt;/a&gt;
+          &lt;li&gt;&lt;a href="/forum"&gt;Forum&lt;/a&gt;
+          &lt;li&gt;&lt;a href="/download"&gt;Download&lt;/a&gt;
+          &lt;/ul&gt;
+        &lt;/nav&gt;
+        &lt;h2&gt;Important News&lt;/h2&gt; &lt;!-- this starts a second subsection --&gt;
+        &lt;!-- this is part of the subsection entitled "Important News" --&gt;
+        &lt;p&gt;To play today's games you will need to update your client.&lt;/p&gt;
+        &lt;h2&gt;Games&lt;/h2&gt; &lt;!-- this starts a third subsection --&gt;
+        &lt;/header&gt;
+        &lt;p&gt;You have three active games:&lt;/p&gt;
+        &lt;!-- this is still part of the subsection entitled "Games" --&gt;
+        ...
+  </pre>
+  </div>
+
+<h4 id="the-footer-element">The <dfn><code>footer</code></dfn> element</h4>
+
+  <dl class="element">
+    <dt><a>Categories</a>:</dt>
+    <dd><a>Flow content</a>.</dd>
+    <dd><a>Palpable content</a>.</dd>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
+    <dd>Where <a>flow content</a> is expected.</dd>
+    <dt><a>Content model</a>:</dt>
+    <dd>
+      <a>Flow content</a>, but with no <code>header</code>, <code>footer</code>, or
+      <code>main</code> element descendants.
+    </dd>
+    <dt><a>Content attributes</a>:</dt>
+    <dd><a>Global attributes</a></dd>
+    <dt><a>Tag omission in text/html</a>:</dt>
+    <dd>Neither tag is omissible</dd>
+    <dt>Allowed <a>ARIA role attribute</a> values:</dt>
+    <dd>
+      <a><code>contentinfo</code></a> role (default - <a><em>do not set</em></a>) or
+      <a><code>presentation</code></a>.
+    </dd>
+    <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
+    <dd><a>Global aria-* attributes</a></dd>
+    <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
+    <dt><a>DOM interface</a>:</dt>
+    <dd>Uses <code>HTMLElement</code>.</dd>
+  </dl>
+
+  The <code>footer</code> element <a>represents</a> a footer for its nearest ancestor
+  <a>sectioning content</a> or <a>sectioning root</a> element. A footer typically contains
+  information about its section such as who wrote it, links to related documents, copyright data,
+  and the like.
+
+  When the <code>footer</code> element contains entire sections, they <a>represent</a> appendices,
+  indexes, long colophons, verbose license agreements, and other such content.
+
+  <p class="note">
+    Contact information for the author or editor of a section belongs in an <code>address</code>
+    element, possibly itself inside a <code>footer</code>. Bylines and other information that could
+    be suitable for both a <code>header</code> or a <code>footer</code> can be placed in either (or
+    neither). The primary purpose of these elements is merely to help the author write
+    self-explanatory markup that is easy to maintain and style; they are not intended to impose
+    specific structures on authors.
+  </p>
+
+  Footers don't necessarily have to appear at the <em>end</em> of a section, though they usually do.
+
+  When the nearest ancestor <a>sectioning content</a> or <a>sectioning root</a> element is <a>the
+  body element</a>, then it applies to the whole page.
+
+  <p class="note">
+    The <code>footer</code> element is not <a>sectioning content</a>; it doesn't introduce a new
+    section.
+  </p>
+
+  <div class="example">
+    Here is a page with two footers, one at the top and one at the bottom, with the same content:
+
+    <pre highlight="html">
+      &lt;body&gt;
+        &lt;footer&gt;&lt;a href="../"&gt;Back to index...&lt;/a&gt;&lt;/footer&gt;
+        &lt;div&gt;
+          &lt;h1&gt;Lorem ipsum&lt;/h1&gt;
+          &lt;p&gt;The ipsum of all lorems&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;p&gt;A dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+        ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+        culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+        &lt;footer&gt;&lt;a href="../"&gt;Back to index...&lt;/a&gt;&lt;/footer&gt;
+      &lt;/body&gt;
+    </pre>
+  </div>
+
+  <div class="example">
+    Here is an example which shows the <code>footer</code> element being used both for a site-wide
+    footer and for a section footer.
+
+    <pre highlight="html">
+      &lt;!DOCTYPE HTML&gt;
+      &lt;HTML&gt;&lt;HEAD&gt;
+      &lt;TITLE&gt;The Ramblings of a Scientist&lt;/TITLE&gt;
+      &lt;BODY&gt;
+      &lt;h1&gt;The Ramblings of a Scientist&lt;/h1&gt;
+      &lt;MAIN&gt;
+        &lt;ARTICLE&gt;
+        &lt;H2&gt;Episode 15&lt;/H2&gt;
+        &lt;VIDEO SRC="/fm/015.ogv" CONTROLS PRELOAD&gt;
+        &lt;P&gt;&lt;A HREF="/fm/015.ogv"&gt;Download video&lt;/A&gt;.&lt;/P&gt;
+        &lt;/VIDEO&gt;
+        &lt;FOOTER&gt; &lt;!-- footer for article --&gt;
+        &lt;P&gt;Published &lt;TIME DATETIME="2009-10-21T18:26-07:00"&gt;on 2009/10/21 at 6:26pm&lt;/TIME&gt;&lt;/P&gt;
+        &lt;/FOOTER&gt;
+      &lt;/ARTICLE&gt;
+      &lt;ARTICLE&gt;
+        &lt;H2&gt;My Favorite Trains&lt;/H2&gt;
+        &lt;P&gt;I love my trains. My favorite train of all time is a Köf.&lt;/P&gt;
+        &lt;P&gt;It is fun to see them pull some coal cars because they look so
+        dwarfed in comparison.&lt;/P&gt;
+        &lt;FOOTER&gt; &lt;!-- footer for article --&gt;
+        &lt;P&gt;Published &lt;TIME DATETIME="2009-09-15T14:54-07:00"&gt;on 2009/09/15 at 2:54pm&lt;/TIME&gt;&lt;/P&gt;
+        &lt;/FOOTER&gt;
+        &lt;/ARTICLE&gt;
+      &lt;/MAIN&gt;
+      &lt;FOOTER&gt; &lt;!-- site wide footer --&gt;
+        &lt;NAV&gt;
+        &lt;P&gt;&lt;A HREF="/credits.html"&gt;Credits&lt;/A&gt; —
+            &lt;A HREF="/tos.html"&gt;Terms of Service&lt;/A&gt; —
+            &lt;A HREF="/index.html"&gt;Blog Index&lt;/A&gt;&lt;/P&gt;
+        &lt;/NAV&gt;
+        &lt;P&gt;Copyright © 2009 Gordon Freeman&lt;/P&gt;
+      &lt;/FOOTER&gt;
+      &lt;/BODY&gt;
+      &lt;/HTML&gt;
+    </pre>
+  </div>
+
+  <div class="example">
+    Some site designs have what is sometimes referred to as "fat footers" — footers that contain a
+    lot of material, including images, links to other articles, links to pages for sending feedback,
+    special offers... in some ways, a whole "front page" in the footer.
+
+    This fragment shows the bottom of a page on a site with a "fat footer":
+
+    <pre highlight="html">
+      ...
+        &lt;footer&gt;
+          &lt;nav&gt;
+            &lt;section&gt;
+              &lt;h2&gt;Articles&lt;/h2&gt;
+              &lt;p&gt;&lt;img src="images/somersaults.jpeg" alt=""&gt; Go to the gym with
+              our somersaults class! Our teacher Jim takes you through the paces
+              in this two-part article. &lt;a href="articles/somersaults/1"&gt;Part
+              1&lt;/a&gt; · &lt;a href="articles/somersaults/2"&gt;Part 2&lt;/a&gt;&lt;/p&gt;
+              &lt;p&gt;&lt;img src="images/kindplus.jpeg"&gt; Tired of walking on the edge of
+              a clif&lt;!-- sic --&gt;? Our guest writer Lara shows you how to bumble
+              your way through the bars. &lt;a href="articles/kindplus/1"&gt;Read
+              more...&lt;/a&gt;&lt;/p&gt;
+              &lt;p&gt;&lt;img src="images/crisps.jpeg"&gt; The chips are down, now all
+              that's left is a potato. What can you do with it? &lt;a
+              href="articles/crisps/1"&gt;Read more...&lt;/a&gt;&lt;/p&gt;
+            &lt;/section&gt;
+            &lt;ul&gt;
+              &lt;li&gt; &lt;a href="/about"&gt;About us...&lt;/a&gt;
+              &lt;li&gt; &lt;a href="/feedback"&gt;Send feedback!&lt;/a&gt;
+              &lt;li&gt; &lt;a href="/sitemap"&gt;Sitemap&lt;/a&gt;
+            &lt;/ul&gt;
+          &lt;/nav&gt;
+          &lt;p&gt;&lt;small&gt;Copyright © 2015 The Snacker —
+          &lt;a href="/tos"&gt;Terms of Service&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;
+        &lt;/footer&gt;
+      &lt;/body&gt;
+    </pre>
+  </div>
+
+<h4 id="the-address-element">The <dfn><code>address</code></dfn> element</h4>
+
+  <dl class="element">
+    <dt><a>Categories</a>:</dt>
+    <dd><a>Flow content</a>.</dd>
+    <dd><a>Palpable content</a>.</dd>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
+    <dd>Where <a>flow content</a> is expected.</dd>
+    <dt><a>Content model</a>:</dt>
+    <dd><a>Flow content</a>, but with no <a>heading
+    content</a> descendants, no <a>sectioning content</a>
+    descendants, and no <code>header</code>, <code>footer</code>, or
+    <code>address</code> element descendants.</dd>
+    <dt><a>Content attributes</a>:</dt>
+    <dd><a>Global attributes</a></dd>
+    <dt><a>Tag omission in text/html</a>:</dt>
+    <dd>Neither tag is omissible</dd>
+    <dt>Allowed <a>ARIA role attribute</a> values:</dt>
+    <dd><a><code>contentinfo</code></a> role.</dd>
+    <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
+    <dd><a>Global aria-* attributes</a></dd>
+    <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
+    <dt><a>DOM interface</a>:</dt>
+    <dd>Uses <code>HTMLElement</code>.</dd>
+  </dl>
+
+  The <code>address</code> element <a>represents</a> the contact information for its nearest
+    <code>article</code> or <code>body</code> element ancestor. If that is <a>the body element</a>,
+    then the contact information applies to the document as a whole.
+
+  <div class="example">
+    For example, a page at the W3C Web site related to HTML might include the following contact
+    information:
+
+    <pre highlight="html">
+      &lt;ADDRESS&gt;
+        &lt;A href="../People/Raggett/"&gt;Dave Raggett&lt;/A&gt;,
+        &lt;A href="../People/Arnaud/"&gt;Arnaud Le Hors&lt;/A&gt;,
+        contact persons for the &lt;A href="Activity"&gt;W3C HTML Activity&lt;/A&gt;
+      &lt;/ADDRESS&gt;
+    </pre>
+  </div>
+
+  The <code>address</code> element must not be used to represent arbitrary addresses (e.g. postal
+  addresses), unless those addresses are in fact the relevant contact information. (The
+  <code>p</code> element is the appropriate element for marking up postal addresses in general.)
+
+  The <code>address</code> element must not contain information other than contact information.
+
+  <div class="example">
+    For example, the following is non-conforming use of the <code>address</code> element:
+
+    <pre class="bad" highlight="html">&lt;ADDRESS&gt;Last Modified: 1999/12/24 23:37:50&lt;/ADDRESS&gt;</pre>
+  </div>
+
+  Typically, the <code>address</code> element would be included along with other information in a
+  <code>footer</code> element.
+
+  <div class="impl">
+    The contact information for a node <var>node</var> is a collection of <code>address</code>
+    elements defined by the first applicable entry from the following list:
+
+    <dl class="switch">
+      <dt>If <var>node</var> is an <code>article</code> element</dt>
+      <dt>If <var>node</var> is a <code>body</code> element</dt>
+      <dd>
+        The contact information consists of all the <code>address</code> elements that have
+        <var>node</var> as an ancestor and do not have another <code>body</code> or
+        <code>article</code> element ancestor that is a descendant of <var>node</var>.
+      </dd>
+
+      <dt>If <var>node</var> has an ancestor element that is an <code>article</code> element</dt>
+      <dt>If <var>node</var> has an ancestor element that is a <code>body</code> element</dt>
+      <dd>
+        The contact information of <var>node</var> is the same as the contact information of the
+        nearest <code>article</code> or <code>body</code> element ancestor, whichever is nearest.
+      </dd>
+
+      <dt>If <var>node</var>'s <a>node document</a> has <a>a body element</a></dt>
+      <dd>
+        The contact information of <var>node</var> is the same as the contact information of
+        <a>the body element</a> of the <code>Document</code>.
+      </dd>
+
+      <dt>Otherwise</dt>
+      <dd> There is no contact information for <var>node</var>.</dd>
+    </dl>
+
+    User agents may expose the contact information of a node to the user, or use it for other
+    purposes, such as indexing sections based on the sections' contact information.
+  </div>
+
+  <div class="example">
+    In this example the footer contains contact information and a copyright notice.
+
+    <pre highlight="html">
+      &lt;footer&gt;
+        &lt;address&gt;
+        For more details, contact
+        &lt;a href="mailto:js@example.com"&gt;John Smith&lt;/a&gt;.
+        &lt;/address&gt;
+        &lt;p&gt;&lt;small&gt;© copyright 2038 Example Corp.&lt;/small&gt;&lt;/p&gt;
+      &lt;/footer&gt;
+    </pre>
+  </div>
+
+<h4 id="headings-and-sections"><dfn>Headings and sections</dfn></h4>
+
+  The <code>h1</code>–<code>h6</code> elements are headings.
+
+  The first element of <a>heading content</a> in an element of <a>sectioning content</a>
+  <a>represents</a> the heading for that section. Subsequent headings of equal or higher <a>rank</a>
+  start new (implied) sections, headings of lower <a>rank</a> start implied subsections that are
+  part of the previous one. In both cases, the element <a>represents</a> the heading of the implied
+  section.
+
+  <code>h1</code>–<code>h6</code> elements must not be used to markup subheadings, subtitles,
+  alternative titles and taglines unless intended to be the heading for a new section or subsection.
+  Instead use the markup patterns in the <a>Common idioms without dedicated elements</a> section of
+  the specification.
+
+  Certain elements are said to be <dfn>sectioning roots</dfn>, including <code>blockquote</code> and
+  <code>td</code> elements. These elements can have their own outlines, but the sections and
+  headings inside these elements do not contribute to the outlines of their ancestors.
+
+  <ul class="brief category-list">
+    <li><code>blockquote</code></li>
+    <li><code>body</code></li>
+    <li><code>details</code></li>
+    <li><code>dialog</code></li>
+    <li><code>fieldset</code></li>
+    <li><code>figure</code></li>
+    <li><code>td</code></li>
+  </ul>
+
+  <a>Sectioning content</a> elements are always considered subsections of their nearest ancestor
+  <a>sectioning root</a> or their nearest ancestor element of <a>sectioning content</a>, whichever
+  is nearest, regardless of what implied sections other headings may have created.
+
+  <div class="example">
+    For the following fragment:
+
+    <pre highlight="html">
+      &lt;body&gt;
+        &lt;h1&gt;Foo&lt;/h1&gt;
+        &lt;h2&gt;Bar&lt;/h2&gt;
+        &lt;blockquote&gt;
+          &lt;h3&gt;Bla&lt;/h3&gt;
+        &lt;/blockquote&gt;
+        &lt;p&gt;Baz&lt;/p&gt;
+        &lt;h2&gt;Quux&lt;/h2&gt;
+        &lt;section&gt;
+          &lt;h3&gt;Thud&lt;/h3&gt;
+        &lt;/section&gt;
+        &lt;p&gt;Grunt&lt;/p&gt;
+      &lt;/body&gt;
+    </pre>
+
+    ...the structure would be:
+
+    1. Foo (heading of explicit <code>body</code> section, containing the "Grunt" paragraph)
+        1.Bar (heading starting implied section, containing a block quote and the "Baz" paragraph)
+        2. Quux (heading starting implied section with no content other than the heading itself)
+        3. Thud (heading of explicit <code>section</code> section)
+
+    Notice how the <code>section</code> ends the earlier implicit section so that a later paragraph
+    ("Grunt") is back at the top level.
+  </div>
+
+  Sections may contain headings of any <a>rank</a>, and authors are strongly encouraged to use
+  headings of the appropriate <a>rank</a> for the section's nesting level.
+
+  Authors are also encouraged to explicitly wrap sections in elements of <a>sectioning content</a>,
+  instead of relying on the implicit sections generated by having multiple headings in one element
+  of <a>sectioning content</a>.
+
+  <div class="example">
+    For example, the following is correct:
+
+    <pre highlight="html">
+      &lt;body&gt;
+        &lt;h4&gt;Apples&lt;/h4&gt;
+        &lt;p&gt;Apples are fruit.&lt;/p&gt;
+        &lt;section&gt;
+          &lt;h2&gt;Taste&lt;/h2&gt;
+          &lt;p&gt;They taste lovely.&lt;/p&gt;
+          &lt;h6&gt;Sweet&lt;/h6&gt;
+          &lt;p&gt;Red apples are sweeter than green ones.&lt;/p&gt;
+          &lt;h1&gt;Color&lt;/h1&gt;
+          &lt;p&gt;Apples come in various colors.&lt;/p&gt;
+        &lt;/section&gt;
+      &lt;/body&gt;
+    </pre>
+
+    However, the same document would be more clearly expressed as:
+
+    <pre highlight="html">
+      &lt;body&gt;
+        &lt;h1&gt;Apples&lt;/h1&gt;
+        &lt;p&gt;Apples are fruit.&lt;/p&gt;
+        &lt;section&gt;
+          &lt;h2&gt;Taste&lt;/h2&gt;
+          &lt;p&gt;They taste lovely.&lt;/p&gt;
+          &lt;section&gt;
+            &lt;h3&gt;Sweet&lt;/h3&gt;
+            &lt;p&gt;Red apples are sweeter than green ones.&lt;/p&gt;
+          &lt;/section&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+          &lt;h2&gt;Color&lt;/h2&gt;
+          &lt;p&gt;Apples come in various colors.&lt;/p&gt;
+        &lt;/section&gt;
+      &lt;/body&gt;
+    </pre>
+
+    Both of the documents above are semantically identical and would produce the same outline in
+    compliant user agents.
+
+    This third example is also semantically identical, and might be easier to maintain (e.g. if
+    sections are often moved around in editing):
+
+    <pre highlight="html">
+      &lt;body&gt;
+        &lt;h1&gt;Apples&lt;/h1&gt;
+        &lt;p&gt;Apples are fruit.&lt;/p&gt;
+        &lt;section&gt;
+          &lt;h1&gt;Taste&lt;/h1&gt;
+          &lt;p&gt;They taste lovely.&lt;/p&gt;
+          &lt;section&gt;
+            &lt;h1&gt;Sweet&lt;/h1&gt;
+            &lt;p&gt;Red apples are sweeter than green ones.&lt;/p&gt;
+          &lt;/section&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+          &lt;h1&gt;Color&lt;/h1&gt;
+          &lt;p&gt;Apples come in various colors.&lt;/p&gt;
+        &lt;/section&gt;
+      &lt;/body&gt;
+    </pre>
+
+    This final example would need explicit style rules to be rendered well in legacy browsers.
+    Legacy browsers without CSS support would render all the headings as top-level headings.
+  </div>
+
+<h5 id="creating-an-outline">Creating an outline</h5>
+
+  <p class="warning">
+    There are currently no known implementations of the outline algorithm in graphical browsers or
+    assistive technology user agents, although the algorithm is implemented in other software such
+    as conformance checkers.
+
+    Therefore the <a>outline</a> algorithm cannot be relied upon to convey document structure to
+    users. Authors are advised to use heading <a>rank</a> (<code>h1</code>-<code>h6</code>) to
+    convey document structure.
+  </p>
+
+  <div class="impl">
+    This section defines an algorithm for creating an outline for a <a>sectioning content</a>
+    element or a <a>sectioning root</a> element. It is defined in terms of a walk over the nodes
+    of a DOM tree, in <a>tree order</a>, with each node being visited when it is <i>entered</i> and
+    when it is <i>exited</i> during the walk.
+  </div>
+
+  The <dfn>outline</dfn> for a <a>sectioning content</a> element or a <a>sectioning root</a> element
+  consists of a list of one or more potentially nested <a>sections</a>. The element for which an
+  <a>outline</a> is created is said to be <dfn>the outline's owner</dfn>.
+
+  A <dfn>section</dfn> is a container that corresponds to some nodes in the original DOM tree. Each
+  section can have one heading associated with it, and can contain any number of further nested
+  sections. <span class="impl">The algorithm for the outline also associates each node in the DOM
+  tree with a particular section and potentially a heading.</span> (The sections in the outline
+  aren't <code>section</code> elements, though some may correspond to such elements — they are
+  merely conceptual sections.)
+
+  <div class="example">
+    The following markup fragment:
+
+    <pre highlight="html">
+      &lt;body&gt;
+        &lt;h1&gt;A&lt;/h1&gt;
+        &lt;p&gt;B&lt;/p&gt;
+        &lt;h2&gt;C&lt;/h2&gt;
+        &lt;p&gt;D&lt;/p&gt;
+        &lt;h2&gt;E&lt;/h2&gt;
+        &lt;p&gt;F&lt;/p&gt;
+      &lt;/body&gt;
+    </pre>
+
+    ...results in the following outline being created for the <code>body</code> node (and thus the
+    entire document):
+
+    1. Section created for <code>body</code> node. Associated with heading "A". Also associated with
+        paragraph "B". Nested sections:
+        1. Section implied for first <code>h2</code> element. Associated with heading "C". Also
+            associated with paragraph "D". No nested sections.
+        2. Section implied for second <code>h2</code> element. Associated with heading "E". Also
+            associated with paragraph "F". No nested sections.
+  </div>
+
+  <div class="impl">
+    The algorithm that must be followed during a walk of a DOM subtree rooted at a
+    <a>sectioning content</a> element or a <a>sectioning root</a> element to determine that
+    element's <a>outline</a> is as follows:
+
+    1. Let <var>current outline target</var> be null. (It holds the element whose <a>outline</a> is
+        being created.)
+    2. Let <var>current section</var> be null. (It holds a pointer to a <a>section</a>, so that
+        elements in the DOM can all be associated with a section.)
+    3. Create a stack to hold elements, which is used to handle nesting. Initialize this stack to
+        empty.
+    4. Walk over the DOM in <a>tree order</a>, starting with the <a>sectioning content</a> element
+        or <a>sectioning root</a> element at the root of the subtree for which an outline is to be
+        created, and trigger the first relevant step below for each element as the walk enters and
+        exits it.
+
+        <dl class="switch">
+          <dt>When exiting an element, if that element is the element at the top of the stack</dt>
+          <dd>
+            <p class="note">
+              The element being exited is a <a>heading content</a> element or an element with a
+              <code>hidden</code> attribute.
+            </p>
+
+            Pop that element from the stack.
+          </dd>
+
+          <dt>
+            If the top of the stack is a <a>heading content</a> element or an element with a
+            <code>hidden</code> attribute
+          </dt>
+          <dd>Do nothing.</dd>
+
+          <dt>When entering an element with a <code>hidden</code> attribute</dt>
+          <dd>
+            Push the element being entered onto the stack. (This causes the algorithm to skip that
+            element and any descendants of the element.)
+          </dd>
+
+          <dt>When entering a <a>sectioning content</a> element</dt>
+          <dd>
+            Run these steps:
+            1. If <var>current outline target</var> is not null, run these substeps:
+                1. If the <var>current section</var> has no heading, create an implied heading and
+                    let that be the heading for the <var>current section</var>.
+                2. Push <var>current outline target</var> onto the stack.
+            2. Let <var>current outline target</var> be the element that is being entered.
+            3. Let <var>current section</var> be a newly created <a>section</a> for the
+                <var>current outline target</var> element.
+            4. Associate <var>current outline target</var> with <var>current section</var>.
+            5. Let there be a new <a>outline</a> for the new <var>current outline target</var>,
+                initialized with just the new <var>current section</var> as the only <a>section</a>
+                in the outline.
+          </dd>
+
+          <dt>When exiting a <a>sectioning content</a> element, if the stack is not empty</dt>
+          <dd>
+            Run these steps:
+            1. If the <var>current section</var> has no heading, create an implied heading and let
+                that be the heading for the <var>current section</var>.
+            2. Pop the top element from the stack, and let the <var>current outline target</var> be
+                that element.
+            3. Let <var>current section</var> be the last section in the <a>outline</a> of the
+                <var>current outline target</var> element.
+            4. Append the <a>outline</a> of the <a>sectioning content</a> element being exited to
+                the <var>current section</var>. (This does not change which section is the last
+                section in the <a>outline</a>.)
+          </dd>
+
+          <dt>When entering a <a>sectioning root</a> element</dt>
+          <dd>
+            Run these steps:
+            1. If <var>current outline target</var> is not null, push
+                <var>current outline target</var> onto the stack.
+            2. Let <var>current outline target</var> be the element that is being entered.
+            3. Let <var>current outline target</var>'s <i>parent section</i> be
+                <var>current section</var>.
+            4. Let <var>current section</var> be a newly created <a>section</a> for the
+                <var>current outline target</var> element.
+            5. Let there be a new <a>outline</a> for the new <var>current outline target</var>,
+                initialized with just the new <var>current section</var> as the only <a>section</a>
+                in the outline.
+          </dd>
+
+          <dt>When exiting a <a>sectioning root</a> element, if the stack is not empty</dt>
+          <dd>
+            Run these steps:
+            1. If the <var>current section</var> has no heading, create an implied heading and let
+                that be the heading for the <var>current section</var>.
+            2. Let <var>current section</var> be <var>current outline target</var>'s
+                <i>parent section</i>.
+            3. Pop the top element from the stack, and let the <var>current outline target</var> be
+                that element.
+          </dd>
+
+          <dt>
+            When exiting a <a>sectioning content</a> element or a <a>sectioning root</a> element
+            (when the stack is empty)
+          </dt>
+          <dd>
+            <p class="note">
+              The <var>current outline target</var> is the element being exited, and it is the
+              <a>sectioning content</a> element or a <a>sectioning root</a> element at the root of
+              the subtree for which an outline is being generated.
+            </p>
+
+            If the <var>current section</var> has no heading, create an implied heading and
+            let that be the heading for the <var>current section</var>.
+
+            Skip to the next step in the overall set of steps. (The walk is over.)
+          </dd>
+
+          <dt>When entering a <a>heading content</a> element</dt>
+          <dd>
+            If the <var>current section</var> has no heading, let the element being entered be the
+            heading for the <var>current section</var>.
+
+            Otherwise, if the element being entered has a <a>rank</a> equal to or higher than the
+            heading of the last section of the <a>outline</a> of the
+            <var>current outline target</var>, or if the heading of the last section of the
+            <a>outline</a> of the <var>current outline target</var> is an implied heading, then
+            create a new <a>section</a> and append it to the <a>outline</a> of the
+            <var>current outline target</var> element, so that this new section is the new last
+            section of that outline. Let <var>current section</var> be that new section. Let the
+            element being entered be the new heading for the <var>current section</var>.
+
+            Otherwise, run these substeps:
+            1. Let <var>candidate section</var> be <var>current section</var>.
+            2. <i>Heading loop</i>: If the element being entered has a <a>rank</a> lower than the
+                <a>rank</a> of the heading of the <var>candidate section</var>, then create a new
+                <a>section</a>, and append it to <var>candidate section</var>. (This does not change
+                which section is the last section in the outline.) Let <var>current section</var> be
+                this new section. Let the element being entered be the new heading for the
+                <var>current section</var>. Abort these substeps.
+            3. Let <var>new candidate section</var> be the <a>section</a> that contains
+                <var>candidate section</var> in the <a>outline</a> of
+                <var>current outline target</var>.
+            4. Let <var>candidate section</var> be <var>new candidate section</var>.
+            5. Return to the step labeled <i>heading loop</i>.
+
+            Push the element being entered onto the stack. (This causes the algorithm to skip any
+            descendants of the element.)
+
+            <p class="note">
+              Recall that <code>h1</code> has the <em>highest</em> rank, and <code>h6</code> has the
+              lowest rank.
+            </p>
+          </dd>
+
+          <dt>Otherwise</dt>
+          <dd>Do nothing.</dd>
+        </dl>
+
+        In addition, whenever the walk exits a node, after doing the steps above, if the node is not
+        associated with a <a>section</a> yet, associate the node with the <a>section</a>
+        <var>current section</var>.
+
+    5. Associate all non-element nodes that are in the subtree for which an outline is being created
+        with the <a>section</a> with which their parent element is associated.
+    6. Associate all nodes in the subtree with the heading of the <a>section</a> with which they are
+        associated, if any.
+
+    The tree of sections created by the algorithm above, or a proper subset thereof, must be used
+    when generating document outlines, for example when generating tables of contents.
+
+    The outline created for <a>the body element</a> of a <code>Document</code> is the <a>outline</a>
+      of the entire document.
+
+    When creating an interactive table of contents, entries should jump the user to the relevant
+    <a>sectioning content</a> element, if the <a>section</a> was created for a real element in the
+    original document, or to the relevant <a>heading content</a> element, if the <a>section</a> in
+    the tree was generated for a heading in the above process.
+
+    <p class="note">
+      Selecting the first <a>section</a> of the document therefore always takes the user to the top
+      of the document, regardless of where the first heading in the <code>body</code> is to be
+      found.
+    </p>
+
+    The <dfn>outline depth</dfn> of a <a>heading content</a> element associated with a
+    <a>section</a> <var>section</var> is the number of <a>sections</a> that are ancestors of
+    <var>section</var> in the outermost <a>outline</a> that <var>section</var> finds itself in when
+    the <a>outlines</a> of its <code>Document</code>'s elements are created, plus 1. The
+    <a>outline depth</a> of a <a>heading content</a> element not associated with a <a>section</a> is
+    1.
+
+    User agents should provide default headings for sections that do not have explicit section
+    headings.
+
+    <div class="example">
+      Consider the following snippet:
+
+      <pre highlight="html">
+        &lt;body&gt;
+          &lt;nav&gt;
+            &lt;p&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/p&gt;
+          &lt;/nav&gt;
+          &lt;p&gt;Hello world.&lt;/p&gt;
+          &lt;aside&gt;
+            &lt;p&gt;My cat is cute.&lt;/p&gt;
+          &lt;/aside&gt;
+        &lt;/body&gt;
+      </pre>
+
+      Although it contains no headings, this snippet has three sections: a document (the
+      <code>body</code>) with two subsections (a <code>nav</code> and an <code>aside</code>). A user
+      agent could present the outline as follows:
+
+      1. Untitled document
+          1. Navigation
+          2. Sidebar
+
+      These default headings ("Untitled document", "Navigation", "Sidebar") are not specified by
+      this specification, and might vary with the user's language, the page's language, the user's
+      preferences, the user agent implementor's preferences, etc.
+    </div>
+
+    <div class="note">
+      The following JavaScript function shows how the tree walk could be implemented. The
+      <var>root</var> argument is the root of the tree to walk (either a <a>sectioning content</a>
+      element or a <a>sectioning root</a> element), and the <var>enter</var> and <var>exit</var>
+      arguments are callbacks that are called with the nodes as they are entered and exited.
+      [[!ECMA-262]]
+
+      <pre highlight="javascript">
+        function (root, enter, exit) {
+          var node = root;
+          start: while (node) {
+            enter(node);
+            if (node.firstChild) {
+              node = node.firstChild;
+              continue start;
+            }
+            while (node) {
+              exit(node);
+              if (node == root) {
+                node = null;
+              } else if (node.nextSibling) {
+                node = node.nextSibling;
+                continue start;
+              } else {
+                node = node.parentNode;
+              }
+            }
+          }
+        }
+      </pre>
+    </div>
+  </div>
+
+<h5 id="sample-outlines">Sample outlines</h5>
+
+  <em>This section is non-normative.</em>
+
+  <div class="example">
+    The following document shows a straight-forward application of the <a>outline</a> algorithm.
+    First, here is the document, which is a book with very short chapters and subsections:
+
+    <pre highlight="html">
+      &lt;!DOCTYPE HTML&gt;
+      &lt;title&gt;The Tax Book (all in one page)&lt;/title&gt;
+      &lt;h1&gt;The Tax Book&lt;/h1&gt;
+      &lt;h2&gt;Earning money&lt;/h2&gt;
+      &lt;p&gt;Earning money is good.&lt;/p&gt;
+      &lt;h3&gt;Getting a job&lt;/h3&gt;
+      &lt;p&gt;To earn money you typically need a job.&lt;/p&gt;
+      &lt;h2&gt;Spending money&lt;/h2&gt;
+      &lt;p&gt;Spending is what money is mainly used for.&lt;/p&gt;
+      &lt;h3&gt;Cheap things&lt;/h3&gt;
+      &lt;p&gt;Buying cheap things often not cost-effective.&lt;/p&gt;
+      &lt;h3&gt;Expensive things&lt;/h3&gt;
+      &lt;p&gt;The most expensive thing is often not the most cost-effective either.&lt;/p&gt;
+      &lt;h2&gt;Investing money&lt;/h2&gt;
+      &lt;p&gt;You can lend your money to other people.&lt;/p&gt;
+      &lt;h2&gt;Losing money&lt;/h2&gt;
+      &lt;p&gt;If you spend money or invest money, sooner or later you will lose money.
+      &lt;h3&gt;Poor judgement&lt;/h3&gt;
+      &lt;p&gt;Usually if you lose money it's because you made a mistake.&lt;/p&gt;
+    </pre>
+
+    This book would form the following outline:
+
+    1. The Tax Book
+        1. Earning money
+            1. Getting a job
+        2. Spending money
+            1. Cheap things
+            2. Expensive things
+        3. Investing money
+        4. Losing money
+            1. Poor judgement
+
+    Notice that the <code>title</code> element does not participate in the outline.
+  </div>
+
+  <div class="example">
+    Here is a similar document, but this time using <code>section</code> elements to get the same
+    effect:
+
+    <pre highlight="html">
+      &lt;!DOCTYPE HTML&gt;
+      &lt;title&gt;The Tax Book (all in one page)&lt;/title&gt;
+      &lt;h1&gt;The Tax Book&lt;/h1&gt;
+      &lt;section&gt;
+        &lt;h1&gt;Earning money&lt;/h1&gt;
+        &lt;p&gt;Earning money is good.&lt;/p&gt;
+        &lt;section&gt;
+          &lt;h1&gt;Getting a job&lt;/h1&gt;
+          &lt;p&gt;To earn money you typically need a job.&lt;/p&gt;
+        &lt;/section&gt;
+      &lt;/section&gt;
+      &lt;section&gt;
+        &lt;h1&gt;Spending money&lt;/h1&gt;
+        &lt;p&gt;Spending is what money is mainly used for.&lt;/p&gt;
+        &lt;section&gt;
+          &lt;h1&gt;Cheap things&lt;/h1&gt;
+          &lt;p&gt;Buying cheap things often not cost-effective.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+          &lt;h1&gt;Expensive things&lt;/h1&gt;
+          &lt;p&gt;The most expensive thing is often not the most cost-effective either.&lt;/p&gt;
+        &lt;/section&gt;
+      &lt;/section&gt;
+      &lt;section&gt;
+        &lt;h1&gt;Investing money&lt;/h1&gt;
+        &lt;p&gt;You can lend your money to other people.&lt;/p&gt;
+      &lt;/section&gt;
+      &lt;section&gt;
+        &lt;h1&gt;Losing money&lt;/h1&gt;
+        &lt;p&gt;If you spend money or invest money, sooner or later you will lose money.
+        &lt;section&gt;
+          &lt;h1&gt;Poor judgement&lt;/h1&gt;
+          &lt;p&gt;Usually if you lose money it's because you made a mistake.&lt;/p&gt;
+        &lt;/section&gt;
+      &lt;/section&gt;
+    </pre>
+
+    This book would form the same outline:
+
+    1. The Tax Book
+        1. Earning money
+            1. Getting a job
+        2. Spending money
+            1. Cheap things
+            2. Expensive things
+        3. Investing money
+        4. Losing money
+            1. Poor judgement
+  </div>
+
+  <div class="example">
+    A document can contain multiple top-level headings:
+
+    <pre highlight="html">
+      &lt;!DOCTYPE HTML&gt;
+      &lt;title&gt;Alphabetic Fruit&lt;/title&gt;
+      &lt;h1&gt;Apples&lt;/h1&gt;
+      &lt;p&gt;Pomaceous.&lt;/p&gt;
+      &lt;h1&gt;Bananas&lt;/h1&gt;
+      &lt;p&gt;Edible.&lt;/p&gt;
+      &lt;h1&gt;Oranges&lt;/h1&gt;
+      &lt;p&gt;Star.&lt;/p&gt;
+    </pre>
+
+    This would form the following simple outline consisting of three top-level sections:
+
+    1. Apples
+    2. Bananas
+    3. Oranges
+
+    Effectively, the <code>body</code> element is split into three.
+  </div>
+
+  <div class="example">
+    Mixing both the <code>h1</code>–<code>h6</code> model and the
+    <code>section</code>/<code>h1</code> model can lead to some unintuitive results.
+
+    Consider for example the following, which is just the previous example but with the contents
+    of the (implied) <code>body</code> wrapped in a <code>section</code>:
+
+    <pre highlight="html">
+      &lt;!DOCTYPE HTML&gt;
+      &lt;title&gt;Alphabetic Fruit&lt;/title&gt;
+      &lt;section&gt;
+        &lt;h1&gt;Apples&lt;/h1&gt;
+        &lt;p&gt;Pomaceous.&lt;/p&gt;
+        &lt;h1&gt;Bananas&lt;/h1&gt;
+        &lt;p&gt;Edible.&lt;/p&gt;
+        &lt;h1&gt;Oranges&lt;/h1&gt;
+        &lt;p&gt;Star.&lt;/p&gt;
+      &lt;/section&gt;
+    </pre>
+
+    The resulting outline would be:
+
+    1. <i>(untitled page)</i>
+        1. Apples
+        2. Bananas
+        3. Oranges
+
+    This result is described as <i>unintuitive</i> because it results in three subsections even
+    though there's only one <code>section</code> element. Effectively, the <code>section</code> is
+    split into three, just like the implied <code>body</code> element in the previous example.
+
+    (In this example, "<i>(untitled page)</i>" is the implied heading for the <code>body</code>
+    element, since it has no explicit heading.)
+  </div>
+
+  <div class="example">
+    Headings never rise above other sections. Thus, in the following example, the first
+    <code>h1</code> does not actually describe the page header; it describes the header for the
+    second half of the page:
+
+    <pre highlight="html">
+      &lt;!DOCTYPE HTML&gt;
+      &lt;title&gt;Feathers on The Site of Encyclopedic Knowledge&lt;/title&gt;
+      &lt;section&gt;
+        &lt;h1&gt;A plea from our caretakers&lt;/h1&gt;
+        &lt;p&gt;Please, we beg of you, send help! We're stuck in the server room!&lt;/p&gt;
+      &lt;/section&gt;
+      &lt;h1&gt;Feathers&lt;/h1&gt;
+      &lt;p&gt;Epidermal growths.&lt;/p&gt;
+    </pre>
+
+    The resulting outline would be:
+
+    1. <i>(untitled page)</i>
+        1. A plea from our caretakers
+    2. Feathers
+  </div>
+
+  <div class="example">
+    Thus, when an <code>article</code> element starts with a <code>nav</code> block and only later
+    has its heading, the result is that the <code>nav</code> block is not part of the same section
+    as the rest of the <code>article</code> in the outline. For instance, take this document:
+
+    <pre highlight="html">
+      &lt;!DOCTYPE HTML&gt;
+      &lt;title&gt;We're adopting a child! — Ray's blog&lt;/title&gt;
+      ...
+
+      &lt;h1&gt;Ray's blog&lt;/h1&gt;
+
+      &lt;main&gt;
+        &lt;article&gt;
+          &lt;header&gt;
+            &lt;nav&gt;
+              &lt;a href="?t=-1d"&gt;Yesterday&lt;/a&gt;;
+              &lt;a href="?t=-7d"&gt;Last week&lt;/a&gt;;
+              &lt;a href="?t=-1m"&gt;Last month&lt;/a&gt;
+            &lt;/nav&gt;
+          &lt;/header&gt;
+          &lt;h2&gt;We're adopting a child!&lt;/h2&gt;
+
+          &lt;p&gt;As of today, Janine and I have signed the papers to become
+          the proud parents of baby Diane! We've been looking forward to
+          this day for weeks.&lt;/p&gt;
+        &lt;/article&gt;
+      &lt;/main&gt;
+      ...
+    </pre>
+
+    The resulting outline would be:
+
+    1. Ray's blog
+        1. <i>Untitled article</i>
+            1. <i>Untitled navigation section</i>
+        2. We're adopting a child!
+
+    Also worthy of note in this example is that the <code>header</code> and <code>main</code>
+    elements have no effect whatsoever on the document outline.
+  </div>
+
+<h5 id="exposing-outlines-to-users">Exposing outlines to users</h5>
+
+  User agents are encouraged to expose page outlines to users to aid in navigation. This is
+  especially true for non-visual media, e.g. screen readers.
+
+  However, to mitigate the difficulties that arise from authors misusing <a>sectioning content</a>,
+  user agents are also encouraged to offer a mode that navigates the page using
+  <a>heading content</a> alone.
+
+  <div class="example">
+    For instance, a user agent could map the arrow keys as follows:
+
+    : <kbd>Shift</kbd>+<kbd>← Left</kbd>
+    :: Go to previous section, including subsectons of previous sections
+
+    : <kbd>Shift</kbd>+<kbd>→ Right</kbd>
+    :: Go to next section, including subsections of the current section
+
+    : <kbd>Shift</kbd>+<kbd>↑ Up</kbd>
+    :: Go to parent section of the current section
+
+    : <kbd>Shift</kbd>+<kbd>↓ Down</kbd>
+    :: Go to next section, skipping subsections of the current section
+
+    Plus in addition, the user agent could map the <kbd>j</kbd> and
+    <kbd>k</kbd> keys to navigating to the previous or next element of
+    <a>heading content</a>, regardless of the section's outline depth and ignoring sections with no
+    headings.
+  </div>
+
+<h4 id="usage-summary">Usage summary</h4>
+
+  <em>This section is non-normative.</em>
+
+  <table class="vertical-summary-table">
+    <thead>
+      <tr>
+        <th rowspan="2">Element</th>
+        <th>Purpose</th>
+      </tr>
+      <tr>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="2"><code>body</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <pre highlight="html">
+            &lt;!DOCTYPE HTML&gt;
+            &lt;html&gt;
+              &lt;head&gt; &lt;title&gt;Steve Hill's Home Page&lt;/title&gt; &lt;/head&gt;
+              &lt;body&gt; &lt;p&gt;Hard Trance is My Life.&lt;/p&gt; &lt;/body&gt;
+            &lt;/html&gt;
+          </pre>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2"><code>article</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <pre highlight="html">
+            &lt;article&gt;
+              &lt;img src="/tumblr_masqy2s5yn1rzfqbpo1_500.jpg" alt="Yellow smiley face with the caption 'masif'"&gt;
+              &lt;p&gt;My fave Masif tee so far!&lt;/p&gt;
+              &lt;footer&gt;Posted 2 days ago&lt;/footer&gt;
+            &lt;/article&gt;
+            &lt;article&gt;
+              &lt;img src="/tumblr_m9tf6wSr6W1rzfqbpo1_500.jpg" alt=""&gt;
+              &lt;p&gt;Happy 2nd birthday Masif Saturdays!!!&lt;/p&gt;
+              &lt;footer&gt;Posted 3 weeks ago&lt;/footer&gt;
+            &lt;/article&gt;
+          </pre>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2"><code>section</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <pre highlight="html">
+            &lt;h1&gt;Biography&lt;/h1&gt;
+            &lt;section&gt;
+              &lt;h1&gt;The facts&lt;/h1&gt;
+              &lt;p&gt;1500+ shows, 14+ countries&lt;/p&gt;
+            &lt;/section&gt;
+            &lt;section&gt;
+              &lt;h1&gt;2010/2011 figures per year&lt;/h1&gt;
+              &lt;p&gt;100+ shows, 8+ countries&lt;/p&gt;
+            &lt;/section&gt;
+          </pre>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2"><code>nav</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <pre highlight="html">
+            &lt;nav&gt;
+              &lt;ul&gt;
+                &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;
+                &lt;li&gt;&lt;a href="/biog.html"&gt;Bio&lt;/a&gt;
+                &lt;li&gt;&lt;a href="/discog.html"&gt;Discog&lt;/a&gt;
+              &lt;/ul&gt;
+            &lt;/nav&gt;
+          </pre>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2"><code>aside</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <pre highlight="html">
+            &lt;h1&gt;Music&lt;/h1&gt;
+            &lt;p&gt;As any burner can tell you, the event has a lot of trance.&lt;/p&gt;
+            &lt;aside&gt;You can buy the music we played at our &lt;a href="buy.html"&gt;playlist page&lt;/a&gt;.&lt;/aside&gt;
+            &lt;p&gt;This year we played a kind of trance that originated in Belgium, Germany, and the Netherlands in the mid 90s.&lt;/p&gt;
+          </pre>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2"><code>h1</code>–<code>h6</code></td>
+        <td>A section heading</td>
+      </tr>
+      <tr>
+        <td>
+          <pre highlight="html">
+            &lt;h1&gt;The Guide To Music On The Playa&lt;/h1&gt;
+            &lt;h2&gt;The Main Stage&lt;/h2&gt;
+            &lt;p&gt;If you want to play on a stage, you should bring one.&lt;/p&gt;
+            &lt;h2&gt;Amplified Music&lt;/h2&gt;
+            &lt;p&gt;Amplifiers up to 300W or 90dB are welcome.&lt;/p&gt;
+          </pre>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2"><code>header</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <pre highlight="html">
+            &lt;article&gt;
+              &lt;header&gt;
+              &lt;h1&gt;Hard Trance is My Life&lt;/h1&gt;
+              &lt;p&gt;By DJ Steve Hill and Technikal&lt;/p&gt;
+              &lt;/header&gt;
+              &lt;p&gt;The album with the amusing punctuation has red artwork.&lt;/p&gt;
+            &lt;/article&gt;
+          </pre>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2"><code>footer</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <pre highlight="html">
+            &lt;article&gt;
+              &lt;h1&gt;Hard Trance is My Life&lt;/h1&gt;
+              &lt;p&gt;The album with the amusing punctuation has red artwork.&lt;/p&gt;
+              &lt;footer&gt;
+              &lt;p&gt;Artists: DJ Steve Hill and Technikal&lt;/p&gt;
+              &lt;/footer&gt;
+            &lt;/article&gt;
+          </pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<h5 id="article-or-section">Article or section?</h5>
+
+  <em>This section is non-normative.</em>
+
+  A <code>section</code> forms part of something else. An <code>article</code> is its own thing. But
+  how does one know which is which? Mostly the real answer is "it depends on author intent".
+
+  For example, one could imagine a book with a "Granny Smith" chapter that just said "These juicy,
+  green apples make a great filling for apple pies."; that would be a <code>section</code> because
+  there'd be lots of other chapters on (maybe) other kinds of apples.
+
+  On the other hand, one could imagine a tweet or reddit comment or tumblr post or newspaper
+  classified ad that just said "Granny Smith. These juicy, green apples make a great filling for
+  apple pies."; it would then be <code>article</code>s because that was the whole thing.
+
+  A comment on an article is not part of the <code>article</code> on which it is commenting,
+  therefore it is its own <code>article</code>.
+
+<!-- more section 4 -->
 
 <hr />
 <hr />
@@ -12468,7 +14905,7 @@ spec:url; type:dfn; for:url; text:url
 
   The <code>applet</code> element must implement the <code>HTMLAppletElement</code> interface.
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     interface HTMLAppletElement : HTMLElement {
       attribute DOMString align;
       attribute DOMString alt;
@@ -12505,7 +14942,7 @@ spec:url; type:dfn; for:url; text:url
 
   The <code>marquee</code> element must implement the <code>HTMLMarqueeElement</code> interface.
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     interface HTMLMarqueeElement : HTMLElement {
       attribute DOMString behavior;
       attribute DOMString bgColor;
@@ -12718,7 +15155,7 @@ spec:url; type:dfn; for:url; text:url
 
   The <code>frameset</code> element must implement the <code>HTMLFrameSetElement</code> interface.
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     interface HTMLFrameSetElement : HTMLElement {
       attribute DOMString cols;
       attribute DOMString rows;
@@ -12825,7 +15262,7 @@ spec:url; type:dfn; for:url; text:url
 
   The <code>frame</code> element must implement the <code>HTMLFrameElement</code> interface.
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     interface HTMLFrameElement : HTMLElement {
       attribute DOMString name;
       attribute DOMString scrolling;
@@ -12879,7 +15316,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLAnchorElement {
       attribute DOMString coords;
       attribute DOMString charset;
@@ -12895,7 +15332,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLAreaElement {
       attribute boolean noHref;
     };
@@ -12906,7 +15343,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLBodyElement {
       [TreatNullAs=EmptyString] attribute DOMString text;
       [TreatNullAs=EmptyString] attribute DOMString link;
@@ -12939,7 +15376,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLBRElement {
       attribute DOMString clear;
     };
@@ -12950,7 +15387,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLTableCaptionElement {
       attribute DOMString align;
     };
@@ -12961,7 +15398,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLTableColElement {
       attribute DOMString align;
       attribute DOMString ch;
@@ -12990,7 +15427,7 @@ spec:url; type:dfn; for:url; text:url
 
   The <code>dir</code> element must implement the <code>HTMLDirectoryElement</code> interface.
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     interface HTMLDirectoryElement : HTMLElement {
       attribute boolean compact;
     };
@@ -13001,7 +15438,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLDivElement {
       attribute DOMString align;
     };
@@ -13012,7 +15449,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLDListElement {
       attribute boolean compact;
     };
@@ -13023,7 +15460,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLEmbedElement {
       attribute DOMString align;
       attribute DOMString name;
@@ -13037,7 +15474,7 @@ spec:url; type:dfn; for:url; text:url
 
   The <code>font</code> element must implement the <code>HTMLFontElement</code> interface.
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     interface HTMLFontElement : HTMLElement {
       [TreatNullAs=EmptyString] attribute DOMString color;
       attribute DOMString face;
@@ -13051,7 +15488,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLHeadingElement {
       attribute DOMString align;
     };
@@ -13072,7 +15509,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLHRElement {
       attribute DOMString align;
       attribute DOMString color;
@@ -13091,7 +15528,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLHtmlElement {
       attribute DOMString version;
     };
@@ -13102,7 +15539,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLIFrameElement {
       attribute DOMString align;
       attribute DOMString scrolling;
@@ -13133,7 +15570,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLImageElement {
       attribute DOMString name;
       attribute DOMString lowsrc;
@@ -13160,7 +15597,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLInputElement {
       attribute DOMString align;
       attribute DOMString useMap;
@@ -13175,7 +15612,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLLegendElement {
       attribute DOMString align;
     };
@@ -13186,7 +15623,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLLIElement {
       attribute DOMString type;
     };
@@ -13197,7 +15634,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLLinkElement {
       attribute DOMString charset;
       attribute DOMString rev;
@@ -13216,7 +15653,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLMenuElement {
       attribute boolean compact;
     };
@@ -13227,7 +15664,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLMetaElement {
       attribute DOMString scheme;
     };
@@ -13270,7 +15707,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLObjectElement {
       attribute DOMString align;
       attribute DOMString archive;
@@ -13301,7 +15738,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLOListElement {
       attribute boolean compact;
     };
@@ -13312,7 +15749,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLParagraphElement {
       attribute DOMString align;
     };
@@ -13323,7 +15760,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLParamElement {
       attribute DOMString type;
       attribute DOMString valueType;
@@ -13344,7 +15781,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLPreElement {
       attribute long width;
     };
@@ -13355,7 +15792,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLScriptElement {
       attribute DOMString event;
       attribute DOMString htmlFor;
@@ -13370,7 +15807,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLTableElement {
       attribute DOMString align;
       attribute DOMString border;
@@ -13401,7 +15838,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLTableSectionElement {
       attribute DOMString align;
       attribute DOMString ch;
@@ -13427,7 +15864,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLTableCellElement {
       attribute DOMString align;
       attribute DOMString axis;
@@ -13464,7 +15901,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLTableDataCellElement {
       attribute DOMString abbr;
     };
@@ -13475,7 +15912,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLTableRowElement {
       attribute DOMString align;
       attribute DOMString ch;
@@ -13503,7 +15940,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface HTMLUListElement {
       attribute boolean compact;
       attribute DOMString type;
@@ -13527,7 +15964,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface Document {
       [TreatNullAs=EmptyString] attribute DOMString fgColor;
       [TreatNullAs=EmptyString] attribute DOMString linkColor;
@@ -13626,7 +16063,7 @@ spec:url; type:dfn; for:url; text:url
 
   <hr />
 
-  <pre class="idl" highlight="webidl">
+  <pre class="idl" data-highlight="webidl">
     partial interface Window {
       void captureEvents();
       void releaseEvents();
