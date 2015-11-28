@@ -1,7 +1,7 @@
 <!doctype html><html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  <title>HTML [LEVEL]</title>
+  <title>HTML 5.1</title>
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="WD" name="w3c-status">
   <link href="../default.css" rel="stylesheet" type="text/css">
@@ -156,9 +156,9 @@
 
        .toc dfn, h1 dfn, h2 dfn, h3 dfn, h4 dfn, h5 dfn, h6 dfn { font: inherit; }
        img.extra, p.overview { float: right; }
-       pre.idl, pre.idl-ignore { border: solid thin #d3d3d3; background: #FCFCFC; color: black; padding: 0.5em 1em; position: relative; }
-       pre.idl :link, pre.idl :visited, pre.idl-ignore :link, pre.idl-ignore :visited { color: inherit; background: transparent; }
-       pre.idl::before, pre.idl-ignore::before { content: "IDL"; font: bold small sans-serif; padding: 0.5em; background: white; position: absolute; top: 0; margin: -1px 0 0 -4em; width: 1.5em; border: thin solid; border-radius: 0 0 0 0.5em }
+       pre.idl { border: solid thin #d3d3d3; background: #FCFCFC; color: black; padding: 0.5em 1em; position: relative; }
+       pre.idl :link, pre.idl :visited { color: inherit; background: transparent; }
+       pre.idl::before { content: "IDL"; font: bold small sans-serif; padding: 0.5em; background: white; position: absolute; top: 0; margin: -1px 0 0 -4em; width: 1.5em; border: thin solid; border-radius: 0 0 0 0.5em }
        pre.css { border: solid thin; background: #FFFFEE; color: black; padding: 0.5em 1em; }
        pre.css:first-line { color: #AAAA50; }
        dl.domintro {padding: 0.5em 1em; border: none; background:#E9FBE9; border: 1px solid lightgray; }
@@ -382,13 +382,13 @@
   <div class="head">
    <header>
     <p data-fill-with="logo"><a href="http://www.w3.org/"><img alt="W3C" height="48" src="https://www.w3.org/Icons/w3c_home" width="72"></a></p>
-    <h1 class="p-name no-ref allcaps" id="title">HTML [LEVEL]</h1>
-    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">W3C Working Draft, <time class="dt-updated" datetime="2015-11-26">26 November 2015</time></span></h2>
+    <h1 class="p-name no-ref allcaps" id="title">HTML 5.1</h1>
+    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">W3C Working Draft, <time class="dt-updated" datetime="2015-11-27">27 November 2015</time></span></h2>
    </header>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="http://www.w3.org/TR/2015/WD-html-5.1-20151126/">http://www.w3.org/TR/2015/WD-html-5.1-20151126/</a>
+     <dd><a class="u-url" href="http://www.w3.org/TR/2015/WD-html-5.1-20151127/">http://www.w3.org/TR/2015/WD-html-5.1-20151127/</a>
      <dt>Latest version:
      <dd><a href="http://www.w3.org/TR/html/">http://www.w3.org/TR/html/</a>
      <dt>Editor's Draft:
@@ -396,8 +396,6 @@
      <dt>Previous Versions:
      <dd><a href="http://www.w3.org/TR/2014/WD-html51-20140204/" rel="previous">http://www.w3.org/TR/2014/WD-html51-20140204/</a>
      <dd><a href="" rel="previous"></a>
-     <dt>Issue Tracking:
-     <dd><a href="https://github.com/arronei/specs/issues/">GitHub</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard"><span class="p-name fn">WHATWG</span>
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:simonp@opera.com">Simon Pieters</a> (<span class="p-org org">Opera Software</span>)
@@ -742,6 +740,7 @@ agents in an effort to improve interoperability.</p>
       <li><a href="#text-cache-manifest"><span class="secno">6.5</span> <span class="content"><span><code>text/cache-manifest</code></span></span></a>
       <li><a href="#web-scheme-prefix"><span class="secno">6.6</span> <span class="content"><span><code>web+</code> scheme prefix</span></span></a>
      </ul>
+    <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
      <ul class="toc">
@@ -938,14 +937,14 @@ script libraries, for instance.</p>
   language, two of which are defined in this specification.</p>
    <p>The first such concrete syntax is the HTML syntax. This is the format suggested for most authors.
   It is compatible with most legacy Web browsers. If a document is transmitted with the <code>text/html</code> <a data-link-type="dfn" href="#mime-type">MIME type</a>, then it will be processed as an HTML document by Web
-  browsers. This specification defines version [LEVEL] of the HTML syntax, known as "HTML[LEVEL]".</p>
+  browsers. This specification defines version 5.1 of the HTML syntax, known as "HTML5.1".</p>
    <p>The second concrete syntax is the XHTML syntax, which is an application of XML. When a document
   is transmitted with an <a data-link-type="dfn" href="#xml-mime-type">XML MIME type</a>, such as <code>application/xhtml+xml</code>,
   then it is treated as an XML document by Web browsers, to be parsed by an XML processor. Authors
   are reminded that the processing for XML and HTML differs; in particular, even minor syntax
   errors will prevent a document labeled as XML from being rendered fully, whereas they would be
-  ignored in the HTML syntax. This specification defines version [LEVEL] of the XHTML syntax,
-  known as "XHTML[LEVEL]".</p>
+  ignored in the HTML syntax. This specification defines version 5.1 of the XHTML syntax,
+  known as "XHTML5.1".</p>
    <p>The DOM, the HTML syntax, and the XHTML syntax cannot all represent the same content. For
   example, namespaces cannot be represented using the HTML syntax, but they are supported in the
   DOM and in the XHTML syntax. Similarly, documents that use the <code>noscript</code> feature can
@@ -12747,11 +12746,10 @@ associated, if any.</p>
       <td>
      <tr>
       <td>
-<pre class="example" id="example-d1a8f928"><a class="self-link" href="#example-d1a8f928"></a>&lt;h1>Music&lt;/h1>
-&lt;p>As any burner can tell you, the event has a lot of trance.&lt;/p>
-&lt;aside>You can buy the music we played at our &lt;a href="buy.html">playlist page&lt;/a>.&lt;/aside>
-&lt;p>This year we played a kind of trance that originated in Belgium, Germany, and the Netherlands in the mid 90s.&lt;/p>
-</pre>
+<pre class="highlight"><span class="nt">&lt;h1></span>Music<span class="nt">&lt;/h1></span>
+<span class="nt">&lt;p></span>As any burner can tell you, the event has a lot of trance.<span class="nt">&lt;/p></span>
+<span class="nt">&lt;aside></span>You can buy the music we played at our <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"buy.html"</span><span class="nt">></span>playlist page<span class="nt">&lt;/a></span>.<span class="nt">&lt;/aside></span>
+<span class="nt">&lt;p></span>This year we played a kind of trance that originated in Belgium, Germany, and the Netherlands in the mid 90s.<span class="nt">&lt;/p></span></pre>
      <tr>
       <td rowspan="2"><code>h1</code>–<code>h6</code>
       <td>A section heading
@@ -14589,6 +14587,21 @@ string <code>undefined</code> when applied to the object returned for <code>all<
     </dl>
    </div>
   </main>
+  <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
+  <p> Conformance requirements are expressed with a combination of descriptive assertions and RFC 2119 terminology.
+        The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL”
+        in the normative parts of this document
+        are to be interpreted as described in RFC 2119.
+        However, for readability,
+        these words do not appear in all uppercase letters in this specification. </p>
+  <p> All of the text of this specification is normative
+        except sections explicitly marked as non-normative, examples, and notes. <a data-link-type="biblio" href="#biblio-rfc2119">[RFC2119]</a> </p>
+  <p> Examples in this specification are introduced with the words “for example”
+        or are set apart from the normative text with <code>class="example"</code>, like this: </p>
+  <div class="example" id="example-ae2b6bc0"><a class="self-link" href="#example-ae2b6bc0"></a> This is an example of an informative example. </div>
+  <p> Informative notes begin with the word “Note”
+        and are set apart from the normative text with <code>class="note"</code>, like this: </p>
+  <p class="note" role="note"> Note, this is an informative note. </p>
   <h2 class="no-num heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="indexlist">
@@ -16965,13 +16978,13 @@ string <code>undefined</code> when applied to the object returned for <code>all<
    <dt id="biblio-geometry-1"><a class="self-link" href="#biblio-geometry-1"></a>[GEOMETRY-1]
    <dd>Simon Pieters; Dirk Schulze; Rik Cabanier. <a href="http://www.w3.org/TR/geometry-1/">Geometry Interfaces Module Level 1</a>. 25 November 2014. CR. URL: <a href="http://www.w3.org/TR/geometry-1/">http://www.w3.org/TR/geometry-1/</a>
    <dt id="biblio-hr-time-2"><a class="self-link" href="#biblio-hr-time-2"></a>[HR-TIME-2]
-   <dd>Ilya Grigorik; James Simonsen; Jatinder Mann. <a href="http://www.w3.org/TR/hr-time-2/">High Resolution Time Level 2</a>. 16 November 2015. WD. URL: <a href="http://www.w3.org/TR/hr-time-2/">http://www.w3.org/TR/hr-time-2/</a>
+   <dd>Ilya Grigorik; James Simonsen; Jatinder Mann. <a href="http://www.w3.org/TR/hr-time-2/">High Resolution Time Level 2</a>. 21 October 2015. WD. URL: <a href="http://www.w3.org/TR/hr-time-2/">http://www.w3.org/TR/hr-time-2/</a>
    <dt id="biblio-html-aapi"><a class="self-link" href="#biblio-html-aapi"></a>[HTML-AAPI]
    <dd>Steve Faulkner; et al. <a href="http://www.w3.org/TR/html-aapi/">HTML to Platform Accessibility APIs Implementation Guide</a>. 29 September 2015. NOTE. URL: <a href="http://www.w3.org/TR/html-aapi/">http://www.w3.org/TR/html-aapi/</a>
    <dt id="biblio-html-polyglot"><a class="self-link" href="#biblio-html-polyglot"></a>[HTML-POLYGLOT]
    <dd>Eliot Graff; Leif Halvard Silli. <a href="http://www.w3.org/TR/html-polyglot/">Polyglot Markup: A robust profile of the HTML5 vocabulary</a>. 29 September 2015. NOTE. URL: <a href="http://www.w3.org/TR/html-polyglot/">http://www.w3.org/TR/html-polyglot/</a>
    <dt id="biblio-media-source"><a class="self-link" href="#biblio-media-source"></a>[MEDIA-SOURCE]
-   <dd>Matthew Wolenetz; et al. <a href="http://www.w3.org/TR/media-source/">Media Source Extensions</a>. 12 November 2015. CR. URL: <a href="http://www.w3.org/TR/media-source/">http://www.w3.org/TR/media-source/</a>
+   <dd>Aaron Colwell; Adrian Bateman; Mark Watson. <a href="http://www.w3.org/TR/media-source/">Media Source Extensions</a>. 31 March 2015. CR. URL: <a href="http://www.w3.org/TR/media-source/">http://www.w3.org/TR/media-source/</a>
    <dt id="biblio-mediastream-recording"><a class="self-link" href="#biblio-mediastream-recording"></a>[MEDIASTREAM-RECORDING]
    <dd>James Barnett; Travis Leithead. <a href="http://www.w3.org/TR/mediastream-recording/">MediaStream Recording</a>. 8 September 2015. WD. URL: <a href="http://www.w3.org/TR/mediastream-recording/">http://www.w3.org/TR/mediastream-recording/</a>
    <dt id="biblio-rfc1345"><a class="self-link" href="#biblio-rfc1345"></a>[RFC1345]

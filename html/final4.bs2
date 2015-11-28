@@ -53,129 +53,135 @@ spec:url; type:dfn; for:url; text:url
     <dt><a>Content attributes</a>:</dt>
     <dd><a>Global attributes</a></dd>
     <dt><a>Tag omission in text/html</a>:</dt>
-    <dd>A <code>p</code> element's <a>end tag</a> may be omitted if the
-  <code>p</code> element is immediately followed by an <code>address</code>, <code>article</code>,
-  <code>aside</code>, <code>blockquote</code>, <code>div</code>, <code>dl</code>,
-  <code>fieldset</code>, <code>footer</code>, <code>form</code>, <code>h1</code>, <code>h2</code>,
-  <code>h3</code>, <code>h4</code>, <code>h5</code>, <code>h6</code>, <code>header</code>,
-  <code>hr</code>, <code>main</code>, <code>menu</code>, <code>nav</code>,
-  <code>ol</code>, <code>p</code>, <code>pre</code>, <code>section</code>, <code>table</code>, or
-  <code>ul</code>, element, or if there is no more content in the parent element and the parent
-  element is not an <code>a</code> element.</dd>
+    <dd>
+      A <code>p</code> element's <a>end tag</a> may be omitted if the <code>p</code> element is
+      immediately followed by an <code>address</code>, <code>article</code>, <code>aside</code>,
+      <code>blockquote</code>, <code>div</code>, <code>dl</code>, <code>fieldset</code>,
+      <code>footer</code>, <code>form</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>,
+      <code>h4</code>, <code>h5</code>, <code>h6</code>, <code>header</code>, <code>hr</code>,
+      <code>main</code>, <code>menu</code>, <code>nav</code>, <code>ol</code>, <code>p</code>,
+      <code>pre</code>, <code>section</code>, <code>table</code>, or <code>ul</code>, element, or if
+      there is no more content in the parent element and the parent element is not an <code>a</code>
+      element.
+    </dd>
     <dt>Allowed <a>ARIA role attribute</a> values:</dt>
     <dd><a>Any role value</a>.</dd>
     <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
     <dd><a>Global aria-* attributes</a></dd>
-  <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
+    <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
     <dt><a>DOM interface</a>:</dt>
     <dd>
-    <pre class="idl" highlight="webidl">interface HTMLParagraphElement : HTMLElement {};
-</pre>
+      <pre class="idl" highlight="webidl">
+        interface HTMLParagraphElement : HTMLElement {};
+      </pre>
     </dd>
   </dl>
 
   The <code>p</code> element <a>represents</a> a <a>paragraph</a>.
 
   <p class="note">
-    While paragraphs are usually represented in visual media by blocks of text that
-  are physically separated from adjacent blocks through blank lines, a style sheet or user agent
-  would be equally justified in presenting paragraph breaks in a different manner, for instance
-  using inline pilcrows (¶).
+    While paragraphs are usually represented in visual media by blocks of text that are physically
+    separated from adjacent blocks through blank lines, a style sheet or user agent would be equally
+    justified in presenting paragraph breaks in a different manner, for instance using inline
+    pilcrows (¶).
   </p>
 
   <div class="example">
     The following examples are conforming HTML fragments:
-    <pre highlight="html">&lt;p&gt;The little kitten gently seated himself on a piece of
-carpet. Later in his life, this would be referred to as the time the
-cat sat on the mat.&lt;/p&gt;
-</pre>
-    <pre highlight="html">&lt;fieldset&gt;
-  &lt;legend&gt;Personal information&lt;/legend&gt;
-  &lt;p&gt;
-    &lt;label&gt;Name: &lt;input name="n"&gt;&lt;/label&gt;
-    &lt;label&gt;&lt;input name="anon" type="checkbox"&gt; Hide from other users&lt;/label&gt;
-  &lt;/p&gt;
-  &lt;p&gt;&lt;label&gt;Address: &lt;textarea name="a"&gt;&lt;/textarea&gt;&lt;/label&gt;&lt;/p&gt;
-&lt;/fieldset&gt;
-</pre>
-    <pre highlight="html">&lt;p&gt;There was once an example from Femley,&lt;br&gt;
-Whose markup was of dubious quality.&lt;br&gt;
-The validator complained,&lt;br&gt;
-So the author was pained,&lt;br&gt;
-To move the error from the markup to the rhyming.&lt;/p&gt;
-</pre>
+    <pre highlight="html">
+      &lt;p&gt;The little kitten gently seated himself on a piece of
+      carpet. Later in his life, this would be referred to as the time the
+      cat sat on the mat.&lt;/p&gt;
+    </pre>
+
+    <pre highlight="html">
+      &lt;fieldset&gt;
+        &lt;legend&gt;Personal information&lt;/legend&gt;
+        &lt;p&gt;
+          &lt;label&gt;Name: &lt;input name="n"&gt;&lt;/label&gt;
+          &lt;label&gt;&lt;input name="anon" type="checkbox"&gt; Hide from other users&lt;/label&gt;
+        &lt;/p&gt;
+        &lt;p&gt;&lt;label&gt;Address: &lt;textarea name="a"&gt;&lt;/textarea&gt;&lt;/label&gt;&lt;/p&gt;
+      &lt;/fieldset&gt;
+    </pre>
+
+    <pre highlight="html">
+      &lt;p&gt;There was once an example from Femley,&lt;br&gt;
+      Whose markup was of dubious quality.&lt;br&gt;
+      The validator complained,&lt;br&gt;
+      So the author was pained,&lt;br&gt;
+      To move the error from the markup to the rhyming.&lt;/p&gt;
+    </pre>
   </div>
 
-  The <code>p</code> element should not be used when a more specific element is more
-  appropriate.
+  The <code>p</code> element should not be used when a more specific element is more appropriate.
 
   <div class="example">
-
     The following example is technically correct:
 
-<pre highlight="html">&lt;section&gt;
-  &lt;!-- ... --&gt;
-  &lt;p&gt;Last modified: 2001-04-23&lt;/p&gt;
-  &lt;p&gt;Author: fred@example.com&lt;/p&gt;
-&lt;/section&gt;
-</pre>
+    <pre highlight="html">
+      &lt;section&gt;
+        &lt;!-- ... --&gt;
+        &lt;p&gt;Last modified: 2001-04-23&lt;/p&gt;
+        &lt;p&gt;Author: fred@example.com&lt;/p&gt;
+      &lt;/section&gt;
+    </pre>
 
     However, it would be better marked-up as:
 
-<pre highlight="html">&lt;section&gt;
-  &lt;!-- ... --&gt;
-  &lt;footer&gt;Last modified: 2001-04-23&lt;/footer&gt;
-  &lt;address&gt;Author: fred@example.com&lt;/address&gt;
-&lt;/section&gt;
-</pre>
+    <pre highlight="html">
+      &lt;section&gt;
+        &lt;!-- ... --&gt;
+        &lt;footer&gt;Last modified: 2001-04-23&lt;/footer&gt;
+        &lt;address&gt;Author: fred@example.com&lt;/address&gt;
+      &lt;/section&gt;
+    </pre>
 
     Or:
 
-<pre highlight="html">&lt;section&gt;
-  &lt;!-- ... --&gt;
-  &lt;footer&gt;
-  &lt;p&gt;Last modified: 2001-04-23&lt;/p&gt;
-  &lt;address&gt;Author: fred@example.com&lt;/address&gt;
-  &lt;/footer&gt;
-&lt;/section&gt;
-</pre>
-
+    <pre highlight="html">
+      &lt;section&gt;
+        &lt;!-- ... --&gt;
+        &lt;footer&gt;
+        &lt;p&gt;Last modified: 2001-04-23&lt;/p&gt;
+        &lt;address&gt;Author: fred@example.com&lt;/address&gt;
+        &lt;/footer&gt;
+      &lt;/section&gt;
+    </pre>
   </div>
 
   <div class="note">
-
     List elements (in particular, <code>ol</code> and <code>ul</code> elements) cannot be children
-    of <code>p</code> elements. When a sentence contains a bulleted list, therefore, one might wonder
-    how it should be marked up.
+    of <code>p</code> elements. When a sentence contains a bulleted list, therefore, one might
+    wonder how it should be marked up.
 
     <div class="example">
-    For instance, this fantastic sentence has bullets relating to
-    <ul>
-      <li>wizards,
-      </li><li>faster-than-light travel, and
-      </li><li>telepathy,
-    </li></ul>
-    and is further discussed below.
+      For instance, this fantastic sentence has bullets relating to
+
+      * wizards,
+      * faster-than-light travel, and
+      * telepathy,
+
+      and is further discussed below.
     </div>
 
-    The solution is to realize that a <i>paragraph</i>, in HTML terms, is not a
-    logical concept, but a structural one. In the fantastic example above, there are actually
-    <em>five</em> <a>paragraphs</a> as defined by this specification: one
-    before the list, one for each bullet, and one after the list.
+    The solution is to realize that a <i>paragraph</i>, in HTML terms, is not a logical concept, but
+    a structural one. In the fantastic example above, there are actually <em>five</em>
+    <a>paragraphs</a> as defined by this specification: one before the list, one for each bullet,
+    and one after the list.
 
     <div class="example">
+      The markup for the above example could therefore be:
 
-    The markup for the above example could therefore be:
-
-    <pre highlight="html">&lt;p&gt;For instance, this fantastic sentence has bullets relating to&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;wizards,
-  &lt;li&gt;faster-than-light travel, and
-  &lt;li&gt;telepathy,
-&lt;/ul&gt;
-&lt;p&gt;and is further discussed below.&lt;/p&gt;
-</pre>
-
+      <pre highlight="html">
+        &lt;p&gt;For instance, this fantastic sentence has bullets relating to&lt;/p&gt;
+        &lt;ul&gt;
+          &lt;li&gt;wizards,
+          &lt;li&gt;faster-than-light travel, and
+          &lt;li&gt;telepathy,
+        &lt;/ul&gt;
+        &lt;p&gt;and is further discussed below.&lt;/p&gt;
+      </pre>
     </div>
 
     Authors wishing to conveniently style such "logical" paragraphs consisting of multiple
@@ -183,23 +189,21 @@ To move the error from the markup to the rhyming.&lt;/p&gt;
     element.
 
     <div class="example">
+      Thus for instance the above example could become the following:
 
-    Thus for instance the above example could become the following:
+      <pre highlight="html">
+        &lt;div&gt;For instance, this fantastic sentence has bullets relating to
+          &lt;ul&gt;
+            &lt;li&gt;wizards,
+            &lt;li&gt;faster-than-light travel, and
+            &lt;li&gt;telepathy,
+          &lt;/ul&gt;
+        and is further discussed below.&lt;/div&gt;
+      </pre>
 
-    <pre highlight="html">&lt;div&gt;For instance, this fantastic sentence has bullets relating to
-&lt;ul&gt;
-  &lt;li&gt;wizards,
-  &lt;li&gt;faster-than-light travel, and
-  &lt;li&gt;telepathy,
-&lt;/ul&gt;
-and is further discussed below.&lt;/div&gt;
-</pre>
-
-    This example still has five structural paragraphs, but now the author can style just the
-    <code>div</code> instead of having to consider each part of the example separately.
-
+      This example still has five structural paragraphs, but now the author can style just the
+      <code>div</code> instead of having to consider each part of the example separately.
     </div>
-
   </div>
 
 <h4 id="the-hr-element">The <dfn><code>hr</code></dfn> element</h4>
@@ -216,101 +220,99 @@ and is further discussed below.&lt;/div&gt;
     <dt><a>Tag omission in text/html</a>:</dt>
     <dd>No <a>end tag</a>.</dd>
     <dt>Allowed <a>ARIA role attribute</a> values:</dt>
-    <dd><a><code>separator</code></a> (default - <a><em>do not set</em></a>) or <a><code>presentation</code></a>.</dd>
+    <dd>
+      <a><code>separator</code></a> (default - <a><em>do not set</em></a>) or
+      <a><code>presentation</code></a>.
+    </dd>
     <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
     <dd><a>Global aria-* attributes</a></dd>
     <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
     <dt><a>DOM interface</a>:</dt>
     <dd>
-    <pre class="idl" highlight="webidl">interface HTMLHRElement : HTMLElement {};
-</pre>
+      <pre class="idl" highlight="webidl">
+        interface HTMLHRElement : HTMLElement {};
+      </pre>
     </dd>
   </dl>
 
-  The <code>hr</code> element <a>represents</a> a <a>paragraph</a>-level thematic
-  break, e.g. a scene change in a story, or a transition to another topic within a section of a
-  reference book.
+  The <code>hr</code> element <a>represents</a> a <a>paragraph</a>-level thematic break, e.g. a
+  scene change in a story, or a transition to another topic within a section of a reference book.
 
   <div class="example">
-
     The following fictional extract from a project manual shows two sections that use the
     <code>hr</code> element to separate topics within the section.
 
-    <pre highlight="html">&lt;section&gt;
-  &lt;h1&gt;Communication&lt;/h1&gt;
-  &lt;p&gt;There are various methods of communication. This section
-  covers a few of the important ones used by the project.&lt;/p&gt;
-  <strong>&lt;hr&gt;</strong>
-  &lt;p&gt;Communication stones seem to come in pairs and have mysterious
-  properties:&lt;/p&gt;
-  &lt;ul&gt;
-  &lt;li&gt;They can transfer thoughts in two directions once activated
-  if used alone.&lt;/li&gt;
-  &lt;li&gt;If used with another device, they can transfer one's
-  consciousness to another body.&lt;/li&gt;
-  &lt;li&gt;If both stones are used with another device, the
-  consciousnesses switch bodies.&lt;/li&gt;
-  &lt;/ul&gt;
-  <strong>&lt;hr&gt;</strong>
-  &lt;p&gt;Radios use the electromagnetic spectrum in the meter range and
-  longer.&lt;/p&gt;
-  <strong>&lt;hr&gt;</strong>
-  &lt;p&gt;Signal flares use the electromagnetic spectrum in the
-  nanometer range.&lt;/p&gt;
-&lt;/section&gt;
-&lt;section&gt;
-  &lt;h1&gt;Food&lt;/h1&gt;
-  &lt;p&gt;All food at the project is rationed:&lt;/p&gt;
-  &lt;dl&gt;
-  &lt;dt&gt;Potatoes&lt;/dt&gt;
-  &lt;dd&gt;Two per day&lt;/dd&gt;
-  &lt;dt&gt;Soup&lt;/dt&gt;
-  &lt;dd&gt;One bowl per day&lt;/dd&gt;
-  &lt;/dl&gt;
-  <strong>&lt;hr&gt;</strong>
-  &lt;p&gt;Cooking is done by the chefs on a set rotation.&lt;/p&gt;
-&lt;/section&gt;
-</pre>
+    <pre highlight="html">
+      &lt;section&gt;
+        &lt;h1&gt;Communication&lt;/h1&gt;
+        &lt;p&gt;There are various methods of communication. This section
+        covers a few of the important ones used by the project.&lt;/p&gt;
+        <strong>&lt;hr&gt;</strong>
+        &lt;p&gt;Communication stones seem to come in pairs and have mysterious
+        properties:&lt;/p&gt;
+        &lt;ul&gt;
+          &lt;li&gt;They can transfer thoughts in two directions once activated
+          if used alone.&lt;/li&gt;
+          &lt;li&gt;If used with another device, they can transfer one's
+          consciousness to another body.&lt;/li&gt;
+          &lt;li&gt;If both stones are used with another device, the
+          consciousnesses switch bodies.&lt;/li&gt;
+        &lt;/ul&gt;
+        <strong>&lt;hr&gt;</strong>
+        &lt;p&gt;Radios use the electromagnetic spectrum in the meter range and
+        longer.&lt;/p&gt;
+        <strong>&lt;hr&gt;</strong>
+        &lt;p&gt;Signal flares use the electromagnetic spectrum in the
+        nanometer range.&lt;/p&gt;
+      &lt;/section&gt;
+      &lt;section&gt;
+        &lt;h1&gt;Food&lt;/h1&gt;
+        &lt;p&gt;All food at the project is rationed:&lt;/p&gt;
+        &lt;dl&gt;
+          &lt;dt&gt;Potatoes&lt;/dt&gt;
+          &lt;dd&gt;Two per day&lt;/dd&gt;
+          &lt;dt&gt;Soup&lt;/dt&gt;
+          &lt;dd&gt;One bowl per day&lt;/dd&gt;
+        &lt;/dl&gt;
+        <strong>&lt;hr&gt;</strong>
+        &lt;p&gt;Cooking is done by the chefs on a set rotation.&lt;/p&gt;
+      &lt;/section&gt;
+    </pre>
 
     There is no need for an <code>hr</code> element between the sections themselves, since the
     <code>section</code> elements and the <code>h1</code> elements imply thematic changes
     themselves.
-
   </div>
 
   <div class="example">
-
     The following extract from <cite>Pandora's Star</cite> by Peter F. Hamilton shows two
     paragraphs that precede a scene change and the paragraph that follows it. The scene change,
     represented in the printed book by a gap containing a solitary centered star between the second
     and third paragraphs, is here represented using the <code>hr</code> element.
 
-    <pre lang="en-GB">&lt;p&gt;Dudley was ninety-two, in his second life, and fast approaching
-time for another rejuvenation. Despite his body having the physical
-age of a standard fifty-year-old, the prospect of a long degrading
-campaign within academia was one he regarded with dread. For a
-supposedly advanced civilization, the Intersolar Commonwealth could be
-appallingly backward at times, not to mention cruel.&lt;/p&gt;
-&lt;p&gt;&lt;i&gt;Maybe it won't be that bad&lt;/i&gt;, he told himself. The lie was
-comforting enough to get him through the rest of the night's
-shift.&lt;/p&gt;
-<strong>&lt;hr&gt;</strong>
-&lt;p&gt;The Carlton AllLander drove Dudley home just after dawn. Like the
-astronomer, the vehicle was old and worn, but perfectly capable of
-doing its job. It had a cheap diesel engine, common enough on a
-semi-frontier world like Gralmond, although its drive array was a
-thoroughly modern photoneural processor. With its high suspension and
-deep-tread tyres it could plough along the dirt track to the
-observatory in all weather and seasons, including the metre-deep snow
-of Gralmond's winters.&lt;/p&gt;
-</pre>
-
+    <pre lang="en-GB">
+      &lt;p&gt;Dudley was ninety-two, in his second life, and fast approaching
+      time for another rejuvenation. Despite his body having the physical
+      age of a standard fifty-year-old, the prospect of a long degrading
+      campaign within academia was one he regarded with dread. For a
+      supposedly advanced civilization, the Intersolar Commonwealth could be
+      appallingly backward at times, not to mention cruel.&lt;/p&gt;
+      &lt;p&gt;&lt;i&gt;Maybe it won't be that bad&lt;/i&gt;, he told himself. The lie was
+      comforting enough to get him through the rest of the night's
+      shift.&lt;/p&gt;
+      <strong>&lt;hr&gt;</strong>
+      &lt;p&gt;The Carlton AllLander drove Dudley home just after dawn. Like the
+      astronomer, the vehicle was old and worn, but perfectly capable of
+      doing its job. It had a cheap diesel engine, common enough on a
+      semi-frontier world like Gralmond, although its drive array was a
+      thoroughly modern photoneural processor. With its high suspension and
+      deep-tread tyres it could plough along the dirt track to the
+      observatory in all weather and seasons, including the metre-deep snow
+      of Gralmond's winters.&lt;/p&gt;
+    </pre>
   </div>
 
-  <p class="note">
-    The <code>hr</code> element does not affect the document's
-  <a>outline</a>.
-  </p>
+  <p class="note">The <code>hr</code> element does not affect the document's <a>outline</a>.</p>
 
 <h4 id="the-pre-element">The <dfn><code>pre</code></dfn> element</h4>
 
@@ -330,41 +332,36 @@ of Gralmond's winters.&lt;/p&gt;
     <dd><a>Any role value</a>.</dd>
     <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
     <dd><a>Global aria-* attributes</a></dd>
-  <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
+    <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
     <dt><a>DOM interface</a>:</dt>
     <dd>
-    <pre class="idl" highlight="webidl">interface HTMLPreElement : HTMLElement {};
-</pre>
+      <pre class="idl" highlight="webidl">
+        interface HTMLPreElement : HTMLElement {};
+      </pre>
     </dd>
   </dl>
 
-  The <code>pre</code> element <a>represents</a> a block of preformatted text, in which
-  structure is represented by typographic conventions rather than by elements.
+  The <code>pre</code> element <a>represents</a> a block of preformatted text, in which structure is
+  represented by typographic conventions rather than by elements.
 
   <p class="note">
-    In <a>the HTML syntax</a>, a leading newline character immediately following
-  the <code>pre</code> element start tag is stripped.
+    In <a>the HTML syntax</a>, a leading newline character immediately following the
+    <code>pre</code> element start tag is stripped.
   </p>
 
   Some examples of cases where the <code>pre</code> element could be used:
 
-  <ul>
-
-    <li>Including an e-mail, with paragraphs indicated by blank lines, lists indicated by lines
-    prefixed with a bullet, and so on.</li>
-
-    <li>Including fragments of computer code, with structure indicated according to the conventions
-    of that language.</li>
-
-    <li>Displaying ASCII art.</li>
-
-  </ul>
+  * Including an e-mail, with paragraphs indicated by blank lines, lists indicated by lines prefixed
+    with a bullet, and so on.
+  * Including fragments of computer code, with structure indicated according to the conventions of
+    that language.
+  * Displaying ASCII art.
 
   <p class="note">
-    Authors are encouraged to consider how preformatted text will be experienced when
-  the formatting is lost, as will be the case for users of speech synthesizers, braille displays,
-  and the like. For cases like ASCII art, it is likely that an alternative presentation, such as a
-  textual description, would be more universally accessible to the readers of the document.
+    Authors are encouraged to consider how preformatted text will be experienced when the formatting
+    is lost, as will be the case for users of speech synthesizers, braille displays, and the like.
+    For cases like ASCII art, it is likely that an alternative presentation, such as a textual
+    description, would be more universally accessible to the readers of the document.
   </p>
 
   To represent a block of computer code, the <code>pre</code> element can be used with a
@@ -373,67 +370,61 @@ of Gralmond's winters.&lt;/p&gt;
   within a <code>pre</code> element to indicate text that the user is to enter.
 
   <div class="impl">
-
-  <p class="note">
-    This element <a>has rendering requirements involving the
-  bidirectional algorithm</a>.
-  </p>
-
+    <p class="note">
+      This element <a>has rendering requirements involving the bidirectional algorithm</a>.
+    </p>
   </div>
 
   <div class="example">
-
     In the following snippet, a sample of computer code is presented.
 
-    <pre highlight="html">&lt;p&gt;This is the &lt;code&gt;Panel&lt;/code&gt; constructor:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;function Panel(element, canClose, closeHandler) {
-  this.element = element;
-  this.canClose = canClose;
-  this.closeHandler = function () { if (closeHandler) closeHandler() };
-}&lt;/code&gt;&lt;/pre&gt;
-</pre>
-
+    <pre highlight="html">
+      &lt;p&gt;This is the &lt;code&gt;Panel&lt;/code&gt; constructor:&lt;/p&gt;
+      &lt;pre&gt;&lt;code&gt;function Panel(element, canClose, closeHandler) {
+        this.element = element;
+        this.canClose = canClose;
+        this.closeHandler = function () { if (closeHandler) closeHandler() };
+      }&lt;/code&gt;&lt;/pre&gt;
+    </pre>
   </div>
 
   <div class="example">
-
     In the following snippet, <code>samp</code> and <code>kbd</code> elements are mixed in the
     contents of a <code>pre</code> element to show a session of Zork I.
 
-    <pre highlight="html">&lt;pre&gt;&lt;samp&gt;You are in an open field west of a big white house with a boarded
-front door.
-There is a small mailbox here.
+    <pre highlight="html">
+      &lt;pre&gt;&lt;samp&gt;You are in an open field west of a big white house with a boarded
+      front door.
+      There is a small mailbox here.
 
-&gt;&lt;/samp&gt; &lt;kbd&gt;open mailbox&lt;/kbd&gt;
+      &gt;&lt;/samp&gt; &lt;kbd&gt;open mailbox&lt;/kbd&gt;
 
-&lt;samp&gt;Opening the mailbox reveals:
-A leaflet.
+      &lt;samp&gt;Opening the mailbox reveals:
+      A leaflet.
 
-&gt;&lt;/samp&gt;&lt;/pre&gt;
-</pre>
-
+      &gt;&lt;/samp&gt;&lt;/pre&gt;
+    </pre>
   </div>
 
   <div class="example">
-
     The following shows a contemporary poem that uses the <code>pre</code> element to preserve its
     unusual formatting, which forms an intrinsic part of the poem itself.
 
-    <pre highlight="html">&lt;pre&gt;                maxling
+    <pre highlight="html">
+      &lt;pre&gt;                maxling
 
-it is with a          heart
-                heavy
+      it is with a          heart
+                      heavy
 
-that i admit loss of a feline
-        so           loved
+      that i admit loss of a feline
+              so           loved
 
-a friend lost to the
-        unknown
-                                (night)
+      a friend lost to the
+              unknown
+                                      (night)
 
-~cdr 11dec07&lt;/pre&gt;
-</pre>
-
+      ~cdr 11dec07&lt;/pre&gt;
+    </pre>
   </div>
 
 <h4 id="the-blockquote-element">The <dfn><code>blockquote</code></dfn> element</h4>
@@ -459,265 +450,280 @@ a friend lost to the
     <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
     <dt><a>DOM interface</a>:</dt>
     <dd>
-<pre class="idl" highlight="webidl">interface HTMLQuoteElement : HTMLElement {
-  attribute DOMString cite;
-};
-</pre>
-    <p class="note">
-    The <code>HTMLQuoteElement</code> interface is
-    also used by the <code>q</code> element.
-  </p>
+      <pre class="idl" highlight="webidl">
+        interface HTMLQuoteElement : HTMLElement {
+          attribute DOMString cite;
+        };
+      </pre>
+      <p class="note">
+        The <code>HTMLQuoteElement</code> interface is also used by the <code>q</code> element.
+      </p>
     </dd>
   </dl>
 
-  The <code>blockquote</code> element <a>represents</a> content that is quoted from another source, optionally with a citation which must be within a <code>footer</code> or <code>cite</code> element, and optionally
-  with in-line changes such as annotations and abbreviations.
+  The <code>blockquote</code> element <a>represents</a> content that is quoted from another source,
+  optionally with a citation which must be within a <code>footer</code> or <code>cite</code>
+  element, and optionally with in-line changes such as annotations and abbreviations.
 
-  Content inside a <code>blockquote</code> other than citations and in-line changes must be quoted from another source, whose address, if it has one, may be cited in the <dfn><code>cite</code></dfn> attribute.
+  Content inside a <code>blockquote</code> other than citations and in-line changes must be quoted
+  from another source, whose address, if it has one, may be cited in the
+  <dfn><code>cite</code></dfn> attribute.
 
   <p class="note">
-    In cases where a page contains contributions from multiple people, such as comments on a blog post,
-  '<i>another source</i>' can include text from the same page, written by another person.
+    In cases where a page contains contributions from multiple people, such as comments on a blog
+    post, '<i>another source</i>' can include text from the same page, written by another person.
   </p>
 
   If the <code>cite</code> attribute is present, it must be a
-  <a>valid URL potentially surrounded by spaces</a>. <span class="impl">To obtain the
-  corresponding citation link, the value of the attribute must be <a>resolved</a> relative to the element.</span> User agents may allow users to follow such
-  citation links, but they are primarily intended for private use (e.g. by server-side scripts
-  collecting statistics about a site's use of quotations), not for readers.
-<div class="impl">
-The <dfn><code>cite</code></dfn> IDL
-  attribute must <a>reflect</a> the element's <code>cite</code> content attribute.
+  <a>valid URL potentially surrounded by spaces</a>. <span class="impl">To obtain the corresponding
+  citation link, the value of the attribute must be <a>resolved</a> relative to the element.</span>
+  User agents may allow users to follow such citation links, but they are primarily intended for
+  private use (e.g. by server-side scripts collecting statistics about a site's use of quotations),
+  not for readers.
+
+  <div class="impl">
+    The <dfn><code>cite</code></dfn> IDL attribute must <a>reflect</a> the element's
+    <code>cite</code> content attribute.
   </div>
-  The content of a <code>blockquote</code> may be abbreviated, may have context added or may have annotations. Any such additions or changes to quoted text must be indicated in the text (at the text level). This may mean the use of notational conventions or explicit remarks, such as "emphasis mine".
+
+  The content of a <code>blockquote</code> may be abbreviated, may have context added or may have
+  annotations. Any such additions or changes to quoted text must be indicated in the text (at the
+  text level). This may mean the use of notational conventions or explicit remarks, such as
+  "emphasis mine".
 
   <div class="example">
+    For example, in English, abbreviations are traditionally identified using square brackets.
+    Consider a page with the sentence "Fred ate the cracker. He then said he liked apples and
+    fish."; it could be quoted as follows:
 
-    For example, in English, abbreviations are traditionally identified using square
-    brackets. Consider a page with the sentence "Fred ate the cracker.
-    He then said he liked apples and fish."; it could be quoted as
-    follows:
-
-    <pre highlight="html">&lt;blockquote&gt;
-  &lt;p&gt;[Fred] then said he liked [...] fish.&lt;/p&gt;
-&lt;/blockquote&gt;
-</pre>
-
+    <pre highlight="html">
+      &lt;blockquote&gt;
+        &lt;p&gt;[Fred] then said he liked [...] fish.&lt;/p&gt;
+      &lt;/blockquote&gt;
+    </pre>
   </div>
 
-  Quotation marks may be used to delineate between quoted text and annotations
-  within a <code>blockquote</code>.
+  Quotation marks may be used to delineate between quoted text and annotations within a
+  <code>blockquote</code>.
 
-<div class="example">
-
+  <div class="example">
     For example, an in-line note provided by the author:
 
-    <pre highlight="html">  &lt;figure&gt;
-  &lt;blockquote&gt;
-  "That monster custom, who all sense doth eat
-  Of habit's devil," <mark>&lt;abbr title="et cetera"&gt;&amp;c.&lt;/abbr&gt; not in Folio</mark>
+    <pre highlight="html">
+      &lt;figure&gt;
+      &lt;blockquote&gt;
+      "That monster custom, who all sense doth eat
+      Of habit's devil," <mark>&lt;abbr title="et cetera"&gt;&amp;c.&lt;/abbr&gt; not in Folio</mark>
 
-  "What a falling off was there !
-  From me, whose love was of that dignity
-  That it went hand in hand even with the vow
-  I made to her in marriage, and to decline
-  Upon a wretch."
-  &lt;/blockquote&gt;
-  &lt;footer&gt;
-  — &lt;cite class="title"&gt;Shakespeare manual&lt;/cite&gt; by &lt;cite class="author"&gt;Frederick Gard Fleay&lt;/cite&gt;,
-  p19 (in Google Books)
-  &lt;/footer&gt;
-  &lt;/figure&gt;
-  </pre>
+      "What a falling off was there !
+      From me, whose love was of that dignity
+      That it went hand in hand even with the vow
+      I made to her in marriage, and to decline
+      Upon a wretch."
+      &lt;/blockquote&gt;
+      &lt;footer&gt;
+      — &lt;cite class="title"&gt;Shakespeare manual&lt;/cite&gt; by &lt;cite class="author"&gt;Frederick Gard Fleay&lt;/cite&gt;,
+      p19 (in Google Books)
+      &lt;/footer&gt;
+      &lt;/figure&gt;
+    </pre>
 
-<p class="note">
-    In the example above, the citation is contained within the <code>footer</code> of a <code>figure</code> element,
-this groups and associates the information, about the quote, with the quote. The <code>figcaption</code> element was not
-used, in this case, as a container for the citation as it is not a caption.
-  </p>
+    <p class="note">
+      In the example above, the citation is contained within the <code>footer</code> of a
+      <code>figure</code> element, this groups and associates the information, about the quote, with
+      the quote. The <code>figcaption</code> element was not used, in this case, as a container for
+      the citation as it is not a caption.
+    </p>
+
   </div>
-  Attribution for the quotation, may be be placed inside the
-  <code>blockquote</code> element, but must be within a <code>cite</code> element for in-text attributions or within a <code>footer</code> element.
+
+  Attribution for the quotation, may be be placed inside the <code>blockquote</code> element, but
+  must be within a <code>cite</code> element for in-text attributions or within a
+  <code>footer</code> element.
 
   <div class="example">
+    For example, here the attribution is given in a <code>footer</code> after the quoted text, to
+    clearly relate the quote to its attribution:
 
-    For example, here the attribution is given in a <code>footer</code> after
-    the quoted text, to clearly relate the quote to its attribution:
-
-    <pre highlight="html">&lt;blockquote&gt;
-  &lt;p&gt;I contend that we are both atheists. I just believe in one fewer
-  god than you do. When you understand why you dismiss all the other
-  possible gods, you will understand why I dismiss yours.&lt;/p&gt;
-  &lt;footer&gt;— &lt;cite&gt;Stephen Roberts&lt;/cite&gt;&lt;/footer&gt;
-  &lt;/blockquote&gt;
-</pre>
-
-  </div>
-
-    <div class="example">
-
-    Here the attribution is given in a <code>cite</code> element on the last line of the quoted text.
-    Note that a link to the author is also included.
-
-    <pre highlight="html">&lt;blockquote&gt;
-  The people recognize themselves in their commodities; they find their
-  soul in their automobile, hi-fi set, split-level home, kitchen equipment.
-  — <strong>&lt;cite&gt;&lt;a href="http://en.wikipedia.org/wiki/Herbert_Marcuse"&gt;Herbert Marcuse&lt;/a&gt;&lt;/cite&gt;</strong>
-  &lt;/blockquote&gt;
-</pre>
-
+    <pre highlight="html">
+      &lt;blockquote&gt;
+        &lt;p&gt;I contend that we are both atheists. I just believe in one fewer
+        god than you do. When you understand why you dismiss all the other
+        possible gods, you will understand why I dismiss yours.&lt;/p&gt;
+        &lt;footer&gt;— &lt;cite&gt;Stephen Roberts&lt;/cite&gt;&lt;/footer&gt;
+      &lt;/blockquote&gt;
+    </pre>
   </div>
 
   <div class="example">
+    Here the attribution is given in a <code>cite</code> element on the last line of the quoted
+    text. Note that a link to the author is also included.
 
-    Here the attribution is given in a <code>footer</code> after
-    the quoted text, and metadata about the reference has been added using the
-    <a>Microdata</a> syntax
-    (note it could have equally been marked up using <a>RDFA Lite</a>).
-
-    <pre highlight="html">&lt;blockquote&gt;
-  &lt;p&gt;... she said she would not sign any deposition containing the word "amorous"
-  instead of "advances". For her the difference was of crucial significance,
-  and one of the reasons she had separated from her husband was that he had never been
-  amorous but had consistently made advances.&lt;/p&gt;
-
-  <strong>&lt;footer itemscope itemtype="http://schema.org/Book"&gt;</strong>
-  &lt;span itemprop="author"&gt;Heinrich Böll&lt;/span&gt;,
-  &lt;span itemprop="name"&gt;The Lost Honor of Katharina Blum&lt;/span&gt;,
-  &lt;span itemprop="datePublished"&gt;January 1, 1974&lt;/span&gt;
-  <strong>&lt;/footer&gt;</strong>
-  &lt;/blockquote&gt;
-  </pre>
-
+    <pre highlight="html">
+      &lt;blockquote&gt;
+        The people recognize themselves in their commodities; they find their
+        soul in their automobile, hi-fi set, split-level home, kitchen equipment.
+        — <strong>&lt;cite&gt;&lt;a href="http://en.wikipedia.org/wiki/Herbert_Marcuse"&gt;Herbert Marcuse&lt;/a&gt;&lt;/cite&gt;</strong>
+      &lt;/blockquote&gt;
+    </pre>
   </div>
+
+  <div class="example">
+    Here the attribution is given in a <code>footer</code> after the quoted text, and metadata about
+    the reference has been added using the <a>Microdata</a> syntax (note it could have equally been
+    marked up using <a>RDFA Lite</a>).
+
+    <pre highlight="html">
+      &lt;blockquote&gt;
+        &lt;p&gt;... she said she would not sign any deposition containing the word "amorous"
+        instead of "advances". For her the difference was of crucial significance,
+        and one of the reasons she had separated from her husband was that he had never been
+        amorous but had consistently made advances.&lt;/p&gt;
+
+        &lt;footer itemscope itemtype="http://schema.org/Book"&gt;
+          &lt;span itemprop="author"&gt;Heinrich Böll&lt;/span&gt;,
+          &lt;span itemprop="name"&gt;The Lost Honor of Katharina Blum&lt;/span&gt;,
+          &lt;span itemprop="datePublished"&gt;January 1, 1974&lt;/span&gt;
+        &lt;/footer&gt;
+      &lt;/blockquote&gt;
+    </pre>
+  </div>
+
   <p class="note">
-    There is no formal method for indicating the markup in a <code>blockquote</code> is from a quoted source. It is suggested that if the <code>footer</code> or <code>cite</code> elements are included and these elements are also being used within a <code>blockquote</code> to identify citations, the elements from the quoted source could be annotated with metadata to identify their origin, for example by using the <code>class</code> attribute (a defined <a>extensibility</a> mechanism).
+    There is no formal method for indicating the markup in a <code>blockquote</code> is from a
+    quoted source. It is suggested that if the <code>footer</code> or <code>cite</code> elements are
+    included and these elements are also being used within a <code>blockquote</code> to identify
+    citations, the elements from the quoted source could be annotated with metadata to identify
+    their origin, for example by using the <code>class</code> attribute (a defined
+    <a>extensibility</a> mechanism).
   </p>
 
   <div class="example">
-  In this example the source of a quote includes a <code>cite</code> element, which is annotated using the <code>class</code> attribute:
+    In this example the source of a quote includes a <code>cite</code> element, which is annotated
+    using the <code>class</code> attribute:
 
-  <pre highlight="html">  &lt;blockquote&gt;
-  &lt;p&gt;My favorite book is <mark>&lt;cite class="from-source"&gt;At Swim-Two-Birds&lt;/cite&gt;</mark>&lt;/p&gt;
-  &lt;footer&gt;- &lt;cite&gt;Mike[tm]Smith&lt;/cite&gt;&lt;/footer&gt;
-  &lt;/blockquote&gt;
-  </pre>
+    <pre highlight="html">
+      &lt;blockquote&gt;
+        &lt;p&gt;My favorite book is <mark>&lt;cite class="from-source"&gt;At Swim-Two-Birds&lt;/cite&gt;</mark>&lt;/p&gt;
+        &lt;footer&gt;- &lt;cite&gt;Mike[tm]Smith&lt;/cite&gt;&lt;/footer&gt;
+      &lt;/blockquote&gt;
+    </pre>
   </div>
 
   The other examples below show other ways of showing attribution.
 
   <div class="example">
+    Here a <code>blockquote</code> element is used in conjunction with a <code>figure</code> element
+    and its <code>figcaption</code>:
 
-    Here a <code>blockquote</code> element is used in conjunction
-    with a <code>figure</code> element and its <code>figcaption</code>:
-
-    <pre highlight="html">&lt;figure&gt;
-  &lt;blockquote&gt;
-  &lt;p&gt;The truth may be puzzling. It may take some work to grapple with.
-  It may be counterintuitive. It may contradict deeply held
-  prejudices. It may not be consonant with what we desperately want to
-  be true. But our preferences do not determine what's true. We have a
-  method, and that method helps us to reach not absolute truth, only
-  asymptotic approaches to the truth — never there, just closer
-  and closer, always finding vast new oceans of undiscovered
-  possibilities. Cleverly designed experiments are the key.&lt;/p&gt;
-  &lt;/blockquote&gt;
-  &lt;figcaption&gt;&lt;cite&gt;Carl Sagan&lt;/cite&gt;, in "&lt;cite&gt;Wonder and Skepticism&lt;/cite&gt;", from
-  the &lt;cite&gt;Skeptical Enquirer&lt;/cite&gt; Volume 19, Issue 1 (January-February
-  1995)&lt;/figcaption&gt;
-&lt;/figure&gt;
-</pre>
-
+    <pre highlight="html">
+      &lt;figure&gt;
+        &lt;blockquote&gt;
+        &lt;p&gt;The truth may be puzzling. It may take some work to grapple with.
+        It may be counterintuitive. It may contradict deeply held
+        prejudices. It may not be consonant with what we desperately want to
+        be true. But our preferences do not determine what's true. We have a
+        method, and that method helps us to reach not absolute truth, only
+        asymptotic approaches to the truth — never there, just closer
+        and closer, always finding vast new oceans of undiscovered
+        possibilities. Cleverly designed experiments are the key.&lt;/p&gt;
+        &lt;/blockquote&gt;
+        &lt;figcaption&gt;&lt;cite&gt;Carl Sagan&lt;/cite&gt;, in "&lt;cite&gt;Wonder and Skepticism&lt;/cite&gt;", from
+        the &lt;cite&gt;Skeptical Enquirer&lt;/cite&gt; Volume 19, Issue 1 (January-February
+        1995)&lt;/figcaption&gt;
+      &lt;/figure&gt;
+    </pre>
   </div>
 
   <div class="example">
+    This next example shows the use of <code>cite</code> alongside <code>blockquote</code>:
 
-    This next example shows the use of <code>cite</code> alongside
-    <code>blockquote</code>:
-
-    <pre highlight="html">&lt;p&gt;His next piece was the aptly named &lt;cite&gt;Sonnet 130&lt;/cite&gt;:&lt;/p&gt;
-&lt;blockquote cite="http://quotes.example.org/s/sonnet130.html"&gt;
-  &lt;p&gt;My mistress' eyes are nothing like the sun,&lt;br&gt;
-  Coral is far more red, than her lips red,&lt;br&gt;
-  ...</pre>
+    <pre highlight="html">
+      &lt;p&gt;His next piece was the aptly named &lt;cite&gt;Sonnet 130&lt;/cite&gt;:&lt;/p&gt;
+      &lt;blockquote cite="http://quotes.example.org/s/sonnet130.html"&gt;
+        &lt;p&gt;My mistress' eyes are nothing like the sun,&lt;br&gt;
+        Coral is far more red, than her lips red,&lt;br&gt;
+        ...
+    </pre>
   </div>
 
   <div class="example">
-
     This example shows how a forum post could use <code>blockquote</code> to show what post a user
     is replying to. The <code>article</code> element is used for each post, to mark up the
     threading.
 
-    <pre highlight="html">&lt;article&gt;
-  &lt;h1&gt;&lt;a href="http://bacon.example.com/?blog=109431"&gt;Bacon on a crowbar&lt;/a&gt;&lt;/h1&gt;
-  &lt;article&gt;
-  &lt;header&gt;&lt;strong&gt;t3yw&lt;/strong&gt; 12 points 1 hour ago&lt;/header&gt;
-  &lt;p&gt;I bet a narwhal would love that.&lt;/p&gt;
-  &lt;footer&gt;&lt;a href="?pid=29578"&gt;permalink&lt;/a&gt;&lt;/footer&gt;
-  &lt;article&gt;
-    &lt;header&gt;&lt;strong&gt;greg&lt;/strong&gt; 8 points 1 hour ago&lt;/header&gt;
-    &lt;blockquote&gt;&lt;p&gt;I bet a narwhal would love that.&lt;/p&gt;&lt;/blockquote&gt;
-    &lt;p&gt;Dude narwhals don't eat bacon.&lt;/p&gt;
-    &lt;footer&gt;&lt;a href="?pid=29579"&gt;permalink&lt;/a&gt;&lt;/footer&gt;
-    &lt;article&gt;
-    &lt;header&gt;&lt;strong&gt;t3yw&lt;/strong&gt; 15 points 1 hour ago&lt;/header&gt;
-    &lt;blockquote&gt;
-      &lt;blockquote&gt;&lt;p&gt;I bet a narwhal would love that.&lt;/p&gt;&lt;/blockquote&gt;
-      &lt;p&gt;Dude narwhals don't eat bacon.&lt;/p&gt;
-    &lt;/blockquote&gt;
-    &lt;p&gt;Next thing you'll be saying they don't get capes and wizard
-    hats either!&lt;/p&gt;
-    &lt;footer&gt;&lt;a href="?pid=29580"&gt;permalink&lt;/a&gt;&lt;/footer&gt;
-    &lt;article&gt;
+    <pre highlight="html">
       &lt;article&gt;
-      &lt;header&gt;&lt;strong&gt;boing&lt;/strong&gt; -5 points 1 hour ago&lt;/header&gt;
-      &lt;p&gt;narwhals are worse than ceiling cat&lt;/p&gt;
-      &lt;footer&gt;&lt;a href="?pid=29581"&gt;permalink&lt;/a&gt;&lt;/footer&gt;
+        &lt;h1&gt;&lt;a href="http://bacon.example.com/?blog=109431"&gt;Bacon on a crowbar&lt;/a&gt;&lt;/h1&gt;
+        &lt;article&gt;
+        &lt;header&gt;&lt;strong&gt;t3yw&lt;/strong&gt; 12 points 1 hour ago&lt;/header&gt;
+        &lt;p&gt;I bet a narwhal would love that.&lt;/p&gt;
+        &lt;footer&gt;&lt;a href="?pid=29578"&gt;permalink&lt;/a&gt;&lt;/footer&gt;
+        &lt;article&gt;
+          &lt;header&gt;&lt;strong&gt;greg&lt;/strong&gt; 8 points 1 hour ago&lt;/header&gt;
+          &lt;blockquote&gt;&lt;p&gt;I bet a narwhal would love that.&lt;/p&gt;&lt;/blockquote&gt;
+          &lt;p&gt;Dude narwhals don't eat bacon.&lt;/p&gt;
+          &lt;footer&gt;&lt;a href="?pid=29579"&gt;permalink&lt;/a&gt;&lt;/footer&gt;
+          &lt;article&gt;
+          &lt;header&gt;&lt;strong&gt;t3yw&lt;/strong&gt; 15 points 1 hour ago&lt;/header&gt;
+          &lt;blockquote&gt;
+            &lt;blockquote&gt;&lt;p&gt;I bet a narwhal would love that.&lt;/p&gt;&lt;/blockquote&gt;
+            &lt;p&gt;Dude narwhals don't eat bacon.&lt;/p&gt;
+          &lt;/blockquote&gt;
+          &lt;p&gt;Next thing you'll be saying they don't get capes and wizard
+          hats either!&lt;/p&gt;
+          &lt;footer&gt;&lt;a href="?pid=29580"&gt;permalink&lt;/a&gt;&lt;/footer&gt;
+          &lt;article&gt;
+            &lt;article&gt;
+            &lt;header&gt;&lt;strong&gt;boing&lt;/strong&gt; -5 points 1 hour ago&lt;/header&gt;
+            &lt;p&gt;narwhals are worse than ceiling cat&lt;/p&gt;
+            &lt;footer&gt;&lt;a href="?pid=29581"&gt;permalink&lt;/a&gt;&lt;/footer&gt;
+            &lt;/article&gt;
+          &lt;/article&gt;
+          &lt;/article&gt;
+        &lt;/article&gt;
+        &lt;article&gt;
+          &lt;header&gt;&lt;strong&gt;fred&lt;/strong&gt; 1 points 23 minutes ago&lt;/header&gt;
+          &lt;blockquote&gt;&lt;p&gt;I bet a narwhal would love that.&lt;/p&gt;&lt;/blockquote&gt;
+          &lt;p&gt;I bet they'd love to peel a banana too.&lt;/p&gt;
+          &lt;footer&gt;&lt;a href="?pid=29582"&gt;permalink&lt;/a&gt;&lt;/footer&gt;
+        &lt;/article&gt;
+        &lt;/article&gt;
       &lt;/article&gt;
-    &lt;/article&gt;
-    &lt;/article&gt;
-  &lt;/article&gt;
-  &lt;article&gt;
-    &lt;header&gt;&lt;strong&gt;fred&lt;/strong&gt; 1 points 23 minutes ago&lt;/header&gt;
-    &lt;blockquote&gt;&lt;p&gt;I bet a narwhal would love that.&lt;/p&gt;&lt;/blockquote&gt;
-    &lt;p&gt;I bet they'd love to peel a banana too.&lt;/p&gt;
-    &lt;footer&gt;&lt;a href="?pid=29582"&gt;permalink&lt;/a&gt;&lt;/footer&gt;
-  &lt;/article&gt;
-  &lt;/article&gt;
-&lt;/article&gt;
-</pre>
-
+    </pre>
   </div>
 
   <div class="example">
-
     This example shows the use of a <code>blockquote</code> for short snippets, demonstrating that
     one does not have to use <code>p</code> elements inside <code>blockquote</code> elements:
 
-    <pre highlight="html">&lt;p&gt;He began his list of "lessons" with the following:&lt;/p&gt;
-&lt;blockquote&gt;One should never assume that his side of
-the issue will be recognized, let alone that it will
-be conceded to have merits.&lt;/blockquote&gt;
-&lt;p&gt;He continued with a number of similar points, ending with:&lt;/p&gt;
-&lt;blockquote&gt;Finally, one should be prepared for the threat
-of breakdown in negotiations at any given moment and not
-be cowed by the possibility.&lt;/blockquote&gt;
-&lt;p&gt;We shall now discuss these points...
-</pre>
-
+    <pre highlight="html">
+      &lt;p&gt;He began his list of "lessons" with the following:&lt;/p&gt;
+      &lt;blockquote&gt;One should never assume that his side of
+      the issue will be recognized, let alone that it will
+      be conceded to have merits.&lt;/blockquote&gt;
+      &lt;p&gt;He continued with a number of similar points, ending with:&lt;/p&gt;
+      &lt;blockquote&gt;Finally, one should be prepared for the threat
+      of breakdown in negotiations at any given moment and not
+      be cowed by the possibility.&lt;/blockquote&gt;
+      &lt;p&gt;We shall now discuss these points...
+    </pre>
   </div>
 
-  <p class="note"><a>Examples of how to
-  represent a conversation</a> are shown in a later section; it is not
-  appropriate to use the <code>cite</code> and <code>blockquote</code>
-  elements for this purpose.</p>
+  <p class="note">
+    <a>Examples of how to represent a conversation</a> are shown in a later section; it is not
+    appropriate to use the <code>cite</code> and <code>blockquote</code> elements for this purpose.
+  </p>
 
 <h4 id="the-ol-element">The <dfn><code>ol</code></dfn> element</h4>
 
   <dl class="element">
     <dt><a>Categories</a>:</dt>
     <dd><a>Flow content</a>.</dd>
-    <dd>If the element's children include at least one <code>li</code> element: <a>Palpable content</a>.</dd>
+    <dd>
+      If the element's children include at least one <code>li</code> element:
+      <a>Palpable content</a>.
+    </dd>
     <dt><a>Contexts in which this element can be used</a>:</dt>
     <dd>Where <a>flow content</a> is expected.</dd>
     <dt><a>Content model</a>:</dt>
@@ -730,154 +736,199 @@ be cowed by the possibility.&lt;/blockquote&gt;
     <dt><a>Tag omission in text/html</a>:</dt>
     <dd>Neither tag is omissible</dd>
     <dt>Allowed <a>ARIA role attribute</a> values:</dt>
-    <dd><a><code>list</code></a> role (default - <a><em>do not set</em></a>), <a><code>directory</code></a>, <a><code>group</code></a>,  <a><code>listbox</code></a>, <a><code>menu</code></a>, <a><code>menubar</code></a>, <a><code>presentation</code></a>, <a><code>radiogroup</code></a>, <a><code>tablist</code></a>, <a><code>toolbar</code></a> or <a><code>tree</code></a>.</dd>
+    <dd>
+      <a><code>list</code></a> role (default - <a><em>do not set</em></a>),
+      <a><code>directory</code></a>, <a><code>group</code></a>,  <a><code>listbox</code></a>,
+      <a><code>menu</code></a>, <a><code>menubar</code></a>, <a><code>presentation</code></a>,
+      <a><code>radiogroup</code></a>, <a><code>tablist</code></a>, <a><code>toolbar</code></a> or
+      <a><code>tree</code></a>.
+    </dd>
     <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
     <dd><a>Global aria-* attributes</a></dd>
     <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
     <dt><a>DOM interface</a>:</dt>
     <dd>
-<pre class="idl" highlight="webidl">interface HTMLOListElement : HTMLElement {
-  attribute boolean reversed;
-  attribute long start;
-  attribute DOMString type;
-};
-</pre>
+      <pre class="idl" highlight="webidl">
+        interface HTMLOListElement : HTMLElement {
+          attribute boolean reversed;
+          attribute long start;
+          attribute DOMString type;
+        };
+      </pre>
     </dd>
   </dl>
 
   The <code>ol</code> element <a>represents</a> a list of items, where the items have been
   intentionally ordered, such that changing the order would change the meaning of the document.
 
-  The items of the list are the <code>li</code> element child nodes of the <code>ol</code>
-  element, in <a>tree order</a>.
+  The items of the list are the <code>li</code> element child nodes of the <code>ol</code> element,
+  in <a>tree order</a>.
 
-  The <dfn><code>reversed</code></dfn> attribute is a <a>boolean
-  attribute</a>. If present, it indicates that the list is a descending list (..., 3, 2, 1). If
-  the attribute is omitted, the list is an ascending list (1, 2, 3, ...).
+  The <dfn><code>reversed</code></dfn> attribute is a <a>boolean attribute</a>. If present, it
+  indicates that the list is a descending list (..., 3, 2, 1). If the attribute is omitted, the list
+  is an ascending list (1, 2, 3, ...).
 
-  The <dfn><code>start</code></dfn> attribute, if present, must be a
-  <a>valid integer</a> giving the <a>ordinal value</a> of the first list item.
+  The <dfn><code>start</code></dfn> attribute, if present, must be a <a>valid integer</a> giving the
+  <a>ordinal value</a> of the first list item.
 
   <div class="impl">
+    If the <code>start</code> attribute is present, user agents must <a>parse it as an integer</a>,
+    in order to determine the attribute's value. The default value, used if the attribute is missing
+    or if the value cannot be converted to a number according to the referenced algorithm, is 1 if
+    the element has no <code>reversed</code> attribute, and is the number of child <code>li</code>
+    elements otherwise.
 
-  If the <code>start</code> attribute is present, user agents must <a>parse it as an integer</a>, in order to determine the
-  attribute's value. The default value, used if the attribute is missing or if the value cannot be
-  converted to a number according to the referenced algorithm, is 1 if the element has no <code>reversed</code> attribute, and is the number of child <code>li</code>
-  elements otherwise.
+    The first item in the list has the <a>ordinal value</a> given by the <code>ol</code> element's
+    <code>start</code> attribute, unless that <code>li</code> element has a <code>value</code>
+    attribute with a value that can be successfully parsed, in which case it has the
+    <a>ordinal value</a> given by that <code>value</code> attribute.
 
-  The first item in the list has the <a>ordinal value</a> given by the <code>ol</code>
-  element's <code>start</code> attribute, unless that <code>li</code> element
-  has a <code>value</code> attribute with a value that can be successfully
-  parsed, in which case it has the <a>ordinal value</a> given by that <code>value</code> attribute.
-
-  Each subsequent item in the list has the <a>ordinal value</a> given by its <code>value</code> attribute, if it has one, or, if it doesn't, the <a>ordinal
-  value</a> of the previous item, plus one if the <code>reversed</code>
-  is absent, or minus one if it is present.
-
+    Each subsequent item in the list has the <a>ordinal value</a> given by its <code>value</code>
+    attribute, if it has one, or, if it doesn't, the <a>ordinal value</a> of the previous item, plus
+    one if the <code>reversed</code> is absent, or minus one if it is present.
   </div>
 
-  The <dfn><code>type</code></dfn> attribute can be used to specify the kind
-  of marker to use in the list, in the cases where that matters (e.g. because items are to be
-  referenced by their number/letter). The attribute, if specified, must have a value that is a
-  <a>case-sensitive</a> match for one of the characters given in the first cell of one of the
-  rows of the following table. <span class="impl">The <code>type</code>
-  attribute represents the state given in the cell in the second column of the row whose first cell
-  matches the attribute's value; if none of the cells match, or if the attribute is omitted, then
-  the attribute represents the <a>decimal</a>
+  The <dfn><code>type</code></dfn> attribute can be used to specify the kind of marker to use in the
+  list, in the cases where that matters (e.g. because items are to be referenced by their
+  number/letter). The attribute, if specified, must have a value that is a <a>case-sensitive</a>
+  match for one of the characters given in the first cell of one of the rows of the following table.
+  <span class="impl">The <code>type</code> attribute represents the state given in the cell in the
+  second column of the row whose first cell matches the attribute's value; if none of the cells
+  match, or if the attribute is omitted, then the attribute represents the <a>decimal</a>
   state.</span>
 
   <table>
     <thead>
-    <tr>
-      <th>Keyword
-      </th><th>State
-      </th><th>Description
-      </th><th colspan="8">Examples for values 1-3 and 3999-4001
-    </th></tr></thead><tbody>
-    <tr>
-      <td><dfn><code>1</code></dfn> (U+0031)
-      </td><td><dfn>decimal</dfn>
-      </td><td>Decimal numbers
-      </td><td class="eg"><samp>1.</samp> </td><td class="eg"><samp>2.</samp> </td><td class="eg"><samp>3.</samp> </td><td class="eg">... </td><td class="eg"><samp>3999.</samp> </td><td class="eg"><samp>4000.</samp> </td><td class="eg"><samp>4001.</samp> </td><td class="eg">...
-    </td></tr><tr>
-      <td><dfn><code>a</code></dfn> (U+0061)
-      </td><td><dfn>lower-alpha</dfn>
-      </td><td>Lowercase latin alphabet
-      </td><td class="eg"><samp>a.</samp> </td><td class="eg"><samp>b.</samp> </td><td class="eg"><samp>c.</samp> </td><td class="eg">... </td><td class="eg"><samp>ewu.</samp> </td><td class="eg"><samp>ewv.</samp> </td><td class="eg"><samp>eww.</samp> </td><td class="eg">...
-    </td></tr><tr>
-      <td><dfn><code>A</code></dfn> (U+0041)
-      </td><td><dfn>upper-alpha</dfn>
-      </td><td>Uppercase latin alphabet
-      </td><td class="eg"><samp>A.</samp> </td><td class="eg"><samp>B.</samp> </td><td class="eg"><samp>C.</samp> </td><td class="eg">... </td><td class="eg"><samp>EWU.</samp> </td><td class="eg"><samp>EWV.</samp> </td><td class="eg"><samp>EWW.</samp> </td><td class="eg">...
-    </td></tr><tr>
-      <td><dfn><code>i</code></dfn> (U+0069)
-      </td><td><dfn>lower-roman</dfn>
-      </td><td>Lowercase roman numerals
-      </td><td class="eg"><samp>i.</samp> </td><td class="eg"><samp>ii.</samp> </td><td class="eg"><samp>iii.</samp> </td><td class="eg">... </td><td class="eg"><samp>mmmcmxcix.</samp> </td><td class="eg"><samp>i̅v̅.</samp> </td><td class="eg"><samp>i̅v̅i.</samp> </td><td class="eg">...
-    </td></tr><tr>
-      <td><dfn><code>I</code></dfn> (U+0049)
-      </td><td><dfn>upper-roman</dfn>
-      </td><td>Uppercase roman numerals
-      </td><td class="eg"><samp>I.</samp> </td><td class="eg"><samp>II.</samp> </td><td class="eg"><samp>III.</samp> </td><td class="eg">... </td><td class="eg"><samp>MMMCMXCIX.</samp> </td><td class="eg"><samp>I̅V̅.</samp> </td><td class="eg"><samp>I̅V̅I.</samp> </td><td class="eg">...
-  </td></tr></tbody></table>
+      <tr>
+        <th>Keyword</th>
+        <th>State</th>
+        <th>Description</th>
+        <th colspan="8">Examples for values 1-3 and 3999-4001</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><dfn><code>1</code></dfn> (U+0031)</td>
+        <td><dfn>decimal</dfn></td>
+        <td>Decimal numbers</td>
+        <td class="eg"><samp>1.</samp></td>
+        <td class="eg"><samp>2.</samp></td>
+        <td class="eg"><samp>3.</samp></td>
+        <td class="eg">... </td>
+        <td class="eg"><samp>3999.</samp></td>
+        <td class="eg"><samp>4000.</samp></td>
+        <td class="eg"><samp>4001.</samp></td>
+        <td class="eg">...</td>
+      </tr>
+      <tr>
+        <td><dfn><code>a</code></dfn> (U+0061)</td>
+        <td><dfn>lower-alpha</dfn></td>
+        <td>Lowercase latin alphabet</td>
+        <td class="eg"><samp>a.</samp></td>
+        <td class="eg"><samp>b.</samp></td>
+        <td class="eg"><samp>c.</samp></td>
+        <td class="eg">... </td>
+        <td class="eg"><samp>ewu.</samp></td>
+        <td class="eg"><samp>ewv.</samp></td>
+        <td class="eg"><samp>eww.</samp></td>
+        <td class="eg">...</td>
+      </tr>
+      <tr>
+        <td><dfn><code>A</code></dfn> (U+0041)</td>
+        <td><dfn>upper-alpha</dfn></td>
+        <td>Uppercase latin alphabet</td>
+        <td class="eg"><samp>A.</samp></td>
+        <td class="eg"><samp>B.</samp></td>
+        <td class="eg"><samp>C.</samp></td>
+        <td class="eg">... </td>
+        <td class="eg"><samp>EWU.</samp></td>
+        <td class="eg"><samp>EWV.</samp></td>
+        <td class="eg"><samp>EWW.</samp></td>
+        <td class="eg">...</td>
+      </tr>
+      <tr>
+        <td><dfn><code>i</code></dfn> (U+0069)</td>
+        <td><dfn>lower-roman</dfn></td>
+        <td>Lowercase roman numerals</td>
+        <td class="eg"><samp>i.</samp></td>
+        <td class="eg"><samp>ii.</samp></td>
+        <td class="eg"><samp>iii.</samp></td>
+        <td class="eg">... </td>
+        <td class="eg"><samp>mmmcmxcix.</samp></td>
+        <td class="eg"><samp>i̅v̅.</samp></td>
+        <td class="eg"><samp>i̅v̅i.</samp></td>
+        <td class="eg">...</td>
+      </tr>
+      <tr>
+        <td><dfn><code>I</code></dfn> (U+0049)</td>
+        <td><dfn>upper-roman</dfn></td>
+        <td>Uppercase roman numerals</td>
+        <td class="eg"><samp>I.</samp></td>
+        <td class="eg"><samp>II.</samp></td>
+        <td class="eg"><samp>III.</samp></td>
+        <td class="eg">... </td>
+        <td class="eg"><samp>MMMCMXCIX.</samp></td>
+        <td class="eg"><samp>I̅V̅.</samp></td>
+        <td class="eg"><samp>I̅V̅I.</samp></td>
+        <td class="eg">...</td>
+      </tr>
+    </tbody>
+  </table>
 
   <div class="impl">
+    User agents should render the items of the list in a manner consistent with the state of the
+    <code>type</code> attribute of the <code>ol</code> element. Numbers less than or equal to zero
+    should always use the decimal system regardless of the <code>type</code> attribute.
 
-  User agents should render the items of the list in a manner consistent with the state of the
-  <code>type</code> attribute of the <code>ol</code> element. Numbers less than
-  or equal to zero should always use the decimal system regardless of the <code>type</code> attribute.
-
-  <p class="note">
-    For CSS user agents, a mapping for this attribute to the 'list-style-type' CSS
-  property is given <a>in the rendering section</a> (the mapping is
-  straightforward: the states above have the same names as their corresponding CSS values).
-  </p>
-
+    <p class="note">
+      For CSS user agents, a mapping for this attribute to the 'list-style-type' CSS property is
+      given <a>in the rendering section</a> (the mapping is straightforward: the states above have
+      the same names as their corresponding CSS values).
+    </p>
   </div>
 
   <p class="note">
-    It is possible to redefine the default CSS list styles used to implement this
-  attribute in CSS user agents; doing so will affect how list items are rendered.
+    It is possible to redefine the default CSS list styles used to implement this attribute in CSS
+    user agents; doing so will affect how list items are rendered.
   </p>
 
   <div class="impl">
-
-  The <dfn><code>reversed</code></dfn>, <dfn><code>start</code></dfn>, and <dfn><code>type</code></dfn> IDL attributes must <a>reflect</a> the
-  respective content attributes of the same name. The <code>start</code> IDL
-  attribute has the same default as its content attribute.
-
+    The <dfn><code>reversed</code></dfn>, <dfn><code>start</code></dfn>, and
+    <dfn><code>type</code></dfn> IDL attributes must <a>reflect</a> the respective content
+    attributes of the same name. The <code>start</code> IDL attribute has the same default as its
+    content attribute.
   </div>
 
   <div class="example">
-
     The following markup shows a list where the order matters, and where the <code>ol</code>
-    element is therefore appropriate. Compare this list to the equivalent list in the <code>ul</code>
-    section to see an example of the same items using the <code>ul</code> element.
+    element is therefore appropriate. Compare this list to the equivalent list in the
+    <code>ul</code> section to see an example of the same items using the <code>ul</code> element.
 
-    <pre highlight="html">&lt;p&gt;I have lived in the following countries (given in the order of when
-I first lived there):&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Switzerland
-  &lt;li&gt;United Kingdom
-  &lt;li&gt;United States
-  &lt;li&gt;Norway
-&lt;/ol&gt;
-</pre>
+    <pre highlight="html">
+      &lt;p&gt;I have lived in the following countries (given in the order of when
+      I first lived there):&lt;/p&gt;
+      &lt;ol&gt;
+        &lt;li&gt;Switzerland
+        &lt;li&gt;United Kingdom
+        &lt;li&gt;United States
+        &lt;li&gt;Norway
+      &lt;/ol&gt;
+    </pre>
 
     Note how changing the order of the list changes the meaning of the document. In the following
     example, changing the relative order of the first two items has changed the birthplace of the
     author:
 
-    <pre highlight="html">&lt;p&gt;I have lived in the following countries (given in the order of when
-I first lived there):&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;United Kingdom
-  &lt;li&gt;Switzerland
-  &lt;li&gt;United States
-  &lt;li&gt;Norway
-&lt;/ol&gt;
-</pre>
-
+    <pre highlight="html">
+      &lt;p&gt;I have lived in the following countries (given in the order of when
+      I first lived there):&lt;/p&gt;
+      &lt;ol&gt;
+        &lt;li&gt;United Kingdom
+        &lt;li&gt;Switzerland
+        &lt;li&gt;United States
+        &lt;li&gt;Norway
+      &lt;/ol&gt;
+    </pre>
   </div>
 
 <h4 id="the-ul-element">The <dfn><code>ul</code></dfn> element</h4>
@@ -885,7 +936,10 @@ I first lived there):&lt;/p&gt;
   <dl class="element">
     <dt><a>Categories</a>:</dt>
     <dd><a>Flow content</a>.</dd>
-    <dd>If the element's children include at least one <code>li</code> element: <a>Palpable content</a>.</dd>
+    <dd>
+      If the element's children include at least one <code>li</code> element:
+      <a>Palpable content</a>.
+    </dd>
     <dt><a>Contexts in which this element can be used</a>:</dt>
     <dd>Where <a>flow content</a> is expected.</dd>
     <dt><a>Content model</a>:</dt>
@@ -895,54 +949,58 @@ I first lived there):&lt;/p&gt;
     <dt><a>Tag omission in text/html</a>:</dt>
     <dd>Neither tag is omissible</dd>
     <dt>Allowed <a>ARIA role attribute</a> values:</dt>
-    <dd><a><code>list</code></a> role (default - <a><em>do not set</em></a>), <a><code>directory</code></a>, <a><code>group</code></a>, <a><code>listbox</code></a>, <a><code>menu</code></a>, <a><code>menubar</code></a>, <a><code>presentation</code></a>,<a><code>radiogroup</code></a>, <a><code>tablist</code></a>, <a><code>toolbar</code></a> or <a><code>tree</code></a>.</dd>
+    <dd>
+      <a><code>list</code></a> role (default - <a><em>do not set</em></a>),
+      <a><code>directory</code></a>, <a><code>group</code></a>, <a><code>listbox</code></a>,
+      <a><code>menu</code></a>, <a><code>menubar</code></a>, <a><code>presentation</code></a>,
+      <a><code>radiogroup</code></a>, <a><code>tablist</code></a>, <a><code>toolbar</code></a> or
+      <a><code>tree</code></a>.</dd>
     <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
     <dd><a>Global aria-* attributes</a></dd>
     <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
     <dt><a>DOM interface</a>:</dt>
     <dd>
-    <pre class="idl" highlight="webidl">interface HTMLUListElement : HTMLElement {};
-</pre>
+      <pre class="idl" highlight="webidl">
+        interface HTMLUListElement : HTMLElement {};
+      </pre>
     </dd>
   </dl>
 
-  The <code>ul</code> element <a>represents</a> a list of items, where the order of the
-  items is not important — that is, where changing the order would not materially change the
-  meaning of the document.
+  The <code>ul</code> element <a>represents</a> a list of items, where the order of the items is not
+  important — that is, where changing the order would not materially change the meaning of the
+  document.
 
-  The items of the list are the <code>li</code> element child nodes of the <code>ul</code>
-  element.
+  The items of the list are the <code>li</code> element child nodes of the <code>ul</code> element.
 
   <div class="example">
+    The following markup shows a list where the order does not matter, and where the <code>ul</code>
+    element is therefore appropriate. Compare this list to the equivalent list in the
+    <code>ol</code> section to see an example of the same items using the <code>ol</code> element.
 
-    The following markup shows a list where the order does not matter, and where the
-    <code>ul</code> element is therefore appropriate. Compare this list to the equivalent list in the
-    <code>ol</code> section to see an example of the same items using the <code>ol</code>
-    element.
-
-    <pre highlight="html">&lt;p&gt;I have lived in the following countries:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Norway
-  &lt;li&gt;Switzerland
-  &lt;li&gt;United Kingdom
-  &lt;li&gt;United States
-&lt;/ul&gt;
-</pre>
+    <pre highlight="html">
+      &lt;p&gt;I have lived in the following countries:&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Norway
+        &lt;li&gt;Switzerland
+        &lt;li&gt;United Kingdom
+        &lt;li&gt;United States
+      &lt;/ul&gt;
+    </pre>
 
     Note that changing the order of the list does not change the meaning of the document. The
     items in the snippet above are given in alphabetical order, but in the snippet below they are
     given in order of the size of their current account balance in 2007, without changing the meaning
     of the document whatsoever:
 
-    <pre highlight="html">&lt;p&gt;I have lived in the following countries:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Switzerland
-  &lt;li&gt;Norway
-  &lt;li&gt;United Kingdom
-  &lt;li&gt;United States
-&lt;/ul&gt;
-</pre>
-
+    <pre highlight="html">
+      &lt;p&gt;I have lived in the following countries:&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Switzerland
+        &lt;li&gt;Norway
+        &lt;li&gt;United Kingdom
+        &lt;li&gt;United States
+      &lt;/ul&gt;
+    </pre>
   </div>
 
 <h4 id="the-li-element">The <dfn><code>li</code></dfn> element</h4>
@@ -953,27 +1011,41 @@ I first lived there):&lt;/p&gt;
     <dt><a>Contexts in which this element can be used</a>:</dt>
     <dd>Inside <code>ol</code> elements.</dd>
     <dd>Inside <code>ul</code> elements.</dd>
-    <dd>Inside <code>menu</code> elements whose <code>type</code> attribute is in the <a>toolbar</a> state.</dd>
+    <dd>
+      Inside <code>menu</code> elements whose <code>type</code> attribute is in the <a>toolbar</a>
+      state.
+    </dd>
     <dt><a>Content model</a>:</dt>
     <dd><a>Flow content</a>.</dd>
     <dt><a>Content attributes</a>:</dt>
     <dd><a>Global attributes</a></dd>
-    <dd>If the element is a child of an <code>ol</code> element: <code>value</code> -  Ordinal value of the list item</dd>
+    <dd>
+      If the element is a child of an <code>ol</code> element: <code>value</code> -  Ordinal value
+      of the list item
+    </dd>
     <dt><a>Tag omission in text/html</a>:</dt>
-    <dd>An <code>li</code> element's <a>end tag</a> may be omitted if the
-  <code>li</code> element is immediately followed by another <code>li</code> element or if there is
-  no more content in the parent element.</dd>
+    <dd>
+      An <code>li</code> element's <a>end tag</a> may be omitted if the <code>li</code> element is
+      immediately followed by another <code>li</code> element or if there is no more content in the
+      parent element.
+    </dd>
     <dt>Allowed <a>ARIA role attribute</a> values:</dt>
-    <dd><a><code>listitem</code></a> role (default - <a><em>do not set</em></a>), <a><code>menuitem</code></a>, <a><code>menuitemcheckbox</code></a>, <a><code>menuitemradio</code></a>, <a><code>option</code></a>, <a><code>radio</code></a>,  <a><code>tab</code></a>, <a><code>treeitem</code></a> or <a><code>presentation</code></a>.</dd>
+    <dd>
+      <a><code>listitem</code></a> role (default - <a><em>do not set</em></a>),
+      <a><code>menuitem</code></a>, <a><code>menuitemcheckbox</code></a>,
+      <a><code>menuitemradio</code></a>, <a><code>option</code></a>, <a><code>radio</code></a>,
+      <a><code>tab</code></a>, <a><code>treeitem</code></a> or <a><code>presentation</code></a>.
+    </dd>
     <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
     <dd><a>Global aria-* attributes</a></dd>
     <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
     <dt><a>DOM interface</a>:</dt>
     <dd>
-<pre class="idl" highlight="webidl">interface HTMLLIElement : HTMLElement {
-  attribute long value;
-};
-</pre>
+      <pre class="idl" highlight="webidl">
+        interface HTMLLIElement : HTMLElement {
+          attribute long value;
+        };
+      </pre>
     </dd>
   </dl>
 
@@ -985,71 +1057,69 @@ I first lived there):&lt;/p&gt;
   If the parent element is an <code>ol</code> element, then the <code>li</code> element has an
   <dfn>ordinal value</dfn>.
 
-  The <dfn><code>value</code></dfn> attribute, if present, must be a
-  <a>valid integer</a> giving the <a>ordinal value</a> of the list item.
+  The <dfn><code>value</code></dfn> attribute, if present, must be a <a>valid integer</a> giving the
+  <a>ordinal value</a> of the list item.
 
   <div class="impl">
+    If the <code>value</code> attribute is present, user agents must <a>parse it as an integer</a>,
+    in order to determine the attribute's value. If the attribute's value cannot be converted to a
+    number, the attribute must be treated as if it was absent. The attribute has no default value.
 
-  If the <code>value</code> attribute is present, user agents must <a>parse it as an integer</a>, in order to determine the
-  attribute's value. If the attribute's value cannot be converted to a number, the attribute must be
-  treated as if it was absent. The attribute has no default value.
+    The <code>value</code> attribute is processed relative to the element's parent <code>ol</code>
+    element (q.v.), if there is one. If there is not, the attribute has no effect.
 
-  The <code>value</code> attribute is processed relative to the element's
-  parent <code>ol</code> element (q.v.), if there is one. If there is not, the attribute has no
-  effect.
-
-  The <dfn><code>value</code></dfn> IDL attribute must <a>reflect</a>
-  the value of the <code>value</code> content attribute.
-
+    The <dfn><code>value</code></dfn> IDL attribute must <a>reflect</a> the value of the
+    <code>value</code> content attribute.
   </div>
 
   <div class="example">
-
     The following example, the top ten movies are listed (in reverse order). Note the way the list
-    is given a title by using a <code>figure</code> element and its <code>figcaption</code>
-    element.
-    <pre highlight="html">&lt;figure&gt;
-  &lt;figcaption&gt;The top 10 movies of all time&lt;/figcaption&gt;
-  &lt;ol&gt;
-  &lt;li value="10"&gt;&lt;cite&gt;Josie and the Pussycats&lt;/cite&gt;, 2001&lt;/li&gt;
-  &lt;li value="9"&gt;&lt;cite lang="sh"&gt;Црна мачка, бели мачор&lt;/cite&gt;, 1998&lt;/li&gt;
-  &lt;li value="8"&gt;&lt;cite&gt;A Bug's Life&lt;/cite&gt;, 1998&lt;/li&gt;
-  &lt;li value="7"&gt;&lt;cite&gt;Toy Story&lt;/cite&gt;, 1995&lt;/li&gt;
-  &lt;li value="6"&gt;&lt;cite&gt;Monsters, Inc&lt;/cite&gt;, 2001&lt;/li&gt;
-  &lt;li value="5"&gt;&lt;cite&gt;Cars&lt;/cite&gt;, 2006&lt;/li&gt;
-  &lt;li value="4"&gt;&lt;cite&gt;Toy Story 2&lt;/cite&gt;, 1999&lt;/li&gt;
-  &lt;li value="3"&gt;&lt;cite&gt;Finding Nemo&lt;/cite&gt;, 2003&lt;/li&gt;
-  &lt;li value="2"&gt;&lt;cite&gt;The Incredibles&lt;/cite&gt;, 2004&lt;/li&gt;
-  &lt;li value="1"&gt;&lt;cite&gt;Ratatouille&lt;/cite&gt;, 2007&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/figure&gt;
-</pre>
+    is given a title by using a <code>figure</code> element and its <code>figcaption</code> element.
 
-    The markup could also be written as follows, using the <code>reversed</code> attribute on the <code>ol</code> element:
+    <pre highlight="html">
+      &lt;figure&gt;
+        &lt;figcaption&gt;The top 10 movies of all time&lt;/figcaption&gt;
+        &lt;ol&gt;
+          &lt;li value="10"&gt;&lt;cite&gt;Josie and the Pussycats&lt;/cite&gt;, 2001&lt;/li&gt;
+          &lt;li value="9"&gt;&lt;cite lang="sh"&gt;Црна мачка, бели мачор&lt;/cite&gt;, 1998&lt;/li&gt;
+          &lt;li value="8"&gt;&lt;cite&gt;A Bug's Life&lt;/cite&gt;, 1998&lt;/li&gt;
+          &lt;li value="7"&gt;&lt;cite&gt;Toy Story&lt;/cite&gt;, 1995&lt;/li&gt;
+          &lt;li value="6"&gt;&lt;cite&gt;Monsters, Inc&lt;/cite&gt;, 2001&lt;/li&gt;
+          &lt;li value="5"&gt;&lt;cite&gt;Cars&lt;/cite&gt;, 2006&lt;/li&gt;
+          &lt;li value="4"&gt;&lt;cite&gt;Toy Story 2&lt;/cite&gt;, 1999&lt;/li&gt;
+          &lt;li value="3"&gt;&lt;cite&gt;Finding Nemo&lt;/cite&gt;, 2003&lt;/li&gt;
+          &lt;li value="2"&gt;&lt;cite&gt;The Incredibles&lt;/cite&gt;, 2004&lt;/li&gt;
+          &lt;li value="1"&gt;&lt;cite&gt;Ratatouille&lt;/cite&gt;, 2007&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/figure&gt;
+    </pre>
 
-    <pre highlight="html">&lt;figure&gt;
-  &lt;figcaption&gt;The top 10 movies of all time&lt;/figcaption&gt;
-  &lt;ol reversed&gt;
-  &lt;li&gt;&lt;cite&gt;Josie and the Pussycats&lt;/cite&gt;, 2001&lt;/li&gt;
-  &lt;li&gt;&lt;cite lang="sh"&gt;Црна мачка, бели мачор&lt;/cite&gt;, 1998&lt;/li&gt;
-  &lt;li&gt;&lt;cite&gt;A Bug's Life&lt;/cite&gt;, 1998&lt;/li&gt;
-  &lt;li&gt;&lt;cite&gt;Toy Story&lt;/cite&gt;, 1995&lt;/li&gt;
-  &lt;li&gt;&lt;cite&gt;Monsters, Inc&lt;/cite&gt;, 2001&lt;/li&gt;
-  &lt;li&gt;&lt;cite&gt;Cars&lt;/cite&gt;, 2006&lt;/li&gt;
-  &lt;li&gt;&lt;cite&gt;Toy Story 2&lt;/cite&gt;, 1999&lt;/li&gt;
-  &lt;li&gt;&lt;cite&gt;Finding Nemo&lt;/cite&gt;, 2003&lt;/li&gt;
-  &lt;li&gt;&lt;cite&gt;The Incredibles&lt;/cite&gt;, 2004&lt;/li&gt;
-  &lt;li&gt;&lt;cite&gt;Ratatouille&lt;/cite&gt;, 2007&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/figure&gt;
-</pre>
+    The markup could also be written as follows, using the <code>reversed</code> attribute on the
+    <code>ol</code> element:
+
+    <pre highlight="html">
+      &lt;figure&gt;
+        &lt;figcaption&gt;The top 10 movies of all time&lt;/figcaption&gt;
+        &lt;ol reversed&gt;
+          &lt;li&gt;&lt;cite&gt;Josie and the Pussycats&lt;/cite&gt;, 2001&lt;/li&gt;
+          &lt;li&gt;&lt;cite lang="sh"&gt;Црна мачка, бели мачор&lt;/cite&gt;, 1998&lt;/li&gt;
+          &lt;li&gt;&lt;cite&gt;A Bug's Life&lt;/cite&gt;, 1998&lt;/li&gt;
+          &lt;li&gt;&lt;cite&gt;Toy Story&lt;/cite&gt;, 1995&lt;/li&gt;
+          &lt;li&gt;&lt;cite&gt;Monsters, Inc&lt;/cite&gt;, 2001&lt;/li&gt;
+          &lt;li&gt;&lt;cite&gt;Cars&lt;/cite&gt;, 2006&lt;/li&gt;
+          &lt;li&gt;&lt;cite&gt;Toy Story 2&lt;/cite&gt;, 1999&lt;/li&gt;
+          &lt;li&gt;&lt;cite&gt;Finding Nemo&lt;/cite&gt;, 2003&lt;/li&gt;
+          &lt;li&gt;&lt;cite&gt;The Incredibles&lt;/cite&gt;, 2004&lt;/li&gt;
+          &lt;li&gt;&lt;cite&gt;Ratatouille&lt;/cite&gt;, 2007&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/figure&gt;
+    </pre>
   </div>
 
   <p class="note">
-    While it is conforming to include heading elements (e.g. <code>h1</code>) inside
-  <code>li</code> elements, it likely does not convey the semantics that the author intended. A
-  heading starts a new section, so a heading in a list implicitly splits the list into spanning
-  multiple sections.
+    While it is conforming to include heading elements (e.g. <code>h1</code>) inside <code>li</code>
+    elements, it likely does not convey the semantics that the author intended. A heading starts a
+    new section, so a heading in a list implicitly splits the list into spanning multiple sections.
   </p>
 
 <h4 id="the-dl-element">The <dfn><code>dl</code></dfn> element</h4>
@@ -1061,10 +1131,13 @@ I first lived there):&lt;/p&gt;
     <dt><a>Contexts in which this element can be used</a>:</dt>
     <dd>Where <a>flow content</a> is expected.</dd>
     <dt><a>Content model</a>:</dt>
-    <dd>Zero or more groups each consisting of one or more <code>dt</code> elements followed by one or more <code>dd</code> elements, optionally intermixed with <a>script-supporting elements</a>.</dd>
+    <dd>
+      Zero or more groups each consisting of one or more <code>dt</code> elements followed by one or
+      more <code>dd</code> elements, optionally intermixed with <a>script-supporting elements</a>.
+    </dd>
     <dt><a>Content attributes</a>:</dt>
     <dd><a>Global attributes</a></dd>
-  <dt><a>Tag omission in text/html</a>:</dt>
+    <dt><a>Tag omission in text/html</a>:</dt>
     <dd>Neither tag is omissible</dd>
     <dt>Allowed <a>ARIA role attribute</a> values:</dt>
     <dd><a>Any role value</a>.</dd>
@@ -1073,146 +1146,140 @@ I first lived there):&lt;/p&gt;
     <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
     <dt><a>DOM interface</a>:</dt>
     <dd>
-    <pre class="idl" highlight="webidl">interface HTMLDListElement : HTMLElement {};
-</pre>
+      <pre class="idl" highlight="webidl">
+        interface HTMLDListElement : HTMLElement {};
+      </pre>
     </dd>
   </dl>
 
-  The <code>dl</code> element <a>represents</a> an association list consisting of zero or
-  more name-value groups (a description list). A name-value group consists of one or more names
+  The <code>dl</code> element <a>represents</a> an association list consisting of zero or more
+  name-value groups (a description list). A name-value group consists of one or more names
   (<code>dt</code> elements) followed by one or more values (<code>dd</code> elements), ignoring any
   nodes other than <code>dt</code> and <code>dd</code> elements. Within a single <code>dl</code>
   element, there should not be more than one <code>dt</code> element for each name.
 
-  Name-value groups may be terms and definitions, metadata topics and values, questions and
-  answers, or any other groups of name-value data.
+  Name-value groups may be terms and definitions, metadata topics and values, questions and answers,
+  or any other groups of name-value data.
 
   The values within a group are alternatives; multiple paragraphs forming part of the same value
   must all be given within the same <code>dd</code> element.
 
-  The order of the list of groups, and of the names and values within each group, may be
-  significant.
+  The order of the list of groups, and of the names and values within each group, may be significant.
 
   <div class="impl">
+    If a <code>dl</code> element has no <code>dt</code> or <code>dd</code> element children, it
+    contains no groups.
 
-  If a <code>dl</code> element has no <code>dt</code> or <code>dd</code> element children, it
-  contains no groups.
+    If a <code>dl</code> element has one or more non-<a>whitespace</a> <code>Text</code> node
+    children, or has child elements that are neither <code>dt</code> nor <code>dd</code> elements,
+    all such <code>Text</code> nodes and elements, as well as their descendants (including any
+    <code>dt</code> or <code>dd</code> elements), do not form part of any groups in that
+    <code>dl</code>.
 
-  If a <code>dl</code> element has one or more non-<a>whitespace</a> <code>Text</code> node children, or has child elements that are
-  neither <code>dt</code> nor <code>dd</code> elements, all such <code>Text</code> nodes and
-  elements, as well as their descendants (including any <code>dt</code> or <code>dd</code>
-  elements), do not form part of any groups in that <code>dl</code>.
+    If a <code>dl</code> element has one or more <code>dt</code> element children but no
+    <code>dd</code> element children, then it consists of one group with names but no values.
 
-  If a <code>dl</code> element has one or more <code>dt</code> element children but no
-  <code>dd</code> element children, then it consists of one group with names but no values.
+    If a <code>dl</code> element has one or more <code>dd</code> element children but no
+    <code>dt</code> element children, then it consists of one group with values but no names.
 
-  If a <code>dl</code> element has one or more <code>dd</code> element children but no
-  <code>dt</code> element children, then it consists of one group with values but no names.
+    If a <code>dl</code> element's first <code>dt</code> or <code>dd</code> element child is a
+    <code>dd</code> element, then the first group has no associated name.
 
-  If a <code>dl</code> element's first <code>dt</code> or <code>dd</code> element child is a
-  <code>dd</code> element, then the first group has no associated name.
+    If a <code>dl</code> element's last <code>dt</code> or <code>dd</code> element child is a
+    <code>dt</code> element, then the last group has no associated value.
 
-  If a <code>dl</code> element's last <code>dt</code> or <code>dd</code> element child is a
-  <code>dt</code> element, then the last group has no associated value.
-
-  <p class="note">
-    When a <code>dl</code> element doesn't match its content model, it is often due to
-  accidentally using <code>dd</code> elements in the place of <code>dt</code> elements and vice
-  versa. Conformance checkers can spot such mistakes and might be able to advise authors how to
-  correctly use the markup.
-  </p>
-
+    <p class="note">
+      When a <code>dl</code> element doesn't match its content model, it is often due to
+      accidentally using <code>dd</code> elements in the place of <code>dt</code> elements and vice
+      versa. Conformance checkers can spot such mistakes and might be able to advise authors how to
+      correctly use the markup.
+    </p>
   </div>
 
   <div class="example">
+    In the following example, one entry ("Authors") is linked to two values ("John" and "Luke").
 
-    In the following example, one entry ("Authors") is linked to two values ("John" and
-    "Luke").
-
-    <pre highlight="html">&lt;dl&gt;
-  &lt;dt&gt; Authors
-  &lt;dd&gt; John
-  &lt;dd&gt; Luke
-  &lt;dt&gt; Editor
-  &lt;dd&gt; Frank
-&lt;/dl&gt;
-</pre>
+    <pre highlight="html">
+      &lt;dl&gt;
+        &lt;dt&gt; Authors
+        &lt;dd&gt; John
+        &lt;dd&gt; Luke
+        &lt;dt&gt; Editor
+        &lt;dd&gt; Frank
+      &lt;/dl&gt;
+    </pre>
   </div>
 
   <div class="example">
-
     In the following example, one definition is linked to two terms.
 
-    <pre highlight="html">&lt;dl&gt;
-  &lt;dt lang="en-US"&gt; &lt;dfn&gt;color&lt;/dfn&gt; &lt;/dt&gt;
-  &lt;dt lang="en-GB"&gt; &lt;dfn&gt;colour&lt;/dfn&gt; &lt;/dt&gt;
-  &lt;dd&gt; A sensation which (in humans) derives from the ability of
-  the fine structure of the eye to distinguish three differently
-  filtered analyses of a view. &lt;/dd&gt;
-&lt;/dl&gt;
-</pre>
+    <pre highlight="html">
+      &lt;dl&gt;
+        &lt;dt lang="en-US"&gt; &lt;dfn&gt;color&lt;/dfn&gt; &lt;/dt&gt;
+        &lt;dt lang="en-GB"&gt; &lt;dfn&gt;colour&lt;/dfn&gt; &lt;/dt&gt;
+        &lt;dd&gt; A sensation which (in humans) derives from the ability of
+        the fine structure of the eye to distinguish three differently
+        filtered analyses of a view. &lt;/dd&gt;
+      &lt;/dl&gt;
+    </pre>
   </div>
 
   <div class="example">
-
-    The following example illustrates the use of the <code>dl</code> element to mark up metadata
-    of sorts. At the end of the example, one group has two metadata labels ("Authors" and "Editors")
+    The following example illustrates the use of the <code>dl</code> element to mark up metadata of
+    sorts. At the end of the example, one group has two metadata labels ("Authors" and "Editors")
     and two values ("Robert Rothman" and "Daniel Jackson").
 
-    <pre highlight="html">&lt;dl&gt;
-  &lt;dt&gt; Last modified time &lt;/dt&gt;
-  &lt;dd&gt; 2004-12-23T23:33Z &lt;/dd&gt;
-  &lt;dt&gt; Recommended update interval &lt;/dt&gt;
-  &lt;dd&gt; 60s &lt;/dd&gt;
-  &lt;dt&gt; Authors &lt;/dt&gt;
-  &lt;dt&gt; Editors &lt;/dt&gt;
-  &lt;dd&gt; Robert Rothman &lt;/dd&gt;
-  &lt;dd&gt; Daniel Jackson &lt;/dd&gt;
-&lt;/dl&gt;
-</pre>
+    <pre highlight="html">
+      &lt;dl&gt;
+        &lt;dt&gt; Last modified time &lt;/dt&gt;
+        &lt;dd&gt; 2004-12-23T23:33Z &lt;/dd&gt;
+        &lt;dt&gt; Recommended update interval &lt;/dt&gt;
+        &lt;dd&gt; 60s &lt;/dd&gt;
+        &lt;dt&gt; Authors &lt;/dt&gt;
+        &lt;dt&gt; Editors &lt;/dt&gt;
+        &lt;dd&gt; Robert Rothman &lt;/dd&gt;
+        &lt;dd&gt; Daniel Jackson &lt;/dd&gt;
+      &lt;/dl&gt;
+    </pre>
   </div>
 
   <div class="example">
+    The following example shows the <code>dl</code> element used to give a set of instructions. The
+    order of the instructions here is important (in the other examples, the order of the blocks was
+    not important).
 
-    The following example shows the <code>dl</code> element used to give a set of instructions.
-    The order of the instructions here is important (in the other examples, the order of the blocks
-    was not important).
-
-    <pre highlight="html">&lt;p&gt;Determine the victory points as follows (use the
-first matching case):&lt;/p&gt;
-&lt;dl&gt;
-  &lt;dt&gt; If you have exactly five gold coins &lt;/dt&gt;
-  &lt;dd&gt; You get five victory points &lt;/dd&gt;
-  &lt;dt&gt; If you have one or more gold coins, and you have one or more silver coins &lt;/dt&gt;
-  &lt;dd&gt; You get two victory points &lt;/dd&gt;
-  &lt;dt&gt; If you have one or more silver coins &lt;/dt&gt;
-  &lt;dd&gt; You get one victory point &lt;/dd&gt;
-  &lt;dt&gt; Otherwise &lt;/dt&gt;
-  &lt;dd&gt; You get no victory points &lt;/dd&gt;
-&lt;/dl&gt;
-</pre>
+    <pre highlight="html">
+      &lt;p&gt;Determine the victory points as follows (use the
+      first matching case):&lt;/p&gt;
+      &lt;dl&gt;
+        &lt;dt&gt; If you have exactly five gold coins &lt;/dt&gt;
+        &lt;dd&gt; You get five victory points &lt;/dd&gt;
+        &lt;dt&gt; If you have one or more gold coins, and you have one or more silver coins &lt;/dt&gt;
+        &lt;dd&gt; You get two victory points &lt;/dd&gt;
+        &lt;dt&gt; If you have one or more silver coins &lt;/dt&gt;
+        &lt;dd&gt; You get one victory point &lt;/dd&gt;
+        &lt;dt&gt; Otherwise &lt;/dt&gt;
+        &lt;dd&gt; You get no victory points &lt;/dd&gt;
+      &lt;/dl&gt;
+    </pre>
   </div>
 
   <div class="example">
+    The following snippet shows a <code>dl</code> element being used as a glossary. Note the use of
+    <code>dfn</code> to indicate the word being defined.
 
-    The following snippet shows a <code>dl</code> element being used as a glossary. Note the use
-    of <code>dfn</code> to indicate the word being defined.
-
-    <pre highlight="html">&lt;dl&gt;
-  &lt;dt&gt;&lt;dfn&gt;Apartment&lt;/dfn&gt;, n.&lt;/dt&gt;
-  &lt;dd&gt;An execution context grouping one or more threads with one or
-  more COM objects.&lt;/dd&gt;
-  &lt;dt&gt;&lt;dfn&gt;Flat&lt;/dfn&gt;, n.&lt;/dt&gt;
-  &lt;dd&gt;A deflated tire.&lt;/dd&gt;
-  &lt;dt&gt;&lt;dfn&gt;Home&lt;/dfn&gt;, n.&lt;/dt&gt;
-  &lt;dd&gt;The user's login directory.&lt;/dd&gt;
-&lt;/dl&gt;
-</pre>
+    <pre highlight="html">
+      &lt;dl&gt;
+        &lt;dt&gt;&lt;dfn&gt;Apartment&lt;/dfn&gt;, n.&lt;/dt&gt;
+        &lt;dd&gt;An execution context grouping one or more threads with one or
+        more COM objects.&lt;/dd&gt;
+        &lt;dt&gt;&lt;dfn&gt;Flat&lt;/dfn&gt;, n.&lt;/dt&gt;
+        &lt;dd&gt;A deflated tire.&lt;/dd&gt;
+        &lt;dt&gt;&lt;dfn&gt;Home&lt;/dfn&gt;, n.&lt;/dt&gt;
+        &lt;dd&gt;The user's login directory.&lt;/dd&gt;
+      &lt;/dl&gt;
+    </pre>
   </div>
-
-  <p class="note">
-    The <code>dl</code> element is inappropriate for marking up dialog. <ahref="#conversations">Examples of how to mark up dialog are shown below.</ahref="#conversations">
-  </p>
 
 <h4 id="the-dt-element">The <dfn><code>dt</code></dfn> element</h4>
 
@@ -1222,13 +1289,17 @@ first matching case):&lt;/p&gt;
     <dt><a>Contexts in which this element can be used</a>:</dt>
     <dd>Before <code>dd</code> or <code>dt</code> elements inside <code>dl</code> elements.</dd>
     <dt><a>Content model</a>:</dt>
-    <dd><a>Flow content</a>, but with no <code>header</code>, <code>footer</code>, <a>sectioning content</a>, or <a>heading content</a> descendants.</dd>
+    <dd>
+      <a>Flow content</a>, but with no <code>header</code>, <code>footer</code>,
+      <a>sectioning content</a>, or <a>heading content</a> descendants.
+    </dd>
     <dt><a>Content attributes</a>:</dt>
     <dd><a>Global attributes</a></dd>
     <dt><a>Tag omission in text/html</a>:</dt>
-    <dd>A <code>dt</code> element's <a>end tag</a> may be omitted if the
-    <code>dt</code> element is immediately followed by another <code>dt</code> element or a
-    <code>dd</code> element.</dd>
+    <dd>
+      A <code>dt</code> element's <a>end tag</a> may be omitted if the <code>dt</code> element is
+      immediately followed by another <code>dt</code> element or a <code>dd</code> element.
+    </dd>
     <dt>Allowed <a>ARIA role attribute</a> values:</dt>
     <dd><a>Any role value</a>.</dd>
     <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
@@ -1239,33 +1310,32 @@ first matching case):&lt;/p&gt;
     <dd>Uses <code>HTMLElement</code>.</dd>
   </dl>
 
-  The <code>dt</code> element <a>represents</a> the term, or name, part of a
-  term-description group in a description list (<code>dl</code> element).
+  The <code>dt</code> element <a>represents</a> the term, or name, part of a term-description group
+  in a description list (<code>dl</code> element).
 
   <p class="note">
-    The <code>dt</code> element itself, when used in a <code>dl</code> element, does
-  not indicate that its contents are a term being defined, but this can be indicated using the
-  <code>dfn</code> element.
+    The <code>dt</code> element itself, when used in a <code>dl</code> element, does not indicate
+    that its contents are a term being defined, but this can be indicated using the <code>dfn</code>
+    element.
   </p>
 
   <div class="example">
-
     This example shows a list of frequently asked questions (a FAQ) marked up using the
     <code>dt</code> element for questions and the <code>dd</code> element for answers.
 
-    <pre highlight="html">&lt;article&gt;
-  &lt;h1&gt;FAQ&lt;/h1&gt;
-  &lt;dl&gt;
-  &lt;dt&gt;What do we want?&lt;/dt&gt;
-  &lt;dd&gt;Our data.&lt;/dd&gt;
-  &lt;dt&gt;When do we want it?&lt;/dt&gt;
-  &lt;dd&gt;Now.&lt;/dd&gt;
-  &lt;dt&gt;Where is it?&lt;/dt&gt;
-  &lt;dd&gt;We are not sure.&lt;/dd&gt;
-  &lt;/dl&gt;
-&lt;/article&gt;
-</pre>
-
+    <pre highlight="html">
+      &lt;article&gt;
+        &lt;h1&gt;FAQ&lt;/h1&gt;
+        &lt;dl&gt;
+          &lt;dt&gt;What do we want?&lt;/dt&gt;
+          &lt;dd&gt;Our data.&lt;/dd&gt;
+          &lt;dt&gt;When do we want it?&lt;/dt&gt;
+          &lt;dd&gt;Now.&lt;/dd&gt;
+          &lt;dt&gt;Where is it?&lt;/dt&gt;
+          &lt;dd&gt;We are not sure.&lt;/dd&gt;
+        &lt;/dl&gt;
+      &lt;/article&gt;
+    </pre>
   </div>
 
 <h4 id="the-dd-element">The <dfn><code>dd</code></dfn> element</h4>
@@ -1280,9 +1350,11 @@ first matching case):&lt;/p&gt;
     <dt><a>Content attributes</a>:</dt>
     <dd><a>Global attributes</a></dd>
     <dt><a>Tag omission in text/html</a>:</dt>
-    <dd>A <code>dd</code> element's <a>end tag</a> may be omitted if the
-    <code>dd</code> element is immediately followed by another <code>dd</code> element or a
-    <code>dt</code> element, or if there is no more content in the parent element.</dd>
+    <dd>
+      A <code>dd</code> element's <a>end tag</a> may be omitted if the <code>dd</code> element is
+      immediately followed by another <code>dd</code> element or a <code>dt</code> element, or if
+      there is no more content in the parent element.
+    </dd>
     <dt>Allowed <a>ARIA role attribute</a> values:</dt>
     <dd><a>Any role value</a>.</dd>
     <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
@@ -1293,27 +1365,27 @@ first matching case):&lt;/p&gt;
     <dd>Uses <code>HTMLElement</code>.</dd>
   </dl>
 
-  The <code>dd</code> element <a>represents</a> the description, definition, or value, part
-  of a term-description group in a description list (<code>dl</code> element).
+  The <code>dd</code> element <a>represents</a> the description, definition, or value, part of a
+  term-description group in a description list (<code>dl</code> element).
 
   <div class="example">
-
     A <code>dl</code> can be used to define a vocabulary list, like in a dictionary. In the
     following example, each entry, given by a <code>dt</code> with a <code>dfn</code>, has several
     <code>dd</code>s, showing the various parts of the definition.
 
-    <pre highlight="html">&lt;dl&gt;
-  &lt;dt&gt;&lt;dfn&gt;happiness&lt;/dfn&gt;&lt;/dt&gt;
-  &lt;dd class="pronunciation"&gt;/'hæ p. nes/&lt;/dd&gt;
-  &lt;dd class="part-of-speech"&gt;&lt;i&gt;&lt;abbr&gt;n.&lt;/abbr&gt;&lt;/i&gt;&lt;/dd&gt;
-  &lt;dd&gt;The state of being happy.&lt;/dd&gt;
-  &lt;dd&gt;Good fortune; success. &lt;q&gt;Oh &lt;b&gt;happiness&lt;/b&gt;! It worked!&lt;/q&gt;&lt;/dd&gt;
-  &lt;dt&gt;&lt;dfn&gt;rejoice&lt;/dfn&gt;&lt;/dt&gt;
-  &lt;dd class="pronunciation"&gt;/ri jois'/&lt;/dd&gt;
-  &lt;dd&gt;&lt;i class="part-of-speech"&gt;&lt;abbr&gt;v.intr.&lt;/abbr&gt;&lt;/i&gt; To be delighted oneself.&lt;/dd&gt;
-  &lt;dd&gt;&lt;i class="part-of-speech"&gt;&lt;abbr&gt;v.tr.&lt;/abbr&gt;&lt;/i&gt; To cause one to be delighted.&lt;/dd&gt;
-&lt;/dl&gt;
-</pre>
+    <pre highlight="html">
+      &lt;dl&gt;
+        &lt;dt&gt;&lt;dfn&gt;happiness&lt;/dfn&gt;&lt;/dt&gt;
+        &lt;dd class="pronunciation"&gt;/'hæ p. nes/&lt;/dd&gt;
+        &lt;dd class="part-of-speech"&gt;&lt;i&gt;&lt;abbr&gt;n.&lt;/abbr&gt;&lt;/i&gt;&lt;/dd&gt;
+        &lt;dd&gt;The state of being happy.&lt;/dd&gt;
+        &lt;dd&gt;Good fortune; success. &lt;q&gt;Oh &lt;b&gt;happiness&lt;/b&gt;! It worked!&lt;/q&gt;&lt;/dd&gt;
+        &lt;dt&gt;&lt;dfn&gt;rejoice&lt;/dfn&gt;&lt;/dt&gt;
+        &lt;dd class="pronunciation"&gt;/ri jois'/&lt;/dd&gt;
+        &lt;dd&gt;&lt;i class="part-of-speech"&gt;&lt;abbr&gt;v.intr.&lt;/abbr&gt;&lt;/i&gt; To be delighted oneself.&lt;/dd&gt;
+        &lt;dd&gt;&lt;i class="part-of-speech"&gt;&lt;abbr&gt;v.tr.&lt;/abbr&gt;&lt;/i&gt; To cause one to be delighted.&lt;/dd&gt;
+      &lt;/dl&gt;
+    </pre>
   </div>
 
 <h4 id="the-figure-element">The <dfn><code>figure</code></dfn> element</h4>
@@ -1343,39 +1415,37 @@ first matching case):&lt;/p&gt;
     <dd>Uses <code>HTMLElement</code>.</dd>
   </dl>
 
-  The <code>figure</code> element <a>represents</a> some <a>flow content</a>,
-  optionally with a caption, that is self-contained (like a complete sentence) and is typically
-  referenced as a single unit from the main flow of the document.
+  The <code>figure</code> element <a>represents</a> some <a>flow content</a>, optionally with a
+  caption, that is self-contained (like a complete sentence) and is typically referenced as a single
+  unit from the main flow of the document.
 
   <p class="note">
-    Self-contained in this context does not necessarily mean independent. For example,
-  each sentence in a paragraph is self-contained; an image that is part of a sentence would be
-  inappropriate for <code>figure</code>, but an entire sentence made of images would be fitting.
+    Self-contained in this context does not necessarily mean independent. For example, each sentence
+    in a paragraph is self-contained; an image that is part of a sentence would be inappropriate for
+    <code>figure</code>, but an entire sentence made of images would be fitting.
   </p>
 
   The element can thus be used to annotate illustrations, diagrams, photos, code listings, etc.
 
   <div class="note">
-
     When a <code>figure</code> is referred to from the main content of the document by identifying
     it by its caption (e.g. by figure number), it enables such content to be easily moved away from
-    that primary content, e.g. to the side of the page, to dedicated pages, or to an appendix, without
-    affecting the flow of the document.
+    that primary content, e.g. to the side of the page, to dedicated pages, or to an appendix,
+    without affecting the flow of the document.
 
-    If a <code>figure</code> element is referenced by its relative position, e.g. "in the
-    photograph above" or "as the next figure shows", then moving the figure would disrupt the page's
-    meaning. Authors are encouraged to consider using labels to refer to figures, rather than using
-    such relative references, so that the page can easily be restyled without affecting the page's
+    If a <code>figure</code> element is referenced by its relative position, e.g. "in the photograph
+    above" or "as the next figure shows", then moving the figure would disrupt the page's meaning.
+    Authors are encouraged to consider using labels to refer to figures, rather than using such
+    relative references, so that the page can easily be restyled without affecting the page's
     meaning.
-
   </div>
 
-  The <span class="impl">first</span> <code>figcaption</code> element child of the element, if
-  any, represents the caption of the <code>figure</code> element's contents. If there is no child
+  The <span class="impl">first</span> <code>figcaption</code> element child of the element, if any,
+  represents the caption of the <code>figure</code> element's contents. If there is no child
   <code>figcaption</code> element, then there is no caption.
 
-  A <code>figure</code> element's contents are part of the surrounding flow. If the purpose of
-  the page is to display the figure, for example a photograph on an image sharing site, the
+  A <code>figure</code> element's contents are part of the surrounding flow. If the purpose of the
+  page is to display the figure, for example a photograph on an image sharing site, the
   <code>figure</code> and <code>figcaption</code> elements can be used to explicitly provide a
   caption for that figure. For content that is only tangentially related, or that serves a separate
   purpose than the surrounding flow, the <code>aside</code> element should be used (and can itself
@@ -1385,152 +1455,145 @@ first matching case):&lt;/p&gt;
   the purposes of enticing readers or highlighting key topics.
 
   <div class="example">
-
     This example shows the <code>figure</code> element to mark up a code listing.
 
-    <pre highlight="html">&lt;p&gt;In &lt;a href="#l4"&gt;listing 4&lt;/a&gt; we see the primary core interface
-API declaration.&lt;/p&gt;
-&lt;figure id="l4"&gt;
-  &lt;figcaption&gt;Listing 4. The primary core interface API declaration.&lt;/figcaption&gt;
-  &lt;pre&gt;&lt;code&gt;interface PrimaryCore {
-  boolean verifyDataLine();
-  void sendData(in sequence&amp;lt;byte&gt; data);
-  void initSelfDestruct();
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/figure&gt;
-&lt;p&gt;The API is designed to use UTF-8.&lt;/p&gt;
-</pre>
-
+    <pre highlight="html">
+      &lt;p&gt;In &lt;a href="#l4"&gt;listing 4&lt;/a&gt; we see the primary core interface
+      API declaration.&lt;/p&gt;
+      &lt;figure id="l4"&gt;
+        &lt;figcaption&gt;Listing 4. The primary core interface API declaration.&lt;/figcaption&gt;
+        &lt;pre&gt;&lt;code&gt;interface PrimaryCore {
+        boolean verifyDataLine();
+        void sendData(in sequence&amp;lt;byte&gt; data);
+        void initSelfDestruct();
+      }&lt;/code&gt;&lt;/pre&gt;
+      &lt;/figure&gt;
+      &lt;p&gt;The API is designed to use UTF-8.&lt;/p&gt;
+    </pre>
   </div>
 
   <div class="example">
-
     Here we see a <code>figure</code> element to mark up a photo that is the main content of the
     page (as in a gallery).
 
-    <pre highlight="html">&lt;!DOCTYPE HTML&gt;
-&lt;title&gt;Bubbles at work — My Gallery™&lt;/title&gt;
-&lt;figure&gt;
-  &lt;img src="bubbles-work.jpeg"
-      alt="Bubbles, sitting in his office chair, works on his
-            latest project intently."&gt;
-  &lt;figcaption&gt;Bubbles at work&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;nav&gt;&lt;a href="19414.html"&gt;Prev&lt;/a&gt; — &lt;a href="19416.html"&gt;Next&lt;/a&gt;&lt;/nav&gt;
-</pre>
-
+    <pre highlight="html">
+      &lt;!DOCTYPE HTML&gt;
+      &lt;title&gt;Bubbles at work — My Gallery™&lt;/title&gt;
+      &lt;figure&gt;
+        &lt;img src="bubbles-work.jpeg"
+            alt="Bubbles, sitting in his office chair, works on his
+                  latest project intently."&gt;
+        &lt;figcaption&gt;Bubbles at work&lt;/figcaption&gt;
+      &lt;/figure&gt;
+      &lt;nav&gt;&lt;a href="19414.html"&gt;Prev&lt;/a&gt; — &lt;a href="19416.html"&gt;Next&lt;/a&gt;&lt;/nav&gt;
+    </pre>
   </div>
 
   <div class="example">
-
-    In this example, we see an image that is <em>not</em> a figure, as well as an image and a
-    video that are. The first image is literally part of the example's second sentence, so it's not a
+    In this example, we see an image that is <em>not</em> a figure, as well as an image and a video
+    that are. The first image is literally part of the example's second sentence, so it's not a
     self-contained unit, and thus <code>figure</code> would be inappropriate.
 
-    <pre highlight="html">&lt;h2&gt;Malinko's comics&lt;/h2&gt;
+    <pre highlight="html">
+      &lt;h2&gt;Malinko's comics&lt;/h2&gt;
 
-&lt;p&gt;This case centered on some sort of "intellectual property"
-infringement related to a comic (see Exhibit A). The suit started
-after a trailer ending with these words:
+      &lt;p&gt;This case centered on some sort of "intellectual property"
+      infringement related to a comic (see Exhibit A). The suit started
+      after a trailer ending with these words:
 
-&lt;blockquote&gt;
-  &lt;img src="promblem-packed-action.png" alt="ROUGH COPY! Promblem-Packed Action!"&gt;
-&lt;/blockquote&gt;
+      &lt;blockquote&gt;
+        &lt;img src="promblem-packed-action.png" alt="ROUGH COPY! Promblem-Packed Action!"&gt;
+      &lt;/blockquote&gt;
 
-&lt;p&gt;...was aired. A lawyer, armed with a Bigger Notebook, launched a
-preemptive strike using snowballs. A complete copy of the trailer is
-included with Exhibit B.
+      &lt;p&gt;...was aired. A lawyer, armed with a Bigger Notebook, launched a
+      preemptive strike using snowballs. A complete copy of the trailer is
+      included with Exhibit B.
 
-&lt;figure&gt;
-  &lt;img src="ex-a.png" alt="Two squiggles on a dirty piece of paper."&gt;
-  &lt;figcaption&gt;Exhibit A. The alleged &lt;cite&gt;rough copy&lt;/cite&gt; comic.&lt;/figcaption&gt;
-&lt;/figure&gt;
+      &lt;figure&gt;
+        &lt;img src="ex-a.png" alt="Two squiggles on a dirty piece of paper."&gt;
+        &lt;figcaption&gt;Exhibit A. The alleged &lt;cite&gt;rough copy&lt;/cite&gt; comic.&lt;/figcaption&gt;
+      &lt;/figure&gt;
 
-&lt;figure&gt;
-  &lt;video src="ex-b.mov"&gt;&lt;/video&gt;
-  &lt;figcaption&gt;Exhibit B. The &lt;cite&gt;Rough Copy&lt;/cite&gt; trailer.&lt;/figcaption&gt;
-&lt;/figure&gt;
+      &lt;figure&gt;
+        &lt;video src="ex-b.mov"&gt;&lt;/video&gt;
+        &lt;figcaption&gt;Exhibit B. The &lt;cite&gt;Rough Copy&lt;/cite&gt; trailer.&lt;/figcaption&gt;
+      &lt;/figure&gt;
 
-&lt;p&gt;The case was resolved out of court.
-</pre>
-
+      &lt;p&gt;The case was resolved out of court.
+    </pre>
   </div>
 
   <div class="example">
-
     Here, a part of a poem is marked up using <code>figure</code>.
 
-    <pre highlight="html">&lt;figure&gt;
-  &lt;p&gt;'Twas brillig, and the slithy toves&lt;br&gt;
-  Did gyre and gimble in the wabe;&lt;br&gt;
-  All mimsy were the borogoves,&lt;br&gt;
-  And the mome raths outgrabe.&lt;/p&gt;
-  &lt;figcaption&gt;&lt;cite&gt;Jabberwocky&lt;/cite&gt; (first verse). Lewis Carroll, 1832-98&lt;/figcaption&gt;
-&lt;/figure&gt;
-</pre>
-
+    <pre highlight="html">
+      &lt;figure&gt;
+        &lt;p&gt;'Twas brillig, and the slithy toves&lt;br&gt;
+        Did gyre and gimble in the wabe;&lt;br&gt;
+        All mimsy were the borogoves,&lt;br&gt;
+        And the mome raths outgrabe.&lt;/p&gt;
+        &lt;figcaption&gt;&lt;cite&gt;Jabberwocky&lt;/cite&gt; (first verse). Lewis Carroll, 1832-98&lt;/figcaption&gt;
+      &lt;/figure&gt;
+    </pre>
   </div>
 
   <div class="example">
-
     In this example, which could be part of a much larger work discussing a castle, nested
     <code>figure</code> elements are used to provide both a group caption and individual captions for
     each figure in the group:
 
-    <pre highlight="html">&lt;figure&gt;
-  &lt;figcaption&gt;The castle through the ages: 1423, 1858, and 1999 respectively.&lt;/figcaption&gt;
-  &lt;figure&gt;
-  &lt;figcaption&gt;Etching. Anonymous, ca. 1423.&lt;/figcaption&gt;
-  &lt;img src="castle1423.jpeg" alt="The castle has one tower, and a tall wall around it."&gt;
-  &lt;/figure&gt;
-  &lt;figure&gt;
-  &lt;figcaption&gt;Oil-based paint on canvas. Maria Towle, 1858.&lt;/figcaption&gt;
-  &lt;img src="castle1858.jpeg" alt="The castle now has two towers and two walls."&gt;
-  &lt;/figure&gt;
-  &lt;figure&gt;
-  &lt;figcaption&gt;Film photograph. Peter Jankle, 1999.&lt;/figcaption&gt;
-  &lt;img src="castle1999.jpeg" alt="The castle lies in ruins, the original tower all that remains in one piece."&gt;
-  &lt;/figure&gt;
-&lt;/figure&gt;
-</pre>
-
+    <pre highlight="html">
+      &lt;figure&gt;
+        &lt;figcaption&gt;The castle through the ages: 1423, 1858, and 1999 respectively.&lt;/figcaption&gt;
+        &lt;figure&gt;
+          &lt;figcaption&gt;Etching. Anonymous, ca. 1423.&lt;/figcaption&gt;
+          &lt;img src="castle1423.jpeg" alt="The castle has one tower, and a tall wall around it."&gt;
+        &lt;/figure&gt;
+        &lt;figure&gt;
+          &lt;figcaption&gt;Oil-based paint on canvas. Maria Towle, 1858.&lt;/figcaption&gt;
+          &lt;img src="castle1858.jpeg" alt="The castle now has two towers and two walls."&gt;
+        &lt;/figure&gt;
+        &lt;figure&gt;
+          &lt;figcaption&gt;Film photograph. Peter Jankle, 1999.&lt;/figcaption&gt;
+          &lt;img src="castle1999.jpeg" alt="The castle lies in ruins, the original tower all that remains in one piece."&gt;
+        &lt;/figure&gt;
+      &lt;/figure&gt;
+    </pre>
   </div>
 
   <div class="example">
+    The previous example could also be more succintly written as follows (using <code>title</code>
+    attributes in place of the nested <code>figure</code>/<code>figcaption</code> pairs):
 
-    The previous example could also be more succintly written as follows (using <code>title</code> attributes in place of the nested
-    <code>figure</code>/<code>figcaption</code> pairs):
-
-    <pre highlight="html">&lt;figure&gt;
-  &lt;img src="castle1423.jpeg" title="Etching. Anonymous, ca. 1423."
-      alt="The castle has one tower, and a tall wall around it."&gt;
-  &lt;img src="castle1858.jpeg" title="Oil-based paint on canvas. Maria Towle, 1858."
-      alt="The castle now has two towers and two walls."&gt;
-  &lt;img src="castle1999.jpeg" title="Film photograph. Peter Jankle, 1999."
-      alt="The castle lies in ruins, the original tower all that remains in one piece."&gt;
-  &lt;figcaption&gt;The castle through the ages: 1423, 1858, and 1999 respectively.&lt;/figcaption&gt;
-&lt;/figure&gt;
-</pre>
-
+    <pre highlight="html">
+      &lt;figure&gt;
+        &lt;img src="castle1423.jpeg" title="Etching. Anonymous, ca. 1423."
+            alt="The castle has one tower, and a tall wall around it."&gt;
+        &lt;img src="castle1858.jpeg" title="Oil-based paint on canvas. Maria Towle, 1858."
+            alt="The castle now has two towers and two walls."&gt;
+        &lt;img src="castle1999.jpeg" title="Film photograph. Peter Jankle, 1999."
+            alt="The castle lies in ruins, the original tower all that remains in one piece."&gt;
+        &lt;figcaption&gt;The castle through the ages: 1423, 1858, and 1999 respectively.&lt;/figcaption&gt;
+      &lt;/figure&gt;
+    </pre>
   </div>
 
   <div class="example">
-
     The figure is sometimes referenced only implicitly from the content:
 
-    <pre highlight="html">&lt;article&gt;
-  &lt;h1&gt;Fiscal negotiations stumble in Congress as deadline nears&lt;/h1&gt;
-  &lt;figure&gt;
-  &lt;img src="obama-reid.jpeg" alt="Obama and Reid sit together smiling in the Oval Office."&gt;
-  &lt;figcaption&gt;Barrak Obama and Harry Reid. White House press photograph.&lt;/figcaption&gt;
-  &lt;/figure&gt;
-  &lt;p&gt;Negotiations in Congress to end the fiscal impasse sputtered on Tuesday, leaving both chambers
-  grasping for a way to reopen the government and raise the country's borrowing authority with a
-  Thursday deadline drawing near.&lt;/p&gt;
-  ...
-&lt;/article&gt;
-</pre>
-
+    <pre highlight="html">
+      &lt;article&gt;
+        &lt;h1&gt;Fiscal negotiations stumble in Congress as deadline nears&lt;/h1&gt;
+        &lt;figure&gt;
+          &lt;img src="obama-reid.jpeg" alt="Obama and Reid sit together smiling in the Oval Office."&gt;
+          &lt;figcaption&gt;Barrak Obama and Harry Reid. White House press photograph.&lt;/figcaption&gt;
+        &lt;/figure&gt;
+        &lt;p&gt;Negotiations in Congress to end the fiscal impasse sputtered on Tuesday, leaving both chambers
+        grasping for a way to reopen the government and raise the country's borrowing authority with a
+        Thursday deadline drawing near.&lt;/p&gt;
+        ...
+      &lt;/article&gt;
+    </pre>
   </div>
 
 <h4 id="the-figcaption-element">The <dfn><code>figcaption</code></dfn> element</h4>
@@ -1556,8 +1619,9 @@ included with Exhibit B.
     <dd>Uses <code>HTMLElement</code>.</dd>
   </dl>
 
-  The <code>figcaption</code> element <a>represents</a> a caption or legend for the rest of
-  the contents of the <code>figcaption</code> element's parent <code>figure</code> element<span class="impl">, if any</span>.
+  The <code>figcaption</code> element <a>represents</a> a caption or legend for the rest of the
+  contents of the <code>figcaption</code> element's parent <code>figure</code>
+  element<span class="impl">, if any</span>.
 
 <h4 id="the-main-element">The <dfn><code>main</code></dfn> element</h4>
   <dl class="element">
@@ -1588,8 +1652,8 @@ included with Exhibit B.
   element. It <a>represents</a> its children.
 
   <p class="note">
-    The <code>main</code> element is not <a>sectioning content</a> and has no effect
-  on the document <a>outline</a>
+    The <code>main</code> element is not <a>sectioning content</a> and has no effect on the document
+    <a>outline</a>
   </p>
   The main content area of a document includes content that is unique to that document and
   excludes content that is repeated  across a set of documents such as site navigation links,
@@ -1824,7 +1888,8 @@ included with Exhibit B.
     <a>applicable to the allowed roles</a>.</dd>
     <dt><a>DOM interface</a>:</dt>
     <dd>
-      <pre class="idl" highlight="webidl">        interface HTMLAnchorElement : HTMLElement {
+      <pre class="idl" highlight="webidl">
+        interface HTMLAnchorElement : HTMLElement {
           attribute DOMString target;
           attribute DOMString download;
           attribute DOMString rel;
@@ -2314,9 +2379,7 @@ merger with Demo Group.&lt;/p&gt;
     <dd><a>Any role value</a>.</dd>
     <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
     <dd><a>Global aria-* attributes</a></dd>
-    <dd>Any <code>aria-*</code> attributes
-    <a>applicable to the allowed roles</a>.</dd>
-
+    <dd>Any <code>aria-*</code> attributes <a>applicable to the allowed roles</a>.</dd>
     <dt><a>DOM interface</a>:</dt>
     <dd>Uses <code>HTMLElement</code>.</dd>
   </dl>
@@ -2490,7 +2553,9 @@ December 1948. Adopted by General Assembly resolution 217 A (III).&lt;/p&gt;</pr
     <dd><a>Phrasing content</a>.</dd>
     <dt><a>Content attributes</a>:</dt>
     <dd><a>Global attributes</a></dd>
-    <dd><code>cite</code> - Link to the source of the quotation or more information about the edit</dd>
+    <dd>
+      <code>cite</code> - Link to the source of the quotation or more information about the edit
+    </dd>
     <dt><a>Tag omission in text/html</a>:</dt>
     <dd>Neither tag is omissible</dd>
     <dt>Allowed <a>ARIA role attribute</a> values:</dt>
@@ -2648,6 +2713,7 @@ and so Hammond ordered the iris to be opened.&lt;/p&gt;</pre>
 </div>
 
 <h4 id="the-abbr-element">The <dfn><code>abbr</code></dfn> element</h4>
+
   <dl class="element">
     <dt><a>Categories</a>:</dt>
     <dd><a>Flow content</a>.</dd>
@@ -2778,14 +2844,13 @@ this specification: the &lt;abbr&gt;WHATWG&lt;/abbr&gt; and the
   the same expansion. Every <code>abbr</code> element is independent.
 
 <h4 id="the-ruby-element">The <dfn><code>ruby</code></dfn> element</h4>
+
   <dl class="element">
     <dt><a>Categories</a>:</dt>
     <dd><a>Flow content</a>.</dd>
     <dd><a>Phrasing content</a>.</dd>
     <dd><a>Palpable content</a>.</dd>
-    <dt>
-      <a>Contexts in which this element can be used</a>:
-    </dt>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
     <dd>Where <a>phrasing content</a> is expected.</dd>
     <dt><a>Content model</a>:</dt>
     <dd>See prose.</dd>
@@ -2803,27 +2868,21 @@ this specification: the &lt;abbr&gt;WHATWG&lt;/abbr&gt; and the
     <dd>Uses <code>HTMLElement</code>.</dd>
   </dl>
 
-    The <code>ruby</code> element allows one or more spans of phrasing content to be marked with
-    ruby annotations. Ruby annotations are short runs of text presented alongside base text,
-    primarily used in East Asian typography as a guide for pronunciation or to include other
-    annotations. In Japanese, this form of typography is also known as <i>furigana</i>. Ruby text
-    can appear on either side, and sometimes both sides, of the base text, and it is possible to
-    control its position using CSS. A more complete introduction to ruby can be found in the
-    <cite>Use Cases &amp; Exploratory Approaches for Ruby Markup</cite> document as well as in
-    <cite>CSS Ruby Module Level 1</cite>. [[!RUBY-UC]] [[!CSSRUBY]]
+  The <code>ruby</code> element allows one or more spans of phrasing content to be marked with
+  ruby annotations. Ruby annotations are short runs of text presented alongside base text,
+  primarily used in East Asian typography as a guide for pronunciation or to include other
+  annotations. In Japanese, this form of typography is also known as <i>furigana</i>. Ruby text
+  can appear on either side, and sometimes both sides, of the base text, and it is possible to
+  control its position using CSS. A more complete introduction to ruby can be found in the
+  <cite>Use Cases &amp; Exploratory Approaches for Ruby Markup</cite> document as well as in
+  <cite>CSS Ruby Module Level 1</cite>. [[!RUBY-UC]] [[!CSSRUBY]]
 
-    The content model of <code>ruby</code> elements consists of one or more of the following
-    sequences:
+  The content model of <code>ruby</code> elements consists of one or more of the following
+  sequences:
 
-  <ol class="brief">
-    <li>
-      One or more <a>phrasing content</a> nodes or <code>rb</code> elements.
-    </li>
-    <li>
-      One or more <code>rt</code> or <code>rtc</code> elements, each of which either immediately
+  1. One or more <a>phrasing content</a> nodes or <code>rb</code> elements.
+  2. One or more <code>rt</code> or <code>rtc</code> elements, each of which either immediately
       preceded or followed by an <code>rp</code> elements.
-    </li>
-  </ol>
 
     The <code>ruby</code>, <code>rb</code>, <code>rtc</code>, and <code>rt</code> elements can be
     used for a variety of kinds of annotations, including in particular (though by no means limited
@@ -2902,7 +2961,7 @@ this specification: the &lt;abbr&gt;WHATWG&lt;/abbr&gt; and the
 
         The distinction is captured in this example:
 
-        <img src="images/hokekyou.png" width="66" height="126" alt="Example of jukugo ruby">
+        <img src="images/hokekyou.png" width="66" height="126" alt="Example of jukugo ruby" />
 
         Which can be marked up as follows:
 
@@ -2954,7 +3013,7 @@ this specification: the &lt;abbr&gt;WHATWG&lt;/abbr&gt; and the
         mountain”) is annotated both using pinyin to give the pronunciation, and with the
         original English.
 
-        <img src="images/group-double.png" width="113" height="84" alt="San Francisco in Chinese, with both pinyin and the original English as annotations.">
+        <img src="images/group-double.png" width="113" height="84" alt="San Francisco in Chinese, with both pinyin and the original English as annotations." />
 
         Which is marked up as follows:
 
@@ -2970,7 +3029,7 @@ this specification: the &lt;abbr&gt;WHATWG&lt;/abbr&gt; and the
         annotation in both kana and romaji phonetics while at the same time maintaining the
         pairing to bases and annotation grouping information.
 
-        <img src="images/mono-or-jukugo-double.png" width="185" height="120" alt="上手 (&quot;skill&quot;) annotated in both kana and romaji, shown in both jukugo and mono styles.">
+        <img src="images/mono-or-jukugo-double.png" width="185" height="120" alt="上手 (&quot;skill&quot;) annotated in both kana and romaji, shown in both jukugo and mono styles." />
 
         Which is marked up as follows:
 
@@ -3307,22 +3366,22 @@ this specification: the &lt;abbr&gt;WHATWG&lt;/abbr&gt; and the
   </div>
 
 <h4 id="the-rb-element">The <dfn><code>rb</code></dfn> element</h4>
+
   <dl class="element">
     <dt><a>Categories</a>:</dt>
     <dd>None.</dd>
-    <dt>
-      <a>Contexts in which this element can be used</a>:
-    </dt>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
     <dd>As a child of a <code>ruby</code> element.</dd>
     <dt><a>Content model</a>:</dt>
     <dd><a>Phrasing content</a>.</dd>
     <dt><a>Content attributes</a>:</dt>
     <dd><a>Global attributes</a></dd>
     <dt><a>Tag omission in text/html</a>:</dt>
-    <dd>An <code>rb</code> element's <a>end tag</a> may be omitted
-    if the <code>rb</code> element is immediately followed by an <code>rb</code>, <code>rt</code>,
-    <code>rtc</code> or <code>rp</code> element, or if there is no more content in the parent
-    element.</dd>
+    <dd>
+      An <code>rb</code> element's <a>end tag</a> may be omitted if the <code>rb</code> element is
+      immediately followed by an <code>rb</code>, <code>rt</code>, <code>rtc</code> or
+      <code>rp</code> element, or if there is no more content in the parent element.
+    </dd>
     <dt>Allowed <a>ARIA role attribute</a> values:</dt>
     <dd><a>Any role value</a>.</dd>
     <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
@@ -3345,21 +3404,22 @@ this specification: the &lt;abbr&gt;WHATWG&lt;/abbr&gt; and the
   </div>
 
 <h4 id="the-rt-element">The <dfn><code>rt</code></dfn> element</h4>
+
   <dl class="element">
     <dt><a>Categories</a>:</dt>
     <dd>None.</dd>
-    <dt>
-      <a>Contexts in which this element can be used</a>:
-    </dt>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
     <dd>As a child of a <code>ruby</code> or of an <code>rtc</code> element.</dd>
     <dt><a>Content model</a>:</dt>
     <dd><a>Phrasing content</a>.</dd>
     <dt><a>Content attributes</a>:</dt>
     <dd><a>Global attributes</a></dd>
     <dt><a>Tag omission in text/html</a>:</dt>
-    <dd>An <code>rt</code> element's <a>end tag</a> may be omitted if the
-    <code>rt</code> element is immediately followed by an <code>rb</code>, <code>rt</code>, <code>rtc</code> or
-    <code>rp</code> element, or if there is no more content in the parent element.</dd>
+    <dd>
+      An <code>rt</code> element's <a>end tag</a> may be omitted if the <code>rt</code> element is
+      immediately followed by an <code>rb</code>, <code>rt</code>, <code>rtc</code> or
+      <code>rp</code> element, or if there is no more content in the parent element.
+    </dd>
     <dt>Allowed <a>ARIA role attribute</a> values:</dt>
     <dd><a>Any role value</a>.</dd>
     <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
@@ -3370,36 +3430,34 @@ this specification: the &lt;abbr&gt;WHATWG&lt;/abbr&gt; and the
     <dd>Uses <code>HTMLElement</code>.</dd>
   </dl>
 
-    The <code>rt</code> element marks the ruby text component of a ruby annotation. When it is
-    the child of a <code>ruby</code> element or of an <code>rtc</code> element that is itself
-    the child of a <code>ruby</code> element, it doesn't <a>represent</a> anything itself, but its ancestor <code>ruby</code>
-    element uses it as part of determining what <em>it</em> <a>represents</a>.
+  The <code>rt</code> element marks the ruby text component of a ruby annotation. When it is
+  the child of a <code>ruby</code> element or of an <code>rtc</code> element that is itself
+  the child of a <code>ruby</code> element, it doesn't <a>represent</a> anything itself, but its ancestor <code>ruby</code>
+  element uses it as part of determining what <em>it</em> <a>represents</a>.
 
   <div class="impl">
-
-      An <code>rt</code> element that is not a child of a <code>ruby</code> element or of an
-      <code>rtc</code> element that is itself the child of a <code>ruby</code> element
-      <a>represents</a> the same thing as its children.
-
+    An <code>rt</code> element that is not a child of a <code>ruby</code> element or of an
+    <code>rtc</code> element that is itself the child of a <code>ruby</code> element
+    <a>represents</a> the same thing as its children.
   </div>
 
 <h4 id="the-rtc-element">The <dfn><code>rtc</code></dfn> element</h4>
+
   <dl class="element">
     <dt><a>Categories</a>:</dt>
     <dd>None.</dd>
-    <dt>
-      <a>Contexts in which this element can be used</a>:
-    </dt>
+    <dt><a>Contexts in which this element can be used</a>:</dt>
     <dd>As a child of a <code>ruby</code> element.</dd>
     <dt><a>Content model</a>:</dt>
     <dd><a>Phrasing content</a>, <code>rt</code>, or <code>rp</code> elements.</dd>
     <dt><a>Content attributes</a>:</dt>
     <dd><a>Global attributes</a></dd>
     <dt><a>Tag omission in text/html</a>:</dt>
-    <dd>An <code>rtc</code> element's <a>end tag</a> may be omitted
-    if the <code>rtc</code> element is immediately followed by an <code>rb</code> or
-    <code>rtc</code> element, or if there is no more content in the parent
-    element.</dd>
+    <dd>
+      An <code>rtc</code> element's <a>end tag</a> may be omitted if the <code>rtc</code> element is
+      immediately followed by an <code>rb</code> or <code>rtc</code> element, or if there is no more
+      content in the parent element.
+    </dd>
     <dt>Allowed <a>ARIA role attribute</a> values:</dt>
     <dd><a>Any role value</a>.</dd>
     <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
@@ -3410,9 +3468,9 @@ this specification: the &lt;abbr&gt;WHATWG&lt;/abbr&gt; and the
     <dd>Uses <code>HTMLElement</code>.</dd>
   </dl>
 
-    The <code>rtc</code> element marks a <a>ruby text container</a> for ruby text components
-    in a ruby annotation. When it is the child of a <code>ruby</code> element it doesn't <a>represent</a> anything itself, but its parent <code>ruby</code> element
-    uses it as part of determining what <em>it</em> <a>represents</a>.
+  The <code>rtc</code> element marks a <a>ruby text container</a> for ruby text components
+  in a ruby annotation. When it is the child of a <code>ruby</code> element it doesn't <a>represent</a> anything itself, but its parent <code>ruby</code> element
+  uses it as part of determining what <em>it</em> <a>represents</a>.
 
   <div class="impl">
 

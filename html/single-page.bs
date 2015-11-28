@@ -391,7 +391,7 @@ spec:url; type:dfn; for:url; text:url
 
     <p class="warning">This is a warning.</p>
 
-    <pre class="idl-ignore" data-highlight="webidl">
+    <pre class="idl" data-no-idl data-highlight="webidl">
       interface <dfn>Example</dfn> {
           // this is an IDL definition
       };
