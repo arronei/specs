@@ -1637,7 +1637,10 @@ spec:url; type:dfn; for:url; text:url
     <dt><a>Tag omission in text/html</a>:</dt>
     <dd>Neither tag is omissible</dd>
     <dt>Allowed <a>ARIA role attribute</a> values:</dt>
-    <dd><a><code>main</code></a> role (default - <a><em>do not set</em></a>) or <a><code>presentation</code></a>.</dd>
+    <dd>
+      <a><code>main</code></a> role (default - <a><em>do not set</em></a>) or
+      <a><code>presentation</code></a>.
+    </dd>
     <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
     <dd><a>Global aria-* attributes</a></dd>
     <dd>Any <code>aria-*</code> attributes
@@ -1655,136 +1658,142 @@ spec:url; type:dfn; for:url; text:url
     The <code>main</code> element is not <a>sectioning content</a> and has no effect on the document
     <a>outline</a>
   </p>
-  The main content area of a document includes content that is unique to that document and
-  excludes content that is repeated  across a set of documents such as site navigation links,
-  copyright information, site logos and banners and search forms (unless the document or
-  applications main function is that of a search form).
+  The main content area of a document includes content that is unique to that document and excludes
+  content that is repeated  across a set of documents such as site navigation links, copyright
+  information, site logos and banners and search forms (unless the document or applications main
+  function is that of a search form).
 
   <p class="note">
-    There is no restriction as to the number of <code>main</code> elements in a
-  document. Indeed, there are many cases where it would make sense to have multiple
-  <code>main</code> elements. For example, a page with multiple <code>article</code> elements might
-  need to indicate the dominant contents of each such element.
+    There is no restriction as to the number of <code>main</code> elements in a document. Indeed,
+    there are many cases where it would make sense to have multiple <code>main</code> elements. For
+    example, a page with multiple <code>article</code> elements might need to indicate the dominant
+    contents of each such element.
   </p>
 
   Authors must not include the <code>main</code> element as a descendant of an <code>article</code>,
   <code>aside</code>, <code>footer</code>, <code>header</code> or <code>nav</code> element.
+
   <p class="note">
-    The <code>main</code> element is not suitable for use to identify the main content areas of sub sections of a
-  document or application. The simplest solution is to not mark up the main content of a sub section at all, and just leave it
-  as implicit, but an author could use a <a>grouping content</a> or <a>sectioning content</a> element as appropriate.
-  </p>
-  <p class="note">
-    Authors are advised to use ARIA <code>role="main"</code> attribute on the
-  <code>main</code> element until user agents implement the required role mapping.
+    The <code>main</code> element is not suitable for use to identify the main content areas of sub
+    sections of a document or application. The simplest solution is to not mark up the main content
+    of a sub section at all, and just leave it as implicit, but an author could use a
+    <a>grouping content</a> or <a>sectioning content</a> element as appropriate.
   </p>
 
+  <p class="note">
+    Authors are advised to use ARIA <code>role="main"</code> attribute on the <code>main</code>
+    element until user agents implement the required role mapping.
+  </p>
+
   <div class="example">
-  <pre highlight="html">  &lt;main role="main"&gt;
-  ...
-  &lt;/main&gt;
-</pre>
+    <pre highlight="html">
+      &lt;main role="main"&gt;
+        ...
+      &lt;/main&gt;
+    </pre>
   </div>
 
-    In the following example, we see 2 articles about skateboards (the main topic of a
-    Web page) the main topic content is identified by the use of the <code>main</code> element.
+    In the following example, we see 2 articles about skateboards (the main topic of a Web page) the
+    main topic content is identified by the use of the <code>main</code> element.
 
   <div class="example">
-  <pre highlight="html">&lt;!-- other content --&gt;
+    <pre highlight="html">
+      &lt;!-- other content --&gt;
 
-<strong>&lt;main&gt;</strong>
+      &lt;main&gt;
 
-  &lt;h1&gt;Skateboards&lt;/h1&gt;
-  &lt;p&gt;The skateboard is the way cool kids get around&lt;/p&gt;
+        &lt;h1&gt;Skateboards&lt;/h1&gt;
+        &lt;p&gt;The skateboard is the way cool kids get around&lt;/p&gt;
 
-  &lt;article&gt;
-  &lt;h2&gt;Longboards&lt;/h2&gt;
-  &lt;p&gt;Longboards are a type of skateboard with a longer
-  wheelbase and larger, softer wheels.&lt;/p&gt;
-  &lt;p&gt;... &lt;/p&gt;
-  &lt;p&gt;... &lt;/p&gt;
-  &lt;/article&gt;
+        &lt;article&gt;
+          &lt;h2&gt;Longboards&lt;/h2&gt;
+          &lt;p&gt;Longboards are a type of skateboard with a longer
+          wheelbase and larger, softer wheels.&lt;/p&gt;
+          &lt;p&gt;... &lt;/p&gt;
+          &lt;p&gt;... &lt;/p&gt;
+        &lt;/article&gt;
 
-  &lt;article&gt;
-  &lt;h2&gt;Electric Skateboards&lt;/h2&gt;
-  &lt;p&gt;These no longer require the propelling of the skateboard
-  by means of the feet; rather an electric motor propels the board,
-  fed by an electric battery.&lt;/p&gt;
-  &lt;p&gt;... &lt;/p&gt;
-  &lt;p&gt;... &lt;/p&gt;
-  &lt;/article&gt;
+        &lt;article&gt;
+          &lt;h2&gt;Electric Skateboards&lt;/h2&gt;
+          &lt;p&gt;These no longer require the propelling of the skateboard
+          by means of the feet; rather an electric motor propels the board,
+          fed by an electric battery.&lt;/p&gt;
+          &lt;p&gt;... &lt;/p&gt;
+          &lt;p&gt;... &lt;/p&gt;
+        &lt;/article&gt;
 
-<strong>&lt;/main&gt;</strong>
+      &lt;/main&gt;
 
-  &lt;!-- other content --&gt;
-</pre>
-
+      &lt;!-- other content --&gt;
+    </pre>
   </div>
 
-  Here is a graduation programme the main content section is defined by the use of the <code>main</code> element.
-  Note in this example the <code>main</code> element contains a <code>nav</code> element consisting of links to
-  sub sections of the main content.
+  Here is a graduation programme the main content section is defined by the use of the
+  <code>main</code> element. Note in this example the <code>main</code> element contains a
+  <code>nav</code> element consisting of links to sub sections of the main content.
+
   <div class="example">
+    <pre highlight="html">
+      &lt;!DOCTYPE html&gt;
+      &lt;html lang="en"&gt;
+        &lt;head&gt;
+          &lt;title&gt;Graduation Ceremony Summer 2022&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
 
-  <pre highlight="html">&lt;!DOCTYPE html&gt;
-  &lt;html lang="en"&gt;
-  &lt;head&gt;<br>&lt;title&gt;Graduation Ceremony Summer 2022&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
+          &lt;header&gt;The Lawson Academy:
+          &lt;nav&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href="courses.html"&gt;Courses&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="fees.html"&gt;Fees&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a&gt;Graduation&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/nav&gt;
+          &lt;/header&gt;
 
-  &lt;header&gt;The Lawson Academy:
-  &lt;nav&gt;
-  &lt;ul&gt;
-  &lt;li&gt;&lt;a href="courses.html"&gt;Courses&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="fees.html"&gt;Fees&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a&gt;Graduation&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;/nav&gt;
-  &lt;/header&gt;
+          &lt;main&gt;
 
-<strong>&lt;main&gt;</strong>
+            &lt;h1&gt;Graduation&lt;/h1&gt;
 
-  &lt;h1&gt;Graduation&lt;/h1&gt;
+            &lt;nav&gt;
+              &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#ceremony"&gt;Ceremony&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#graduates"&gt;Graduates&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#awards"&gt;Awards&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/nav&gt;
 
-  &lt;nav&gt;
-  &lt;ul&gt;
-  &lt;li&gt;&lt;a href="#ceremony"&gt;Ceremony&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#graduates"&gt;Graduates&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#awards"&gt;Awards&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;/nav&gt;
+            &lt;H2 id="ceremony"&gt;Ceremony&lt;/H2&gt;
+            &lt;p&gt;Opening Procession&lt;/p&gt;
+            &lt;p&gt;Speech by Valedictorian&lt;/p&gt;
+            &lt;p&gt;Speech by Class President&lt;/p&gt;
+            &lt;p&gt;Presentation of Diplomas&lt;/p&gt;
+            &lt;p&gt;Closing Speech by Headmaster&lt;/p&gt;
 
-  &lt;H2 id="ceremony"&gt;Ceremony&lt;/H2&gt;
-  &lt;p&gt;Opening Procession&lt;/p&gt;
-  &lt;p&gt;Speech by Valedictorian&lt;/p&gt;
-  &lt;p&gt;Speech by Class President&lt;/p&gt;
-  &lt;p&gt;Presentation of Diplomas&lt;/p&gt;
-  &lt;p&gt;Closing Speech by Headmaster&lt;/p&gt;
+            &lt;h2 id="graduates"&gt;Graduates&lt;/h2&gt;
+            &lt;ul&gt;
+              &lt;li&gt;Eileen Williams&lt;/li&gt;
+              &lt;li&gt;Andy Maseyk&lt;/li&gt;
+              &lt;li&gt;Blanca Sainz Garcia&lt;/li&gt;
+              &lt;li&gt;Clara Faulkner&lt;/li&gt;
+              &lt;li&gt;Gez Lemon&lt;/li&gt;
+              &lt;li&gt;Eloisa Faulkner&lt;/li&gt;
+            &lt;/ul&gt;
 
-  &lt;h2 id="graduates"&gt;Graduates&lt;/h2&gt;
-  &lt;ul&gt;
-  &lt;li&gt;Eileen Williams&lt;/li&gt;
-  &lt;li&gt;Andy Maseyk&lt;/li&gt;
-  &lt;li&gt;Blanca Sainz Garcia&lt;/li&gt;
-  &lt;li&gt;Clara Faulkner&lt;/li&gt;
-  &lt;li&gt;Gez Lemon&lt;/li&gt;
-  &lt;li&gt;Eloisa Faulkner&lt;/li&gt;
-  &lt;/ul&gt;
+            &lt;h2 id="awards"&gt;Awards&lt;/h2&gt;
+            &lt;ul&gt;
+              &lt;li&gt;Clara Faulkner&lt;/li&gt;
+              &lt;li&gt;Eloisa Faulkner&lt;/li&gt;
+              &lt;li&gt;Blanca Sainz Garcia&lt;/li&gt;
+            &lt;/ul&gt;
 
-  &lt;h2 id="awards"&gt;Awards&lt;/h2&gt;
-  &lt;ul&gt;
-  &lt;li&gt;Clara Faulkner&lt;/li&gt;
-  &lt;li&gt;Eloisa Faulkner&lt;/li&gt;
-  &lt;li&gt;Blanca Sainz Garcia&lt;/li&gt;
-  &lt;/ul&gt;
+          &lt;/main&gt;
 
-<strong>&lt;/main&gt;</strong>
+          &lt;footer&gt; Copyright 2012 B.lawson&lt;/footer&gt;
 
-  &lt;footer&gt; Copyright 2012 B.lawson&lt;/footer&gt;
-
-  &lt;/body&gt;
-  &lt;/html&gt;
-</pre>
+        &lt;/body&gt;
+      &lt;/html&gt;
+    </pre>
   </div>
 
 <h4 id="the-div-element">The <dfn><code>div</code></dfn> element</h4>
@@ -1809,24 +1818,24 @@ spec:url; type:dfn; for:url; text:url
     <a>applicable to the allowed roles</a>.</dd>
     <dt><a>DOM interface</a>:</dt>
     <dd>
-    <pre class="idl" highlight="webidl">interface HTMLDivElement : HTMLElement {};
-</pre>
+      <pre class="idl" highlight="webidl">
+        interface HTMLDivElement : HTMLElement {};
+      </pre>
     </dd>
   </dl>
 
-  The <code>div</code> element has no special meaning at all. It <a>represents</a> its
-  children. It can be used with the <code>class</code>, <code>lang</code>, and <code>title</code> attributes to mark up
-  semantics common to a group of consecutive elements.
+  The <code>div</code> element has no special meaning at all. It <a>represents</a> its children. It
+  can be used with the <code>class</code>, <code>lang</code>, and <code>title</code> attributes to
+  mark up semantics common to a group of consecutive elements.
 
   <p class="note">
-    Authors are strongly encouraged to view the <code>div</code> element as an element
-  of last resort, for when no other element is suitable. Use of more appropriate elements instead of
-  the <code>div</code> element leads to better accessibility for readers and easier maintainability
-  for authors.
+    Authors are strongly encouraged to view the <code>div</code> element as an element of last
+    resort, for when no other element is suitable. Use of more appropriate elements instead of the
+    <code>div</code> element leads to better accessibility for readers and easier maintainability
+    for authors.
   </p>
 
   <div class="example">
-
     For example, a blog post would be marked up using <code>article</code>, a chapter using
     <code>section</code>, a page's navigation aids using <code>nav</code>, and a group of form
     controls using <code>fieldset</code>.
@@ -1836,24 +1845,24 @@ spec:url; type:dfn; for:url; text:url
     following example, we see <code>div</code> elements used as a way to set the language of two
     paragraphs at once, instead of setting the language on the two paragraph elements separately:
 
-    <pre highlight="html">&lt;article lang="en-US"&gt;
-  &lt;h2&gt;My use of language and my cats&lt;/h2&gt;
-  &lt;p&gt;My cat's behavior hasn't changed much since her absence, except
-  that she plays her new physique to the neighbors regularly, in an
-  attempt to get pets.&lt;/p&gt;
-  &lt;div lang="en-GB"&gt;
-  &lt;p&gt;My other cat, colored black and white, is a sweetie. He followed
-  us to the pool today, walking down the pavement with us. Yesterday
-  he apparently visited our neighbours. I wonder if he recognizes that
-  their flat is a mirror image of ours.&lt;/p&gt;
-  &lt;p&gt;Hm, I just noticed that in the last paragraph I used British
-  English. But I'm supposed to write in American English. So I
-  shouldn't say "pavement" or "flat" or "color"...&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;p&gt;I should say "sidewalk" and "apartment" and "color"!&lt;/p&gt;
-&lt;/article&gt;
-</pre>
-
+    <pre highlight="html">
+      &lt;article lang="en-US"&gt;
+        &lt;h2&gt;My use of language and my cats&lt;/h2&gt;
+        &lt;p&gt;My cat's behavior hasn't changed much since her absence, except
+        that she plays her new physique to the neighbors regularly, in an
+        attempt to get pets.&lt;/p&gt;
+        &lt;div lang="en-GB"&gt;
+        &lt;p&gt;My other cat, colored black and white, is a sweetie. He followed
+        us to the pool today, walking down the pavement with us. Yesterday
+        he apparently visited our neighbours. I wonder if he recognizes that
+        their flat is a mirror image of ours.&lt;/p&gt;
+        &lt;p&gt;Hm, I just noticed that in the last paragraph I used British
+        English. But I'm supposed to write in American English. So I
+        shouldn't say "pavement" or "flat" or "color"...&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;p&gt;I should say "sidewalk" and "apartment" and "color"!&lt;/p&gt;
+      &lt;/article&gt;
+    </pre>
   </div>
 
 <h3 id="textlevel-semantics">Text-level semantics</h3>
@@ -1873,15 +1882,29 @@ spec:url; type:dfn; for:url; text:url
     <dt><a>Content attributes</a>:</dt>
     <dd><a>Global attributes</a></dd>
     <dd><code>href</code> - Address of the <a>hyperlink</a></dd>
-    <dd><code>target</code> - Default <a>browsing context</a> for <a>hyperlink</a> <a>navigation</a> and <a>form submission</a></dd>
-    <dd><code>download</code> - Whether to download the resource instead of navigating to it, and its file name if so</dd>
-    <dd><code>rel</code> - Relationship between the document containing the hyperlink and the destination resource</dd>
+    <dd>
+      <code>target</code> - Default <a>browsing context</a> for <a>hyperlink</a> <a>navigation</a>
+      and <a>form submission</a>
+    </dd>
+    <dd>
+      <code>download</code> - Whether to download the resource instead of navigating to it, and its
+      file name if so
+    </dd>
+    <dd>
+      <code>rel</code> - Relationship between the document containing the hyperlink and the
+      destination resource
+    </dd>
     <dd><code>hreflang</code> - Language of the linked resource</dd>
     <dd><code>type</code> - Hint for the type of the referenced resource</dd>
     <dt><a>Tag omission in text/html</a>:</dt>
     <dd>Neither tag is omissible</dd>
     <dt>Allowed <a>ARIA role attribute</a> values:</dt>
-    <dd><a><code>link</code></a> (default - <a><em>do not set</em></a>), <a><code>button</code></a>, <a><code>checkbox</code></a>, <a><code>menuitem</code></a>, <a><code>menuitemcheckbox</code></a>, <a><code>menuitemradio</code></a>, <a><code>tab</code></a> or <a><code>treeitem</code></a></dd>
+    <dd>
+      <a><code>link</code></a> (default - <a><em>do not set</em></a>), <a><code>button</code></a>,
+      <a><code>checkbox</code></a>, <a><code>menuitem</code></a>,
+      <a><code>menuitemcheckbox</code></a>, <a><code>menuitemradio</code></a>,
+      <a><code>tab</code></a> or <a><code>treeitem</code></a>
+    </dd>
     <dt>Allowed <a>ARIA state and property attributes</a>:</dt>
     <dd><a>Global aria-* attributes</a></dd>
     <dd>Any <code>aria-*</code> attributes
@@ -1904,180 +1927,141 @@ spec:url; type:dfn; for:url; text:url
     </dd>
   </dl>
 
-  If the <code>a</code> element has an <code>href</code> attribute,
-  then it <a>represents</a> a <a>hyperlink</a> (a hypertext anchor) labeled by its
-  contents.
+  If the <code>a</code> element has an <code>href</code> attribute, then it <a>represents</a> a
+  <a>hyperlink</a> (a hypertext anchor) labeled by its contents.
 
 
 
-  If the <code>a</code> element has no <code>href</code> attribute,
-  then the element <a>represents</a> a placeholder for where a link might otherwise have been
-  placed, if it had been relevant, consisting of just the element's contents.
+  If the <code>a</code> element has no <code>href</code> attribute, then the element
+  <a>represents</a> a placeholder for where a link might otherwise have been placed, if it had been
+  relevant, consisting of just the element's contents.
 
-  The <code>target</code>,
-  <code>download</code>,
-  <code>rel</code>,
-  <code>hreflang</code>, and
-  <code>type</code>
-  attributes must be omitted if the <code>href</code> attribute is not
-  present.
+  The <code>target</code>, <code>download</code>, <code>rel</code>, <code>hreflang</code>, and
+  <code>type</code> attributes must be omitted if the <code>href</code> attribute is not present.
 
-  If the <code>itemprop</code> attribute is specified on an <code>a</code> element,
-  then the <code>href</code> attribute must also be specified.
+  If the <code>itemprop</code> attribute is specified on an <code>a</code> element, then the
+  <code>href</code> attribute must also be specified.
 
   <div class="example">
 
     If a site uses a consistent navigation toolbar on every page, then the link that would
     normally link to the page itself could be marked up using an <code>a</code> element:
 
-    <pre highlight="html">&lt;nav&gt;
-  &lt;ul&gt;
-  &lt;li&gt; &lt;a href="/"&gt;Home&lt;/a&gt; &lt;/li&gt;
-  &lt;li&gt; &lt;a href="/news"&gt;News&lt;/a&gt; &lt;/li&gt;
-  &lt;li&gt; &lt;a&gt;Examples&lt;/a&gt; &lt;/li&gt;
-  &lt;li&gt; &lt;a href="/legal"&gt;Legal&lt;/a&gt; &lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/nav&gt;
-</pre>
-
+    <pre highlight="html">
+      &lt;nav&gt;
+        &lt;ul&gt;
+          &lt;li&gt; &lt;a href="/"&gt;Home&lt;/a&gt; &lt;/li&gt;
+          &lt;li&gt; &lt;a href="/news"&gt;News&lt;/a&gt; &lt;/li&gt;
+          &lt;li&gt; &lt;a&gt;Examples&lt;/a&gt; &lt;/li&gt;
+          &lt;li&gt; &lt;a href="/legal"&gt;Legal&lt;/a&gt; &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/nav&gt;
+    </pre>
   </div>
 
   <div class="impl">
+    The <code>href</code>, <code>target</code>, <code>download</code>, and attributes affect what
+    happens when users <a>follow hyperlinks</a> or <a>download hyperlinks</a> created using the
+    <code>a</code> element. The <code>rel</code>, <code>hreflang</code>, and <code>type</code>
+    attributes may be used to indicate to the user the likely nature of the target resource before
+    the user follows the link.
 
-  The <code>href</code>, <code>target</code>, <code>download</code>, and
-  attributes affect what happens when users <a>follow
-  hyperlinks</a> or <a>download hyperlinks</a> created using
-  the <code>a</code> element. The <code>rel</code>, <code>hreflang</code>, and <code>type</code>
-  attributes may be used to indicate to the user the likely nature of the target resource before the
-  user follows the link.
+    The <a>activation behavior</a> of <code>a</code> elements that create <a>hyperlinks</a> is to
+    run the following steps:
 
-  The <a>activation behavior</a> of <code>a</code> elements that create <a>hyperlinks</a> is to run the following steps:
-
-  <ol>
-
-    <li>If the <code>a</code> element's <code>Document</code> is not <a>fully active</a>, then abort these steps.</li>
-
-    <li>
-
-    If either the <code>a</code> element has a <code>download</code> attribute and the algorithm is not <a>allowed
-    to show a popup</a>, or the element's <code>target</code>
-    attribute is present and applying <a>the rules for choosing a browsing context given a
-    browsing context name</a>, using the value of the <code>target</code> attribute as the browsing context name, would result
-    in there not being a chosen browsing context, then run these substeps:
-
-    <ol>
-
-      <li>If there is an <a>entry settings object</a>, throw an
-      <code>InvalidAccessError</code> exception.</li>
-
-      <li>Abort these steps without following the hyperlink.</li>
-
-    </ol>
-
-    </li>
-
-    <li>If the target of the <code>click</code> event is an <code>img</code>
-    element with an <code>ismap</code> attribute specified, then server-side
-    image map processing must be performed, as follows:
-
-    <ol>
-
-      <li>If the <code>click</code> event was a real pointing-device-triggered
-      <code>click</code> event on the <code>img</code> element, then let <var>x</var> be the distance in CSS pixels from the left edge of the image's left border,
-      if it has one, or the left edge of the image otherwise, to the location of the click, and let
-      <var>y</var> be the distance in CSS pixels from the top edge of the image's top
-      border, if it has one, or the top edge of the image otherwise, to the location of the click.
-      Otherwise, let <var>x</var> and <var>y</var> be zero.</li>
-
-      <li>Let <var>hyperlink suffix</var> be a U+003F QUESTION MARK character, the value of
-      <var>x</var> expressed as a base-ten integer using <a>ASCII digits</a>, a U+002C COMMA
-      character (,), and the value of <var>y</var> expressed as a base-ten integer using <a>ASCII
-      digits</a>.</li>
-
-    </ol>
-
-    </li>
-
-    <li>Finally, the user agent must <a>follow the
-    hyperlink</a> or <a>download the hyperlink</a> created
-    by the <code>a</code> element, as determined by the <code>download</code> attribute and any expressed user preference,
-    passing <var>hyperlink suffix</var>, if the steps above defined it.</li>
-
-  </ol>
-
+    1. If the <code>a</code> element's <code>Document</code> is not <a>fully active</a>, then abort
+        these steps.
+    2. If either the <code>a</code> element has a <code>download</code> attribute and the algorithm
+        is not <a>allowed to show a popup</a>, or the element's <code>target</code> attribute is
+        present and applying
+        <a>the rules for choosing a browsing context given a browsing context name</a>, using the
+        value of the <code>target</code> attribute as the browsing context name, would result
+        in there not being a chosen browsing context, then run these substeps:
+        1. If there is an <a>entry settings object</a>, throw an <code>InvalidAccessError</code>
+            exception.
+        2. Abort these steps without following the hyperlink.
+    3. If the target of the <code>click</code> event is an <code>img</code> element with an
+        <code>ismap</code> attribute specified, then server-side image map processing must be
+        performed, as follows:
+        1. If the <code>click</code> event was a real pointing-device-triggered <code>click</code>
+            event on the <code>img</code> element, then let <var>x</var> be the distance in CSS
+            pixels from the left edge of the image's left border, if it has one, or the left edge of
+            the image otherwise, to the location of the click, and let <var>y</var> be the distance
+            in CSS pixels from the top edge of the image's top border, if it has one, or the top
+            edge of the image otherwise, to the location of the click. Otherwise, let <var>x</var>
+            and <var>y</var> be zero.
+        2. Let <var>hyperlink suffix</var> be a U+003F QUESTION MARK character, the value of
+            <var>x</var> expressed as a base-ten integer using <a>ASCII digits</a>, a U+002C COMMA
+            character (,), and the value of <var>y</var> expressed as a base-ten integer using
+            <a>ASCII digits</a>.
+    4. Finally, the user agent must <a>follow the hyperlink</a> or <a>download the hyperlink</a>
+        created by the <code>a</code> element, as determined by the <code>download</code> attribute
+        and any expressed user preference, passing <var>hyperlink suffix</var>, if the steps above
+        defined it.
   </div>
 
   <dl class="domintro">
-
     <dt><var>a</var> . <code>text</code></dt>
-
-    <dd>
-
-    Same as <code>textContent</code>.
-
-    </dd>
-
+    <dd>Same as <code>textContent</code>.</dd>
   </dl>
 
   <div class="impl">
+    The IDL attributes <dfn><code>download</code></dfn>, <dfn><code>ping</code></dfn>,
+    <dfn><code>target</code></dfn>, <dfn><code>rel</code></dfn>, <dfn><code>rev</code></dfn>,
+    <dfn><code>hreflang</code></dfn>, and <dfn><code>type</code></dfn>, must <a>reflect</a> the
+    respective content attributes of the same name.
 
-  The IDL attributes <dfn><code>download</code></dfn>, <dfn><code>ping</code></dfn>, <dfn><code>target</code></dfn>,
-  <dfn><code>rel</code></dfn>, <dfn><code>rev</code></dfn>, <dfn><code>hreflang</code></dfn>, and <dfn><code>type</code></dfn>, must <a>reflect</a> the respective content
-  attributes of the same name.
+    The IDL attribute <dfn><code>relList</code></dfn> must <a>reflect</a> the <code>rel</code>
+    content attribute.
 
-  The IDL attribute <dfn><code>relList</code></dfn> must
-  <a>reflect</a> the <code>rel</code> content attribute.
+    The <dfn><code>text</code></dfn> IDL attribute, on getting, must return the same value as the
+    <code>textContent</code> IDL attribute on the element, and on setting, must act as if the
+    <code>textContent</code> IDL attribute on the element had been set to the new value.
 
-  The <dfn><code>text</code></dfn> IDL attribute, on getting, must return the
-  same value as the <code>textContent</code> IDL attribute on the element, and on setting, must act
-  as if the <code>textContent</code> IDL attribute on the element had been set to the new value.
+    <hr />
 
-  <hr>
+    The <code>a</code> element also supports the <code>URLUtils</code> interface. [[!URL]]
 
-  The <code>a</code> element also supports the <code>URLUtils</code> interface. [[!URL]]
+    When the element is created, and whenever the element's <code>href</code> content attribute is
+    set, changed, or removed, the user agent must invoke the element's <code>URLUtils</code>
+    interface's <a>set the input</a> algorithm with the value of the <code>href</code> content
+    attribute, if any, or the empty string otherwise, as the given value.
 
-  When the element is created, and whenever the element's <code>href</code> content attribute is set, changed, or removed, the user
-  agent must invoke the element's <code>URLUtils</code> interface's <a>set the input</a> algorithm with the value of the <code>href</code> content attribute, if any, or the empty string otherwise,
-  as the given value.
+    The element's <code>URLUtils</code> interface's <a>get the base</a> algorithm must simply return
+    <a>the element's base URL</a>.
 
-  The element's <code>URLUtils</code> interface's <a>get the
-  base</a> algorithm must simply return <a>the element's base URL</a>.
+    The element's <code>URLUtils</code> interface's <a>query encoding</a> is the
+    <a>document's character encoding</a>.
 
-  The element's <code>URLUtils</code> interface's <a>query
-  encoding</a> is the <a>document's character encoding</a>.
-
-  When the element's <code>URLUtils</code> interface invokes its <a>update steps</a> with a string <var>value</var>, the user
-  agent must set the element's <code>href</code> content attribute to
-  the string <var>value</var>.
-
+    When the element's <code>URLUtils</code> interface invokes its <a>update steps</a> with a string
+    <var>value</var>, the user agent must set the element's <code>href</code> content attribute to
+    the string <var>value</var>.
   </div>
 
   <div class="example">
+    The <code>a</code> element may be wrapped around entire paragraphs, lists, tables, and so forth,
+    even entire sections, so long as there is no interactive content within (e.g. buttons or other
+    links). This example shows how this can be used to make an entire advertising block into a link:
 
-    The <code>a</code> element may be wrapped around entire paragraphs, lists, tables, and so
-    forth, even entire sections, so long as there is no interactive content within (e.g. buttons or
-    other links). This example shows how this can be used to make an entire advertising block into a
-    link:
-
-    <pre highlight="html">&lt;aside class="advertising"&gt;
-  &lt;h1&gt;Advertising&lt;/h1&gt;
-  &lt;a href="http://ad.example.com/?adid=1929&amp;amp;pubid=1422"&gt;
-  &lt;section&gt;
-    &lt;h1&gt;Mellblomatic 9000!&lt;/h1&gt;
-    &lt;p&gt;Turn all your widgets into mellbloms!&lt;/p&gt;
-    &lt;p&gt;Only $9.99 plus shipping and handling.&lt;/p&gt;
-  &lt;/section&gt;
-  &lt;/a&gt;
-  &lt;a href="http://ad.example.com/?adid=375&amp;amp;pubid=1422"&gt;
-  &lt;section&gt;
-    &lt;h1&gt;The Mellblom Browser&lt;/h1&gt;
-    &lt;p&gt;Web browsing at the speed of light.&lt;/p&gt;
-    &lt;p&gt;No other browser goes faster!&lt;/p&gt;
-  &lt;/section&gt;
-  &lt;/a&gt;
-&lt;/aside&gt;
-</pre>
-
+    <pre highlight="html">
+      &lt;aside class="advertising"&gt;
+        &lt;h1&gt;Advertising&lt;/h1&gt;
+        &lt;a href="http://ad.example.com/?adid=1929&amp;amp;pubid=1422"&gt;
+        &lt;section&gt;
+          &lt;h1&gt;Mellblomatic 9000!&lt;/h1&gt;
+          &lt;p&gt;Turn all your widgets into mellbloms!&lt;/p&gt;
+          &lt;p&gt;Only $9.99 plus shipping and handling.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;/a&gt;
+        &lt;a href="http://ad.example.com/?adid=375&amp;amp;pubid=1422"&gt;
+        &lt;section&gt;
+          &lt;h1&gt;The Mellblom Browser&lt;/h1&gt;
+          &lt;p&gt;Web browsing at the speed of light.&lt;/p&gt;
+          &lt;p&gt;No other browser goes faster!&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;/a&gt;
+      &lt;/aside&gt;
+    </pre>
   </div>
 
 <h4 id="the-em-element">The <dfn><code>em</code></dfn> element</h4>
@@ -2115,7 +2099,6 @@ spec:url; type:dfn; for:url; text:url
   language.
 
   <div class="example">
-
     These examples show how changing the stress emphasis changes the meaning. First, a general
     statement of fact, with no stress:
 
@@ -2150,20 +2133,15 @@ spec:url; type:dfn; for:url; text:url
     Anger mixed with emphasizing the cuteness could lead to markup such as:
 
     <pre highlight="html">&lt;p&gt;&lt;em&gt;Cats are &lt;em&gt;cute&lt;/em&gt; animals!&lt;/em&gt;&lt;/p&gt;</pre>
-
   </div>
 
   <div class="note">
-
     The <code>em</code> element isn't a generic "italics" element. Sometimes, text is intended to
     stand out from the rest of the paragraph, as if it was in a different mood or voice. For this,
     the <code>i</code> element is more appropriate.
 
     The <code>em</code> element also isn't intended to convey importance; for that purpose, the
     <code>strong</code> element is more appropriate.
-
-
-
   </div>
 
 <h4 id="the-strong-element">The <dfn><code>strong</code></dfn> element</h4>
