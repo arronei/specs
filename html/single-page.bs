@@ -569,7 +569,7 @@ spec:url; type:dfn; for:url; text:url
 
   The DOM, the HTML syntax, and the XHTML syntax cannot all represent the same content. For
   example, namespaces cannot be represented using the HTML syntax, but they are supported in the
-  DOM and in the XHTML syntax. Similarly, documents that use the <code>noscript</code> feature can
+  DOM and in the XHTML syntax. Similarly, documents that use the <{noscript}> feature can
   be represented using the HTML syntax, but cannot be represented with the DOM or in the XHTML
   syntax. Comments that contain the string "<code>--&gt;</code>" can only be represented in the
   DOM, not in the HTML and XHTML syntaxes.
@@ -676,8 +676,8 @@ spec:url; type:dfn; for:url; text:url
 
     <pre class="css" highlight="css">/* this is a CSS fragment */</pre>
 
-    The defining instance of a term is marked up like <dfn>this</dfn>. Uses of that
-    term are marked up like <a>this</a> or like <i>this</i>.
+    The defining instance of a term is marked up like <dfn>this</dfn>. Uses of that term are marked
+    up like <a>this</a> or like <i>this</i>.
 
     The defining instance of an element, attribute, or API is marked up like
     <dfn><code>this</code></dfn>. References to that element, attribute, or API are marked up like
@@ -753,8 +753,8 @@ spec:url; type:dfn; for:url; text:url
   via a brute force search, which fonts a user has installed, information which can vary
   considerably from user to user.)
 
-  Features in this specification which can be <dfn id="fingerprinting-vector">used to fingerprint
-  the user</dfn> are marked as this paragraph is.
+  Features in this specification which can be
+  <dfn id="fingerprinting-vector">used to fingerprint the user</dfn> are marked as this paragraph is.
   <a class="fingerprint" href="#fingerprinting-vector"><img height="21" src="images/fingerprint.png" width="15" alt="(This is a fingerprinting vector.)" /></a>
 
   Other features in the platform can be used for the same purpose, though, including, though not
@@ -801,7 +801,7 @@ spec:url; type:dfn; for:url; text:url
   ways in which the elements can be nested.
 
   Elements can have attributes, which control how the elements work. In the example below, there
-  is a <a>hyperlink</a>, formed using the <code>a</code> element and its <code>href</code>
+  is a <a>hyperlink</a>, formed using the <{a}> element and its <{a/href}>
   attribute:
 
   <pre highlight="html">&lt;a href="demo.html">simple&lt;/a></pre>
@@ -836,10 +836,10 @@ spec:url; type:dfn; for:url; text:url
   <ul class="domTree">
     <li class="t10">DOCTYPE: <code>html</code></li>
     <li class="t1">
-      <code>html</code>
+      <{html}>
       <ul>
         <li class="t1">
-          <code>head</code>
+          <{head}>
           <ul>
             <li class="t3"><code>#text</code>: <span>&#x23CE;&#x2423;&#x2423;</span></li>
             <li class="t1">
@@ -853,22 +853,22 @@ spec:url; type:dfn; for:url; text:url
         </li>
         <li class="t3"><code>#text</code>: <span>&#x23CE;&#x2423;</span></li>
         <li class="t1">
-          <code>body</code>
+          <{body}>
           <ul>
             <li class="t3"><code>#text</code>: <span>&#x23CE;&#x2423;&#x2423;</span></li>
             <li class="t1">
-              <code>h1</code>
+              <{h1}>
               <ul>
                 <li class="t3"><code>#text</code>: <span>Sample page</span></li>
               </ul>
             </li>
             <li class="t3"><code>#text</code>: <span>&#x23CE;&#x2423;&#x2423;</span></li>
             <li class="t1">
-              <code>p</code>
+              <{p}>
               <ul>
                 <li class="t3"><code>#text</code>: <span>This is a</span></li>
                 <li class="t1">
-                  <code>a</code> <span class="t2"><code>href</code>="<code>demo.html</code>"</span>
+                  <{a}> <span class="t2"><{a/href}>="<code>demo.html</code>"</span>
                   <ul>
                     <li class="t3"><code>#text</code>: <span>simple</span></li>
                   </ul>
@@ -897,7 +897,7 @@ spec:url; type:dfn; for:url; text:url
   the whitespace after the <{body}> end tag ends up placed at the end of the <{body}>.
 
   The <{head}> element contains a <{title}> element, which itself contains a <code>Text</code> node
-  with the text "Sample page". Similarly, the <{body}> element contains an {{h1}} element, a <{p}>
+  with the text "Sample page". Similarly, the <{body}> element contains an <{h1}> element, a <{p}>
   element, and a comment.
 
   <hr />
@@ -1025,12 +1025,10 @@ spec:url; type:dfn; for:url; text:url
       * When allowing harmless-seeming elements like <{img}>, it is important to safelist any
         provided attributes as well. If one allowed all attributes then an attacker could, for
         instance, use the <{img/onload}> attribute to run arbitrary script.
-
       * When allowing URLs to be provided (e.g. for links), the scheme of each URL also needs to be
         explicitly safelisted, as there are many schemes that can be abused. The most prominent
         example is "<code>javascript:</code>", but user agents can implement (and indeed, have
         historically implemented) others.
-
       * Allowing a <{base}> element to be inserted means any <{script}> elements in the page with
         relative links can be hijacked, and similarly that any form submissions can get redirected
         to a hostile site.
@@ -1059,7 +1057,7 @@ spec:url; type:dfn; for:url; text:url
 
         To avoid this, sites that do not expect to be used in frames are encouraged to only enable
         their interface if they detect that they are not in a frame (e.g. by comparing the
-        <code>window</code> object to the value of the <code>top</code> attribute).
+        {{window}} object to the value of the <code>top</code> attribute).
 
 <h4 id="common-pitfalls-to-avoid-when-using-the-scripting-apis">
   Common pitfalls to avoid when using the scripting APIs
@@ -1103,7 +1101,7 @@ spec:url; type:dfn; for:url; text:url
       &lt;/script>
     </pre>
 
-    However, if the author first created the <code>img</code> element and then in a separate
+    However, if the author first created the <{img}> element and then in a separate
     script added the event listeners, there's a chance that the <code>load</code> event would be
     fired in between, leading it to be missed:
 
@@ -1241,7 +1239,7 @@ spec:url; type:dfn; for:url; text:url
 
         <ul class="domTree">
           <li class="t1">
-            <code>p</code>
+            <{p}>
             <ul>
               <li class="t1">
                 <code>i</code>
@@ -4870,11 +4868,11 @@ spec:url; type:dfn; for:url; text:url
   The <dfn>document base URL</dfn> of a <code>Document</code> object is the <a>absolute URL</a>
   obtained by running these substeps:
 
-  1. If there is no <code>base</code> element that has an <code>href</code> attribute in the
-      <code>Document</code>, then the <a>document base URL</a> is the <code>Document</code>'s
+  1. If there is no <{base}> element that has an <{base/href}> attribute in the
+      <{Document}>, then the <a>document base URL</a> is the <code>Document</code>'s
       <a>fallback base URL</a>; abort these steps.
   2. Otherwise, the <a>document base URL</a> is the <a>frozen base URL</a> of the first
-      <code>base</code> element in the <code>Document</code> that has an <code>href</code>
+      <{base}> element in the <{Document}> that has an <{base/href}>
       attribute, in <a>tree order</a>.
 
   <div class="impl">
@@ -4943,7 +4941,7 @@ spec:url; type:dfn; for:url; text:url
       <dt>If the element creates a <a>hyperlink</a></dt>
       <dd>
         If the <a>absolute URL</a> identified by the hyperlink is being shown to the user, or if any
-        data derived from that URL is affecting the display, then the <code>href</code> attribute
+        data derived from that URL is affecting the display, then the <{a/href}> attribute
         should be <a>re-resolved</a> relative to the element and the UI updated appropriately.
 
         <p class="example">
@@ -5650,7 +5648,7 @@ spec:url; type:dfn; for:url; text:url
     The object's <a>supported property indices</a> are as defined for <code>HTMLCollection</code>
     objects.
 
-    The following elements are <dfn>"all"-named elements</dfn>: <code>a</code>, <code>applet</code>,
+    The following elements are <dfn>"all"-named elements</dfn>: <{a}>, <code>applet</code>,
     <code>button</code>, <code>embed</code>, <code>form</code>, <code>frame</code>,
     <code>frameset</code>, <code>iframe</code>, <code>img</code>, <code>input</code>,
     <code>map</code>, <code>meta</code>, <code>object</code>, <code>select</code>, and
@@ -6814,8 +6812,8 @@ spec:url; type:dfn; for:url; text:url
 
     <dt><var>document</var> . <code>links</code></dt>
     <dd>
-      Returns an <code>HTMLCollection</code> of the <code>a</code> and <code>area</code> elements in
-      the <code>Document</code> that have <code>href</code> attributes.
+      Returns an <code>HTMLCollection</code> of the <{a}> and <code>area</code> elements in
+      the <code>Document</code> that have <{a/href}> attributes.
     </dd>
 
     <dt><var>document</var> . <code>forms</code></dt>
@@ -6843,8 +6841,8 @@ spec:url; type:dfn; for:url; text:url
     the <code>embeds</code> attribute.
 
     The <dfn><code>links</code></dfn> attribute must return an <code>HTMLCollection</code> rooted at
-    the <code>Document</code> node, whose filter matches only <code>a</code> elements with
-    <code>href</code> attributes and <code>area</code> elements with <code>href</code> attributes.
+    the <code>Document</code> node, whose filter matches only <{a}> elements with
+    <{a/href}> attributes and <{area}> elements with <{area/href}> attributes.
 
     The <dfn><code>forms</code></dfn> attribute must return an <code>HTMLCollection</code> rooted at
     the <code>Document</code> node, whose filter matches only <code>form</code> elements.
@@ -7405,7 +7403,7 @@ spec:url; type:dfn; for:url; text:url
   <dfn>flow content</dfn>.
 
   <ul class="brief category-list">
-    <li><code>a</code></li>
+    <li><{a}></li>
     <li><code>abbr</code></li>
     <li><code>address</code></li>
     <li><code>area</code> (if it is a descendant of a <code>map</code> element)</li>
@@ -7535,7 +7533,7 @@ spec:url; type:dfn; for:url; text:url
   text at the intra-paragraph level. Runs of <a>phrasing content</a> form <a>paragraphs</a>.
 
   <ul class="brief category-list">
-    <li><code>a</code></li>
+    <li><{a}></li>
     <li><code>abbr</code></li>
     <li><code>area</code> (if it is a descendant of a <code>map</code> element)</li>
     <li><code>audio</code></li>
@@ -7643,7 +7641,7 @@ spec:url; type:dfn; for:url; text:url
   <dfn>Interactive content</dfn> is content that is specifically intended for user interaction.
 
   <ul class="brief category-list">
-    <li><code>a</code></li>
+    <li><{a}></li>
     <li><code>audio</code> (if the <code>controls</code> attribute is present)</li>
     <li><code>button</code></li>
     <li><code>details</code></li>
@@ -7689,7 +7687,7 @@ spec:url; type:dfn; for:url; text:url
   The following elements are palpable content:
 
   <ul class="brief category-list">
-    <li><code>a</code></li>
+    <li><{a}></li>
     <li><code>abbr</code></li>
     <li><code>address</code></li>
     <li><code>article</code></li>
@@ -7809,8 +7807,8 @@ spec:url; type:dfn; for:url; text:url
 
     <pre highlight="html">&lt;p>&lt;object>&lt;param>&lt;ins>&lt;map>&lt;a href="/">Apples&lt;/a>&lt;/map>&lt;/ins>&lt;/object>&lt;/p></pre>
 
-    To check whether "Apples" is allowed inside the <code>a</code> element, the content models are
-    examined. The <code>a</code> element's content model is transparent, as is the <code>map</code>
+    To check whether "Apples" is allowed inside the <{a}> element, the content models are
+    examined. The <{a}> element's content model is transparent, as is the <code>map</code>
     element's, as is the <code>ins</code> element's, as is the part of the <code>object</code>
     element's in which the <code>ins</code> element is found. The <code>object</code> element is
     found in the <code>p</code> element, whose content model is <a>phrasing content</a>. Thus,
@@ -7850,7 +7848,7 @@ spec:url; type:dfn; for:url; text:url
   </div>
 
   Paragraphs in <a>flow content</a> are defined relative to what the document looks like without the
-  <code>a</code>, <code>ins</code>, <code>del</code>, and <code>map</code> elements complicating
+  <{a}>, <code>ins</code>, <code>del</code>, and <code>map</code> elements complicating
   matters, since those elements, with their hybrid content models, can straddle paragraph
   boundaries, as shown in the first two examples below.
 
@@ -7878,7 +7876,7 @@ spec:url; type:dfn; for:url; text:url
   </div>
 
   <div class="impl">
-    Let <var>view</var> be a view of the DOM that replaces all <code>a</code>, <code>ins</code>,
+    Let <var>view</var> be a view of the DOM that replaces all <{a}>, <code>ins</code>,
     <code>del</code>, and <code>map</code> elements in the document with their
     <a>contents</a>. Then, in <var>view</var>, for each run of sibling <a>phrasing content</a>
     nodes uninterrupted by other types of content, in an element that accepts content other than
@@ -7887,7 +7885,7 @@ spec:url; type:dfn; for:url; text:url
     consists of at least one node that is neither <a>embedded content</a> nor
     <a>inter-element whitespace</a>, a paragraph exists in the original DOM from immediately before
     <var>first</var> to immediately after <var>last</var>. (Paragraphs can thus span across
-    <code>a</code>, <code>ins</code>, <code>del</code>, and <code>map</code> elements.)
+    <{a}>, <code>ins</code>, <code>del</code>, and <code>map</code> elements.)
 
     Conformance checkers may warn authors of cases where they have paragraphs that overlap each
     other (this can happen with <code>object</code>, <code>video</code>, <code>audio</code>, and
@@ -8378,7 +8376,7 @@ spec:url; type:dfn; for:url; text:url
   * <code>alt</code> on <code>area</code>, <code>img</code>, and <code>input</code> elements
   * <code>content</code> on <code>meta</code> elements, if the <code>name</code> attribute specifies
     a metadata name whose value is known to be translatable
-  * <code>download</code> on <code>a</code> and <code>area</code> elements
+  * <code>download</code> on <{a}> and <code>area</code> elements
   * <code>label</code> on <code>menuitem</code>, <code>menu</code>, <code>optgroup</code>,
     <code>option</code>, and <code>track</code> elements
   * <code>lang</code> on <a>HTML elements</a>; must be "translated" to match the language used in
@@ -9589,7 +9587,7 @@ spec:url; type:dfn; for:url; text:url
     </thead>
     <tbody>
       <tr>
-        <td><code>a</code> element that creates a <a>hyperlink</a></td>
+        <td><{a}> element that creates a <a>hyperlink</a></td>
         <td><code>link</code> role</td>
         <td>
           If specified, role must be one of the following: <code>link</code>, <code>button</code>,
@@ -9935,10 +9933,10 @@ spec:url; type:dfn; for:url; text:url
 
     Conformance checkers are encouraged to phrase errors such that authors are encouraged to use
     more appropriate elements rather than remove accessibility annotations. For example, if an
-    <code>a</code> element is marked as having the <code>button</code> role, a conformance checker
+    <{a}> element is marked as having the <code>button</code> role, a conformance checker
     could say "Use a more appropriate element to represent a button, for example a
     <code>button</code> element or an <code>input</code> element" rather than "The
-    <code>button</code> role cannot be used with <code>a</code> elements".
+    <code>button</code> role cannot be used with <{a}> elements".
   </div>
 
   <div class="example">
@@ -11123,30 +11121,30 @@ spec:url; type:dfn; for:url; text:url
 
   There must be no more than one <code>base</code> element per document.
 
-  A <code>base</code> element must have either an <code>href</code> attribute, a <code>target</code>
+  A <code>base</code> element must have either an <{base/href}> attribute, a <code>target</code>
   attribute, or both.
 
-  The <dfn><code>href</code></dfn> content attribute, if specified, must contain a <a>valid URL
+  The <dfn element-attr for="base"><code>href</code></dfn> content attribute, if specified, must contain a <a>valid URL
   potentially surrounded by spaces</a>.
 
-  A <code>base</code> element, if it has an <code>href</code> attribute, must come before any other
+  A <code>base</code> element, if it has an <{base/href}> attribute, must come before any other
   elements in the tree that have attributes defined as taking <a>URLs</a>, except the
   <code>html</code> element (its <code>manifest</code> attribute isn't affected by
   <code>xml:base</code> attributes or <code>base</code> elements).
 
   <div class="impl">
     <p class="note">
-      If there are multiple <code>base</code> elements with <code>href</code> attributes, all but
+      If there are multiple <code>base</code> elements with <{base/href}> attributes, all but
       the first are ignored.
     </p>
   </div>
 
-  The <dfn><code>target</code></dfn> attribute, if specified, must contain a <a>valid browsing
+  The <dfn element-attr for="base"><code>target</code></dfn> attribute, if specified, must contain a <a>valid browsing
   context name or keyword</a>, which specifies which <a>browsing context</a> is to be used as the
-  default when <a>hyperlinks</a> and <a>forms</a> in the <code>Document</code> cause
+  default when <a>hyperlinks</a> and <a>forms</a> in the <{Document}> cause
   <a>navigation</a>.
 
-  A <code>base</code> element, if it has a <code>target</code> attribute, must come before any
+  A <{base}> element, if it has a <code>target</code> attribute, must come before any
   elements in the tree that represent <a>hyperlinks</a>.
 
   <div class="impl">
@@ -11156,39 +11154,39 @@ spec:url; type:dfn; for:url; text:url
     </p>
 
     A <code>base</code> element that is the first <code>base</code> element with an
-    <code>href</code> content attribute in a particular <code>Document</code> has a
+    <{base/href}> content attribute in a particular <code>Document</code> has a
     <dfn>frozen base URL</dfn>. The <a>frozen base URL</a> must be <a>immediately</a> <a>set</a>
     whenever any of the following situations occur:
 
     * The <code>base</code> element becomes the first <code>base</code> element in <a>tree order</a>
-        with an <code>href</code> content attribute in its <code>Document</code>.
+        with an <{base/href}> content attribute in its <code>Document</code>.
 
     * The <code>base</code> element is the first <code>base</code> element in <a>tree order</a> with
-        an <code>href</code> content attribute in its <code>Document</code>, and its
-        <code>href</code> content attribute is changed.
+        an <{base/href}> content attribute in its <code>Document</code>, and its
+        <{base/href}> content attribute is changed.
 
     To <dfn>set the frozen base URL</dfn>, <a>resolve</a> the value of the element's
-    <code>href</code> content attribute relative to the <code>Document</code>'s
+    <{base/href}> content attribute relative to the <code>Document</code>'s
     <a>fallback base URL</a>; if this is successful, set the <a>frozen base URL</a> to the
     <a>resulting absolute URL</a>, otherwise, set the <a>frozen base URL</a> to the
     <a>fallback base URL</a>.
 
-    The <dfn><code>href</code></dfn> IDL attribute, on getting, must return the result of running
+    The {{base/href}} IDL attribute, on getting, must return the result of running
     the following algorithm:
 
-    1. If the <code>base</code> element has no <code>href</code> content attribute, then return the
+    1. If the <code>base</code> element has no <{base/href}> content attribute, then return the
         <a>document base URL</a> and abort these steps.
     2. Let <var>fallback base url</var> be the <code>Document</code>'s <a>fallback base URL</a>.
-    3. Let <var>url</var> be the value of the <code>href</code> attribute of the <code>base</code>
+    3. Let <var>url</var> be the value of the <{base/href}> attribute of the <code>base</code>
         element.
     4. <a>Resolve</a> <var>url</var> relative to <var>fallback base url</var> (thus, the
-        <code>base</code>'s <code>href</code> attribute isn't affected by other <code>base</code>
+        <code>base</code>'s <{base/href}> attribute isn't affected by other <code>base</code>
         elements).
     5. If the previous step was successful, return the resulting <a>absolute URL</a> and abort these
         steps.
     6. Otherwise, return the empty string.
 
-    The <code>href</code> IDL attribute, on setting, must set the <code>href</code> content
+    The {{base/href}} IDL attribute, on setting, must set the <{base/href}> content
     attribute to the given new value.
 
     The <dfn><code>target</code></dfn> IDL attribute must <a>reflect</a> the content attribute of
@@ -11277,12 +11275,12 @@ spec:url; type:dfn; for:url; text:url
 
   The <code>link</code> element allows authors to link their document to other resources.
 
-  The destination of the link(s) is given by the <dfn><code>href</code></dfn> attribute, which must
+  The destination of the link(s) is given by the <dfn element-attr for="link"><code>href</code></dfn> attribute, which must
   be present and must contain a <a>valid non-empty URL potentially surrounded by spaces</a>.
-  <span class="impl">If the <code>href</code> attribute is absent, then the element does not define
+  <span class="impl">If the <{link/href}> attribute is absent, then the element does not define
   a link.</span>
 
-  A <code>link</code> element must have either a <code>rel</code> attribute or an
+  A <{link}> element must have either a <code>rel</code> attribute or an
   <code>itemprop</code> attribute, but not both.
 
   <p class="note">
@@ -11341,8 +11339,8 @@ spec:url; type:dfn; for:url; text:url
     not applied. To <dfn>obtain the resource</dfn>, the user agent must
     run the following steps:
 
-    1. If the <code>href</code> attribute's value is the empty string, then abort these steps.
-    2. <a>Resolve</a> the <a>URL</a> given by the <code>href</code> attribute, relative to the
+    1. If the <{link/href}> attribute's value is the empty string, then abort these steps.
+    2. <a>Resolve</a> the <a>URL</a> given by the <{link/href}> attribute, relative to the
         element.
     3. If the previous step fails, then abort these steps.
     4. Let <var>corsAttributeState</var> be the current state of the element's
@@ -11387,7 +11385,7 @@ spec:url; type:dfn; for:url; text:url
     * The relationship between this document and the resource (given by the <code>rel</code>
         attribute)
     * The title of the resource (given by the <code>title</code> attribute).
-    * The address of the resource (given by the <code>href</code> attribute).
+    * The address of the resource (given by the <{link/href}> attribute).
     * The language of the resource (given by the <code>hreflang</code> attribute).
     * The optimum media for the resource (given by the <code>media</code> attribute).
 
@@ -11397,7 +11395,7 @@ spec:url; type:dfn; for:url; text:url
 
   <p class="note">
     Hyperlinks created with the <code>link</code> element and its <code>rel</code> attribute apply
-    to the whole page. This contrasts with the <code>rel</code> attribute of <code>a</code> and
+    to the whole page. This contrasts with the <code>rel</code> attribute of <{a}> and
     <code>area</code> elements, which indicates the type of a link whose context is given by the
     link's location within the document.
   </p>
@@ -11425,7 +11423,7 @@ spec:url; type:dfn; for:url; text:url
   by default links apply to all media.
 
   The <dfn><code>hreflang</code></dfn> attribute on the <code>link</code> element has the same
-  semantics as the <a><code>hreflang</code> attribute on the <code>a</code> element</a>.
+  semantics as the <code>hreflang</code> attribute on the <{a}> element.
 
   The <dfn><code>type</code></dfn> attribute gives the <a>MIME type</a> of the linked resource. It
   is purely advisory. The value must be a <a>valid MIME type</a>.
@@ -11525,7 +11523,7 @@ spec:url; type:dfn; for:url; text:url
       and thus their semantics can be different from same-named HTML types.
     </p>
 
-    The IDL attributes <dfn><code>href</code></dfn>, <dfn><code>rel</code></dfn>,
+    The IDL attributes {{link/href}}, <dfn><code>rel</code></dfn>,
     <dfn><code>rev</code></dfn>, <dfn><code>media</code></dfn>, <dfn><code>hreflang</code></dfn>,
     <dfn><code>type</code></dfn>, and <dfn><code>sizes</code></dfn> each must <a>reflect</a> the
     respective content attributes of the same name.
@@ -12343,7 +12341,7 @@ spec:url; type:dfn; for:url; text:url
   content model must not have a <a>transparent</a> component.
 
   <p class="note">
-    This implies that scoped <code>style</code> elements cannot be children of, e.g., <code>a</code>
+    This implies that scoped <code>style</code> elements cannot be children of, e.g., <{a}>
     or <code>ins</code> elements, even when those are used as <a>flow content</a> containers.
   </p>
 
@@ -14705,7 +14703,7 @@ spec:url; type:dfn; for:url; text:url
       <code>h4</code>, <code>h5</code>, <code>h6</code>, <code>header</code>, <code>hr</code>,
       <code>main</code>, <code>menu</code>, <code>nav</code>, <code>ol</code>, <code>p</code>,
       <code>pre</code>, <code>section</code>, <code>table</code>, or <code>ul</code>, element, or if
-      there is no more content in the parent element and the parent element is not an <code>a</code>
+      there is no more content in the parent element and the parent element is not an <{a}>
       element.
     </dd>
     <dt>Allowed <a>ARIA role attribute</a> values:</dt>
@@ -15465,7 +15463,7 @@ spec:url; type:dfn; for:url; text:url
         <td class="eg">...</td>
       </tr>
       <tr>
-        <td><dfn><code>a</code></dfn> (U+0061)</td>
+        <td><dfn><{a}></dfn> (U+0061)</td>
         <td><dfn>lower-alpha</dfn></td>
         <td>Lowercase latin alphabet</td>
         <td class="eg"><samp>a.</samp></td>
@@ -15478,7 +15476,7 @@ spec:url; type:dfn; for:url; text:url
         <td class="eg">...</td>
       </tr>
       <tr>
-        <td><dfn><code>A</code></dfn> (U+0041)</td>
+        <td><dfn><{a}></dfn> (U+0041)</td>
         <td><dfn>upper-alpha</dfn></td>
         <td>Uppercase latin alphabet</td>
         <td class="eg"><samp>A.</samp></td>
@@ -16511,7 +16509,7 @@ spec:url; type:dfn; for:url; text:url
 
 <h3 id="textlevel-semantics">Text-level semantics</h3>
 
-<h4 id="the-a-element">The <dfn><code>a</code></dfn> element</h4>
+<h4 id="the-a-element">The <dfn for="a"><code>a</code></dfn> element</h4>
 
   <dl class="element">
     <dt><a>Categories</a>:</dt>
@@ -16571,25 +16569,25 @@ spec:url; type:dfn; for:url; text:url
     </dd>
   </dl>
 
-  If the <code>a</code> element has an <code>href</code> attribute, then it <a>represents</a> a
+  If the <{a}> element has an <{a/href}> attribute, then it <a>represents</a> a
   <a>hyperlink</a> (a hypertext anchor) labeled by its contents.
 
 
 
-  If the <code>a</code> element has no <code>href</code> attribute, then the element
+  If the <{a}> element has no <{a/href}> attribute, then the element
   <a>represents</a> a placeholder for where a link might otherwise have been placed, if it had been
   relevant, consisting of just the element's contents.
 
   The <code>target</code>, <code>download</code>, <code>rel</code>, <code>hreflang</code>, and
-  <code>type</code> attributes must be omitted if the <code>href</code> attribute is not present.
+  <code>type</code> attributes must be omitted if the <{a/href}> attribute is not present.
 
-  If the <code>itemprop</code> attribute is specified on an <code>a</code> element, then the
-  <code>href</code> attribute must also be specified.
+  If the <code>itemprop</code> attribute is specified on an <{a}> element, then the
+  <{a/href}> attribute must also be specified.
 
   <div class="example">
 
     If a site uses a consistent navigation toolbar on every page, then the link that would
-    normally link to the page itself could be marked up using an <code>a</code> element:
+    normally link to the page itself could be marked up using an <{a}> element:
 
     <pre highlight="html">
       &lt;nav&gt;
@@ -16604,18 +16602,18 @@ spec:url; type:dfn; for:url; text:url
   </div>
 
   <div class="impl">
-    The <code>href</code>, <code>target</code>, <code>download</code>, and attributes affect what
+    The <{a/href}>, <code>target</code>, <code>download</code>, and attributes affect what
     happens when users <a>follow hyperlinks</a> or <a>download hyperlinks</a> created using the
-    <code>a</code> element. The <code>rel</code>, <code>hreflang</code>, and <code>type</code>
+    <{a}> element. The <code>rel</code>, <code>hreflang</code>, and <code>type</code>
     attributes may be used to indicate to the user the likely nature of the target resource before
     the user follows the link.
 
-    The <a>activation behavior</a> of <code>a</code> elements that create <a>hyperlinks</a> is to
+    The <a>activation behavior</a> of <{a}> elements that create <a>hyperlinks</a> is to
     run the following steps:
 
-    1. If the <code>a</code> element's <code>Document</code> is not <a>fully active</a>, then abort
+    1. If the <{a}> element's <code>Document</code> is not <a>fully active</a>, then abort
         these steps.
-    2. If either the <code>a</code> element has a <code>download</code> attribute and the algorithm
+    2. If either the <{a}> element has a <code>download</code> attribute and the algorithm
         is not <a>allowed to show a popup</a>, or the element's <code>target</code> attribute is
         present and applying
         <a>the rules for choosing a browsing context given a browsing context name</a>, using the
@@ -16639,7 +16637,7 @@ spec:url; type:dfn; for:url; text:url
             character (,), and the value of <var>y</var> expressed as a base-ten integer using
             <a>ASCII digits</a>.
     4. Finally, the user agent must <a>follow the hyperlink</a> or <a>download the hyperlink</a>
-        created by the <code>a</code> element, as determined by the <code>download</code> attribute
+        created by the <{a}> element, as determined by the <code>download</code> attribute
         and any expressed user preference, passing <var>hyperlink suffix</var>, if the steps above
         defined it.
   </div>
@@ -16664,11 +16662,11 @@ spec:url; type:dfn; for:url; text:url
 
     <hr />
 
-    The <code>a</code> element also supports the <code>URLUtils</code> interface. [[!URL]]
+    The <{a}> element also supports the <code>URLUtils</code> interface. [[!URL]]
 
-    When the element is created, and whenever the element's <code>href</code> content attribute is
+    When the element is created, and whenever the element's <{a/href}> content attribute is
     set, changed, or removed, the user agent must invoke the element's <code>URLUtils</code>
-    interface's <a>set the input</a> algorithm with the value of the <code>href</code> content
+    interface's <a>set the input</a> algorithm with the value of the <{a/href}> content
     attribute, if any, or the empty string otherwise, as the given value.
 
     The element's <code>URLUtils</code> interface's <a>get the base</a> algorithm must simply return
@@ -16678,12 +16676,12 @@ spec:url; type:dfn; for:url; text:url
     <a>document's character encoding</a>.
 
     When the element's <code>URLUtils</code> interface invokes its <a>update steps</a> with a string
-    <var>value</var>, the user agent must set the element's <code>href</code> content attribute to
+    <var>value</var>, the user agent must set the element's <{a/href}> content attribute to
     the string <var>value</var>.
   </div>
 
   <div class="example">
-    The <code>a</code> element may be wrapped around entire paragraphs, lists, tables, and so forth,
+    The <{a}> element may be wrapped around entire paragraphs, lists, tables, and so forth,
     even entire sections, so long as there is no interactive content within (e.g. buttons or other
     links). This example shows how this can be used to make an entire advertising block into a link:
 
@@ -17322,7 +17320,7 @@ affected by the heat source (upper left) and the food source (lower right).&lt;/
     The <code>title</code> attribute of ancestor elements does not affect <code>dfn</code> elements.
   </p>
 
-  An <code>a</code> element that links to a <code>dfn</code> element represents an instance of the
+  An <{a}> element that links to a <code>dfn</code> element represents an instance of the
   term defined by the <code>dfn</code> element.
 
   <div class="example">
@@ -17338,7 +17336,7 @@ affected by the heat source (upper left) and the food source (lower right).&lt;/
       and so Hammond ordered the iris to be opened.&lt;/p&gt;
     </pre>
 
-    With the addition of an <code>a</code> element, the reference can be made explicit:
+    With the addition of an <{a}> element, the reference can be made explicit:
 
     <pre highlight="html">
       &lt;p&gt;The &lt;dfn <strong>id=gdo</strong>&gt;&lt;abbr title="Garage Door Opener"&gt;GDO&lt;/abbr&gt;&lt;/dfn&gt;
@@ -19794,7 +19792,7 @@ document.body.appendChild(wbr);
       </th><th>Example
     </th></tr></thead><tbody>
     <tr>
-      <td><code>a</code>
+      <td><{a}>
       </td><td>Hyperlinks
       </td><td><pre class="example">Visit my <strong>&lt;a href="drinks.html"&gt;drinks&lt;/a&gt;</strong> page.</pre>
 
@@ -22338,15 +22336,15 @@ was an English &lt;a href="/wiki/Music_hall"&gt;music hall&lt;/a&gt; singer, ...
 
   The <dfn><code>ismap</code></dfn>
   attribute, when used on an element that is a descendant of an
-  <code>a</code> element with an <code>href</code> attribute, indicates by its
+  <{a}> element with an <{a/href}> attribute, indicates by its
   presence that the element provides access to a server-side image
   map. This affects how events are handled on the corresponding
-  <code>a</code> element.
+  <{a}> element.
 
   The <code>ismap</code> attribute is a
   <a>boolean attribute</a>. The attribute must not be specified
-  on an element that does not have an ancestor <code>a</code> element
-  with an <code>href</code> attribute.
+  on an element that does not have an ancestor <{a}> element
+  with an <{a/href}> attribute.
 
   <p class="note">
     The <code>usemap</code> and
@@ -22529,7 +22527,7 @@ was an English &lt;a href="/wiki/Music_hall"&gt;music hall&lt;/a&gt; singer, ...
 
 <h6 id="a-link-or-button-containing-nothing-but-an-image">A link or button containing nothing but an image</h6>
 
-  When an <code>a</code> element that is a <a>hyperlink</a>, or a <code>button</code> element, has no text content
+  When an <{a}> element that is a <a>hyperlink</a>, or a <code>button</code> element, has no text content
   but contains one or more images, include text in the <code>alt</code> attribute(s) that together convey the purpose of the link or button.
 
   <div class="example">
@@ -33869,7 +33867,7 @@ HTMLAreaElement implements URLUtils;
 
 <h3 id="links">Links</h3>
 
-  Links are a conceptual construct, created by <code>a</code>, <code>area</code>, and
+  Links are a conceptual construct, created by <{a}>, <code>area</code>, and
   <code>link</code> elements, that <a>represent</a> a connection between
   two resources, one of which is the current <code>Document</code>. There are two kinds of links in
   HTML:
@@ -33893,9 +33891,9 @@ HTMLAreaElement implements URLUtils;
   <code>rel</code> attribute, links must be created for the keywords of the
   <code>rel</code> attribute, as defined for those keywords in the <a>link types</a> section.
 
-  Similarly, for <code>a</code> and <code>area</code> elements with an <code>href</code> attribute and a <code>rel</code> attribute, links must be created for the keywords of the
+  Similarly, for <{a}> and <code>area</code> elements with an <code>href</code> attribute and a <code>rel</code> attribute, links must be created for the keywords of the
   <code>rel</code> attribute as defined for those keywords in the <a>link types</a> section. Unlike <code>link</code> elements, however,
-  <code>a</code> and <code>area</code> elements with an <code>href</code>
+  <{a}> and <code>area</code> elements with an <code>href</code>
   attribute that either do not have a <code>rel</code> attribute, or
   whose <code>rel</code> attribute has no keywords that are defined as
   specifying <a>hyperlinks</a>, must also create a <a>hyperlink</a>.
@@ -33905,15 +33903,15 @@ HTMLAreaElement implements URLUtils;
   A <a>hyperlink</a> can have one or more <dfn>hyperlink
   annotations</dfn> that modify the processing semantics of that hyperlink.
 
-<h4 id="links-created-by-a-and-area-elements">Links created by <code>a</code> and <code>area</code> elements</h4>
+<h4 id="links-created-by-a-and-area-elements">Links created by <{a}> and <code>area</code> elements</h4>
 
-  The <dfn><code>href</code></dfn> attribute on <code>a</code> and
+  The <dfn element-attr for="a|area"><code>href</code></dfn> attribute on <{a}> and
   <code>area</code> elements must have a value that is a <a>valid URL potentially surrounded by
   spaces</a>.
 
   <p class="note">
-    The <code>href</code> attribute on <code>a</code> and
-  <code>area</code> elements is not required; when those elements do not have <code>href</code> attributes they do not create hyperlinks.
+    The <{a/href}> attribute on <{a}> and
+  <code>area</code> elements is not required; when those elements do not have <{a/href}> attributes they do not create hyperlinks.
   </p>
 
   The <dfn><code>target</code></dfn> attribute, if present, must be
@@ -33921,7 +33919,7 @@ HTMLAreaElement implements URLUtils;
   context</a> that will be used. <span class="impl">User agents use this name when
   <a>following hyperlinks</a>.</span>
 
-  When an <code>a</code> or <code>area</code> element's <a>activation behavior</a> is
+  When an <{a}> or <code>area</code> element's <a>activation behavior</a> is
   invoked, the user agent may allow the user to indicate a preference regarding whether the
   hyperlink is to be used for <a>navigation</a> or whether the resource it
   specifies is to be downloaded.
@@ -33950,7 +33948,7 @@ HTMLAreaElement implements URLUtils;
   <a>valid non-empty URL</a>. <span class="impl">The value is used by the user agent for
   <a>hyperlink auditing</a>.</span>
 
-  The <dfn><code>rel</code></dfn> attribute on <code>a</code> and
+  The <dfn><code>rel</code></dfn> attribute on <{a}> and
   <code>area</code> elements controls what kinds of links the elements create. The attribute's value
   must be a <a>set of space-separated tokens</a>. The <a>allowed keywords
   and their meanings</a> are defined below.
@@ -33961,7 +33959,7 @@ HTMLAreaElement implements URLUtils;
   being a hyperlink between the two.
 
   The <dfn><code>hreflang</code></dfn> attribute on
-  <code>a</code> elements that create <a>hyperlinks</a>, if present, gives
+  <{a}> elements that create <a>hyperlinks</a>, if present, gives
   the language of the linked resource. It is purely advisory. The value must be a valid BCP 47
   language tag. [[!BCP47]] <span class="impl">User agents must not consider this attribute
   authoritative — upon fetching the resource, user agents must use only language information
@@ -33999,13 +33997,13 @@ HTMLAreaElement implements URLUtils;
     in New Tab"), then <var>source</var> must be set as the new <a>browsing context</a>'s
     <a>one permitted sandboxed navigator</a>.
 
-    Otherwise, if <var>subject</var> is an <code>a</code> or <code>area</code> element
+    Otherwise, if <var>subject</var> is an <{a}> or <code>area</code> element
     that has a <code>target</code> attribute, then let <var>target</var> be the <a>browsing context</a> that is chosen by applying <a>the
     rules for choosing a browsing context given a browsing context name</a>, using the value of
     the <code>target</code> attribute as the browsing context name. If
     these rules result in the creation of a new <a>browsing context</a>, set <var>replace</var> to true.
 
-    Otherwise, if <var>target</var> is an <code>a</code> or <code>area</code> element
+    Otherwise, if <var>target</var> is an <{a}> or <code>area</code> element
     with no <code>target</code> attribute, but the
     <code>Document</code> contains a <code>base</code> element with a <code>target</code> attribute, then let <var>target</var> be the
     <a>browsing context</a> that is chosen by applying <a>the rules for choosing a browsing
@@ -34018,7 +34016,7 @@ HTMLAreaElement implements URLUtils;
     </li>
 
     <li><a>Resolve</a> the <a>URL</a> given by
-    <var>subject</var>'s <code>href</code> attribute, relative to
+    <var>subject</var>'s <{a/href}> attribute, relative to
     <var>subject</var>.</li>
 
     <li>
@@ -34053,7 +34051,7 @@ HTMLAreaElement implements URLUtils;
   In some cases, resources are intended for later use rather than immediate viewing. To indicate
   that a resource is intended to be downloaded for use later, rather than immediately used, the
   <code>download</code> attribute can be specified on the
-  <code>a</code> or <code>area</code> element that creates the <a>hyperlink</a> to that
+  <{a}> or <code>area</code> element that creates the <a>hyperlink</a> to that
   resource.
 
   The attribute can furthermore be given a value, to specify the file name that user agents are
@@ -34077,7 +34075,7 @@ HTMLAreaElement implements URLUtils;
   <ol>
 
     <li><a>Resolve</a> the <a>URL</a> given by
-    <var>subject</var>'s <code>href</code> attribute, relative to
+    <var>subject</var>'s <{a/href}> attribute, relative to
     <var>subject</var>.</li>
 
     <li>If <a>resolving</a> the <a>URL</a> fails, the user agent
@@ -34136,7 +34134,7 @@ HTMLAreaElement implements URLUtils;
     and jump to the step labeled <i>sanitize</i> below. [[!RFC6266]]</li>
 
     <li>If the download was not initiated from a <a>hyperlink</a> created by an
-    <code>a</code> or <code>area</code> element, or if the element of the <a>hyperlink</a> from
+    <{a}> or <code>area</code> element, or if the element of the <a>hyperlink</a> from
     which it was initiated did not have a <code>download</code>
     attribute when the download was initiated, or if there was such an attribute but its value when
     the download was initiated was the empty string, then jump to the step labeled <i>no proposed
@@ -34258,7 +34256,7 @@ HTMLAreaElement implements URLUtils;
 
   <div class="impl">
 
-  To determine which link types apply to a <code>link</code>, <code>a</code>, or
+  To determine which link types apply to a <code>link</code>, <{a}>, or
   <code>area</code> element, the element's <code>rel</code> attribute must be <a>split on spaces</a>. The resulting tokens are the link types
   that apply to that element.
 
@@ -34280,7 +34278,7 @@ HTMLAreaElement implements URLUtils;
     </tr>
     <tr>
       <th><code>link</code></th>
-      <th><code>a</code> and <code>area</code></th>
+      <th><{a}> and <code>area</code></th>
     </tr>
     </thead>
     <tbody>
@@ -34396,7 +34394,7 @@ HTMLAreaElement implements URLUtils;
 <h5 id="link-type-alternate">Link type "<dfn><code>alternate</code></dfn>"</h5>
 
   The <code>alternate</code> keyword may be used with <code>link</code>,
-  <code>a</code>, and <code>area</code> elements.
+  <{a}>, and <code>area</code> elements.
 
   The meaning of this keyword depends on the values of the other attributes.
 
@@ -34421,7 +34419,7 @@ HTMLAreaElement implements URLUtils;
 
     <div class="impl">
 
-    The first <code>link</code> or <code>a</code> element in the document (in <a>tree
+    The first <code>link</code> or <{a}> element in the document (in <a>tree
     order</a>) with the <code>alternate</code> keyword used with the <code>type</code> attribute set to the value <code>application/rss+xml</code> or the value <code>application/atom+xml</code>
     must be treated as the default syndication feed for the purposes of feed autodiscovery.
 
@@ -34486,9 +34484,9 @@ HTMLAreaElement implements URLUtils;
 <h5 id="link-type-author">Link type "<dfn><code>author</code></dfn>"</h5>
 
   The <code>author</code> keyword may be used with <code>link</code>,
-  <code>a</code>, and <code>area</code> elements. This keyword creates a <a>hyperlink</a>.
+  <{a}>, and <code>area</code> elements. This keyword creates a <a>hyperlink</a>.
 
-  For <code>a</code> and <code>area</code> elements, the <code>author</code>
+  For <{a}> and <code>area</code> elements, the <code>author</code>
   keyword indicates that the referenced document provides further information about the author of
   the nearest <code>article</code> element ancestor of the element defining the hyperlink, if there
   is one, or of the page as a whole, otherwise.
@@ -34504,13 +34502,13 @@ HTMLAreaElement implements URLUtils;
   <div class="impl">
 
   <strong>Synonyms</strong>: For historical reasons, user agents must also treat
-  <code>link</code>, <code>a</code>, and <code>area</code> elements that have a <code>rev</code> attribute with the value "<code>made</code>" as having the <code>author</code> keyword specified as a link relationship.
+  <code>link</code>, <{a}>, and <code>area</code> elements that have a <code>rev</code> attribute with the value "<code>made</code>" as having the <code>author</code> keyword specified as a link relationship.
 
   </div>
 
 <h5 id="link-type-bookmark">Link type "<dfn><code>bookmark</code></dfn>"</h5>
 
-  The <code>bookmark</code> keyword may be used with <code>a</code> and
+  The <code>bookmark</code> keyword may be used with <{a}> and
   <code>area</code> elements. This keyword creates a <a>hyperlink</a>.
 
   The <code>bookmark</code> keyword gives a permalink for the nearest
@@ -34548,9 +34546,9 @@ HTMLAreaElement implements URLUtils;
 <h5 id="link-type-help">Link type "<dfn><code>help</code></dfn>"</h5>
 
   The <code>help</code> keyword may be used with <code>link</code>,
-  <code>a</code>, and <code>area</code> elements. This keyword creates a <a>hyperlink</a>.
+  <{a}>, and <code>area</code> elements. This keyword creates a <a>hyperlink</a>.
 
-  For <code>a</code> and <code>area</code> elements, the <code>help</code>
+  For <{a}> and <code>area</code> elements, the <code>help</code>
   keyword indicates that the referenced document provides further help information for the parent of
   the element defining the hyperlink, and its children.
 
@@ -34568,7 +34566,7 @@ HTMLAreaElement implements URLUtils;
   For <code>link</code> elements, the <code>help</code> keyword indicates that
   the referenced document provides help for the page as a whole.
 
-  For <code>a</code> and <code>area</code> elements, on some browsers, the <code>help</code> keyword causes the link to use a different cursor.
+  For <{a}> and <code>area</code> elements, on some browsers, the <code>help</code> keyword causes the link to use a different cursor.
 
 <h5 id="link-type-icon">Link type "<dfn><code>icon</code></dfn>"</h5>
 
@@ -34725,7 +34723,7 @@ HTMLAreaElement implements URLUtils;
 <h5 id="link-type-license">Link type "<dfn><code>license</code></dfn>"</h5>
 
   The <code>license</code> keyword may be used with <code>link</code>,
-  <code>a</code>, and <code>area</code> elements. This keyword creates a <a>hyperlink</a>.
+  <{a}>, and <code>area</code> elements. This keyword creates a <a>hyperlink</a>.
 
   The <code>license</code> keyword indicates that the referenced document
   provides the copyright license terms under which the main content of the current document is
@@ -34790,7 +34788,7 @@ HTMLAreaElement implements URLUtils;
 
 <h5 id="link-type-nofollow">Link type "<dfn><code>nofollow</code></dfn>"</h5>
 
-  The <code>nofollow</code> keyword may be used with <code>a</code> and
+  The <code>nofollow</code> keyword may be used with <{a}> and
   <code>area</code> elements. This keyword does not create a <a>hyperlink</a>, but <a>annotates</a> any other hyperlinks created by the element (the
   implied hyperlink, if no other keywords create one).
 
@@ -34801,7 +34799,7 @@ HTMLAreaElement implements URLUtils;
 
 <h5 id="link-type-noreferrer">Link type "<dfn><code>noreferrer</code></dfn>"</h5>
 
-  The <code>noreferrer</code> keyword may be used with <code>a</code> and
+  The <code>noreferrer</code> keyword may be used with <{a}> and
   <code>area</code> elements. This keyword does not create a <a>hyperlink</a>, but <a>annotates</a> any other hyperlinks created by the element (the
   implied hyperlink, if no other keywords create one).
 
@@ -34809,7 +34807,7 @@ HTMLAreaElement implements URLUtils;
 
   <div class="impl">
 
-  If a user agent follows a link defined by an <code>a</code> or <code>area</code> element that
+  If a user agent follows a link defined by an <{a}> or <code>area</code> element that
   has the <code>noreferrer</code> keyword, the user agent must set their
   <a>request</a>'s <a>referrer</a> to "<code>no-referrer</code>".
 
@@ -34821,7 +34819,7 @@ HTMLAreaElement implements URLUtils;
 <h5 id="link-type-prefetch">Link type "<dfn><code>prefetch</code></dfn>"</h5>
 
   The <code>prefetch</code> keyword may be used with <code>link</code>,
-  <code>a</code>, and <code>area</code> elements. This keyword creates an <a>external resource link</a>.
+  <{a}>, and <code>area</code> elements. This keyword creates an <a>external resource link</a>.
 
   The <code>prefetch</code> keyword indicates that preemptively fetching and
   caching the specified resource is likely to be beneficial, as it is highly likely that the user
@@ -34833,7 +34831,7 @@ HTMLAreaElement implements URLUtils;
 <h5 id="link-type-search">Link type "<dfn><code>search</code></dfn>"</h5>
 
   The <code>search</code> keyword may be used with <code>link</code>,
-  <code>a</code>, and <code>area</code> elements. This keyword creates a <a>hyperlink</a>.
+  <{a}>, and <code>area</code> elements. This keyword creates a <a>hyperlink</a>.
 
   The <code>search</code> keyword indicates that the referenced document
   provides an interface specifically for searching the document and its related resources.
@@ -34868,7 +34866,7 @@ HTMLAreaElement implements URLUtils;
         already <a>in a <code>Document</code></a>.
     * When the <a>external resource link</a>'s <code>link</code> element is
         <a>inserted into a document</a>.
-    * When the <code>href</code> attribute of the <code>link</code> element of an
+    * When the <{link/href}> attribute of the <code>link</code> element of an
         <a>external resource link</a> that is already <a>in a <code>Document</code></a> is changed.
     * When the <code>crossorigin</code> attribute of the <code>link</code> element of an
         <a>external resource link</a> that is already <a>in a <code>Document</code></a> is set,
@@ -34952,7 +34950,7 @@ HTMLAreaElement implements URLUtils;
 
 <h5 id="link-type-tag">Link type "<dfn><code>tag</code></dfn>"</h5>
 
-  The <code>tag</code> keyword may be used with <code>a</code> and
+  The <code>tag</code> keyword may be used with <{a}> and
   <code>area</code> elements. This keyword creates a <a>hyperlink</a>.
 
   The <code>tag</code> keyword indicates that the <em>tag</em> that the
@@ -35035,7 +35033,7 @@ HTMLAreaElement implements URLUtils;
 <h6 id="link-type-next">Link type "<dfn><code>next</code></dfn>"</h6>
 
   The <code>next</code> keyword may be used with <code>link</code>,
-  <code>a</code>, and <code>area</code> elements. This keyword creates a <a>hyperlink</a>.
+  <{a}>, and <code>area</code> elements. This keyword creates a <a>hyperlink</a>.
 
   The <code>next</code> keyword indicates that the document is part of a
   sequence, and that the link is leading to the document that is the next logical document in the
@@ -35044,7 +35042,7 @@ HTMLAreaElement implements URLUtils;
 <h6 id="link-type-prev">Link type "<dfn><code>prev</code></dfn>"</h6>
 
   The <code>prev</code> keyword may be used with <code>link</code>,
-  <code>a</code>, and <code>area</code> elements. This keyword creates a <a>hyperlink</a>.
+  <{a}>, and <code>area</code> elements. This keyword creates a <a>hyperlink</a>.
 
   The <code>prev</code> keyword indicates that the document is part of a
   sequence, and that the link is leading to the document that is the previous logical document in
@@ -35103,7 +35101,7 @@ HTMLAreaElement implements URLUtils;
 
     </dd>
 
-    <dt>Effect on... <code>a</code> and <code>area</code></dt>
+    <dt>Effect on... <{a}> and <code>area</code></dt>
 
     <dd>
 
@@ -35113,21 +35111,21 @@ HTMLAreaElement implements URLUtils;
 
       <dt>Not allowed</dt>
 
-      <dd>The keyword must not be specified on <code>a</code> and <code>area</code> elements.</dd>
+      <dd>The keyword must not be specified on <{a}> and <code>area</code> elements.</dd>
 
       <dt>Hyperlink</dt>
 
-      <dd>The keyword may be specified on <code>a</code> and <code>area</code> elements; it creates a
+      <dd>The keyword may be specified on <{a}> and <code>area</code> elements; it creates a
       <a>hyperlink</a>.</dd>
 
       <dt>External Resource</dt>
 
-      <dd>The keyword may be specified on <code>a</code> and <code>area</code> elements; it creates
+      <dd>The keyword may be specified on <{a}> and <code>area</code> elements; it creates
       an <a>external resource link</a>.</dd>
 
       <dt>Hyperlink Annotation</dt>
 
-      <dd>The keyword may be specified on <code>a</code> and <code>area</code> elements; it <a>annotates</a> other <a>hyperlinks</a>
+      <dd>The keyword may be specified on <{a}> and <code>area</code> elements; it <a>annotates</a> other <a>hyperlinks</a>
       created by the element.</dd>
 
     </dl>
@@ -35227,7 +35225,7 @@ HTMLAreaElement implements URLUtils;
 
   Types defined as extensions in the <a>microformats
   wiki existing-rel-values page</a> with the status "proposed" or "ratified" may be used with the
-  <code>rel</code> attribute on <code>link</code>, <code>a</code>, and <code>area</code>
+  <code>rel</code> attribute on <code>link</code>, <{a}>, and <code>area</code>
   elements in accordance to the "Effect on..." field. [[!MFREL]]
 
 <h3 id="tabular-data">Tabular data</h3>
@@ -55091,9 +55089,9 @@ dictionary RelatedEventInit : EventInit {
 
   <div class="impl">
 
-<h5 id="using-the-a-element-to-define-a-command"><dfn>Using the <code>a</code> element to define a command</dfn></h5>
+<h5 id="using-the-a-element-to-define-a-command"><dfn>Using the <{a}> element to define a command</dfn></h5>
 
-  An <code>a</code> element with an <code>href</code> attribute <a>defines a command</a>.
+  An <{a}> element with an <{a/href}> attribute <a>defines a command</a>.
 
   The <a>Label</a> of the command is the string given by the
   element's <code>textContent</code> IDL attribute.
@@ -55117,7 +55115,7 @@ dictionary RelatedEventInit : EventInit {
   A <code>button</code> element always <a>defines a
   command</a>.
 
-  The <a>Label</a>, <a>Access Key</a>, <a>Hidden State</a>, and <a>Action</a> facets of the command are determined <a>as for <code>a</code> elements</a> (see the previous section).
+  The <a>Label</a>, <a>Access Key</a>, <a>Hidden State</a>, and <a>Action</a> facets of the command are determined <a>as for <{a}> elements</a> (see the previous section).
 
   The <a>Disabled State</a> of the command is true if
   the element or one of its ancestors is <a>inert</a>, or if the element's <a>disabled</a> state is set, and false otherwise.
@@ -58365,7 +58363,7 @@ onmessage = function (event) {
     same information if ordered by, say, the length of the tag.
 
     The <code>tag</code> <code>rel</code>-keyword is
-    <em>not</em> used on these <code>a</code> elements because they do not represent tags that apply
+    <em>not</em> used on these <{a}> elements because they do not represent tags that apply
     to the page itself; they are just part of an index listing the tags themselves.
 
   </div>
@@ -58567,7 +58565,7 @@ closing for lunch&lt;/span&gt;.
   <hr />
 
   For
-  annotations, the <code>a</code> element should be used, pointing to
+  annotations, the <{a}> element should be used, pointing to
   an element later in the document. The convention is that the
   contents of the link be a number in square brackets.
 
@@ -58794,9 +58792,9 @@ element in this context, more closely matches the <a>note</a> role.
 
     <dd>
 
-    All <code>a</code> elements that have an <code>href</code>
-    attribute, all <code>area</code> elements that have an <code>href</code> attribute, and all <code>link</code> elements that have
-    an <code>href</code> attribute, must match one of <code>:link</code> and <code>:visited</code>.
+    All <{a}> elements that have an <{a/href}>
+    attribute, all <{area}> elements that have an <{area/href}> attribute, and all <{link}> elements that have
+    an <{link/href}> attribute, must match one of <code>:link</code> and <code>:visited</code>.
 
     Other specifications might apply more specific rules regarding how these elements are to
     match these pseudo-classes, to mitigate some privacy concerns that apply with straightforward
@@ -58850,11 +58848,11 @@ element in this context, more closely matches the <a>note</a> role.
       and it does not have a <code>disabled</code>
       attribute.</dd>
 
-      <dt>If the element is an <code>a</code> element that has an <code>href</code> attribute</dt>
+      <dt>If the element is an <{a}> element that has an <{a/href}> attribute</dt>
 
-      <dt>If the element is an <code>area</code> element that has an <code>href</code> attribute</dt>
+      <dt>If the element is an <code>area</code> element that has an <{area/href}> attribute</dt>
 
-      <dt>If the element is a <code>link</code> element that has an <code>href</code> attribute</dt>
+      <dt>If the element is a <code>link</code> element that has an <{link/href}> attribute</dt>
 
       <dt>If the element has its <a>tabindex focus flag</a> set</dt>
 
@@ -58919,11 +58917,11 @@ element in this context, more closely matches the <a>note</a> role.
 &lt;p&gt; &lt;label for=c&gt; &lt;input id=a&gt; &lt;/label&gt; &lt;span id=b&gt; &lt;input id=c&gt; &lt;/span&gt; &lt;/p&gt;
     </pre>
 
-      If the user designates the element with ID "<code>a</code>" with their pointing
+      If the user designates the element with ID "<{a}>" with their pointing
       device, then the <code>p</code> element (and all its ancestors not shown in the snippet above),
-      the <code>label</code> element, the element with ID "<code>a</code>", and the element
+      the <code>label</code> element, the element with ID "<{a}>", and the element
       with ID "<code>c</code>" will match the <a>:hover</a>
-      pseudo-class. The element with ID "<code>a</code>" matches it from condition 1, the
+      pseudo-class. The element with ID "<{a}>" matches it from condition 1, the
       <code>label</code> and <code>p</code> elements match it because of condition 2 (one of their
       descendants is designated), and the element with ID "<code>c</code>" matches it
       through condition 3 (its <code>label</code> element matches <a>:hover</a>). However, the element with ID "<code>b</code>"
@@ -59297,7 +59295,7 @@ element in this context, more closely matches the <a>note</a> role.
   Elements and scripts may, however, refer to elements that are <code>hidden</code> in other contexts.
 
   <div class="example">
-    For example, it would be incorrect to use the <code>href</code> attribute to link to a
+    For example, it would be incorrect to use the <{a/href}> attribute to link to a
     section marked with the <code>hidden</code>
     attribute. If the content is not applicable or relevant, then there
     is no reason to link to it.
@@ -59336,7 +59334,7 @@ element in this context, more closely matches the <a>note</a> role.
   meaning when flattened.
 
   <div class="example">
-    For example, it would be incorrect to use the <code>href</code>
+    For example, it would be incorrect to use the <{a/href}>
     attribute to link to a section marked with the <code>hidden</code> attribute.
     If the content is not applicable or relevant, then there is no reason to link to it.
 
@@ -59915,10 +59913,10 @@ element in this context, more closely matches the <a>note</a> role.
 
     <ul>
 
-      <li><code>a</code> elements that have an <code>href</code>
+      <li><{a}> elements that have an <{a/href}>
       attribute</li>
 
-      <li><code>link</code> elements that have an <code>href</code> attribute</li>
+      <li><code>link</code> elements that have an <{link/href}> attribute</li>
 
       <li><code>button</code> elements</li>
 
@@ -62430,7 +62428,7 @@ element in this context, more closely matches the <a>note</a> role.
       <td>"<code>copy</code>", or, <a>if appropriate</a>, either "<code>link</code>" or "<code>move</code>"</td>
       </tr>
       <tr>
-      <td>"<code>uninitialized</code>" when what is being dragged is an <code>a</code> element with an <code>href</code> attribute</td>
+      <td>"<code>uninitialized</code>" when what is being dragged is an <{a}> element with an <{a/href}> attribute</td>
       <td>"<code>link</code>", or, <a>if appropriate</a>, either "<code>copy</code>" or "<code>move</code>"</td>
       </tr>
       <tr>
@@ -62511,7 +62509,7 @@ element in this context, more closely matches the <a>note</a> role.
     dragged is defined by the document or application where the drag was started.
 
     <p class="note">
-  <code>img</code> elements and <code>a</code> elements with an <code>href</code> attribute have their <code>draggable</code> attribute set to true by default.
+  <code>img</code> elements and <{a}> elements with an <{a/href}> attribute have their <code>draggable</code> attribute set to true by default.
   </p>
 
     </li>
@@ -62642,9 +62640,9 @@ element in this context, more closely matches the <a>note</a> role.
 
       <dl>
 
-        <dt>If the node is an <code>a</code> element with an <code>href</code> attribute</dt>
+        <dt>If the node is an <{a}> element with an <{a/href}> attribute</dt>
 
-        <dd>Add to <var>urls</var> the result of <a>resolving</a> the element's <code>href</code> content
+        <dd>Add to <var>urls</var> the result of <a>resolving</a> the element's <{a/href}> content
         attribute relative to the element.</dd>
 
         <dt>If the node is an <code>img</code> element with a <code>src</code>
@@ -63283,7 +63281,7 @@ element in this context, more closely matches the <a>note</a> role.
 
     Otherwise, the element's <code>draggable</code> content attribute has the state <i>auto</i>. If
     the element is an <code>img</code> element, an <code>object</code> element that
-    <a>represents</a> an image, or an <code>a</code> element with an <code>href</code> content
+    <a>represents</a> an image, or an <{a}> element with an <{a/href}> content
     attribute, the <code>draggable</code> IDL attribute must return true; otherwise, the
     <code>draggable</code> IDL attribute must return false.
 
@@ -64706,7 +64704,7 @@ element in this context, more closely matches the <a>note</a> role.
     <li>the <a>browsing context name</a> of any <a>child browsing context</a> of the
     <a>active document</a> whose name is not the empty string,</li>
 
-    <li>the value of the <code>name</code> content attribute for all <code>a</code>,
+    <li>the value of the <code>name</code> content attribute for all <{a}>,
     <code>applet</code>, <code>area</code>, <code>embed</code>, <code>form</code>,
     <code>frameset</code>, <code>img</code>, and <code>object</code> elements in the <a>active
     document</a> that have a non-empty <code>name</code> content attribute, and</li>
@@ -64765,7 +64763,7 @@ element in this context, more closely matches the <a>note</a> role.
     <li><a>child browsing contexts</a> of the <a>active
     document</a> whose name is <var>name</var>,</li>
 
-    <li><code>a</code>, <code>applet</code>, <code>area</code>, <code>embed</code>,
+    <li><{a}>, <code>applet</code>, <code>area</code>, <code>embed</code>,
     <code>form</code>, <code>frameset</code>, <code>img</code>, or <code>object</code> elements that
     have a <code>name</code> content attribute whose value is <var>name</var>, or</li>
 
@@ -66486,29 +66484,29 @@ element in this context, more closely matches the <a>note</a> role.
   <a>browsing context</a>, and allow the <a>current entry</a> of the <a>browsing
   context</a>'s session history to be changed, by adding or replacing entries in the <code>history</code> object.
 
-  <pre class="idl" data-highlight="webidl">
-  [Unforgeable] interface <dfn>Location</dfn> {
-  stringifier attribute USVString <a>href</a>;
-  attribute USVString <a>origin</a>;
-  attribute USVString <a>protocol</a>;
-  attribute USVString <a>host</a>;
-  attribute USVString <a>hostname</a>;
-  attribute USVString <a>port</a>;
-  attribute USVString <a>pathname</a>;
-  attribute USVString <a>search</a>;
-  attribute USVString <a>hash</a>;
+  <pre class="idl" data-highlight="webidl" dfn-for="location">
+    [Unforgeable] interface Location {
+      stringifier attribute USVString href;
+      attribute USVString origin;
+      attribute USVString protocol;
+      attribute USVString host;
+      attribute USVString hostname;
+      attribute USVString port;
+      attribute USVString pathname;
+      attribute USVString search;
+      attribute USVString hash;
 
-  void <a>assign</a>(USVString url);
-  void <a>replace</a>(USVString url);
-  void <a>reload</a>();
+      void assign(USVString url);
+      void replace(USVString url);
+      void reload();
 
-  [SameObject] readonly attribute <a>USVString</a>[] <a>ancestorOrigins</a>;
-  };
+      [SameObject] readonly attribute USVString[] ancestorOrigins;
+    };
   </pre>
 
   <dl class="domintro">
     <dt><var>location</var> . <code>toString()</code></dt>
-    <dt><var>location</var> . <code>href</code></dt>
+    <dt><var>location</var> . {{location/href}}</dt>
     <dd>
     Returns the <code>Location</code> object's URL.
     Can be set, to navigate to the given URL.
@@ -66637,10 +66635,10 @@ element in this context, more closely matches the <a>note</a> role.
     </li>
   </ol>
 
-  The <dfn><code>href</code></dfn> attribute's getter must return this
+  The <dfn element-attr for="location"><code>href</code></dfn> attribute's getter must return this
   <code>Location</code> object's <a>url</a>, <a>serialized</a>.
 
-  The <code>href</code> attribute's setter must run these steps:
+  The <{location/href}> attribute's setter must run these steps:
 
   <ol>
     <li>Let <var>newURL</var> be the <a>resulting parsed URL</a> of <a>resolving</a> the given value relative to the <a>entry settings object</a>'s
@@ -67007,7 +67005,7 @@ element in this context, more closely matches the <a>note</a> role.
 
   <ul>
 
-    <li>The <code>href</code> setter, if the <a>responsible browsing
+    <li>The <{location/href}> setter, if the <a>responsible browsing
     context</a> specified by the <a>entry settings object</a> is <a>familiar with</a>
     the <a>browsing context</a> with which the <code>Location</code> object is associated
 
@@ -67319,7 +67317,7 @@ element in this context, more closely matches the <a>note</a> role.
 
       <div class="example">
         So for example a <a><code>javascript:</code> URL</a> in
-        an <code>href</code> attribute of an <code>a</code> element
+        an <{a/href}> attribute of an <{a}> element
         would only be evaluated when the link was <a>followed</a>, while such a URL in the <code>src</code> attribute of an <code>iframe</code> element would be
         evaluated in the context of the <code>iframe</code>'s own <a>nested browsing
         context</a> when the <code>iframe</code> is being set up; once evaluated, its return value
@@ -68139,7 +68137,7 @@ element in this context, more closely matches the <a>note</a> role.
     equal to <var>decoded fragid</var>, then the first such element in <a>tree order</a> is
     <a>the indicated part of the document</a>; stop the algorithm here.</li>
 
-    <li><i>No decoded fragid</i>: If there is an <code>a</code> element in the DOM that has a <code>name</code> attribute whose value is exactly equal to <var>fragid</var> (<em>not</em> <var>decoded fragid</var>), then the first such
+    <li><i>No decoded fragid</i>: If there is an <{a}> element in the DOM that has a <code>name</code> attribute whose value is exactly equal to <var>fragid</var> (<em>not</em> <var>decoded fragid</var>), then the first such
     element in <a>tree order</a> is <a>the indicated part of the document</a>; stop the algorithm
     here.</li>
 
@@ -73106,7 +73104,7 @@ element in this context, more closely matches the <a>note</a> role.
 
     <p class="note">
   The discarded bits mean that, for instance, <code>atob("YQ")</code> and
-    <code>atob("YR")</code> both return "<code>a</code>".
+    <code>atob("YR")</code> both return "<{a}>".
   </p>
 
     </li>
@@ -75200,11 +75198,11 @@ element in this context, more closely matches the <a>note</a> role.
 
   <div class="impl">
 
-    The <dfn><code>cookieEnabled</code></dfn> attribute must
+    The {{cookieEnabled}} attribute must
     return true if the user agent attempts to handle cookies according to the cookie specification,
     and false if it ignores cookie change requests. [[!COOKIES]]
 
-    The <dfn><code>yieldForStorageUpdates()</code></dfn> method,
+    The {{yieldForStorageUpdates()}} method,
     when invoked, must, if the <a>storage mutex</a> is owned by the <a>event loop</a> of
     the <a>task</a> that resulted in the method being called, release the
     <a>storage mutex</a> so that it is once again free. Otherwise, it must do nothing.
@@ -76753,7 +76751,7 @@ element in this context, more closely matches the <a>note</a> role.
   <code>hr</code>, <code>main</code>, <code>menu</code>, <code>nav</code>,
   <code>ol</code>, <code>p</code>, <code>pre</code>, <code>section</code>, <code>table</code>, or
   <code>ul</code> element, or if there is no more content in the parent element and the parent
-  element is an <a>HTML element</a> that is not an <code>a</code>, <code>audio</code>, <code>del</code>,
+  element is an <a>HTML element</a> that is not an <{a}>, <code>audio</code>, <code>del</code>,
   <code>ins</code>, <code>map</code>, <code>noscript</code>, or <code>video</code> element.
 
   <div class="example">
@@ -77942,7 +77940,7 @@ element in this context, more closely matches the <a>note</a> role.
   <p class="note">
   The above prohibits supporting, for example, CESU-8, UTF-7, BOCU-1, SCSU, EBCDIC,
   and UTF-32. This specification does not make any attempt to support prohibited encodings in its
-  algorithms; support and use of prohibited encodings would thus lead to unexpected behavior. [[!CESU8]] [[!UTF7]] [[!BOCU1]] [[!SCSU]]
+  algorithms; support and use of prohibited encodings would thus lead to unexpected behavior. [[!CESU8]] [[!RFC2152]] [[!BOCU1]] [[!SCSU]]
   </p>
 
 <h5 id="changing-the-encoding-while-parsing"><dfn>Changing the encoding while parsing</dfn></h5>
@@ -78272,7 +78270,7 @@ element in this context, more closely matches the <a>note</a> role.
 
     <dt><dfn>Formatting</dfn></dt>
     <dd>The following HTML elements are those that end up in the <a>list of active formatting
-    elements</a>: <code>a</code>, <code>b</code>, <code>big</code>, <code>code</code>,
+    elements</a>: <{a}>, <code>b</code>, <code>big</code>, <code>code</code>,
     <code>em</code>, <code>font</code>, <code>i</code>, <code>nobr</code>, <code>s</code>,
     <code>small</code>, <code>strike</code>, <code>strong</code>, <code>tt</code>, and
     <code>u</code>.</dd>
@@ -80837,7 +80835,7 @@ element in this context, more closely matches the <a>note</a> role.
 
     Create a node implementing the interface appropriate for the element type corresponding to
     the tag name of the token in <var>given namespace</var> (as given in the specification
-    that defines that element, e.g. for an <code>a</code> element in the <a>HTML
+    that defines that element, e.g. for an <{a}> element in the <a>HTML
     namespace</a>, this specification defines it to be the <code>HTMLAnchorElement</code>
     interface), with the tag name being the name of that element, with the node being in the given
     namespace, and with the attributes on the node being those given in the given token.
@@ -82493,7 +82491,7 @@ element in this context, more closely matches the <a>note</a> role.
     <dt>A start tag whose tag name is "a"</dt>
     <dd>
 
-    If the <a>list of active formatting elements</a> contains an <code>a</code> element
+    If the <a>list of active formatting elements</a> contains an <{a}> element
     between the end of the list and the last <a>marker</a> on
     the list (or the start of the list if there is no <a>marker</a> on the list), then this is a <a>parse
     error</a>; run the <a>adoption agency algorithm</a> for the tag name "a", then remove
@@ -82505,11 +82503,11 @@ element in this context, more closely matches the <a>note</a> role.
     <p class="example">
   In the non-conforming stream
     <code>&lt;a&nbsp;href="a">a&lt;table>&lt;a&nbsp;href="b">b&lt;/table>x</code>, the first
-    <code>a</code> element would be closed upon seeing the second one, and the "x" character would
-    be inside a link to "b", not to "a". This is despite the fact that the outer <code>a</code>
+    <{a}> element would be closed upon seeing the second one, and the "x" character would
+    be inside a link to "b", not to "a". This is despite the fact that the outer <{a}>
     element is not in table scope (meaning that a regular <code>&lt;/a></code> end tag at the start
-    of the table wouldn't close the outer <code>a</code> element). The result is that the two
-    <code>a</code> elements are indirectly nested inside each other &mdash; non-conforming markup
+    of the table wouldn't close the outer <{a}> element). The result is that the two
+    <{a}> elements are indirectly nested inside each other &mdash; non-conforming markup
     will often result in non-conforming DOMs when parsed.
   </p>
 
@@ -88674,11 +88672,11 @@ element in this context, more closely matches the <a>note</a> role.
   The attribute should be entirely omitted instead (with the value "<code>JavaScript</code>", it has
   no effect), or replaced with use of the <code>type</code> attribute.
 
-  Authors should not specify the <code>name</code> attribute on <code>a</code> elements. If the
+  Authors should not specify the <code>name</code> attribute on <{a}> elements. If the
   attribute is present, its value must not be the empty string and must neither be equal to the
   value of any of the <a>IDs</a> in the element's <a>home subtree</a> other than the element's own
   <a>ID</a>, if any, nor be equal to the value of any of the other <code>name</code> attributes on
-  <code>a</code> elements in the element's <a>home subtree</a>. If this attribute is present and the
+  <{a}> elements in the element's <a>home subtree</a>. If this attribute is present and the
   element has an <a>ID</a>, then the attribute's value must be equal to the element's <a>ID</a>. In
   earlier versions of the language, this attribute was intended as a way to specify possible targets
   for fragment identifiers in <a>URLs</a>. The <code>id</code> attribute should be used instead.
@@ -88713,7 +88711,7 @@ element in this context, more closely matches the <a>note</a> role.
         value is an <a>ASCII case-insensitive</a> match for the string "<code>JavaScript</code>" and
         if there is no <code>type</code> attribute or there is and its value is an <a>ASCII
         case-insensitive</a> match for the string "<code>text/javascript</code>".
-     * The presence of a <code>name</code> attribute on an <code>a</code> element, if its value is
+     * The presence of a <code>name</code> attribute on an <{a}> element, if its value is
         not the empty string.
      * The presence of a <code>maxlength</code> attribute on an <code>input</code> element whose
         <code>type</code> attribute is in the <a>Number</a> state.
@@ -88810,33 +88808,33 @@ element in this context, more closely matches the <a>note</a> role.
   The following attributes are obsolete (though the elements are still part of the language), and
   must not be used by authors:
 
-  : <dfn><code>charset</code></dfn> on <code>a</code> elements
+  : <dfn><code>charset</code></dfn> on <{a}> elements
   : <dfn><code>charset</code></dfn> on <code>link</code> elements
   :: Use an HTTP <code>Content-Type</code> header on the linked resource instead.
 
-  : <dfn><code>coords</code></dfn> on <code>a</code> elements
-  : <dfn><code>shape</code></dfn> on <code>a</code> elements
-  :: Use <code>area</code> instead of <code>a</code> for image maps.
+  : <dfn><code>coords</code></dfn> on <{a}> elements
+  : <dfn><code>shape</code></dfn> on <{a}> elements
+  :: Use <code>area</code> instead of <{a}> for image maps.
 
-  : <dfn><code>methods</code></dfn> on <code>a</code> elements
+  : <dfn><code>methods</code></dfn> on <{a}> elements
   : <dfn><code>methods</code></dfn> on <code>link</code> elements
   :: Use the HTTP OPTIONS feature instead.
 
-  : <dfn><code>name</code></dfn> on <code>a</code> elements (except as noted in the previous
+  : <dfn><code>name</code></dfn> on <{a}> elements (except as noted in the previous
       section)
   : <dfn><code>name</code></dfn> on <code>embed</code> elements
   : <dfn><code>name</code></dfn> on <code>img</code> elements
   : <dfn><code>name</code></dfn> on <code>option</code> elements
   :: Use the <code>id</code> attribute instead.
 
-  : <dfn><code>rev</code></dfn> on <code>a</code> elements
+  : <dfn><code>rev</code></dfn> on <{a}> elements
   : <dfn><code>rev</code></dfn> on <code>link</code> elements
   :: Use the <code>rel</code> attribute instead, with an opposite term. (For example, instead of
       <code>rev="made"</code>, use <code>rel="author"</code>.)
 
-  : <dfn><code>urn</code></dfn> on <code>a</code> elements
+  : <dfn><code>urn</code></dfn> on <{a}> elements
   : <dfn><code>urn</code></dfn> on <code>link</code> elements
-  :: Specify the preferred persistent identifier using the <code>href</code> attribute instead.
+  :: Specify the preferred persistent identifier using the <{link/href}> attribute instead.
 
   : <dfn><code>accept</code></dfn> on <code>form</code> elements
   :: Use the <code>accept</code> attribute directly on the <code>input</code> elements instead.
@@ -88847,7 +88845,7 @@ element in this context, more closely matches the <a>note</a> role.
       corresponding IDL attributes on <code>area</code> elements. Omit them altogether.
 
   : <dfn><code>nohref</code></dfn> on <code>area</code> elements
-  :: Omitting the <code>href</code> attribute is sufficient; the <code>nohref</code> attribute is
+  :: Omitting the <{area/href}> attribute is sufficient; the <code>nohref</code> attribute is
       unnecessary. Omit it altogether.
 
   : <dfn><code>profile</code></dfn> on <code>head</code> elements
@@ -88868,7 +88866,7 @@ element in this context, more closely matches the <a>note</a> role.
 
   : <dfn><code>longdesc</code></dfn> on <code>iframe</code> elements
   : <dfn><code>longdesc</code></dfn> on <code>img</code> elements
-  :: Use a regular <code>a</code> element to link to the description, or (in the case of images) use
+  :: Use a regular <{a}> element to link to the description, or (in the case of images) use
       an <a>image map</a> to provide a link from the image to the image's description.
 
   : <dfn><code>lowsrc</code></dfn> on <code>img</code> elements
@@ -88929,12 +88927,12 @@ element in this context, more closely matches the <a>note</a> role.
   : <dfn><code>scope</code></dfn> on <code>td</code> elements
   :: Use <code>th</code> elements for heading cells.
 
-  : <dfn><code>datasrc</code></dfn> on <code>a</code>, <code>applet</code>, <code>button</code>,
+  : <dfn><code>datasrc</code></dfn> on <{a}>, <code>applet</code>, <code>button</code>,
       <code>div</code>, <code>frame</code>, <code>iframe</code>, <code>img</code>,
       <code>input</code>, <code>label</code>, <code>legend</code>, <code>marquee</code>,
       <code>object</code>, <code>option</code>, <code>select</code>, <code>span</code>,
       <code>table</code>, and <code>textarea</code> elements
-  : <dfn><code>datafld</code></dfn> on <code>a</code>, <code>applet</code>, <code>button</code>,
+  : <dfn><code>datafld</code></dfn> on <{a}>, <code>applet</code>, <code>button</code>,
       <code>div</code>, <code>fieldset</code>, <code>frame</code>, <code>iframe</code>,
       <code>img</code>, <code>input</code>, <code>label</code>, <code>legend</code>,
       <code>marquee</code>, <code>object</code>, <code>param</code>, <code>select</code>,
@@ -89522,7 +89520,7 @@ element in this context, more closely matches the <a>note</a> role.
 
   The <dfn><code>coords</code></dfn>, <dfn><code>charset</code></dfn>, <dfn><code>name</code></dfn>,
   <dfn><code>rev</code></dfn>, and <dfn><code>shape</code></dfn> IDL attributes of the
-  <code>a</code> element must <a>reflect</a> the respective content attributes of the same name.
+  <{a}> element must <a>reflect</a> the respective content attributes of the same name.
 
   <hr />
 
@@ -90218,7 +90216,7 @@ element in this context, more closely matches the <a>note</a> role.
   <hr />
 
   The <dfn><code>anchors</code></dfn> attribute must return an <code>HTMLCollection</code> rooted at
-  the <code>Document</code> node, whose filter matches only <code>a</code> elements with
+  the <code>Document</code> node, whose filter matches only <{a}> elements with
   <code>name</code> attributes.
 
   The <dfn><code>applets</code></dfn> attribute must return an <code>HTMLCollection</code> rooted at
@@ -90567,7 +90565,7 @@ element in this context, more closely matches the <a>note</a> role.
 
   : URI scheme name:
   :: Schemes starting with the four characters "<code>web+</code>" followed by one or more letters
-      in the range <code>a</code>-<code>z</code>.
+      in the range <{a}>-<code>z</code>.
   : Status:
   :: permanent
   : URI scheme syntax:
