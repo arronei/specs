@@ -2502,27 +2502,27 @@ spec:url; type:dfn; for:url; text:url
 
       In particular, the following features are defined in the DOM specification: [[!DOM]]
 
-      * <dfn><code>Attr</code></dfn> interface
-      * <dfn><code>Comment</code></dfn> interface
-      * <dfn><code>DOMImplementation</code></dfn> interface
+      * {{Attr}} interface
+      * {{Comment}} interface
+      * {{DOMImplementation}} interface
       * {{Document}} interface
-      * <dfn><code>XMLDocument</code></dfn> interface
-      * <dfn><code>DocumentFragment</code></dfn> interface
-      * <dfn><code>DocumentType</code></dfn> interface
-      * <dfn><code>DOMException</code></dfn> interface
-      * <dfn><code>ChildNode</code></dfn> interface
-      * <dfn><code>Element</code></dfn> interface
-      * <dfn><code>Node</code></dfn> interface
-      * <dfn><code>NodeList</code></dfn> interface
-      * <dfn><code>ProcessingInstruction</code></dfn> interface
-      * <dfn><code>Text</code></dfn> interface
-      * <dfn><code>HTMLCollection</code></dfn> interface
+      * {{XMLDocument}} interface
+      * {{DocumentFragment}} interface
+      * {{DocumentType}} interface
+      * {{DOMException}} interface
+      * {{ChildNode}} interface
+      * {{Element}} interface
+      * {{Node}} interface
+      * {{NodeList}} interface
+      * {{ProcessingInstruction}} interface
+      * {{Text}} interface
+      * {{HTMLCollection}} interface
       * <dfn><code>item()</code></dfn> method
       * The terms <dfn>collections</dfn> and <dfn>represented by the collection</dfn>
-      * <dfn><code>DOMTokenList</code></dfn> interface
-      * <dfn><code>DOMSettableTokenList</code></dfn> interface
-      * <dfn><code>DOMTokenList</code></dfn> interface
-      * <dfn><code>DOMSettableTokenList</code></dfn> interface
+      * {{DOMTokenList}} interface
+      * {{DOMSettableTokenList}} interface
+      * {{DOMTokenList}} interface
+      * {{DOMSettableTokenList}} interface
       * <dfn><code>DOMSettableTokenList.value</code></dfn> attribute
       * <dfn><code>createDocument()</code></dfn> method
       * <dfn><code>createHTMLDocument()</code></dfn> method
@@ -2534,25 +2534,25 @@ spec:url; type:dfn; for:url; text:url
       * <dfn><code>appendChild()</code></dfn> method
       * <dfn><code>cloneNode()</code></dfn> method
       * <dfn><code>importNode()</code></dfn> method
-      * <dfn><code>childNodes</code></dfn> attribute
-      * <dfn><code>localName</code></dfn> attribute
-      * <dfn><code>parentNode</code></dfn> attribute
-      * <dfn><code>namespaceURI</code></dfn> attribute
-      * <dfn><code>tagName</code></dfn> attribute
-      * <dfn><code>id</code></dfn> attribute
-      * <dfn><code>textContent</code></dfn> attribute
+      * {{childNodes}} attribute
+      * {{localName}} attribute
+      * {{parentNode}} attribute
+      * {{namespaceURI}} attribute
+      * {{tagName}} attribute
+      * {{id}} attribute
+      * {{textContent}} attribute
       * The <dfn>insert</dfn>, <dfn>append</dfn>, <dfn>remove</dfn>, <dfn>replace</dfn>, and
         <dfn>adopt</dfn> algorithms for nodes
       * The <dfn>insertion steps</dfn>, <dfn>removing steps</dfn>, and <dfn>adopting steps</dfn>
         hooks
       * The <dfn>attribute list</dfn> concept.
       * The <dfn>data</dfn> of a text node.
-      * <dfn><code>Event</code></dfn> interface
-      * <dfn><code>EventTarget</code></dfn> interface
-      * <dfn><code>EventInit</code></dfn> dictionary type
-      * <dfn><code>target</code></dfn> attribute
-      * <dfn><code>currentTarget</code></dfn> attribute
-      * <dfn><code>isTrusted</code></dfn> attribute
+      * {{Event}} interface
+      * {{EventTarget}} interface
+      * {{EventInit}} dictionary type
+      * {{target}} attribute
+      * {{currentTarget}} attribute
+      * {{isTrusted}} attribute
       * <dfn><code>initEvent()</code></dfn> method
       * <dfn><code>addEventListener()</code></dfn> method
       * The <dfn>type</dfn> of an event
@@ -2573,7 +2573,7 @@ spec:url; type:dfn; for:url; text:url
       * The concept of an element's <dfn>unique identifier (ID)</dfn>
       * The concept of a DOM <dfn>range</dfn>, and the terms <dfn>start</dfn>, <dfn>end</dfn>, and
         <dfn>boundary point</dfn> as applied to ranges.
-      * <dfn><code>MutationObserver</code></dfn> interface and <dfn>mutation observers</dfn> in
+      * {{MutationObserver}} interface and <dfn>mutation observers</dfn> in
         general
 
       The term <dfn>throw</dfn> in this specification is used as defined in the DOM specification.
